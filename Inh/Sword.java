@@ -1,5 +1,3 @@
-
-
 public class Sword extends Wepon {
 	private Boolean pierce = false;
 	private int sharp;

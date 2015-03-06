@@ -1,13 +1,13 @@
-import java.util.*
+import java.util.*;
 
 public class CreateWepon {
 	public static void main(String args[]) {
 		Scanner keyboard = new Scanner(System.in);
 		Boolean sax = false;
 		
-		System.out.println("Do you want a Sword or Battle Ax?")
-		System.out.println("Sword = 0.")
-		System.out.println("Battle Ax = 1")
+		System.out.println("Do you want a Sword or Battle Ax?");
+		System.out.println("Sword = 0.");
+		System.out.println("Battle Ax = 1");
 		int wC = keyboard.nextInt();
 		if (wC == 1) {
 			sax = true;

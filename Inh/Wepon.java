@@ -3,7 +3,7 @@ public class Wepon {
 	private int level, req, current;
 	private String name;
 	
-	public void adToInventorii(String tS) {
+	public void Wepon(String tS) {
 		name = tS;
 		damage = 2;
 		level = 1;

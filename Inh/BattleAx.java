@@ -14,7 +14,7 @@ public class BattleAx extends Wepon {
 		cH = cH - 2 * z;
 		System.out.println("You dealt " + z + " damage!");
 		System.out.println("Remaining Health: " + cH + "!");
-		System.out.println(name + " Gains 1 XP!")
+		System.out.println(name + " Gains 1 XP!");
 		current = current + 1;
 	}
 }

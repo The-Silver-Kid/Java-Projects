@@ -1,10 +1,15 @@
 public class BattleAx extends Wepon {
 	private Boolean pierce = false;
 	private int sharp;
+	private float z;
+	
+	public void BattleAx(String nom){
+		name = nom;
+	}
 	
 	public void sDealt(float def, float cH) {
 		if (!pierce) {
-			int z = damage + sharp - def;
+			z = damage + sharp - def;
 			if (z <= 0) {
 				z = 0;
 			}

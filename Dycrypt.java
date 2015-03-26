@@ -24,10 +24,16 @@ public class Dycrypt {
 		System.out.println("");
 		
 		if (begin.equals(chek)) {
-			Transferable t = cb.getContents(null);
-			begin = t.toString();
-			System.out.println("Successfully fetched:");
-			System.out.println(begin);
+			// THANK YOU Tim Biegeleisen!
+			Transferable contents = cb.getContents(null);
+			boolean hasStringText = (contents != null) && contents.isDataFlavorSupported(DataFlavor.stringFlavor);
+			if (hasStringText) {
+				try {
+					begin = (String)contents.getTransferData(DataFlavor.stringFlavor);
+				} catch (UnsupportedFlavorException | IOException ex) {
+					System.out.println(ex); ex.printStackTrace();
+				}
+			}
 		}
 		
 		char[] c = begin.toCharArray();
@@ -46,8 +52,3 @@ public class Dycrypt {
 		cb.setContents(output, null);
 	}
 }
-
-//cb.setContents (stringSelection, null);
-//System.out.println( "\\u" + Integer.toHexString('÷' | 0x10000).substring(1) );
-//Σ
-//Toolkit.getDefaultToolkit().getSystemClipboard().getData(DataFlavor.stringFlavor); 

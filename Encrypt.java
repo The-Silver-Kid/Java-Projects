@@ -33,7 +33,3 @@ public class Encrypt {
 		cb.setContents (output, null);
 	}
 }
-
-//cb.setContents (stringSelection, null);
-//System.out.println( "\\u" + Integer.toHexString('÷' | 0x10000).substring(1) );
-//Σ

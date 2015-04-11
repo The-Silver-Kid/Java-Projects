@@ -13,22 +13,31 @@ import javax.swing.JButton;
 import javax.swing.AbstractAction;
 
 import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.StringSelection;
+import java.awt.datatransfer.Transferable;
+import java.awt.datatransfer.UnsupportedFlavorException;
 import java.awt.event.ActionEvent;
+import java.io.IOException;
 import java.util.Scanner;
 
 import javax.swing.Action;
+
 import java.awt.event.ActionListener;
+
 import javax.swing.JFormattedTextField;
+import java.awt.SystemColor;
 
 
 public class GUI {
 
-	private JFrame frame;
+	private JFrame frmSilverEncrypt;
 	private JTextField textEncrField;
 	private JTextField textDecryField;
 	private JTextField textHash;
 	private final Action action = new SwingAction();
+	private JTextField hashField;
+	private final Action action_1 = new SwingAction_1();
 
 	/**
 	 * Launch the application.
@@ -38,7 +47,7 @@ public class GUI {
 			public void run() {
 				try {
 					GUI window = new GUI();
-					window.frame.setVisible(true);
+					window.frmSilverEncrypt.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -57,11 +66,14 @@ public class GUI {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setResizable(false);
-		frame.setBounds(100, 100, 450, 130);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(new FormLayout(new ColumnSpec[] {
+		frmSilverEncrypt = new JFrame();
+		frmSilverEncrypt.setIconImage(Toolkit.getDefaultToolkit().getImage(GUI.class.getResource("/images/ikon.png")));
+		frmSilverEncrypt.setTitle("Silver Encrypt");
+		frmSilverEncrypt.setBackground(SystemColor.window);
+		frmSilverEncrypt.setResizable(false);
+		frmSilverEncrypt.setBounds(100, 100, 450, 130);
+		frmSilverEncrypt.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmSilverEncrypt.getContentPane().setLayout(new FormLayout(new ColumnSpec[] {
 				FormFactory.RELATED_GAP_COLSPEC,
 				FormFactory.DEFAULT_COLSPEC,
 				FormFactory.RELATED_GAP_COLSPEC,
@@ -80,25 +92,28 @@ public class GUI {
 			}
 		});
 		btnEncr.setAction(action);
-		frame.getContentPane().add(btnEncr, "2, 2");
+		frmSilverEncrypt.getContentPane().add(btnEncr, "2, 2");
 		
 		textEncrField = new JTextField();
-		frame.getContentPane().add(textEncrField, "4, 2, fill, default");
-		textEncrField.setColumns(10);
+		frmSilverEncrypt.getContentPane().add(textEncrField, "4, 2, fill, default");
+		textEncrField.setColumns(1);
 		
-		JButton btnAcceptHash = new JButton("Accept Hash");
-		frame.getContentPane().add(btnAcceptHash, "2, 4");
-		
-		JFormattedTextField hashField = new JFormattedTextField();
+		hashField = new JTextField();
 		hashField.setText("15");
-		frame.getContentPane().add(hashField, "4, 4, fill, default");
+		frmSilverEncrypt.getContentPane().add(hashField, "4, 4, fill, default");
+		hashField.setColumns(1);
+		
+	//	JFormattedTextField hashField = new JFormattedTextField();
+	//	hashField.setText("15");
+	//	frame.getContentPane().add(hashField, "4, 4, fill, default");
 		
 		JButton btnDecr = new JButton("Decrypt");
-		frame.getContentPane().add(btnDecr, "2, 6");
+		btnDecr.setAction(action_1);
+		frmSilverEncrypt.getContentPane().add(btnDecr, "2, 6");
 		
 		textDecryField = new JTextField();
-		frame.getContentPane().add(textDecryField, "4, 6, fill, default");
-		textDecryField.setColumns(10);
+		frmSilverEncrypt.getContentPane().add(textDecryField, "4, 6, fill, default");
+		textDecryField.setColumns(1);
 	}
 
 	private class SwingAction extends AbstractAction {
@@ -107,19 +122,9 @@ public class GUI {
 			putValue(SHORT_DESCRIPTION, "Encrypts text");
 		}
 		public void actionPerformed(ActionEvent e) {
-			Clipboard cb = Toolkit.getDefaultToolkit ().getSystemClipboard ();
 			String begin = textEncrField.getText();
-			int hash = 7;
+			int hash = Integer.parseInt(hashField.getText());
 			String end = "";
-			
-			//Scanner keyboard = new Scanner(System.in);
-			//System.out.println("Input Text to encrypt.");
-			//begin = keyboard.nextLine();
-			//System.out.println("Input a hash number.");
-			//System.out.println("Be careful to high or negative numbers will break this!");
-			//hash = keyboard.nextInt();
-			//keyboard.close();
-			//System.out.println("");
 			
 			char[] c = begin.toCharArray();
 			
@@ -130,12 +135,32 @@ public class GUI {
 				w = w + hash;
 				end = end + Character.toString((char)w);
 			}
-			//System.out.println("");
-			//System.out.println("Encrypted!");
-			//System.out.println(end);
+
 			textDecryField.setText(end);
-			StringSelection output = new StringSelection(end);
-			cb.setContents (output, null);
+		}
+	}
+	private class SwingAction_1 extends AbstractAction {
+		public SwingAction_1() {
+			putValue(NAME, "Decrypt");
+			putValue(SHORT_DESCRIPTION, "Decrypts text");
+		}
+		public void actionPerformed(ActionEvent e) {
+			String begin = textDecryField.getText();
+			int hash = Integer.parseInt(hashField.getText());
+			String end = "";
+			
+			char[] c = begin.toCharArray();
+			
+			for (int i = 0; i < c.length; i++) {
+				System.out.println("Pos:" + i);
+				char ch = c[i];
+				String x = Integer.toHexString(ch | 0x10000).substring(1);
+				int w = Integer.parseInt(x, 16);
+				w = w - hash;
+				end = end + Character.toString((char)w);
+			}
+
+			textEncrField.setText(end);
 		}
 	}
 }

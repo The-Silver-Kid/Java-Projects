@@ -1,6 +1,5 @@
 import java.util.*;
 import java.awt.datatransfer.*;
-import java.awt.HeadlessException;
 import java.awt.Toolkit;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.UnsupportedFlavorException;
@@ -21,6 +20,7 @@ public class Dycrypt {
 		System.out.println("Input the hash number.");
 		System.out.println("Be careful wrong number could break this!");
 		hash = keyboard.nextInt();
+		keyboard.close();
 		System.out.println("");
 		
 		if (begin.equals(chek)) {

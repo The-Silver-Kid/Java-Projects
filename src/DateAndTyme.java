@@ -14,6 +14,7 @@ public class DateAndTyme {
 		d = keyboard.nextInt();
 		System.out.println("Input a year. (4 numbers)");
 		y = keyboard.nextInt();
+		keyboard.close();
 		System.out.println("");
 		System.out.println("Imputed date: " + d + "/" + m + "/" + y);
 		System.out.println("Current date: " + date.toString());

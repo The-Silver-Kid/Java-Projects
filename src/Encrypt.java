@@ -15,6 +15,7 @@ public class Encrypt {
 		System.out.println("Input a hash number.");
 		System.out.println("Be careful to high or negative numbers will break this!");
 		hash = keyboard.nextInt();
+		keyboard.close();
 		System.out.println("");
 		
 		char[] c = begin.toCharArray();

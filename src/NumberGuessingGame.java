@@ -21,5 +21,6 @@ public class NumberGuessingGame {
                         System.out
                                    .println("Your guess is greater than the secret number.");
             } while (guess != secretNumber);
+            keyboard.close();
       }
 }

@@ -10,6 +10,7 @@ public class PigLatin {
 		Scanner keyboard = new Scanner(System.in);
 		begin = keyboard.nextLine();
 		String[] slated = begin.split("\\s+");
+		keyboard.close();
 		
 		System.out.println("");
 		

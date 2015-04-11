@@ -31,6 +31,7 @@ public class Inout {
 		r = questions[qN] + "\n\n" + r;
 		
 		byte[] rA = r.getBytes();
+		keyboard.close();
 		
 		//PrintWriter send = new PrintWriter("Response.txt", "UTF-8");
 		//send.println(r);

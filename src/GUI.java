@@ -128,7 +128,7 @@ public class GUI {
 		frmSilverEncrypt.getContentPane().add(btnSave, "2, 4");
 		
 		textSave = new JTextField();
-		textSave.setText("grin.txt");
+		textSave.setText("secret.txt");
 		frmSilverEncrypt.getContentPane().add(textSave, "4, 4, fill, default");
 		textSave.setColumns(10);
 		btnEncr.setAction(action);
@@ -223,31 +223,51 @@ public class GUI {
 			putValue(SHORT_DESCRIPTION, "Load");
 		}
 		public void actionPerformed(ActionEvent e) {
-			
+			txtpnSystemReady.setForeground(new Color(255, 0, 0));
+			txtpnSystemReady.setText("Error : Not Implemented!");
 		}
 	}
-	//throws IOException, FileNotFoundException
 	private class SwingAction_3 extends AbstractAction{
 		public SwingAction_3() {
 			putValue(NAME, "Save");
 			putValue(SHORT_DESCRIPTION, "Save");
 		}
 		public void actionPerformed(ActionEvent e) {
-			if (!textDecryField.getText().equals("")){
-				try{
-					byte[] rA = textDecryField.getText().getBytes();
-					FileOutputStream send = new FileOutputStream(textSave.getText());
-					send.write(rA);
-					send.close();
-				}catch(IOException err){
+			if (rdbtnEncrypted.isSelected()) {
+				if (!textDecryField.getText().equals("")){
+					try{
+						byte[] rA = textDecryField.getText().getBytes();
+						FileOutputStream send = new FileOutputStream(textSave.getText());
+						send.write(rA);
+						send.close();
+					}catch(IOException err){
+						txtpnSystemReady.setForeground(new Color(255,0,0));
+						txtpnSystemReady.setText(err.toString());
+					}
+					txtpnSystemReady.setForeground(new Color(0,255,0));
+					txtpnSystemReady.setText("Encrypted Text sucessfully saved to: " + textSave.getText());
+				} else {
 					txtpnSystemReady.setForeground(new Color(255,0,0));
-					txtpnSystemReady.setText(err.toString());
+					txtpnSystemReady.setText("Error: No Text!");
 				}
-				txtpnSystemReady.setForeground(new Color(0,255,0));
-				txtpnSystemReady.setText("File Sucessfully saved to: " + textSave.getText());
 			} else {
-				txtpnSystemReady.setForeground(new Color(255,0,0));
-				txtpnSystemReady.setText("Error: No Text!");
+				txtpnSystemReady.setText("Pass");
+				if (!textEncrField.getText().equals("")) {
+					try{
+						byte[] rA = textEncrField.getText().getBytes();
+						FileOutputStream send = new FileOutputStream(textSave.getText());
+						send.write(rA);
+						send.close();
+					}catch(IOException err){
+						txtpnSystemReady.setForeground(new Color(255,0,0));
+						txtpnSystemReady.setText(err.toString());
+					}
+					txtpnSystemReady.setForeground(new Color(0,255,0));
+					txtpnSystemReady.setText("Decrypted text sucessfully saved to: " + textSave.getText());
+				} else {
+					txtpnSystemReady.setForeground(new Color(255,0,0));
+					txtpnSystemReady.setText("Error: No Text!");
+				}
 			}
 		}
 	}

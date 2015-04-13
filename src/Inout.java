@@ -2,7 +2,7 @@ import java.util.*;
 import java.io.*;
 
 public class Inout {
-	public static void main(String args[]) throws IOException {
+	public static void main(String args[]) throws IOException, FileNotFoundException {
 		Scanner keyboard = new Scanner(System.in);
 		Random rn = new Random();
 		String r = "";

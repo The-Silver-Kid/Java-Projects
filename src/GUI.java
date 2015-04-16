@@ -19,14 +19,14 @@ import javax.swing.Action;
 import java.awt.event.ActionListener;
 import java.awt.SystemColor;
 import java.io.*;
-import java.awt.TextArea;
+//import java.awt.TextArea;
 import javax.swing.JTextPane;
-import javax.swing.DropMode;
+//import javax.swing.DropMode;
 import java.awt.Color;
 import javax.swing.JRadioButton;
 import javax.swing.SwingConstants;
 import javax.swing.ButtonGroup;
-
+import java.nio.file.*;
 
 public class GUI {
 
@@ -85,7 +85,7 @@ public class GUI {
 		frmSilverEncrypt.setTitle("Silver Encrypt");
 		frmSilverEncrypt.setBackground(SystemColor.window);
 		frmSilverEncrypt.setResizable(false);
-		frmSilverEncrypt.setBounds(100, 100, 515, 248);
+		frmSilverEncrypt.setBounds(100, 100, 515, 280);
 		frmSilverEncrypt.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmSilverEncrypt.getContentPane().setLayout(new FormLayout(new ColumnSpec[] {
 				FormFactory.RELATED_GAP_COLSPEC,
@@ -93,6 +93,8 @@ public class GUI {
 				FormFactory.RELATED_GAP_COLSPEC,
 				ColumnSpec.decode("default:grow"),},
 			new RowSpec[] {
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
 				FormFactory.RELATED_GAP_ROWSPEC,
 				FormFactory.DEFAULT_ROWSPEC,
 				FormFactory.RELATED_GAP_ROWSPEC,
@@ -147,27 +149,32 @@ public class GUI {
 		textDecryField.setColumns(1);
 		
 		hashField = new JTextField();
+		hashField.setHorizontalAlignment(SwingConstants.CENTER);
 		hashField.setText("15");
-		frmSilverEncrypt.getContentPane().add(hashField, "4, 10, fill, default");
+		frmSilverEncrypt.getContentPane().add(hashField, "2, 10, 3, 1, fill, default");
 		hashField.setColumns(1);
 		
 		rdbtnNewRadioButton = new JRadioButton("Decrypted");
+		rdbtnNewRadioButton.setForeground(SystemColor.windowText);
+		rdbtnNewRadioButton.setBackground(SystemColor.window);
 		buttonGroup.add(rdbtnNewRadioButton);
 		rdbtnNewRadioButton.setHorizontalAlignment(SwingConstants.CENTER);
-		frmSilverEncrypt.getContentPane().add(rdbtnNewRadioButton, "2, 12, center, center");
+		frmSilverEncrypt.getContentPane().add(rdbtnNewRadioButton, "2, 12, 3, 1, center, center");
+		
+		rdbtnEncrypted = new JRadioButton("Encrypted");
+		rdbtnEncrypted.setBackground(SystemColor.window);
+		rdbtnEncrypted.setForeground(SystemColor.windowText);
+		buttonGroup.add(rdbtnEncrypted);
+		rdbtnEncrypted.setSelected(true);
+		rdbtnEncrypted.setToolTipText("Set to save/load Encrypted Text");
+		frmSilverEncrypt.getContentPane().add(rdbtnEncrypted, "2, 14, 3, 1, center, center");
 		
 		txtpnSystemReady = new JTextPane();
 		txtpnSystemReady.setForeground(new Color(0, 255, 0));
 		txtpnSystemReady.setBackground(SystemColor.window);
 		txtpnSystemReady.setText("SYSTEM READY");
 		txtpnSystemReady.setEditable(false);
-		frmSilverEncrypt.getContentPane().add(txtpnSystemReady, "3, 12, 2, 3, center, center");
-		
-		rdbtnEncrypted = new JRadioButton("Encrypted");
-		buttonGroup.add(rdbtnEncrypted);
-		rdbtnEncrypted.setSelected(true);
-		rdbtnEncrypted.setToolTipText("Set to save/load Encrypted Text");
-		frmSilverEncrypt.getContentPane().add(rdbtnEncrypted, "2, 14");
+		frmSilverEncrypt.getContentPane().add(txtpnSystemReady, "2, 16, 3, 1, center, center");
 	}
 
 	private class SwingAction extends AbstractAction {
@@ -223,8 +230,9 @@ public class GUI {
 			putValue(SHORT_DESCRIPTION, "Load");
 		}
 		public void actionPerformed(ActionEvent e) {
-			txtpnSystemReady.setForeground(new Color(255, 0, 0));
-			txtpnSystemReady.setText("Error : Not Implemented!");
+		//	File f = new File(textLoad.getText());
+		//	textDecryField.setText(f.);
+			textDecryField.setText(new String(Files.readAllBytes(textLoad.getText())));
 		}
 	}
 	private class SwingAction_3 extends AbstractAction{

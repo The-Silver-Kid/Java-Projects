@@ -232,7 +232,12 @@ public class GUI {
 		public void actionPerformed(ActionEvent e) {
 		//	File f = new File(textLoad.getText());
 		//	textDecryField.setText(f.);
-			textDecryField.setText(new String(Files.readAllBytes(textLoad.getText())));
+			try{
+				textDecryField.setText(new String(Files.readAllBytes(Paths.get(textLoad.getText()))));
+			} catch (IOException err){
+				txtpnSystemReady.setForeground(new Color(255,0,0));
+				txtpnSystemReady.setText(err.toString());
+			}
 		}
 	}
 	private class SwingAction_3 extends AbstractAction{

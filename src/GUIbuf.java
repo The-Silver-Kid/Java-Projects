@@ -3,6 +3,8 @@ import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 
+import javax.crypto.*;
+
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.RowSpec;
@@ -19,16 +21,15 @@ import javax.swing.Action;
 import java.awt.event.ActionListener;
 import java.awt.SystemColor;
 import java.io.*;
-//import java.awt.TextArea;
 import javax.swing.JTextPane;
-//import javax.swing.DropMode;
 import java.awt.Color;
 import javax.swing.JRadioButton;
 import javax.swing.SwingConstants;
 import javax.swing.ButtonGroup;
 import java.nio.file.*;
+import javax.swing.JProgressBar;
 
-public class GUI {
+public class GUIbuf {
 
 	private JFrame frmSilverEncrypt;
 	private JTextField textEncrField;
@@ -46,6 +47,7 @@ public class GUI {
 	private JRadioButton rdbtnNewRadioButton;
 	private JRadioButton rdbtnEncrypted;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
+	private JProgressBar progressBar;
 
 	/**
 	 * 
@@ -58,7 +60,7 @@ public class GUI {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					GUI window = new GUI();
+					GUIbuf window = new GUIbuf();
 					window.frmSilverEncrypt.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -70,7 +72,7 @@ public class GUI {
 	/**
 	 * Create the application.
 	 */
-	public GUI() {
+	public GUIbuf() {
 		initialize();
 	}
 
@@ -81,11 +83,11 @@ public class GUI {
 		frmSilverEncrypt = new JFrame();
 		frmSilverEncrypt.getContentPane().setForeground(SystemColor.window);
 		frmSilverEncrypt.getContentPane().setBackground(SystemColor.window);
-		frmSilverEncrypt.setIconImage(Toolkit.getDefaultToolkit().getImage(GUI.class.getResource("/images/ikon.png")));
+		frmSilverEncrypt.setIconImage(Toolkit.getDefaultToolkit().getImage(GUIbuf.class.getResource("/images/ikon.png")));
 		frmSilverEncrypt.setTitle("Silver Encrypt");
 		frmSilverEncrypt.setBackground(SystemColor.window);
 		frmSilverEncrypt.setResizable(false);
-		frmSilverEncrypt.setBounds(100, 100, 515, 280);
+		frmSilverEncrypt.setBounds(100, 100, 515, 318);
 		frmSilverEncrypt.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmSilverEncrypt.getContentPane().setLayout(new FormLayout(new ColumnSpec[] {
 				FormFactory.RELATED_GAP_COLSPEC,
@@ -93,6 +95,12 @@ public class GUI {
 				FormFactory.RELATED_GAP_COLSPEC,
 				ColumnSpec.decode("default:grow"),},
 			new RowSpec[] {
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
 				FormFactory.RELATED_GAP_ROWSPEC,
 				FormFactory.DEFAULT_ROWSPEC,
 				FormFactory.RELATED_GAP_ROWSPEC,
@@ -174,15 +182,32 @@ public class GUI {
 		txtpnSystemReady.setBackground(SystemColor.window);
 		txtpnSystemReady.setText("SYSTEM READY");
 		txtpnSystemReady.setEditable(false);
+		
 		frmSilverEncrypt.getContentPane().add(txtpnSystemReady, "2, 16, 3, 1, center, center");
+		
+		progressBar = new JProgressBar();
+		progressBar.setForeground(new Color(0, 0, 255));
+		progressBar.setBackground(SystemColor.window);
+		progressBar.setStringPainted(true);
+		progressBar.setValue(100);
+		frmSilverEncrypt.getContentPane().add(progressBar, "1, 20, 4, 1");
 	}
 
+	/*
+	 * actions!
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 */	
 	private class SwingAction extends AbstractAction {
 		public SwingAction() {
 			putValue(NAME, "Encrypt");
 			putValue(SHORT_DESCRIPTION, "Encrypts text");
 		}
 		public void actionPerformed(ActionEvent e) {
+			progressBar.setValue(0);
 			String begin = textEncrField.getText();
 			int hash = Integer.parseInt(hashField.getText());
 			String end = "";
@@ -190,12 +215,14 @@ public class GUI {
 			char[] c = begin.toCharArray();
 			
 			for (int i = 0; i < c.length; i++) {
+				progressBar.setValue(i*100/c.length);
 				char ch = c[i];
 				String x = Integer.toHexString(ch | 0x10000).substring(1);
 				int w = Integer.parseInt(x, 16);
 				w = w + hash;
 				end = end + Character.toString((char)w);
 			}
+			progressBar.setValue(100);
 
 			textDecryField.setText(end);
 		}
@@ -213,13 +240,14 @@ public class GUI {
 			char[] c = begin.toCharArray();
 			
 			for (int i = 0; i < c.length; i++) {
-				System.out.println("Pos:" + i);
+				progressBar.setValue(100 * i / c.length);
 				char ch = c[i];
 				String x = Integer.toHexString(ch | 0x10000).substring(1);
 				int w = Integer.parseInt(x, 16);
 				w = w - hash;
 				end = end + Character.toString((char)w);
 			}
+			progressBar.setValue(100);
 
 			textEncrField.setText(end);
 		}
@@ -230,19 +258,41 @@ public class GUI {
 			putValue(SHORT_DESCRIPTION, "Load");
 		}
 		public void actionPerformed(ActionEvent e) {
-			if (rdbtnEncrypted.isSelected()) {
-				try{
-					textDecryField.setText(new String(Files.readAllBytes(Paths.get(textLoad.getText()))));
-				} catch (IOException err){
+			if (rdbtnEncrypted.isSelected()){
+				try {
+					textDecryField.setText("");
+					String sCL;
+	 
+					BufferedReader br = new BufferedReader(new FileReader(textLoad.getText()));
+	 
+					while ((sCL = br.readLine()) != null) {
+						System.out.println(sCL);
+						textDecryField.setText(textDecryField.getText() + sCL);
+					}
+					txtpnSystemReady.setForeground(new Color(0,255,0));
+					txtpnSystemReady.setText("Text was read from " + textLoad.getText() + " and loaded to encrypted field sucessfully.");
+					br.close();
+				} catch (IOException i) {
 					txtpnSystemReady.setForeground(new Color(255,0,0));
-					txtpnSystemReady.setText(err.toString());
+					txtpnSystemReady.setText(i.toString());
 				}
 			} else {
-				try{
-					textEncrField.setText(new String(Files.readAllBytes(Paths.get(textLoad.getText()))));
-				} catch (IOException err){
+				try {
+					textEncrField.setText("");
+					String sCL;
+	 
+					BufferedReader br = new BufferedReader(new FileReader(textLoad.getText()));
+	 
+					while ((sCL = br.readLine()) != null) {
+						System.out.println(sCL);
+						textEncrField.setText(textEncrField.getText() + sCL);
+					}
+					txtpnSystemReady.setForeground(new Color(0,255,0));
+					txtpnSystemReady.setText("Text was read from " + textLoad.getText() + " and loaded to decrypted field sucessfully.");
+					br.close();
+				} catch (IOException i) {
 					txtpnSystemReady.setForeground(new Color(255,0,0));
-					txtpnSystemReady.setText(err.toString());
+					txtpnSystemReady.setText(i.toString());
 				}
 			}
 		}

@@ -4,9 +4,6 @@ import java.awt.Toolkit;
 import javax.swing.JFrame;
 
 import javax.crypto.*;
-import java.security.*;
-import javax.crypto.spec.*;
-
 
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.ColumnSpec;
@@ -161,7 +158,7 @@ public class GUIbuf {
 		
 		hashField = new JTextField();
 		hashField.setHorizontalAlignment(SwingConstants.CENTER);
-		hashField.setText("16charLengthONLY");
+		hashField.setText("15");
 		frmSilverEncrypt.getContentPane().add(hashField, "2, 10, 3, 1, fill, default");
 		hashField.setColumns(1);
 		
@@ -210,42 +207,33 @@ public class GUIbuf {
 			putValue(SHORT_DESCRIPTION, "Encrypts text");
 		}
 		public void actionPerformed(ActionEvent e) {
-			String IV = hashField.getText();
-			String plaintext = textEncrField.getText() + "\0\0\0";
-			String encryptionKey = hashField.getText();
+			progressBar.setValue(0);
+			String begin = textEncrField.getText();
+			int hash = Integer.parseInt(hashField.getText());
+			String end = "";
 			
-			try {
-				Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding", "SunJCE");
-				SecretKeySpec key = new SecretKeySpec(encryptionKey.getBytes("UTF-8"), "AES");
-				cipher.init(Cipher.ENCRYPT_MODE, key,new IvParameterSpec(IV.getBytes("UTF-8")));
-				byte[] t = cipher.doFinal(plaintext.getBytes("UTF-8"));
-				String end = "";
-				
-				
-				for (int w=0; w<t.length; w++) {
-					progressBar.setValue(w*100/t.length);
-					System.out.println(t[w]);
-					end = end + Character.toString((char)t[w]);
-				}
-				progressBar.setValue(100);
-				
-				textDecryField.setText(end);
-			} catch (Exception i) {
-				txtpnSystemReady.setForeground(new Color(255,0,0));
-				txtpnSystemReady.setText(i.toString());
+			char[] c = begin.toCharArray();
+			
+			for (int i = 0; i < c.length; i++) {
+				progressBar.setValue(i*100/c.length);
+				char ch = c[i];
+				String x = Integer.toHexString(ch | 0x10000).substring(1);
+				int w = Integer.parseInt(x, 16);
+				w = w + hash;
+				end = end + Character.toString((char)w);
 			}
-			
+			progressBar.setValue(100);
+
+			textDecryField.setText(end);
 		}
 	}
-	
-	
 	private class SwingAction_1 extends AbstractAction {
 		public SwingAction_1() {
 			putValue(NAME, "Decrypt");
 			putValue(SHORT_DESCRIPTION, "Decrypts text");
 		}
 		public void actionPerformed(ActionEvent e) {
-			/*String begin = textDecryField.getText();
+			String begin = textDecryField.getText();
 			int hash = Integer.parseInt(hashField.getText());
 			String end = "";
 			
@@ -261,32 +249,7 @@ public class GUIbuf {
 			}
 			progressBar.setValue(100);
 
-			textEncrField.setText(end);*/
-			String IV = hashField.getText();
-			String plaintext = textDecryField.getText() /*+ "\0\0\0"*/;
-			String encryptionKey = hashField.getText();
-			
-			try {
-				//byte[] gg = plaintext.getBytes("UTF-8");
-				Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding", "SunJCE");
-				SecretKeySpec key = new SecretKeySpec(encryptionKey.getBytes("UTF-8"), "AES");
-				cipher.init(Cipher.DECRYPT_MODE, key,new IvParameterSpec(IV.getBytes("UTF-8")));
-				byte[] t = cipher.doFinal(plaintext.getBytes("UTF-8"));
-				String end = "";
-				 
-				
-				for (int w=0; w<t.length; w++) {
-					progressBar.setValue(w*100/t.length);
-					System.out.println(t[w]);
-					end = end + Character.toString((char)t[w]);
-				}
-				progressBar.setValue(100);
-				
-				textEncrField.setText(end);
-			} catch (Exception i) {
-				txtpnSystemReady.setForeground(new Color(255,0,0));
-				txtpnSystemReady.setText(i.toString());
-			}
+			textEncrField.setText(end);
 		}
 	}
 	private class SwingAction_2 extends AbstractAction {

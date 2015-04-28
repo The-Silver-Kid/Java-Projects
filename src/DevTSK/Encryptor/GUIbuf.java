@@ -1,9 +1,9 @@
+package DevTSK.Encryptor;
+
 import java.awt.EventQueue;
 import java.awt.Toolkit;
 
 import javax.swing.JFrame;
-
-import javax.crypto.*;
 
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.ColumnSpec;

@@ -84,6 +84,7 @@ public class GUIbuf {
 		frmSilverEncrypt.getContentPane().setForeground(SystemColor.window);
 		frmSilverEncrypt.getContentPane().setBackground(SystemColor.window);
 		frmSilverEncrypt.setIconImage(Toolkit.getDefaultToolkit().getImage(GUIbuf.class.getResource("/images/ikon.png")));
+		System.out.println(GUIbuf.class.getResource("/images/ikon.png"));
 		frmSilverEncrypt.setTitle("Silver Encrypt");
 		frmSilverEncrypt.setBackground(SystemColor.window);
 		frmSilverEncrypt.setResizable(false);

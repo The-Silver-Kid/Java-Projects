@@ -24,6 +24,11 @@ public class BandNamer {
 		String verb = getLst("/images/verbList.bnn");
 		String adv = getLst("/images/advList.bnn");
 		String adj = getLst("/images/adjList.bnn");
+		
+		String[] nouns = noun.split("\\s+");
+		String[] verbs = verb.split("\\s+");
+		String[] adverbs = adv.split("\\s+");
+		String[] adjectives = adj.split("\\s+");
 	}
 	
 	public static String getLst(String path){

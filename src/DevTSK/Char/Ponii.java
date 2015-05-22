@@ -7,6 +7,7 @@ public class Ponii {
 	private String impath = "/null.png";
 	
 	public Ponii(String n, String d, String cm, String mother, String father, String mato, int aje, int chl, String[] childnames, String imm) {
+		state = 1;
 		name = n;
 		desc = d;
 		cutii = cm;
@@ -20,6 +21,7 @@ public class Ponii {
 	}
 	
 	public Ponii(String n, String d, String cm, String mother, String father, int aje, String imm) {
+		state = 2;
 		name = n;
 		desc = d;
 		cutii = cm;
@@ -30,6 +32,7 @@ public class Ponii {
 	}
 	
 	public Ponii(String n, String d, String cm, String mother, String father, String mato, int aje, int chl, String imm) {
+		state = 3;
 		name = n;
 		desc = d;
 		cutii = cm;
@@ -39,6 +42,10 @@ public class Ponii {
 		age = aje;
 		nc = chl;
 		impath = imm;
+	}
+	
+	public Ponii() {
+		
 	}
 	
 	public String getName() {

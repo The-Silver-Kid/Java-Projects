@@ -1,3 +1,8 @@
+/*
+ * Encryptor Program
+ * (C) DevTSK Productions
+ */
+
 package DevTSK.Encryptor;
 
 import java.awt.EventQueue;
@@ -26,7 +31,6 @@ import java.awt.Color;
 import javax.swing.JRadioButton;
 import javax.swing.SwingConstants;
 import javax.swing.ButtonGroup;
-import java.nio.file.*;
 import javax.swing.JProgressBar;
 
 public class GUIbuf {
@@ -203,6 +207,7 @@ public class GUIbuf {
 	 * 
 	 */	
 	private class SwingAction extends AbstractAction {
+		private static final long serialVersionUID = 1L;
 		public SwingAction() {
 			putValue(NAME, "Encrypt");
 			putValue(SHORT_DESCRIPTION, "Encrypts text");
@@ -229,6 +234,7 @@ public class GUIbuf {
 		}
 	}
 	private class SwingAction_1 extends AbstractAction {
+		private static final long serialVersionUID = 1L;
 		public SwingAction_1() {
 			putValue(NAME, "Decrypt");
 			putValue(SHORT_DESCRIPTION, "Decrypts text");
@@ -254,6 +260,7 @@ public class GUIbuf {
 		}
 	}
 	private class SwingAction_2 extends AbstractAction {
+		private static final long serialVersionUID = 1L;
 		public SwingAction_2() {
 			putValue(NAME, "Load");
 			putValue(SHORT_DESCRIPTION, "Load");
@@ -299,6 +306,7 @@ public class GUIbuf {
 		}
 	}
 	private class SwingAction_3 extends AbstractAction{
+		private static final long serialVersionUID = -7555808319372180968L;
 		public SwingAction_3() {
 			putValue(NAME, "Save");
 			putValue(SHORT_DESCRIPTION, "Save");

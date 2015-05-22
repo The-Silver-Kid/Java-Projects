@@ -16,7 +16,7 @@ import java.net.*;
 public class BandNamer {
 
 	public static void main(String[] args){
-		String end;
+		//String end;
 		
 		//System.out.println(BandNamer.class.getResource("/images/nounList.bnn"));
 		
@@ -29,6 +29,11 @@ public class BandNamer {
 		String[] verbs = verb.split("\\s+");
 		String[] adverbs = adv.split("\\s+");
 		String[] adjectives = adj.split("\\s+");
+		
+		System.out.println("loaded" + nouns);
+		System.out.println("loaded" + verbs);
+		System.out.println("loaded" + adverbs);
+		System.out.println("loaded" + adjectives);
 	}
 	
 	public static String getLst(String path){

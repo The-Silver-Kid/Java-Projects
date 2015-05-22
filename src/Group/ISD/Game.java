@@ -7,7 +7,7 @@
  * Possable button for attack and defend other then text field
  */
 
-package ISD;
+package Group.ISD;
 
 import java.util.*;
 import java.awt.Color;

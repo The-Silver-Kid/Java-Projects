@@ -1,0 +1,37 @@
+So we know who is who.
+Just put random description of any-pony you want.
+??? in the name portion means it is not known.
+
+//this is the preferred use. not required
+//Use * to signify action
+//Use () to signify text outside RP.
+//Use  CHAR* to signify what pony does what
+//CHAR state the char flag for the pony
+//if it is a global event no char is needed 
+
+Axel Fireshine: He breathes fire and does anything and everything with fire. Lives in Canterlot.  (%)
+Zane Fireshine: Can melt into ground? Lives in Canterlot tunnels. Axel's brother. (@)
+Orange Radon: Amazing flying skills? Lives in Canterlot tunnels. Shadow's brother. (#)
+Shadow Radon: Likes lighting storms? Visits Sweet Apple Acres every month. / not much else known ( )
+Shine Radon: Unique talent for finding rare gems. Lives in Canterlot. (▬)
+Dark Rainbow: Lightning and atomic disassembling. Lives with Rainbow Dash.(•)
+Rainbow Dash: She is rainbow dash y'all know her. Shares a house with Dark Rainbow. (®)
+Apple Jack: Do I really need to put something here? (Æ)
+Chromium Alumnus: Metal? Forest? Everfree Forest. (???)
+Tree Lightning: No information is known on this filly other then she lives at Sweet Apple Acres. (æ)
+C418: Robot Pony built by Shadow Radon for some reason or another. (')
+C500: Another Robot Pony still unknown. (")
+Cosmos Darkstar: wanderer; unwanted zebra-pegasus hybrid. fur dyed purple. Blades on wings, fights a lot. ( )
+--Styrel family: Rich, own a mansion on a hill in Cloudsdale. ???.   (N/A)
+Blitz Styrel: Grey pony who is a child of Mr. and Mrs. Styrel. likes jets... (Å)
+Sunset Shimmer: plays with lava. Gigaplex member. Zane? (_)
+Firefly ???: ??? Shadow might know but he too is confused. (N/A)
+Thetar ???: Pony of mysteries. More info is withheld by Shadow causing more mysteries. (♣)
+Shadar ???: Mist-form of Shadow Radon. Created by Thetar using Shadows memories. (:)
+Arthur Parks: AKA Lazer. Has a energy form. Chased by AIM for unknown reasons. (Ł)
+Pixel Dark-end: Her and her brother, Voxel, are game designers. She Does 2D games (※)
+Voxel Dark-end: Him and His sister, Pixel, are game designers. He does 3d games (‡)
+
+Radar: Looks similar to Shadow but doesn't act the same. brother? Father to Blaze
+Lave: a Quilava from some other place. Mother to Blaze
+Blaze: a cross bread that seems to be very acidic on the inside.

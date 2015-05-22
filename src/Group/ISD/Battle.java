@@ -1,4 +1,4 @@
-package ISD;
+package Group.ISD;
 
 public class Battle{
 	private Badii badone;

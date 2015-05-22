@@ -1,4 +1,4 @@
-package ISD;
+package Group.ISD;
 
 public class Badii {
 	private String im;

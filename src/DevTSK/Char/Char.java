@@ -14,8 +14,8 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Char {
-	public static String[] chars = new String[] {"Shadow", "Shyne", "Steve", "Blitz"};
-	public static String[] allias = new String[] {"Radon", "Shyne", "Orange", "Jet"};
+	public static String[] chars = new String[] {"Shadow", "Shyne", "Steve", "Blitz", "Axel", "Zane"};
+	public static String[] allias = new String[] {"Radon", "Shyne", "Orange", "Jet", "Axel", "Zane"};
 	public static void main(String[] args){
 		//
 		// NEVER EVER CALL YOU PONII A PONY EVEN IN A DESCRIPTION THEY ARE NOT THE SAME AND THE CLASS ITSELF IS PONII NOT PONY!

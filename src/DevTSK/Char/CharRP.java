@@ -21,8 +21,8 @@ public class CharRP {
 	// THESE HERE ARE CRITICLY IMPORTANT!
 	// IF YOU DONT PUT YOUR PONII'S NAME HERE IT WONT RECOGNIZE THE NEW PONII!
 	// THE TOP ONE IS FOR THEIR REAL NAME! THE SECOND FOR THEIR NICNAME IF NONE JUST PUT THERE NAME AGAIN!
-	public static String[] chars = new String[] {"Shadow", "Shyne", "Steve", "Blitz", "Charrie", "Slanger", "Tree", "Jack"};
-	public static String[] allias = new String[] {"Radon", "Shyne", "Orange", "Jet", "Firefly", "Radium", "Tree", "Jack"};
+	public static String[] chars = new String[] {"Shadow", "Shyne", "Steve", "Blitz", "Charrie", "Slanger", "Tree", "Jack", "Zane", "Axel"};
+	public static String[] allias = new String[] {"Radon", "Shyne", "Orange", "Jet", "Firefly", "Radium", "Tree", "Jack", "Zane", "Axel"};
 	public static void main(String[] args){
 		// Please dont delete this *begface*
 		String handler = "";
@@ -56,8 +56,10 @@ public class CharRP {
 		Ponii blitz = new Ponii("Blitz Radon", "\nPegasus\nDull Grey colour\nHas a boyfrind that makes pizza\nmane colour is a copper colour", "\n airplane with similar wing structure as her own", "Charrie", "Slanger", "Steven", 18, 0, "/null.png");
 		Ponii charrie = new Ponii("Charrie (Firefly) Sychace Radon", "\nPegasus\nPink Colour\nOld but cares allot about everyponii\nWhite Mane", "\nBlack Outlined White Thunderbolt", "Keri", "Craider", "Slanger", 67, 4, new String[] {"Shadow", "Shyne", "Steve", "Blitz"}, "/null.png");
 		Ponii slanger = new Ponii("Slanger (Radium) Radon", "\nUnicorn\nDark Purple colour\nJust like any old person (that isnt grouchy) he WILL make you laugh\nYellow Mane", "\nAncient symbol for magic", "Bradier", "George", "Charrie", 65, 4, new String[] {"Shadow", "Shyne", "Steve", "Blitz"}, "/null.png");
-		Ponii tree = new Ponii("Tree Lighting Radon", "\nEarth Ponii\nSlightly darker orange then AJ\nCutest little filly ever sparkling with the same spark that her dad has\nMane is just a little more yellow then AJ's", "\nDosent have it yet...\nApple tree with lightning bolt behind it", "Apple Jack", "Shadow Radon", 4, "/null.png");
+		Ponii tree = new Ponii("Tree Lighting Radon", "\nEarth Ponii\nSlightly darker orange then AJ\nCutest little filly ever sparkling with the same spark that her dad has\nShe likes the Blaze.\nMane is just a little more yellow then AJ's", "\nDosent have it yet...\nApple tree with lightning bolt behind it", "Apple Jack", "Shadow Radon", 4, "/null.png");
 		Ponii jack = new Ponii("Shadow Jack Radon", "\nUnicorn\nSame colour as AJ\nSecond Ponii on the AJ-Radon Line\nMane is like Radon's but slightly paler", "\nDosen't have yet...\nA cloud with snowflakes", "Apple Jack", "Shadow Radon", 0, "/null.png");
+		Ponii zane = new Ponii("Zane Fireshine", "\nUnicorn\nBlack coloured\nDosent like leaving the ground\nBlack and Green Mane\nGigaplex Leader", "\nA Sandy coloured crossed box", "Solar Flare", "Earth Quakes", 20, "/null.png");
+		Ponii axel = new Ponii("Axel Fireshine", "\nUnicorn\nA bright orange colour\nCan stand in intence flames and come out unharmed\nmane of fire\nLight Industries member", "\n", "Solar Flare", "Earth Quakes", 18, "/null.png");
 		
 		System.out.println("Enter Ponii name here:");
 		Scanner keiboard = new Scanner(System.in);
@@ -109,6 +111,13 @@ public class CharRP {
 				if (th.equalsIgnoreCase("tree")){
 					getInfo(tree);
 				}
+				if (th.equalsIgnoreCase("zane")){
+					getInfo(zane);
+				}
+				if (th.equalsIgnoreCase("axel")){
+					getInfo(axel);
+				}
+				//getInfo();
 			}
 		}
 		keiboard.close();

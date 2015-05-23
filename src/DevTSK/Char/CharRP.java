@@ -117,7 +117,6 @@ public class CharRP {
 				if (th.equalsIgnoreCase("axel")){
 					getInfo(axel);
 				}
-				//getInfo();
 			}
 		}
 		keiboard.close();

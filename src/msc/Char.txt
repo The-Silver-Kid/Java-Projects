@@ -9,15 +9,15 @@ Just put random description of any-pony you want.
 //CHAR state the char flag for the pony
 //if it is a global event no char is needed 
 
-Axel Fireshine: He breathes fire and does anything and everything with fire. Lives in Canterlot.  (%)
-Zane Fireshine: Can melt into ground? Lives in Canterlot tunnels. Axel's brother. (@)
+//Axel Fireshine: He breathes fire and does anything and everything with fire. Lives in Canterlot.  (%)
+//Zane Fireshine: Can melt into ground? Lives in Canterlot tunnels. Axel's brother. (@)
 //Orange Radon: Amazing flying skills? Lives in Canterlot tunnels. Shadow's brother. (#)
 //Shadow Radon: Likes lighting storms? Visits Sweet Apple Acres every month. / not much else known ( )
 //Shine Radon: Unique talent for finding rare gems. Lives in Canterlot. (â–¬)
-Dark Rainbow: Lightning and atomic disassembling. Lives with Rainbow Dash.(â€¢)
+//Dark Rainbow: Lightning and atomic disassembling. Lives with Rainbow Dash.(â€¢)
 +Rainbow Dash: She is rainbow dash y'all know her. Shares a house with Dark Rainbow. (Â®)
 +Apple Jack: Do I really need to put something here? (Ã†)
-Chromium Alumnus: Metal? Forest? Everfree Forest. (???)
+-Chromium Alumnus: Metal? Forest? Everfree Forest. (???)
 //Tree Lightning: No information is known on this filly other then she lives at Sweet Apple Acres. (Ã¦)
 C418: Robot Pony built by Shadow Radon for some reason or another. (')
 C500: Another Robot Pony still unknown. (")

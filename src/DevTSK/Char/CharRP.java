@@ -73,14 +73,14 @@ public class CharRP {
 		 * IF AN IMAGE IS NOT FOUND THE SYSTEM WILL HALT IMMEDIATELY ONCE YOU TRY AND GET THAT PONII'S INFO
 		 * PICTURES ARE REQUIRED TO BE 700x700!
 		 *
-		 * DESCRIPTIONS (Pony and Cutie mark) MUST START WITH \n OTHERWISE IT WILL LOOK BAD.
+		 * DESCRIPTIONS (Pony and Cutii mark) MUST START WITH \n OTHERWISE IT WILL LOOK BAD.
 		 * NEW LINES IN DESCRIPTIONS LOOK SOMETHING LIKE THIS "\nDescription\nmore description" NOTE THAT THERE IS NO SPACE BETWENE \n AND THE NEXT WORD!
 		 * DESCRIPTION FORMAT IS: GENDER (M/S), RACE, COLOUR, SOMETHING SPECIAL, MANE COLOUR
 		 * DO NOT FOR ANY REASON PUT THE CUTII MARK DESCRIPTION IN THE PONII DESCRIPTION! IF YOU DO I WILL HUNT YOU DOWN!
 		 *
-		 * Married with kids: Name, Description, Cutie Mark, Mother, Father, Married to, int age, int amount of kids, String[] child names, Image path
-		 * Not Married      : Name, Description, Cutie Mark, Mother, Father, int age, Image path
-		 * Married no kids  : Name, Description, Cutie Mark, Mother, Father, Married to, int age, MUST BE 0! OR ELSE!, Image path
+		 * Married with kids: Name, Description, Cutii Mark, Mother, Father, Married to, int age, int amount of kids, String[] child names, Image path
+		 * Not Married      : Name, Description, Cutii Mark, Mother, Father, int age, Image path
+		 * Married no kids  : Name, Description, Cutii Mark, Mother, Father, Married to, int age, MUST BE 0! OR ELSE!, Image path
 		 *
 		 *
 		 * Declare Poniis here
@@ -258,7 +258,7 @@ public class CharRP {
 		System.out.println();
 		System.out.println("Description : " + tp.getDesc());
 		System.out.println();
-		System.out.println("Cutie Mark : " + tp.getCMDesc());
+		System.out.println("Cutii Mark : " + tp.getCMDesc());
 		System.out.println();
 		System.out.println("Mother : " + tp.getMother());
 		System.out.println("Father : " + tp.getFather());
@@ -280,7 +280,7 @@ public class CharRP {
 		System.out.println();
 		System.out.println("Description : " + tp.getDesc());
 		System.out.println();
-		System.out.println("Cutie Mark : " + tp.getCMDesc());
+		System.out.println("Cutii Mark : " + tp.getCMDesc());
 		System.out.println();
 		System.out.println("Mother : " + tp.getMother());
 		System.out.println("Father : " + tp.getFather());
@@ -294,7 +294,7 @@ public class CharRP {
 		System.out.println();
 		System.out.println("Description : " + tp.getDesc());
 		System.out.println();
-		System.out.println("Cutie Mark : " + tp.getCMDesc());
+		System.out.println("Cutii Mark : " + tp.getCMDesc());
 		System.out.println();
 		System.out.println("Mother : " + tp.getMother());
 		System.out.println("Father : " + tp.getFather());

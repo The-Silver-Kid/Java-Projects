@@ -5,9 +5,9 @@
 
 package DevTSK.Char;
 
-/*import paulscode.sound.*;
+import paulscode.sound.*;
 import paulscode.sound.libraries.*;
-import paulscode.sound.codecs.CodecJOgg;*/
+import paulscode.sound.codecs.*;
 
 import java.awt.Image;
 import java.awt.SystemColor;
@@ -33,14 +33,15 @@ public class CharRP {
 	public static String handler = "";
 	public static void main(String[] args){
 		
-		/*try {
+		try {
 			SoundSystemConfig.addLibrary(LibraryJavaSound.class);
-			SoundSystemConfig.setCodec("ogg", CodecJOgg.class);
+			SoundSystemConfig.setCodec("ogg", CodecJOrbis.class);
 		} catch (Exception e){
 			System.err.println("ERROR LINKING WITHPLUGINS!");
+			System.exit(4);
 		}
-		SoundSystem ss = new SoundSystem();*/
-
+		SoundSystem ss = new SoundSystem();
+		
 		CharRP window = new CharRP();
 		window.frmPoniiPic.setVisible(true);
 		
@@ -62,6 +63,7 @@ public class CharRP {
 		 * 1: ADD A NICKNAME TO ALLIAS ARRAY, IF NO NICKNAME JUST PUT NAME IN THERE
 		 * 2: INITALIZE YOUR PONII CLASS
 		 * 3: ADD AN IF STATEMENT WITH GETINFO TO YOUR PONII CLASS IN IT
+		 * 4: SOUNDSYSTEM CANT FIND PLUGINS
 		 *
 		 * CORRECT ANY SPELLING MISTAKES
 		 *
@@ -103,6 +105,13 @@ public class CharRP {
 		 * 3: String[] CHARS AND ALLIAS ARE DIFFERENT LENGTHS
 		 * 
 		 * :D
+		 * 
+		 * SOUNDSYSTEM... LOAD NEW SONG
+		 * ss.backgroundMusic(sourcename, url, identifier, toLoop);
+		 * sourcename = "Ogg file name"
+		 * url = CharRP.class.getResource("/images/music.ogg")
+		 * identifyier = "Ogg file name"
+		 * toLoop = true
 		 */
 		
 		//OC poniis
@@ -163,6 +172,7 @@ public class CharRP {
 				 * IMPORTANT THAT YOU PUT AN if(th.equalsIgnoreCase("Ponii name from above chars String[] here") HERE IF YOU DONT IT WONT SHOW ANY INFORMATION!
 				 */
 				if (th.equalsIgnoreCase("shadow")){
+					ss.backgroundMusic("bgm.ogg", CharRP.class.getResource("/images/bgm.ogg"), "bgm.ogg", true);
 					getInfo(shadow);
 				}
 				if (th.equalsIgnoreCase("steve")){
@@ -212,6 +222,7 @@ public class CharRP {
 				}
 			}
 		}
+		ss.cleanup();
 		keiboard.close();
 		System.exit(0);
 	}

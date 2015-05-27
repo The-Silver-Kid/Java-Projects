@@ -112,6 +112,7 @@ public class CharRP {
 		 * url = CharRP.class.getResource("/images/music.ogg")
 		 * identifyier = "Ogg file name"
 		 * toLoop = true
+		 * JUST COPY MY EXAMPLE ON SHADOW FOR A EXAMPLE
 		 */
 		
 		//OC poniis
@@ -170,7 +171,14 @@ public class CharRP {
 			} else {
 				/*
 				 * IMPORTANT THAT YOU PUT AN if(th.equalsIgnoreCase("Ponii name from above chars String[] here") HERE IF YOU DONT IT WONT SHOW ANY INFORMATION!
+				 * 
+				 * PUT A ss.pause("name of music track");
+				 * 
+				 * put a ss.backgroundMusic("name of music track", CharRP.class.getResource("/images/filename.ogg"), "filename.ogg", true);
+				 * 
 				 */
+				ss.pause("bgm.ogg");
+				ss.pause("credits.ogg");
 				if (th.equalsIgnoreCase("shadow")){
 					ss.backgroundMusic("bgm.ogg", CharRP.class.getResource("/images/bgm.ogg"), "bgm.ogg", true);
 					getInfo(shadow);
@@ -194,6 +202,7 @@ public class CharRP {
 					getInfo(jack);
 				}
 				if (th.equalsIgnoreCase("tree")){
+					ss.backgroundMusic("credits.ogg", CharRP.class.getResource("/images/credits.ogg"), "credits.ogg", true);
 					getInfo(tree);
 				}
 				if (th.equalsIgnoreCase("zane")){

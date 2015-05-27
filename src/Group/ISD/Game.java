@@ -57,7 +57,7 @@ public class Game {
 		//Badii krab = new Badii("Krabii", "/Images/crab.png", 1, 1, 0);
 		//Badii spidear = new Badii("Spidear", "/Images/spider.png", 1, 1, 0);
 		//Badii jajuar = new Badii("Jajuair", "/Images/jaguar.png", 1, 1, 0);
-		Badii yeetii = new Badii("Yeetii", "Images/yeti.png", 4, 2, 1);
+		//Badii yeetii = new Badii("Yeetii", "Images/yeti.png", 4, 2, 1);
 		Badii joat = new Badii("Joat", "/Images/goat.png", 5, 3, 0);
 		Badii alian = new Badii("Alian", "/Images/a.png", 7, 4, 2);
 		//Badii aust = new Badii("Austrnaut", "/Images/Au.png", 10, 5, 1);

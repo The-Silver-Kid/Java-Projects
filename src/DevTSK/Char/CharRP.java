@@ -5,11 +5,19 @@
 
 package DevTSK.Char;
 
-import java.awt.*;
-import java.util.*;
+/*import paulscode.sound.*;
+import paulscode.sound.libraries.*;
+import paulscode.sound.codecs.CodecJOgg;*/
+
+import java.awt.Image;
+import java.awt.SystemColor;
+import java.awt.Toolkit;
+import java.util.Scanner;
 
 import javax.imageio.ImageIO;
-import javax.swing.*;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 public class CharRP {
 	private JFrame frmPoniiPic;
@@ -24,6 +32,14 @@ public class CharRP {
 	public static String[] cannon = new String[] {"Apple Jack", "Rainbow Dash", "Sunset Shimmer"};
 	public static String handler = "";
 	public static void main(String[] args){
+		
+		/*try {
+			SoundSystemConfig.addLibrary(LibraryJavaSound.class);
+			SoundSystemConfig.setCodec("ogg", CodecJOgg.class);
+		} catch (Exception e){
+			System.err.println("ERROR LINKING WITHPLUGINS!");
+		}
+		SoundSystem ss = new SoundSystem();*/
 
 		CharRP window = new CharRP();
 		window.frmPoniiPic.setVisible(true);

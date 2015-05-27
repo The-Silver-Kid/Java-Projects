@@ -1,10 +1,10 @@
-/* created by Reggii Peck
+/* created by reggii peck
  * main game window
  * and all event stuff
  * all by me so far
  * yeah had to re write so yeah.
  * 
- * Possible button for attack and defend other then text field
+ * Possable button for attack and defend other then text field
  */
 
 package Group.ISD;
@@ -44,6 +44,7 @@ public class Game {
 	
 	
 	//start of game
+	@SuppressWarnings("unused")
 	public static void main(String args[]) throws Exception {
 		health = 50;
 		System.out.println("Prepairing to claim the universe!");
@@ -52,22 +53,14 @@ public class Game {
 		Game win = new Game();
 		win.frmHehehejar.setVisible(true);
 		
-		Badii h = new Badii("Lary", "/Images/ikon.png", 1, 1, 0);
-		h.sethe(1);
-		
-		//picOne.setIcon(getImIcn(h.getimagePath()));
-		
-		/*while (!(in.equals("Exit"))) {
-			println(in);
-			int r = 256,g = 256,b = 256;
-			while (r < 255 && g < 255 && b < 255) {
-				r = (int) Math.random() * 999 + 1;
-				b = (int) Math.random() * 999 + 1;
-				g = (int) Math.random() * 999 + 1;
-			}
-			printColour(new Color(r,g,b));
-		}*/
-		
+		//Badii bird = new Badii("Braidor", "/Images/bird.png", 1, 1, 0);
+		//Badii krab = new Badii("Krabii", "/Images/crab.png", 1, 1, 0);
+		//Badii spidear = new Badii("Spidear", "/Images/spider.png", 1, 1, 0);
+		//Badii jajuar = new Badii("Jajuair", "/Images/jaguar.png", 1, 1, 0);
+		Badii yeetii = new Badii("Yeetii", "Images/yeti.png", 4, 2, 1);
+		Badii joat = new Badii("Joat", "/Images/goat.png", 5, 3, 0);
+		Badii alian = new Badii("Alian", "/Images/a.png", 7, 4, 2);
+		//Badii aust = new Badii("Austrnaut", "/Images/Au.png", 10, 5, 1);
 	}
 	
 	public Game() {
@@ -94,9 +87,6 @@ public class Game {
 		txtLoadGameOr.setForeground(SystemColor.windowText);
 		txtLoadGameOr.setBounds(10, 350, 572, 162);		
 		txtLoadGameOr.setLineWrap(true);
-/*		txtLoadGameOr.setRows(5);
-		txtLoadGameOr.setColumns(5);
-		txtLoadGameOr.setAutoscrolls(true);*/
 		frmHehehejar.getContentPane().add(txtLoadGameOr);
 		
 		txtin = new JTextField();
@@ -122,6 +112,7 @@ public class Game {
 		btnIn.setAction(getIn);
 		frmHehehejar.getContentPane().add(btnIn, "2, 2");
 	}
+	//Such methods
 	
 	//gets Image file and sets to JLabel
 	public static ImageIcon getImIcn(String sr) throws Exception {
@@ -143,11 +134,11 @@ public class Game {
 	
 	//upon clicking the ACT! button
 	private class gettingin extends AbstractAction{
-		/**
-		 * Button action
-		 */
 		
-		private static final long serialVersionUID = 1L;
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = -629261728396323803L;
 		public gettingin() {
 			putValue(NAME, "ACT!");
 			putValue(SHORT_DESCRIPTION, "Send the action in the box to the internal system.");

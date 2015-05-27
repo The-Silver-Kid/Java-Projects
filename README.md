@@ -1,3 +1,4 @@
 # Java Things.
-Java Projects for programming class (dropbox is too slow for this).
+Random Java projects I make because I'm ether bored, want to, xor both.
 
+########HEHEHEHE!

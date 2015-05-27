@@ -5,9 +5,7 @@
 
 package DevTSK.Char;
 
-import java.awt.Image;
-import java.awt.SystemColor;
-import java.awt.Toolkit;
+import java.awt.*;
 import java.util.*;
 
 import javax.imageio.ImageIO;
@@ -33,9 +31,6 @@ public class CharRP {
 		try{
 			lblPoniiPic.setIcon(getImIcn("/images/null.png"));
 		} catch (Exception ii){
-			System.out.println("NULL IMAGE NOT FOUND!");
-			System.out.println("THIS WILL PREVENT SYSTEM FROM RUNNING!");
-			System.out.println("\nHALTING SYSTEM!");
 			System.exit(1);
 		}
 		/* 
@@ -84,6 +79,14 @@ public class CharRP {
 		 *
 		 *
 		 * Declare Poniis here
+		 * 
+		 * THERE ARE FOUR ERRORCODES 
+		 * 0: ALL FINE
+		 * 1: PONII NOT INITALIZED
+		 * 2: PONII PIC NOT FOUND
+		 * 3: String[] CHARS AND ALLIAS ARE DIFFERENT LENGTHS
+		 * 
+		 * :D
 		 */
 		
 		//OC poniis
@@ -108,7 +111,6 @@ public class CharRP {
 		
 		
 		if (chars.length != allias.length) {
-			System.out.println("CHAR AND ALLIAS ARE DIFFERENT LENGTHS! THIS WILL CAUSE ERRORS!\nHALTING");
 			System.exit(3);
 		}
 		
@@ -230,6 +232,7 @@ public class CharRP {
 		if (tstate == 0){
 			System.out.println("ERROR 766 : Null Pony Exception");
 			System.out.println("The Ponii " + handler + " has not been initilized!");
+			System.exit(1);
 		}
 		if (tstate == 1){
 			getMK(t);
@@ -243,7 +246,6 @@ public class CharRP {
 		try{
 			drawPic(t.getImagePath());
 		} catch (Exception ii) {
-			System.out.println("PIC NOT FOUND!\nHAULTING SYSTEM!");
 			System.exit(2);
 		}
 	}

@@ -1,10 +1,10 @@
-/* created by reggii peck
+/* created by Reggii Peck
  * main game window
  * and all event stuff
  * all by me so far
  * yeah had to re write so yeah.
  * 
- * Possable button for attack and defend other then text field
+ * Possible button for attack and defend other then text field
  */
 
 package Group.ISD;

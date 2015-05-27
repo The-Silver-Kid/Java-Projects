@@ -45,7 +45,7 @@ public class Ponii {
 	}
 	
 	public Ponii() {
-		
+		System.out.println("Aw Snap. This something ain't gonna work");
 	}
 	
 	public String getName() {

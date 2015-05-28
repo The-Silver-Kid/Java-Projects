@@ -179,6 +179,7 @@ public class CharRP {
 				 */
 				ss.pause("bgm.ogg");
 				ss.pause("credits.ogg");
+				ss.pause("kloud.ogg");
 				if (th.equalsIgnoreCase("shadow")){
 					ss.backgroundMusic("bgm.ogg", CharRP.class.getResource("/images/bgm.ogg"), "bgm.ogg", true);
 					getInfo(shadow);
@@ -190,6 +191,7 @@ public class CharRP {
 					getInfo(shyne);
 				}
 				if (th.equalsIgnoreCase("blitz")){
+					ss.backgroundMusic("kloud.ogg", CharRP.class.getResource("/images/kloud.ogg"), "kloud.ogg", true);
 					getInfo(blitz);
 				}
 				if (th.equalsIgnoreCase("charrie")){

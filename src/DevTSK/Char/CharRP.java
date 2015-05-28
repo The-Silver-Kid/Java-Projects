@@ -18,11 +18,17 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JTextArea;
+
+import com.jgoodies.forms.factories.FormFactory;
+import com.jgoodies.forms.layout.ColumnSpec;
+import com.jgoodies.forms.layout.FormLayout;
+import com.jgoodies.forms.layout.RowSpec;
 
 public class CharRP {
 	private JFrame frmPoniiPic;
 	public static JLabel lblPoniiPic;
-	
+	public static JTextArea lblTextArea;
 	// THESE HERE ARE CRITICLY IMPORTANT!
 	// IF YOU DONT PUT YOUR PONII'S NAME HERE IT WONT RECOGNIZE THE NEW PONII!
 	// THE TOP ONE IS FOR THEIR REAL NAME! THE SECOND FOR THEIR NICNAME IF NONE JUST PUT THERE NAME AGAIN!
@@ -244,19 +250,26 @@ public class CharRP {
 	
 	private void init(){
 		frmPoniiPic = new JFrame();
-		frmPoniiPic.getContentPane().setForeground(SystemColor.window);
 		frmPoniiPic.getContentPane().setBackground(SystemColor.window);
 		frmPoniiPic.setIconImage(Toolkit.getDefaultToolkit().getImage(CharRP.class.getResource("/images/ikon.png")));
 		frmPoniiPic.setTitle("Ponii Program");
 		frmPoniiPic.setBackground(SystemColor.window);
 		frmPoniiPic.setResizable(false);
-		frmPoniiPic.setBounds(0, 0, 700, 700);
+		frmPoniiPic.setBounds(0, 0, 700, 800);
 		frmPoniiPic.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-		
+		frmPoniiPic.getContentPane().setLayout(null);		
 		
 		lblPoniiPic = new JLabel();
 		lblPoniiPic.setBounds(10,10,495,298);
 		frmPoniiPic.getContentPane().add(lblPoniiPic);
+		
+		lblTextArea = new JTextArea();
+		lblTextArea.setWrapStyleWord(true);
+		lblTextArea.setToolTipText("Ponii Name (WIP)");
+		lblTextArea.setLineWrap(true);
+		lblTextArea.setText("(WIP)");
+		lblTextArea.setBounds(10, 710, 20, 10);
+		frmPoniiPic.getContentPane().add(lblTextArea);
 	}
 	
 	private static ImageIcon getImIcn(String sr) throws Exception {

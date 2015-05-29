@@ -9,26 +9,20 @@ import paulscode.sound.*;
 import paulscode.sound.libraries.*;
 import paulscode.sound.codecs.*;
 
-import java.awt.Image;
-import java.awt.SystemColor;
-import java.awt.Toolkit;
+import java.awt.*;
+import java.awt.event.*;
 import java.util.Scanner;
 
 import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JTextArea;
+import javax.swing.*;
 
-import com.jgoodies.forms.factories.FormFactory;
-import com.jgoodies.forms.layout.ColumnSpec;
-import com.jgoodies.forms.layout.FormLayout;
-import com.jgoodies.forms.layout.RowSpec;
-
-public class CharRP {
+public class CharRP implements ActionListener{
 	private JFrame frmPoniiPic;
 	public static JLabel lblPoniiPic;
 	public static JTextArea lblTextArea;
+	public static JTextArea lblInfo;
+	public static JScrollPane loltest;
+	private static JButton in;
 	// THESE HERE ARE CRITICLY IMPORTANT!
 	// IF YOU DONT PUT YOUR PONII'S NAME HERE IT WONT RECOGNIZE THE NEW PONII!
 	// THE TOP ONE IS FOR THEIR REAL NAME! THE SECOND FOR THEIR NICNAME IF NONE JUST PUT THERE NAME AGAIN!
@@ -255,12 +249,12 @@ public class CharRP {
 		frmPoniiPic.setTitle("Ponii Program");
 		frmPoniiPic.setBackground(SystemColor.window);
 		frmPoniiPic.setResizable(false);
-		frmPoniiPic.setBounds(0, 0, 700, 800);
+		frmPoniiPic.setBounds(10, 10, 700, 900);
 		frmPoniiPic.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		frmPoniiPic.getContentPane().setLayout(null);		
 		
 		lblPoniiPic = new JLabel();
-		lblPoniiPic.setBounds(10,10,495,298);
+		lblPoniiPic.setBounds(0, 0, 700, 700);
 		frmPoniiPic.getContentPane().add(lblPoniiPic);
 		
 		lblTextArea = new JTextArea();
@@ -268,8 +262,27 @@ public class CharRP {
 		lblTextArea.setToolTipText("Ponii Name (WIP)");
 		lblTextArea.setLineWrap(true);
 		lblTextArea.setText("(WIP)");
-		lblTextArea.setBounds(10, 710, 20, 10);
+		lblTextArea.setBounds(10, 710, 600, 20);
 		frmPoniiPic.getContentPane().add(lblTextArea);
+		
+		lblInfo = new JTextArea();
+		lblInfo.setWrapStyleWord(true);
+		lblInfo.setToolTipText("Information box (WIP)");
+		lblInfo.setLineWrap(true);
+		lblInfo.setText("");
+		lblInfo.setBounds(10, 740, 670, 120);
+		lblInfo.setEditable(false);
+		frmPoniiPic.getContentPane().add(lblInfo);
+		
+		loltest = new JScrollPane(lblInfo);
+		loltest.setBounds(10, 740, 670, 120);
+		loltest.setAutoscrolls(true);
+		frmPoniiPic.getContentPane().add(loltest);
+		
+		in = new JButton();
+		in.setBounds(620, 710, 50, 20);
+		frmPoniiPic.getRootPane().setDefaultButton(in);
+		frmPoniiPic.getContentPane().add(in);
 	}
 	
 	private static ImageIcon getImIcn(String sr) throws Exception {
@@ -299,6 +312,8 @@ public class CharRP {
 		} catch (Exception ii) {
 			System.exit(2);
 		}
+		loltest.getVerticalScrollBar();
+		lblInfo.setCaretPosition(lblInfo.getDocument().getLength());
 	}
 	private static void drawPic(String s) throws Exception{
 		lblPoniiPic.setIcon(getImIcn(s));
@@ -306,57 +321,56 @@ public class CharRP {
 	
 	private static void getMK(Ponii tp){
 		String[] tSA = null;
-		System.out.println("Name : " + tp.getName());
-		System.out.println("Age : " + tp.getAge());
-		System.out.println();
-		System.out.println("Description : " + tp.getDesc());
-		System.out.println();
-		System.out.println("Cutii Mark : " + tp.getCMDesc());
-		System.out.println();
-		System.out.println("Mother : " + tp.getMother());
-		System.out.println("Father : " + tp.getFather());
-		System.out.println();
-		System.out.println("Married to : " + tp.getSp());
-		System.out.println("Number of Kids : " + tp.getKidAmmount());
-		System.out.println("Kids names : ");
+		println("Name : " + tp.getName());
+		println("Age : " + tp.getAge());
+		println();
+		println("Description : " + tp.getDesc());
+		println();
+		println("Cutii Mark : " + tp.getCMDesc());
+		println();
+		println("Mother : " + tp.getMother());
+		println("Father : " + tp.getFather());
+		println();
+		println("Married to : " + tp.getSp());
+		println("Number of Kids : " + tp.getKidAmmount());
+		println("Kids names : ");
 		tSA = tp.getKids();
 		for (int i = 0; i < tSA.length; i++){
-			System.out.println(tSA[i]);
+			println(tSA[i]);
 		}
-		System.out.println();
-		System.out.println("::End of Ponii::");
-		System.out.println();
+		println();
+		println("::End of Ponii::");
+		println();
 	}
 	private static void getS(Ponii tp){
-		System.out.println("Name : " + tp.getName());
-		System.out.println("Age : " + tp.getAge());
-		System.out.println();
-		System.out.println("Description : " + tp.getDesc());
-		System.out.println();
-		System.out.println("Cutii Mark : " + tp.getCMDesc());
-		System.out.println();
-		System.out.println("Mother : " + tp.getMother());
-		System.out.println("Father : " + tp.getFather());
-		System.out.println();
-		System.out.println("::End of Ponii::");
-		System.out.println();
+		println("Name : " + tp.getName());
+		println("Age : " + tp.getAge());
+		println();
+		println("Description : " + tp.getDesc());
+		println();
+		println("Cutii Mark : " + tp.getCMDesc());
+		println();
+		println("Mother : " + tp.getMother());
+		println("Father : " + tp.getFather());
+		println();
+		println();
 	}
 	private static void getMNK(Ponii tp){
-		System.out.println("Name : " + tp.getName());
-		System.out.println("Age : " + tp.getAge());
-		System.out.println();
-		System.out.println("Description : " + tp.getDesc());
-		System.out.println();
-		System.out.println("Cutii Mark : " + tp.getCMDesc());
-		System.out.println();
-		System.out.println("Mother : " + tp.getMother());
-		System.out.println("Father : " + tp.getFather());
-		System.out.println();
-		System.out.println("Married to : " + tp.getSp());
-		System.out.println("No Kids");
-		System.out.println();
-		System.out.println("::End of Ponii::");
-		System.out.println();
+		println("Name : " + tp.getName());
+		println("Age : " + tp.getAge());
+		println();
+		println("Description : " + tp.getDesc());
+		println();
+		println("Cutii Mark : " + tp.getCMDesc());
+		println();
+		println("Mother : " + tp.getMother());
+		println("Father : " + tp.getFather());
+		println();
+		println("Married to : " + tp.getSp());
+		println("No Kids");
+		println();
+		println("::End of Ponii::");
+		println();
 	}
 	
 	private static void getHelp() {
@@ -371,5 +385,16 @@ public class CharRP {
 		System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 		System.out.println("Enter Ponii name here:");
 		System.out.println("\n\n\n");
+	}
+	private static void println(String s) {
+		lblInfo.setText(lblInfo.getText() + s + "\n");
+	}
+	
+	private static void println() {
+		lblInfo.setText(lblInfo.getText() + "\n");
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
 	}
 }

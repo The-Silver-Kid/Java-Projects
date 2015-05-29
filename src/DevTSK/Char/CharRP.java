@@ -284,9 +284,7 @@ public class CharRP {
 	private static void getHelp() {
 		System.out.println("Recognized Poniis:");
 		for (int i = 0; i < chars.length; i++){
-			System.out.print(i + " : ");
-			System.out.print(chars[i]);
-			System.out.println();
+			println(i + " : " + chars[i]);
 		}
 	}
 	private static void klear() {

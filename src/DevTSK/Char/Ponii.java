@@ -4,7 +4,7 @@ public class Ponii {
 	private int age = 0, nc = 0, state = 0;
 	private String name = "", desc = "", cutii = "", m = "", f = "", mt = "";
 	private String[] c = null;
-	private String impath = "/null.png";
+	private String impath = "/images/null.png", musik = "/images/null.ogg";
 	
 	public Ponii(String n, String d, String cm, String mother, String father, String mato, int aje, int chl, String[] childnames, String imm) {
 		state = 1;
@@ -42,6 +42,47 @@ public class Ponii {
 		age = aje;
 		nc = chl;
 		impath = imm;
+	}
+	
+	public Ponii(String n, String d, String cm, String mother, String father, String mato, int aje, int chl, String[] childnames, String imm, String mp) {
+		state = 4;
+		name = n;
+		desc = d;
+		cutii = cm;
+		m = mother;
+		f = father;
+		mt = mato;
+		age = aje;
+		nc = chl;
+		c = childnames;
+		impath = imm;
+		musik = mp;
+	}
+	
+	public Ponii(String n, String d, String cm, String mother, String father, int aje, String imm, String mp) {
+		state = 5;
+		name = n;
+		desc = d;
+		cutii = cm;
+		m = mother;
+		f = father;
+		age = aje;
+		impath = imm;	
+		musik = mp;
+	}
+	
+	public Ponii(String n, String d, String cm, String mother, String father, String mato, int aje, int chl, String imm, String mp) {
+		state = 6;
+		name = n;
+		desc = d;
+		cutii = cm;
+		m = mother;
+		f = father;
+		mt = mato;
+		age = aje;
+		nc = chl;
+		impath = imm;
+		musik = mp;
 	}
 	
 	public Ponii() {
@@ -94,5 +135,9 @@ public class Ponii {
 	
 	public String getImagePath() {
 		return impath;
+	}
+	
+	public String getMusicPath() {
+		return musik;
 	}
 }

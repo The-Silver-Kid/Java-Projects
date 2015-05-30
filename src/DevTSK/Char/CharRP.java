@@ -11,7 +11,6 @@ import paulscode.sound.codecs.*;
 
 import java.awt.*;
 import java.awt.event.*;
-
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
@@ -23,6 +22,10 @@ public class CharRP {
 	public static JTextArea lblInfo;
 	public static JScrollPane loltest;
 	private static JButton in;
+	public static String handler = "";
+	public static SoundSystem ss;
+	public static Boolean musik = true;
+	public static JLabel musikS;
 	// THESE HERE ARE CRITICLY IMPORTANT!
 	// IF YOU DONT PUT YOUR PONII'S NAME HERE IT WONT RECOGNIZE THE NEW PONII!
 	// THE TOP ONE IS FOR THEIR REAL NAME! THE SECOND FOR THEIR NICNAME IF NONE JUST PUT THERE NAME AGAIN!
@@ -30,8 +33,6 @@ public class CharRP {
 	public static String[] chars = new String[] {"Shadow", "Shyne", "Steve", "Blitz", "Charrie", "Slanger", "Tree", "Jack", "Zane", "Axel", "Dark Rainbow", "C418", "C523"};
 	public static String[] allias = new String[] {"Radon", "Shyne", "Orange", "Jet", "Firefly", "Radium", "Tree", "Jack", "Zane", "Axel", "Dark", "C4", "C5"};
 	public static String[] cannon = new String[] {"Apple Jack", "Rainbow Dash", "Sunset Shimmer"};
-	public static String handler = "";
-	public static SoundSystem ss;
 	
 	/* 
 	 * INSTRUCTIONS
@@ -81,11 +82,12 @@ public class CharRP {
 	 *
 	 * Declare Poniis here
 	 * 
-	 * THERE ARE FOUR ERRORCODES 
+	 * THERE ARE FIVE ERRORCODES 
 	 * 0: ALL FINE
 	 * 1: PONII NOT INITALIZED
 	 * 2: PONII PIC NOT FOUND
 	 * 3: String[] CHARS AND ALLIAS ARE DIFFERENT LENGTHS
+	 * 4: FONT NOT FOUND (404) lul
 	 * 
 	 * :D
 	 * 
@@ -114,9 +116,9 @@ public class CharRP {
 	public static Ponii c523 = new Ponii("C523 (C5)", "\nMare\nCream sort of colour\nAnother machine ponii built by radon however she was built for C4 to have a friend\nHas the same coloured mane as AJ", "\nDosent have one because she is a machine", "N/A", "Shadow Radon", "C418", 3, 0, "/images/null.png");
 	
 	//Cannon poniis
-	public static Ponii SS = new Ponii("Sunset Shimmer", "\nMare\nUnicorn\nYou know from EQG?", "\nThe yellow and red sun thing", "?", "?", 19, "/imgages/images/null.png");
-	public static Ponii AJ = new Ponii("Apple Jack Radon", "\nMare\nEarth Ponii\nIts Apple Jack... yall know her", "\nThree red apples", "?", "?", "Shadow Radon", 22, 2, new String[] {"Tree Lighting", "Shadow Jack"}, "/images/images/null.png");
-	public static Ponii RD = new Ponii("Rainbow Dash", "\nMare\nPegasus\nRainbow Dash... need i say more?", "\nThe Rainbow lightning bolt", "?", "?", "Dark Rainbow", 23, 0, "/images/images/null.png");
+	public static Ponii SS = new Ponii("Sunset Shimmer", "\nMare\nUnicorn\nYou know from EQG?", "\nThe yellow and red sun thing", "?", "?", 19, "/imgages/null.png");
+	public static Ponii AJ = new Ponii("Apple Jack Radon", "\nMare\nEarth Ponii\nIts Apple Jack... yall know her", "\nThree red apples", "?", "?", "Shadow Radon", 22, 2, new String[] {"Tree Lighting", "Shadow Jack"}, "/images/AJ.png");
+	public static Ponii RD = new Ponii("Rainbow Dash", "\nMare\nPegasus\nRainbow Dash... need i say more?", "\nThe Rainbow lightning bolt", "?", "?", "Dark Rainbow", 23, 0, "/images/RD.png");
 	
 	
 	public static void main(String[] args){
@@ -189,6 +191,12 @@ public class CharRP {
 		in.setAction(action);
 		frmPoniiPic.getRootPane().setDefaultButton(in);
 		frmPoniiPic.getContentPane().add(in);
+		
+		musikS = new JLabel();
+		musikS.setBounds(0,0,80,20);
+		musikS.setForeground(new Color(0,255,0));
+		musikS.setText("Music On");
+		frmPoniiPic.getContentPane().add(musikS);
 	}
 	
 	private static ImageIcon getImIcn(String sr) throws Exception {
@@ -199,7 +207,6 @@ public class CharRP {
 	
 	private static void getInfo(Ponii t){
 		int tstate = t.getState(474201);
-		lblTextArea.setText("");
 		printCl();
 		if (tstate == 0){
 			System.out.println("ERROR 766 : Null Pony Exception");
@@ -287,11 +294,6 @@ public class CharRP {
 			println(i + " : " + chars[i]);
 		}
 	}
-	private static void klear() {
-		System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-		System.out.println("Enter Ponii name here:");
-		System.out.println("\n\n\n");
-	}
 	private static void println(String s) {
 		lblInfo.setText(lblInfo.getText() + s + "\n");
 	}
@@ -320,12 +322,8 @@ public class CharRP {
 				th = cannon[i];
 			}
 		}
-		if (handler.equalsIgnoreCase("Exit")) {
-			th = "closing app";
-		}
-		if (handler.equalsIgnoreCase("cls") || handler.equalsIgnoreCase("clear")) {
-			klear();
-			th = "klearing!";
+		if (handler.equalsIgnoreCase("Exit") || handler.equalsIgnoreCase("music")) {
+			th = "ignore";
 		}
 		if (th.equals("")) {
 			getHelp();
@@ -342,7 +340,9 @@ public class CharRP {
 			ss.pause("credits.ogg");
 			ss.pause("kloud.ogg");
 			if (th.equalsIgnoreCase("shadow")){
-				ss.backgroundMusic("bgm.ogg", CharRP.class.getResource("/images/bgm.ogg"), "bgm.ogg", true);
+				if (musik){
+					ss.backgroundMusic("bgm.ogg", CharRP.class.getResource("/images/bgm.ogg"), "bgm.ogg", true);
+				}
 				getInfo(shadow);
 			}
 			if (th.equalsIgnoreCase("steve")){
@@ -352,7 +352,9 @@ public class CharRP {
 				getInfo(shyne);
 			}
 			if (th.equalsIgnoreCase("blitz")){
-				ss.backgroundMusic("kloud.ogg", CharRP.class.getResource("/images/kloud.ogg"), "kloud.ogg", true);
+				if (musik){
+					ss.backgroundMusic("kloud.ogg", CharRP.class.getResource("/images/kloud.ogg"), "kloud.ogg", true);
+				}
 				getInfo(blitz);
 			}
 			if (th.equalsIgnoreCase("charrie")){
@@ -365,7 +367,9 @@ public class CharRP {
 				getInfo(jack);
 			}
 			if (th.equalsIgnoreCase("tree")){
-				ss.backgroundMusic("credits.ogg", CharRP.class.getResource("/images/credits.ogg"), "credits.ogg", true);
+				if (musik) {
+					ss.backgroundMusic("credits.ogg", CharRP.class.getResource("/images/credits.ogg"), "credits.ogg", true);
+				}
 				getInfo(tree);
 			}
 			if (th.equalsIgnoreCase("zane")){
@@ -393,10 +397,16 @@ public class CharRP {
 				getInfo(SS);
 			}
 		}
+		if (handler.equalsIgnoreCase("music")){
+			musik = !musik;
+			musikS.setForeground(new Color(255,0,0));
+			musikS.setText("Music Off");
+		}
 		if (handler.equalsIgnoreCase("exit")) {
 			ss.cleanup();
 			System.exit(0);
 		}
+		lblTextArea.setText("");
 	}
 	
 	private class SwingAction extends AbstractAction {

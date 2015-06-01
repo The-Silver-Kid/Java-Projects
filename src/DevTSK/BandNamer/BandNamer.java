@@ -1,6 +1,6 @@
 /* Gabe Hill working on the file IO for the words
  * Zack Arbanas is working on collecting and organizing words to use
- * Tim Austin is working on the GUI; making buttons and text boxes and dropdown menuss
+ * The_Silver_Kid overall project
  */
 
 package DevTSK.BandNamer;
@@ -16,9 +16,9 @@ import java.net.*;
 public class BandNamer {
 
 	public static void main(String[] args){
-		//String end;
+		String end;
+		int n, v, av, aj;
 		
-		//System.out.println(BandNamer.class.getResource("/images/nounList.bnn"));
 		
 		String noun = getLst("/images/nounList.bnn");
 		String verb = getLst("/images/verbList.bnn");
@@ -30,17 +30,12 @@ public class BandNamer {
 		String[] adverbs = adv.split("\\s+");
 		String[] adjectives = adj.split("\\s+");
 		
-		System.out.println("loaded" + nouns);
-		System.out.println("loaded" + verbs);
-		System.out.println("loaded" + adverbs);
-		System.out.println("loaded" + adjectives);
+		System.out.println();
 	}
 	
 	public static String getLst(String path){
 		String temp = "",s;
 		URL uri = BandNamer.class.getResource(path);
-		//System.out.println(path);
-		//System.out.println(uri);
 		try {
 			BufferedReader br = new BufferedReader(new FileReader(uri.getPath()));
 		

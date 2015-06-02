@@ -30,8 +30,8 @@ public class CharRP {
 	// IF YOU DONT PUT YOUR PONII'S NAME HERE IT WONT RECOGNIZE THE NEW PONII!
 	// THE TOP ONE IS FOR THEIR REAL NAME! THE SECOND FOR THEIR NICNAME IF NONE JUST PUT THERE NAME AGAIN!
 	// THE CANNON IS NOT FOR OC PONIIS ONLY PUT CANNON PONII NAMES THERE
-	public static String[] chars = new String[] {"Shadow", "Shyne", "Steve", "Blitz", "Charrie", "Slanger", "Tree", "Jack", "Zane", "Axel", "Dark Rainbow", "C418", "C523"};
-	public static String[] allias = new String[] {"Radon", "Shyne", "Orange", "Jet", "Firefly", "Radium", "Tree", "Jack", "Zane", "Axel", "Dark", "C4", "C5"};
+	public static String[] chars = new String[] {"Shadow", "Shyne", "Steve", "Blitz", "Charrie", "Slanger", "Tree", "Jack", "Zane", "Axel", "Dark Rainbow", "C418", "C523", "Steven"};
+	public static String[] allias = new String[] {"Radon", "Shyne", "Orange", "Jet", "Firefly", "Radium", "Tree", "Jack", "Zane", "Axel", "Dark", "C4", "C5", "Pizza ponii"};
 	public static String[] cannon = new String[] {"Apple Jack", "Rainbow Dash", "Sunset Shimmer"};
 	
 	/* 
@@ -75,29 +75,21 @@ public class CharRP {
 	 * DESCRIPTION FORMAT IS: GENDER (M/S), RACE, COLOUR, SOMETHING SPECIAL, MANE COLOUR
 	 * DO NOT FOR ANY REASON PUT THE CUTII MARK DESCRIPTION IN THE PONII DESCRIPTION! IF YOU DO I WILL HUNT YOU DOWN!
 	 *
-	 * Married with kids: Name, Description, Cutii Mark, Mother, Father, Married to, int age, int amount of kids, String[] child names, Image path
-	 * Not Married      : Name, Description, Cutii Mark, Mother, Father, int age, Image path
-	 * Married no kids  : Name, Description, Cutii Mark, Mother, Father, Married to, int age, MUST BE 0! OR ELSE!, Image path
-	 *
 	 *
 	 * Declare Poniis here
 	 * 
-	 * THERE ARE FIVE ERRORCODES 
+	 * THERE ARE five ERRORCODES 
 	 * 0: ALL FINE
 	 * 1: PONII NOT INITALIZED
 	 * 2: PONII PIC NOT FOUND
 	 * 3: String[] CHARS AND ALLIAS ARE DIFFERENT LENGTHS
-	 * 4: FONT NOT FOUND (404) lul
+	 * 4: SOUNDSYSTEM COULD NOT LOAD PROPERLY
 	 * 
 	 * :D
 	 * 
-	 * SOUNDSYSTEM... LOAD NEW SONG
-	 * ss.backgroundMusic(sourcename, url, identifier, toLoop);
-	 * sourcename = "Ogg file name"
-	 * url = CharRP.class.getResource("/images/music.ogg")
-	 * identifyier = "Ogg file name"
-	 * toLoop = true
-	 * JUST COPY MY EXAMPLE ON SHADOW FOR A EXAMPLE
+	 * Married with kids: Name, Description, Cutii Mark, Mother, Father, Married to, int age, int amount of kids, String[] child names, Image path
+	 * Not Married      : Name, Description, Cutii Mark, Mother, Father, int age, Image path
+	 * Married no kids  : Name, Description, Cutii Mark, Mother, Father, Married to, int age, MUST BE 0! OR ELSE!, Image path
 	 */
 	
 	//OC poniis
@@ -114,7 +106,7 @@ public class CharRP {
 	public static Ponii dark = new Ponii("Dark Rainbow", "\nStallion\nAlicorn\nGrey coloured\nHe is an alicorn but only looks like a pegasus because laws and crap\nRainbow like Rainbow Dash's", "\nan atom", "Franda", "Slaziur", "Rainbow Dash", 20, 0, "/images/DR.png");
 	public static Ponii c418 = new Ponii("C418 (C4)", "\nStallion\nBlack colour\nMachine ponii built by radon that Looks almost exactly like him...", "\nDosent have one as he is a machine\nMane is the same as radon's only green instead of yellow", "N/A", "Shadow Radon", "C523", 5, 0, "/images/C4.png");
 	public static Ponii c523 = new Ponii("C523 (C5)", "\nMare\nCream sort of colour\nAnother machine ponii built by radon however she was built for C4 to have a friend\nHas the same coloured mane as AJ", "\nDosent have one because she is a machine", "N/A", "Shadow Radon", "C418", 3, 0, "/images/null.png");
-	
+	public static Ponii steven = new Ponii("Steven Stralanger", "\n", "\n", "Splater", "Plazza", 17, "/images/null.png");
 	
 	//Cannon poniis
 	public static Ponii SS = new Ponii("Sunset Shimmer", "\nMare\nUnicorn\nYou know from EQG?", "\nThe yellow and red sun thing", "?", "?", 19, "/imgages/null.png");
@@ -395,6 +387,9 @@ public class CharRP {
 			}
 			if (th.equalsIgnoreCase("sunset shimmer")) {
 				getInfo(SS);
+			}
+			if (th.equalsIgnoreCase("steven")){
+				getInfo(steven);
 			}
 		}
 		if (handler.equalsIgnoreCase("music")){

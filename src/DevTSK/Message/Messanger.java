@@ -1,14 +1,32 @@
 package DevTSK.Message;
 
-import javax.swing.*;
+//import javax.swing.*;
 
-import java.awt.*;
-import java.awt.event.*;
-//import java.net.*;
+//import java.awt.*;
+//import java.awt.event.*;
+import java.net.*;
+import java.io.*;
 
 public class Messanger {
 	
-	public JFrame mess;
+	private static Socket socket;
+	private static PrintWriter printWriter;
+	public static void main(String[] args)
+	{
+		try
+		{
+			socket = new Socket("localhost",63400);
+			printWriter = new PrintWriter(socket.getOutputStream(),true);
+			printWriter.println("Hello Socket");
+			printWriter.println("EYYYYYAAAAAAAA!!!!");
+		}
+		catch(Exception e)
+		{
+			System.out.println(e.toString());
+		}
+	}
+	
+/*	public JFrame mess;
 	public static JTextArea in;
 	public static JTextArea out;
 	public static JLabel cr;
@@ -90,5 +108,5 @@ public class Messanger {
 		public void actionPerformed(ActionEvent arg0) {
 			
 		}
-	}
+	}*/
 }

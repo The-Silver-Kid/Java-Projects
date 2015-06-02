@@ -26,7 +26,6 @@ public class BandNamer {
 	public static JButton get;
 	public static JButton neo;
 	public static JLabel bld;
-	public static JLabel pcnt;
 	public static JProgressBar bar;
 	
 	private final Action getResources = new SwingAction(); 
@@ -49,15 +48,16 @@ public class BandNamer {
 		
 		bar = new JProgressBar();
 		bar.setValue(100);
-		bar.setBounds(0, 253, 394, 20);
+		bar.setBounds(90, 253, 304, 20);
 		bar.setForeground(SystemColor.windowText);
 		bar.setBackground(SystemColor.window);
 		bar.setStringPainted(true);
 		bandNamer.getContentPane().add(bar);
 		
 		bld = new JLabel();
-		
-		pcnt = new JLabel();
+		bld.setBounds(0, 253, 90, 20);
+		bld.setText("Progress:");
+		bandNamer.getContentPane().add(bld);
 		
 		output = new JLabel();
 		

@@ -13,6 +13,5 @@
 			<attribute name="javadoc_location" value="jar:platform:/resource/Silver/lwjgl.zip!/doc"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="smack-java7-4.1.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

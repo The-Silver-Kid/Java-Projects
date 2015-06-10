@@ -11,8 +11,11 @@ import paulscode.sound.codecs.*;
 
 import java.awt.*;
 import java.awt.event.*;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
+
+import DevTSK.Exception.*;
 
 public class CharRP {
 	private JFrame frmPoniiPic;
@@ -311,7 +314,7 @@ public class CharRP {
 		lblInfo.setText("");
 	}
 	
-	private static void handConv(String s){
+	private static void handConv(String s) throws UnexceptableContentException{
 		String th = "";
 		handler = s;
 		for (int i = 0; i < chars.length; i++){
@@ -327,7 +330,7 @@ public class CharRP {
 				th = cannon[i];
 			}
 		}
-		if (handler.equalsIgnoreCase("Exit") || handler.equalsIgnoreCase("music")) {
+		if (handler.equalsIgnoreCase("Exit") || handler.equalsIgnoreCase("music") || handler.equalsIgnoreCase("lol")) {
 			th = "ignore";
 		}
 		if (th.equals("")) {
@@ -401,6 +404,9 @@ public class CharRP {
 			ss.cleanup();
 			System.exit(0);
 		}
+		if (handler.equalsIgnoreCase("lol")) {
+			throw new UnexceptableContentException();
+		}
 		lblTextArea.setText("");
 	}
 	
@@ -411,7 +417,11 @@ public class CharRP {
 			putValue(SHORT_DESCRIPTION, "Pushes string to internal system.");
 		}
 		public void actionPerformed(ActionEvent arg0) {
-			handConv(lblTextArea.getText());
+			try{
+				handConv(lblTextArea.getText());
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		
 	}

@@ -1,19 +1,23 @@
 package DevTSK.Encryptor;
 
-import DevTSK.Exception.*;
-
 import java.awt.SystemColor;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.io.*;
-import java.text.*;
-import java.util.*;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 import javax.swing.*;
 
-public class File {
+import DevTSK.Exception.TooTiredException;
+
+public class FileRead {
 	
-	private static BufferedReader br;
+	private static FileInputStream br;
+	
+	private static byte[] by;
+	
+	public static int hash = 0;
 	
 	private static Boolean win = false;
 	
@@ -25,6 +29,7 @@ public class File {
 	private static JButton op;
 	private static JButton sv;
 	private static JFileChooser choose;
+	private static JProgressBar projress;
 	
 	private final Action encr = new Encrypt();
 	private final Action decr = new Decrypt();
@@ -44,20 +49,20 @@ public class File {
 			win = false;
 		}
 		
-		File window = new File();
+		FileRead window = new FileRead();
 		window.fileFrame.setVisible(true);
 		
 		System.out.println("Starting...");
 		System.out.println("The File IO is strong with this one...");
 	}
 	
-	public File() {
+	public FileRead() {
 		init();
 	}
 	
 	private void init() {
 		fileFrame = new JFrame();
-		fileFrame.setBounds(0, 0, 355, 160);
+		fileFrame.setBounds(0, 0, 355, 190);
 		fileFrame.getContentPane().setBackground(SystemColor.window);
 		fileFrame.setIconImage(Toolkit.getDefaultToolkit().getImage(GUIbuf.class.getResource("/images/ikon.png")));
 		fileFrame.setTitle("Silver Encrypt");
@@ -109,6 +114,11 @@ public class File {
 		fileFrame.getContentPane().add(sv);
 		
 		choose = new JFileChooser();
+		
+		projress = new JProgressBar();
+		projress.setBounds(10, 130, 330, 20);
+		
+		fileFrame.getContentPane().add(projress);
 	}
 	
 	private class Encrypt extends AbstractAction{
@@ -117,22 +127,12 @@ public class File {
 			putValue(NAME, "Encrypt File");;
 		}
 		public void actionPerformed(ActionEvent arg0) {
-			Boolean s = false;
-			try {
-				br = new BufferedReader(new FileReader(filename.getText()));
-			} catch (FileNotFoundException e) {
-				e.printStackTrace();
+			for(int i = 0; i > by.length; i++) {
+				for(int e = 0; e > hash; e++) {
+					by[i] = (byte) (by[i] + 1);
+				}
+				projress.setValue(100 * (i / by.length));
 			}
-			
-			int hash = Integer.parseInt(num.getText());
-			
-			while (true) {
-				for (int i = 0; i > hash; i++) {}
-			}
-			
-			if (s) {
-				sv.setEnabled(true);
-			} else {}
 		}
 	}
 	
@@ -162,6 +162,23 @@ public class File {
 		    	} else {
 		    		filename.setText(choose.getCurrentDirectory().toString() + "/" + choose.getSelectedFile().getName());
 		    	}
+		    	
+		    	File f = new File(filename.getText());
+				try {
+					br = new FileInputStream(f);
+				} catch (FileNotFoundException e) {
+					e.printStackTrace();
+				}
+				
+				hash = Integer.parseInt(num.getText());
+				
+				by = new byte[(int)f.length()];
+				
+				try {
+					br.read(by);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 		    }
 		}
 	}

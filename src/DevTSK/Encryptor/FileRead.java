@@ -1,25 +1,40 @@
 package DevTSK.Encryptor;
 
+import java.awt.Color;
 import java.awt.SystemColor;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
-import java.io.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-import javax.swing.*;
+import javax.swing.AbstractAction;
+import javax.swing.Action;
+import javax.swing.JButton;
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JProgressBar;
+import javax.swing.JTextArea;
 
 import DevTSK.Exception.TooTiredException;
 
 public class FileRead {
 	
 	private static FileInputStream br;
+	private static FileOutputStream snd;
+	
+	private static String in = "", out = "";
 	
 	private static byte[] by;
 	
-	public static int hash = 0;
+	private static int hash = 0;
 	
 	private static Boolean win = false;
+	private static Boolean opp = true;
 	
 	private JFrame fileFrame;
 	private static JTextArea filename;
@@ -30,6 +45,7 @@ public class FileRead {
 	private static JButton sv;
 	private static JFileChooser choose;
 	private static JProgressBar projress;
+	private static JLabel cright;
 	
 	private final Action encr = new Encrypt();
 	private final Action decr = new Decrypt();
@@ -62,7 +78,7 @@ public class FileRead {
 	
 	private void init() {
 		fileFrame = new JFrame();
-		fileFrame.setBounds(0, 0, 355, 190);
+		fileFrame.setBounds(0, 0, 355, 210);
 		fileFrame.getContentPane().setBackground(SystemColor.window);
 		fileFrame.setIconImage(Toolkit.getDefaultToolkit().getImage(GUIbuf.class.getResource("/images/ikon.png")));
 		fileFrame.setTitle("Silver Encrypt");
@@ -117,8 +133,15 @@ public class FileRead {
 		
 		projress = new JProgressBar();
 		projress.setBounds(10, 130, 330, 20);
-		
+		projress.setStringPainted(true);
 		fileFrame.getContentPane().add(projress);
+		
+		cright = new JLabel();
+		cright.setText("© 2015 DevTSK Productions");
+		cright.setBounds(10, 160, 330, 20);
+		cright.setHorizontalAlignment(0);
+		cright.setForeground(new Color(200, 200, 200));
+		fileFrame.getContentPane().add(cright);
 	}
 	
 	private class Encrypt extends AbstractAction{
@@ -127,12 +150,28 @@ public class FileRead {
 			putValue(NAME, "Encrypt File");;
 		}
 		public void actionPerformed(ActionEvent arg0) {
-			for(int i = 0; i > by.length; i++) {
-				for(int e = 0; e > hash; e++) {
-					by[i] = (byte) (by[i] + 1);
+			System.out.println("Init Encryption");
+			for(int i = 0; i < by.length; i++) {
+				System.out.println("Encrypting byte " + i + " of " + by.length + ". \nBytes Left " + (by.length - i - 1));
+				for(int e = 0; e < hash; e++) {
+					int b = by[i] + 1;
+					if (b > 127){
+						b = -128;
+					}
+					if (b < -128){
+						b = 127;
+					}
+					by[i] = (byte) b;
 				}
-				projress.setValue(100 * (i / by.length));
+				System.out.println((i * 100) / by.length + "%");
 			}
+			System.out.println("Encryption went well");
+			projress.setValue(33);
+			if (!sv.isEnabled()) {
+				System.out.println("Unlocking Save Button...");
+			}
+			sv.setEnabled(true);
+			opp = true;
 		}
 	}
 	
@@ -142,7 +181,28 @@ public class FileRead {
 			putValue(NAME, "Decrypt File");
 		}
 		public void actionPerformed(ActionEvent arg0) {
+			System.out.println("Init Decryption");
+			for(int i = 0; i < by.length; i++) {
+				System.out.println("Decrypting byte " + i + " of " + by.length + ". \nBytes Left " + (by.length - i - 1));
+				for(int e = 0; e < hash; e++) {
+					int b = by[i] - 1;
+					if (b > 127){
+						b = -128;
+					}
+					if (b < -128){
+						b = 127;
+					}
+					by[i] = (byte) b;
+				}
+				System.out.println((i * 100) / by.length + "%");
+			}
+			System.out.println("Decryption went well");
+			projress.setValue(67);
+			if (!sv.isEnabled()) {
+				System.out.println("Unlocking Save Button...");
+			}
 			sv.setEnabled(true);
+			opp = false;
 		}
 	}
 	
@@ -155,30 +215,37 @@ public class FileRead {
 			int ret = choose.showDialog(null, "Open file");
 
 		    if (ret == JFileChooser.APPROVE_OPTION) {
-		    	en.setEnabled(true);
-		    	de.setEnabled(true);
 		    	if (win) {
 		    		filename.setText(choose.getCurrentDirectory().toString() + "\\" + choose.getSelectedFile().getName());
 		    	} else {
 		    		filename.setText(choose.getCurrentDirectory().toString() + "/" + choose.getSelectedFile().getName());
 		    	}
 		    	
+		    	in = filename.getText();
+		    	
 		    	File f = new File(filename.getText());
 				try {
 					br = new FileInputStream(f);
-				} catch (FileNotFoundException e) {
+				} catch (Exception e) {
 					e.printStackTrace();
 				}
 				
 				hash = Integer.parseInt(num.getText());
 				
-				by = new byte[(int)f.length()];
+				by = new byte[(int) f.length()];
 				
 				try {
 					br.read(by);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
+				System.out.println("Okay. I have \"" + filename.getText() + "\" loaded...");
+				if (!en.isEnabled()) {
+					System.out.println("Unlocking Encryption and Decryption Buttons...");
+					en.setEnabled(true);
+			    	de.setEnabled(true);
+				}
+				projress.setValue(33);
 		    }
 		}
 	}
@@ -188,6 +255,7 @@ public class FileRead {
 		public Save() {
 			putValue(NAME, "Save File");
 		}
+		@SuppressWarnings("static-access")
 		public void actionPerformed(ActionEvent arg0) {
 			int ret = choose.showSaveDialog(null);
 
@@ -199,7 +267,32 @@ public class FileRead {
 		    		s = choose.getCurrentDirectory().toString() + "/" + choose.getSelectedFile().getName();
 		    	}
 		    	
-		    	System.out.println("saved to : " + s);
+		    	try{
+		    		snd = new FileOutputStream(s);
+		    		snd.write(by);
+		    		snd.close();
+		    	} catch (Exception e) {
+		    		e.printStackTrace();
+		    	}
+		    	
+		    	System.out.println("saved to : " + s + "\nAssuming all went well...");
+		    	System.out.println("Locking Encrypt, Decrypt and Save buttons...\n");
+		    	en.setEnabled(false);
+		    	de.setEnabled(false);
+		    	sv.setEnabled(false);
+		    	projress.setValue(100);
+		    	out = s; 
+		    	JOptionPane info = new JOptionPane();
+		    	if (opp) {
+		    		info.showMessageDialog(fileFrame, "Encrypted file \"" + in + "\"\nby " + hash + "\nand saved to \"" + out + "\"",
+		    				"Info",
+		    				JOptionPane.PLAIN_MESSAGE);
+		    	} else {
+		    		info.showMessageDialog(fileFrame, "Decrypted file \"" + in + "\"\nby " + hash + "\nand saved to \"" + out + "\"",
+		    				"Info",
+		    				JOptionPane.PLAIN_MESSAGE);
+		    	}
+		    	projress.setValue(0);
 		    }
 		}
 	}

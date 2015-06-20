@@ -139,7 +139,7 @@ public class Window {
 			putValue(SHORT_DESCRIPTION, "Pushes string to internal system.");
 		}
 		public void actionPerformed(ActionEvent arg0) {
-			OOPCharRP.handle(lblTextArea.getText());
+			CharRP.handle(lblTextArea.getText());
 		}
 		
 	}

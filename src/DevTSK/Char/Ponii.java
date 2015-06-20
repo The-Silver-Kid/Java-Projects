@@ -74,7 +74,7 @@ public class Ponii {
 		musik = mp;
 	}
 	
-	public Ponii(String n, String d, String cm, String mother, String father, String mato, int aje, int chl, String imm, String mp) {
+	public Ponii(String n, String d, String cm, String mother, String father, String mato, int aje, String imm, String mp) {
 		state = 6;
 		name = n;
 		desc = d;
@@ -83,7 +83,7 @@ public class Ponii {
 		f = father;
 		mt = mato;
 		age = aje;
-		nc = chl;
+		nc = 0;
 		impath = imm;
 		musik = mp;
 	}

@@ -6,16 +6,16 @@ import java.io.IOException;
 
 import DevTSK.Exception.*;
 
-public class OOPCharRP {
+public class CharRP {
 	private static Window poni = new Window("Ponii Program 3.0", 1, 0, 0);
 	
-	private static final String[] chars = new String[] {"Shadow", "Shyne", "Steve", "Blitz", "Charrie", "Slanger", "Tree", "Jack", "Zane", "Axel", "Dark Rainbow", "C418", "C523", "Steven", "Galecia"};
-	private static final String[] allias = new String[] {"Radon", "Shyne", "Orange", "Jet", "Firefly", "Radium", "Tree", "Jack", "Zane", "Axel", "Dark", "C4", "C5", "Pizza ponii", "Galecia"};
-	private static final String[] cannon = new String[] {"Apple Jack", "Rainbow Dash", "Sunset Shimmer"};
+	private static final String[] chars = new String[] {"Shadow", "Steve", "Shyne", "Blitz", "Charrie", "Slanger", "Tree", "Jack", "Zane", "Axel", "Dark Rainbow", "C418", "C523", "Steven", "Galecia"};
+	private static final String[] allias = new String[] {"Radon", "Orange", "Shyne", "Jet", "Firefly", "Radium", "Tree", "Jack", "Zane", "Axel", "Dark", "C4", "C5", "Pizza ponii", "Galecia"};
+	private static final String[] cannon = new String[] {"Sunset Shimmer", "Apple Jack", "Rainbow Dash"};
 	
 	private static final String[] commands = new String[] {
 		"Colour", "Color", "InputColour", "InputColor", "OutputColour", "OutputColor", "Music", "Exit",
-		"OutputTextColor", "InputTextColor", "OutputTextColour", "InputTextColour"
+		"OutputTextColor", "InputTextColor", "OutputTextColour", "InputTextColour", "errorcheck"
 	};
 	
 	private static Boolean musik = false;
@@ -34,7 +34,7 @@ public class OOPCharRP {
 		new Ponii("Shadow Radon", "\nStallion\nUnicorn\nBlack Coloured\nYellow Thunderbolt accross underside\nYellow Thunderbolts arround hooves\nYellow and Black mane\nLight Industries Member", "\nBlack Thundercloud with a yellow thunderbolt coming from it", "Charrie", "Slanger", "Apple Jack", 21, 2, new String[] {"Tree Lighting", "Shadow Jack"}, "/images/radon.png", "bgm.ogg"),
 		new Ponii("Steve (Orange) Radon", "\nStallion\nPegaus\nDark Orange Coloured\nWing style that of a alicorn\nMane colour is same as body colour but has a yellow streak in it\nGigaplex Member", "\nWind marks in frount of a double edged sword.", "Charrie", "Slanger", 19, "/images/orange.png"),
 		new Ponii("Shyne Radon", "\nMare\nEarth Ponii\nLight Blue Coloured\ncoat sparkles when exposed to light\nMane colour is a bit brighter then body color\nPrefers to not take sides", "\nA devide simbol with green lines connecting the sides", "Charrie", "Slanger", 20, "/images/shyne.png"),
-		new Ponii("Blitz Radon", "\nMare\nPegasus\nDull Grey colour\nHas a boyfrind that makes pizza\nmane colour is a copper colour", "\n airplane with similar wing structure as her own", "Charrie", "Slanger", "Steven", 18, 0, "/images/blitz.png", "kloud.ogg"),
+		new Ponii("Blitz Radon", "\nMare\nPegasus\nDull Grey colour\nHas a boyfrind that makes pizza\nmane colour is a copper colour", "\n airplane with similar wing structure as her own", "Charrie", "Slanger", "Steven", 18, "/images/blitz.png", "kloud.ogg"),
 		new Ponii("Charrie (Firefly) Sychace Radon", "\nMare\nPegasus\nPink Colour\nOld but cares allot about everyponii\nWhite Mane", "\nBlack Outlined White Thunderbolt", "Keri", "Craider", "Slanger", 67, 4, new String[] {"Shadow", "Shyne", "Steve", "Blitz"}, "/images/charrie.png"), 
 		new Ponii("Slanger (Radium) Radon", "\nStallion\nEarth Ponii\nDark Purple colour\nJust like any old person (that isnt grouchy) he WILL make you laugh\nYellow Mane", "\nAncient symbol for magic", "Bradier", "George", "Charrie", 65, 4, new String[] {"Shadow", "Shyne", "Steve", "Blitz"}, "/images/slanger.png"),
 		new Ponii("Tree Lighting Radon", "\nMare\nEarth Ponii\nSlightly darker orange then AJ\nCutest little filly ever sparkling with the same spark that her dad has\nShe likes the Blaze.\nMane is just a little more yellow then AJ's", "\nDosent have it yet...\nApple tree with lightning bolt behind it", "Apple Jack", "Shadow Radon", 4, "/images/lightning.png", "credits.ogg"),
@@ -57,8 +57,6 @@ public class OOPCharRP {
 		errorCheck();
 		
 		poni.frmPoniiPic.setVisible(true);
-		
-		
 	}
 
 	private static void errorCheck() throws Exception{
@@ -77,11 +75,11 @@ public class OOPCharRP {
 		System.out.println("Ponii[] show compatablity checks out...\nChecking ponii resources...");
 		for (int i = 0; i < OC.length; i++) {
 			System.out.println(((i * 100) / OC.length) + "%");
-			File f = new File(OOPCharRP.class.getResource(OC[i].getImagePath()).toURI());
+			File f = new File(CharRP.class.getResource(OC[i].getImagePath()).toURI());
 			if (!f.exists()) {
 				throw new NotFoundException("File " + OC[i].getImagePath() + " could not be found.");
 			}
-			File g = new File(OOPCharRP.class.getResource("/images/" + OC[i].getMusicPath()).toURI());
+			File g = new File(CharRP.class.getResource("/images/" + OC[i].getMusicPath()).toURI());
 			if (!g.exists()) {
 				throw new NotFoundException("File " + OC[i].getMusicPath() + " could not be found.");
 			}
@@ -89,11 +87,11 @@ public class OOPCharRP {
 		System.out.println("100%");
 		for (int i = 0; i < show.length; i++) {
 			System.out.println(((i * 100) / show.length) + "%");
-			File f = new File(OOPCharRP.class.getResource(show[i].getImagePath()).toURI());
+			File f = new File(CharRP.class.getResource(show[i].getImagePath()).toURI());
 			if (!f.exists()) {
 				throw new NotFoundException("File " + show[i].getImagePath() + " could not be found.");
 			}
-			File g = new File(OOPCharRP.class.getResource("/images/" + show[i].getMusicPath()).toURI());
+			File g = new File(CharRP.class.getResource("/images/" + show[i].getMusicPath()).toURI());
 			if (!g.exists()) {
 				throw new NotFoundException("File " + show[i].getMusicPath() + " could not be found.");
 			}
@@ -106,7 +104,6 @@ public class OOPCharRP {
 		Boolean origin = true, controlVar = false;
 		for (int i = 0; i < chars.length; i++){
 			if (chars[i].equalsIgnoreCase(s)) {
-				System.out.println("xd");
 				handler = i;
 			}
 			if (s.equalsIgnoreCase(allias[i])) {
@@ -127,6 +124,10 @@ public class OOPCharRP {
 		}
 		
 		poni.lblTextArea.setText("");
+		try {
+			poni.lblPoniiPic.setIcon(poni.getImageIcn("/images/null.png"));
+		} catch (IOException e) {
+		}
 		if (handler >= 0) {
 			if (origin) {
 				getOCInfo(handler);
@@ -136,11 +137,15 @@ public class OOPCharRP {
 		} else if (!controlVar) {
 			poni.println(help());
 		} else if (controlVar) {
-			control(s);
+			try {
+				control(s);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 	}
 	
-	private static void control(String s) {
+	private static void control(String s) throws Exception {
 		String cmd = s;
 		String[] sl = cmd.split("\\s+");
 		if (sl[0].equalsIgnoreCase("Exit"))
@@ -155,6 +160,10 @@ public class OOPCharRP {
 				poni.musikS.setText("Music Off");
 				poni.musikS.setForeground(new Color(255, 0, 0));
 			}
+		}
+		if (sl[0].equalsIgnoreCase("ErrorCheck")){
+			poni.frmPoniiPic.setVisible(false);
+			main(new String[] {});
 		}
 		if (sl[0].equalsIgnoreCase("Color") || sl[0].equalsIgnoreCase("Colour")){
 			if (sl.length == 4) {

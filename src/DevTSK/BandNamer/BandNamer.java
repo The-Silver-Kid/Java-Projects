@@ -74,7 +74,7 @@ public class BandNamer {
 		BandNamer window = new BandNamer();
 		window.bandNamer.setVisible(true);
 		
-		/*String end = "";
+		String end = "";
 		int n, v, av=0, aj;
 		
 		av = av + 1;
@@ -101,7 +101,7 @@ public class BandNamer {
 		
 		end = adjectives[aj] + " " + nouns[n] + " " + verbs[v];
 		
-		System.out.println(end);*/
+		System.out.println(end);
 	}
 	
 	public static String getLst(String path, double t){

@@ -6,7 +6,6 @@ import java.io.*;
 import DevTSK.Exception.*;
 
 public class CharRP {
-	//private static FileWriter fw;
 	private static FileOutputStream send;
 	
 	private static Window poni = new Window("Ponii Program 3.0", 1, 0, 0);
@@ -22,7 +21,7 @@ public class CharRP {
 	
 	private static Boolean musik = false;
 	
-	//private static final Ponii[] OC = new Ponii[] {
+	private static final Ponii[] OC = new Ponii[] {
 		/* Married with kids: Name, Description, Cutii Mark, Mother, Father, Married to, INT age, INT amount of kids, STRING[] child names, Image path
 		 * Not Married      : Name, Description, Cutii Mark, Mother, Father, INT age, Image path
 		 * Married no kids  : Name, Description, Cutii Mark, Mother, Father, Married to, INT age, Image path
@@ -33,7 +32,7 @@ public class CharRP {
 		 * DO NOT FOR ANY REASON PUT THE CUTII MARK DESCRIPTION IN THE PONII DESCRIPTION! IF YOU DO I WILL HUNT YOU DOWN!
 		 *
 		*/
-		/*new Ponii("Shadow Radon", "\nStallion\nUnicorn\nBlack Coloured\nYellow Thunderbolt accross underside\nYellow Thunderbolts arround hooves\nYellow and Black mane\nLight Industries Member", "\nBlack Thundercloud with a yellow thunderbolt coming from it", "Charrie", "Slanger", "Apple Jack", 21, 2, new String[] {"Tree Lighting", "Shadow Jack"}, "radon.png", "bgm.ogg"),
+		new Ponii("Shadow Radon", "\nStallion\nUnicorn\nBlack Coloured\nYellow Thunderbolt accross underside\nYellow Thunderbolts arround hooves\nYellow and Black mane\nLight Industries Member", "\nBlack Thundercloud with a yellow thunderbolt coming from it", "Charrie", "Slanger", "Apple Jack", 21, 2, new String[] {"Tree Lighting", "Shadow Jack"}, "radon.png", "bgm.ogg"),
 		new Ponii("Steve (Orange) Radon", "\nStallion\nPegaus\nDark Orange Coloured\nWing style that of a alicorn\nMane colour is same as body colour but has a yellow streak in it\nGigaplex Member", "\nWind marks in frount of a double edged sword.", "Charrie", "Slanger", 19, "orange.png"),
 		new Ponii("Shyne Radon", "\nMare\nEarth Ponii\nLight Blue Coloured\ncoat sparkles when exposed to light\nMane colour is a bit brighter then body color\nPrefers to not take sides", "\nA devide simbol with green lines connecting the sides", "Charrie", "Slanger", 20, "shyne.png"),
 		new Ponii("Blitz Radon", "\nMare\nPegasus\nDull Grey colour\nHas a boyfrind that makes pizza\nmane colour is a copper colour", "\n airplane with similar wing structure as her own", "Charrie", "Slanger", "Steven", 18, "blitz.png", "kloud.ogg"),
@@ -53,16 +52,15 @@ public class CharRP {
 		new Ponii("Sunset Shimmer", "\nMare\nUnicorn\nYou know from EQG?", "\nThe yellow and red sun thing", "?", "?", 19, "null.png"),
 		new Ponii("Apple Jack Radon", "\nMare\nEarth Ponii\nIts Apple Jack... yall know her", "\nThree red apples", "?", "?", "Shadow Radon", 22, 2, new String[] {"Tree Lighting", "Shadow Jack"}, "AJ.png"),
 		new Ponii("Rainbow Dash", "\nMare\nPegasus\nRainbow Dash... need i say more?", "\nThe Rainbow lightning bolt", "?", "?", "Dark Rainbow", 23, "RD.png"),
-	};*/
+	};
 	
 	public static void main(String[] args) throws Exception {
-		//errorCheck();
+		errorCheck();
 		
-		//poni.frmPoniiPic.setVisible(true);
+		poni.frmPoniiPic.setVisible(true);
 	}
-}//
 
-	/*private static void errorCheck() throws Exception{
+	private static void errorCheck() throws Exception{
 		System.out.println("\nChecking out Inputed Resources...\n\nChecking chars and allias String[]s...");
 		if (chars.length != allias.length) {
 			throw new LengthException("String[] chars and String[] allias arent the same length!");
@@ -375,16 +373,13 @@ public class CharRP {
 		}
 		if (preformAction) {
 			System.out.println("Extracting : " + string);
-			File f = new File("/extracted/");
+			File f = new File("./extracted/");
 			f.mkdir();
-			send = new FileOutputStream(f + charToExtract);
-			//for (int i = 0; i < CharRP.class.getResourceAsStream("/images/" + charToExtract).read(); i ++){
-			//	byte[] out = CharRP.class.getResourceAsStream("/images/" + charToExtract).read(i);
-			//}
+			send = new FileOutputStream(f + "/" + charToExtract);
 			byte[] out = new byte[CharRP.class.getResourceAsStream("/images/" + charToExtract).available()];
 			CharRP.class.getResourceAsStream("/images/" + charToExtract).read(out);
 			send.write(out);
-			System.out.println("Extracted : " + charToExtract + " to : " + send.getFD());
+			System.out.println("Extracted : " + charToExtract + " to \"" + f.getAbsoluteFile() + "\"");
 			send.close();
 		}
 	}
@@ -394,4 +389,4 @@ public class CharRP {
 			extract(chars[i]);
 		}
 	}
-}*/
+}

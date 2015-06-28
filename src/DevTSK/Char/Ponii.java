@@ -2,11 +2,11 @@ package DevTSK.Char;
 
 public class Ponii {
 	private int age = 0, nc = 0, state = 0;
-	private String name = "", desc = "", cutii = "", m = "", f = "", mt = "";
+	private String name = "", desc = "", cutii = "", m = "", f = "", mt = "", DNA = "Oops";
 	private String[] c = null;
 	private String impath = "/images/null.png", musik = "null.ogg";
 	
-	public Ponii(String n, String d, String cm, String mother, String father, String mato, int aje, int chl, String[] childnames, String imm) {
+	public Ponii(String n, String d, String cm, String mother, String father, String mato, int aje, int chl, String[] childnames, String imm, String code) {
 		//Married with kids
 		state = 1;
 		name = n;
@@ -19,9 +19,10 @@ public class Ponii {
 		nc = chl;
 		c = childnames;
 		impath = imm;
+		DNA = code;
 	}
 	
-	public Ponii(String n, String d, String cm, String mother, String father, int aje, String imm) {
+	public Ponii(String n, String d, String cm, String mother, String father, int aje, String imm, String code) {
 		//Single
 		state = 2;
 		name = n;
@@ -30,10 +31,11 @@ public class Ponii {
 		m = mother;
 		f = father;
 		age = aje;
-		impath = imm;		
+		impath = imm;
+		DNA = code;
 	}
 	
-	public Ponii(String n, String d, String cm, String mother, String father, String mato, int aje, String imm) {
+	public Ponii(String n, String d, String cm, String mother, String father, String mato, int aje, String imm, String code) {
 		//Married no kids
 		state = 3;
 		name = n;
@@ -45,9 +47,10 @@ public class Ponii {
 		age = aje;
 		nc = 0;
 		impath = imm;
+		DNA = code;
 	}
 	
-	public Ponii(String n, String d, String cm, String mother, String father, String mato, int aje, int chl, String[] childnames, String imm, String mp) {
+	public Ponii(String n, String d, String cm, String mother, String father, String mato, int aje, int chl, String[] childnames, String imm, String mp, String code) {
 		state = 4;
 		name = n;
 		desc = d;
@@ -60,9 +63,10 @@ public class Ponii {
 		c = childnames;
 		impath = imm;
 		musik = mp;
+		DNA = code;
 	}
 	
-	public Ponii(String n, String d, String cm, String mother, String father, int aje, String imm, String mp) {
+	public Ponii(String n, String d, String cm, String mother, String father, int aje, String imm, String mp, String code) {
 		state = 5;
 		name = n;
 		desc = d;
@@ -72,9 +76,10 @@ public class Ponii {
 		age = aje;
 		impath = imm;	
 		musik = mp;
+		DNA = code;
 	}
 	
-	public Ponii(String n, String d, String cm, String mother, String father, String mato, int aje, String imm, String mp) {
+	public Ponii(String n, String d, String cm, String mother, String father, String mato, int aje, String imm, String mp, String code) {
 		state = 6;
 		name = n;
 		desc = d;
@@ -86,10 +91,10 @@ public class Ponii {
 		nc = 0;
 		impath = imm;
 		musik = mp;
+		DNA = code;
 	}
 	
 	public Ponii() {
-		System.out.println("Aw Snap. Something ain't gonna work");
 	}
 	
 	public String getName() {
@@ -142,5 +147,9 @@ public class Ponii {
 	
 	public String getMusicPath() {
 		return musik;
+	}
+	
+	public String getDNA() {
+		return DNA;
 	}
 }

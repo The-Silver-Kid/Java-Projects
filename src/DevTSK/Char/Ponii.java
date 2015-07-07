@@ -4,9 +4,9 @@ public class Ponii {
 	private int age = 0, nc = 0, state = 0;
 	private String name = "", desc = "", cutii = "", m = "", f = "", mt = "", DNA = "Oops";
 	private String[] c = null;
-	private String impath = "/images/null.png", musik = "null.ogg";
+	private String impath = "/images/null.png", musik = "null.ogg", cmpath = "/images/null.png";
 	
-	public Ponii(String n, String d, String cm, String mother, String father, String mato, int aje, int chl, String[] childnames, String imm, String code) {
+	public Ponii(String n, String d, String cm, String mother, String father, String mato, int aje, int chl, String[] childnames, String imm, String tcm, String code) {
 		//Married with kids
 		state = 1;
 		name = n;
@@ -20,9 +20,10 @@ public class Ponii {
 		c = childnames;
 		impath = imm;
 		DNA = code;
+		cmpath = tcm;
 	}
 	
-	public Ponii(String n, String d, String cm, String mother, String father, int aje, String imm, String code) {
+	public Ponii(String n, String d, String cm, String mother, String father, int aje, String imm, String tcm, String code) {
 		//Single
 		state = 2;
 		name = n;
@@ -33,9 +34,10 @@ public class Ponii {
 		age = aje;
 		impath = imm;
 		DNA = code;
+		cmpath = tcm;
 	}
 	
-	public Ponii(String n, String d, String cm, String mother, String father, String mato, int aje, String imm, String code) {
+	public Ponii(String n, String d, String cm, String mother, String father, String mato, int aje, String imm, String tcm, String code) {
 		//Married no kids
 		state = 3;
 		name = n;
@@ -48,9 +50,10 @@ public class Ponii {
 		nc = 0;
 		impath = imm;
 		DNA = code;
+		cmpath = tcm;
 	}
 	
-	public Ponii(String n, String d, String cm, String mother, String father, String mato, int aje, int chl, String[] childnames, String imm, String mp, String code) {
+	public Ponii(String n, String d, String cm, String mother, String father, String mato, int aje, int chl, String[] childnames, String imm, String tcm, String mp, String code) {
 		state = 4;
 		name = n;
 		desc = d;
@@ -64,9 +67,10 @@ public class Ponii {
 		impath = imm;
 		musik = mp;
 		DNA = code;
+		cmpath = tcm;
 	}
 	
-	public Ponii(String n, String d, String cm, String mother, String father, int aje, String imm, String mp, String code) {
+	public Ponii(String n, String d, String cm, String mother, String father, int aje, String imm, String tcm, String mp, String code) {
 		state = 5;
 		name = n;
 		desc = d;
@@ -77,9 +81,10 @@ public class Ponii {
 		impath = imm;	
 		musik = mp;
 		DNA = code;
+		cmpath = tcm;
 	}
 	
-	public Ponii(String n, String d, String cm, String mother, String father, String mato, int aje, String imm, String mp, String code) {
+	public Ponii(String n, String d, String cm, String mother, String father, String mato, int aje, String imm, String tcm, String mp, String code) {
 		state = 6;
 		name = n;
 		desc = d;
@@ -92,6 +97,7 @@ public class Ponii {
 		impath = imm;
 		musik = mp;
 		DNA = code;
+		cmpath = tcm;
 	}
 	
 	public Ponii() {
@@ -151,5 +157,8 @@ public class Ponii {
 	
 	public String getDNA() {
 		return DNA;
+	}
+	public String getCMPath() {
+		return cmpath;
 	}
 }

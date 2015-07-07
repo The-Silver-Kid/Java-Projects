@@ -52,7 +52,6 @@ public class Breeder {
 		String res = "00";
 		mother = init(md);
 		father = init(fd);
-		//String[] sa = new String[mother.length];
 		if (mother[1].equalsIgnoreCase("ERROR!") || father[1].equalsIgnoreCase("ERROR!")){
 			res = "Something went wrong...\n" + f.getName() + " and " + m.getName() + " did not want to breed.";
 		}

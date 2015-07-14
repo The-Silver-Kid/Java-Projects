@@ -53,6 +53,9 @@ public class CharMasterControl {
 			//
 			//  DO NOT MODIFY ANYTHING BEYOND THIS POINT!
 			//  IF YOU DO I WILL REVERT ALL YOUR HARD WORK...
+			//  AND DONT TELL ME I CANT DO THAT. BECAUSE I CAN.
+			//  I DON'T CARE IF IT LOOKS LIKE IT NEEDS TO BE CHANGED
+			//  IT DOESN'T.
 			//
 		} else if (args[0].equalsIgnoreCase("Subset")) {
 			Char c = new Char(

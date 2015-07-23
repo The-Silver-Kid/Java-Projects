@@ -1,12 +1,12 @@
 package DevTSK.Char;
 
 public class Ponii {
-	private int age = 0, nc = 0, state = 0;
+	private int age = 0, nc = 0, state = 0, dai = 0, month = 0, year = 0;
 	private String name = "", desc = "", cutii = "", m = "", f = "", mt = "", DNA = "Oops";
 	private String[] c = null;
 	private String impath = "/images/null.png", musik = "null.ogg", cmpath = "/images/null.png";
 	
-	public Ponii(String n, String d, String cm, String mother, String father, String mato, int aje, int chl, String[] childnames, String imm, String tcm, String code) {
+	public Ponii(String n, String d, String cm, String mother, String father, String mato, int aje, int chl, String[] childnames, String imm, String tcm, String code, int dy, int mn, int y) {
 		//Married with kids
 		state = 1;
 		name = n;
@@ -21,9 +21,12 @@ public class Ponii {
 		impath = imm;
 		DNA = code;
 		cmpath = tcm;
+		dai = dy;
+		month = mn;
+		year = y;
 	}
 	
-	public Ponii(String n, String d, String cm, String mother, String father, int aje, String imm, String tcm, String code) {
+	public Ponii(String n, String d, String cm, String mother, String father, int aje, String imm, String tcm, String code, int dy, int mn, int y) {
 		//Single
 		state = 2;
 		name = n;
@@ -35,9 +38,12 @@ public class Ponii {
 		impath = imm;
 		DNA = code;
 		cmpath = tcm;
+		dai = dy;
+		month = mn;
+		year = y;
 	}
 	
-	public Ponii(String n, String d, String cm, String mother, String father, String mato, int aje, String imm, String tcm, String code) {
+	public Ponii(String n, String d, String cm, String mother, String father, String mato, int aje, String imm, String tcm, String code, int dy, int mn, int y) {
 		//Married no kids
 		state = 3;
 		name = n;
@@ -51,9 +57,12 @@ public class Ponii {
 		impath = imm;
 		DNA = code;
 		cmpath = tcm;
+		dai = dy;
+		month = mn;
+		year = y;
 	}
 	
-	public Ponii(String n, String d, String cm, String mother, String father, String mato, int aje, int chl, String[] childnames, String imm, String tcm, String mp, String code) {
+	public Ponii(String n, String d, String cm, String mother, String father, String mato, int aje, int chl, String[] childnames, String imm, String tcm, String mp, String code, int dy, int mn, int y) {
 		state = 4;
 		name = n;
 		desc = d;
@@ -68,9 +77,12 @@ public class Ponii {
 		musik = mp;
 		DNA = code;
 		cmpath = tcm;
+		dai = dy;
+		month = mn;
+		year = y;
 	}
 	
-	public Ponii(String n, String d, String cm, String mother, String father, int aje, String imm, String tcm, String mp, String code) {
+	public Ponii(String n, String d, String cm, String mother, String father, int aje, String imm, String tcm, String mp, String code, int dy, int mn, int y) {
 		state = 5;
 		name = n;
 		desc = d;
@@ -82,9 +94,12 @@ public class Ponii {
 		musik = mp;
 		DNA = code;
 		cmpath = tcm;
+		dai = dy;
+		month = mn;
+		year = y;
 	}
 	
-	public Ponii(String n, String d, String cm, String mother, String father, String mato, int aje, String imm, String tcm, String mp, String code) {
+	public Ponii(String n, String d, String cm, String mother, String father, String mato, int aje, String imm, String tcm, String mp, String code, int dy, int mn, int y) {
 		state = 6;
 		name = n;
 		desc = d;
@@ -98,6 +113,9 @@ public class Ponii {
 		musik = mp;
 		DNA = code;
 		cmpath = tcm;
+		dai = dy;
+		month = mn;
+		year = y;
 	}
 	
 	public Ponii() {
@@ -160,5 +178,59 @@ public class Ponii {
 	}
 	public String getCMPath() {
 		return cmpath;
+	}
+	
+	public int getYear() {
+		return year;
+	}
+	
+	public int getDay() {
+		return dai;
+	}
+	
+	public String getMonth() {
+		String mnth = "";
+		switch (month){
+			case 0:
+				mnth = "null";
+				break;
+			case 1:
+				mnth = "January";
+				break;
+			case 2:
+				mnth = "Febuary";
+				break;
+			case 3:
+				mnth = "March";
+				break;
+			case 4:
+				mnth = "April";
+				break;
+			case 5:
+				mnth = "May";
+				break;
+			case 6:
+				mnth = "June";
+				break;
+			case 7:
+				mnth = "July";
+				break;
+			case 8:
+				mnth = "August";
+				break;
+			case 9:
+				mnth = "September";
+				break;
+			case 10:
+				mnth = "October";
+				break;
+			case 11:
+				mnth = "November";
+				break;
+			case 12:
+				mnth = "December";
+				break;
+		}
+		return mnth;
 	}
 }

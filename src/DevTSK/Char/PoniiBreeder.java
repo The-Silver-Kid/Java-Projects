@@ -50,7 +50,7 @@ public class PoniiBreeder {
 		} else if (!b && p > 0) {
 			m = CannonList[p];
 		} else if (b && p < 0 && s.length() == 78) {
-			m = new Ponii("Inputed Code:", "", "", "", "", 0, "",  "", s);
+			m = new Ponii("Inputed Code:", "", "", "", "", 0, "",  "", s, 0, 0, 0);
 		}
 		return m;
 	}
@@ -78,7 +78,7 @@ public class PoniiBreeder {
 		} else if (!b && p > 0) {
 			f = CannonList[p];
 		} else if (b && p < 0 && s.length() == 78) {
-			f = new Ponii("Inputed Code:", "", "", "", "", 0, "", "", s);
+			f = new Ponii("Inputed Code:", "", "", "", "", 0, "", "", s, 0, 0, 0);
 		}
 		return f;
 	}

@@ -322,6 +322,8 @@ public class Char {
 		poni.println();
 		poni.println("Description : " + tp.getDesc());
 		poni.println();
+		poni.println("Birthday : " + tp.getMonth() + " " + tp.getDay() + ", " + tp.getYear());
+		poni.println();
 		poni.println("Cutii Mark : " + tp.getCMDesc());
 		poni.println();
 		poni.println("Mother : " + tp.getMother());
@@ -346,6 +348,8 @@ public class Char {
 		poni.println();
 		poni.println("Description : " + tp.getDesc());
 		poni.println();
+		poni.println("Birthday : " + tp.getMonth() + " " + tp.getDay() + ", " + tp.getYear());
+		poni.println();
 		poni.println("Cutii Mark : " + tp.getCMDesc());
 		poni.println();
 		poni.println("Mother : " + tp.getMother());
@@ -364,6 +368,8 @@ public class Char {
 		poni.println("Age : " + tp.getAge());
 		poni.println();
 		poni.println("Description : " + tp.getDesc());
+		poni.println();
+		poni.println("Birthday : " + tp.getMonth() + " " + tp.getDay() + ", " + tp.getYear());
 		poni.println();
 		poni.println("Cutii Mark : " + tp.getCMDesc());
 		poni.println();

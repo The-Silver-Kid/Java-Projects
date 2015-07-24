@@ -66,6 +66,24 @@ public class Breeder {
 		return res;
 	}
 	
+	public String breedCol() {
+		String res = "00";
+		mother = initCol(md);
+		father = initCol(fd);
+		if (mother[1].equalsIgnoreCase("ERROR!") || father[1].equalsIgnoreCase("ERROR!")){
+			res = "Something went wrong...\n" + f.getName() + " and " + m.getName() + " did not want to breed.";
+		}
+		
+		for (int i = 0; i < mother.length; i ++){
+			int e = (int) (Math.random() * 2 + 1);
+			if (e == 1)
+				res = res + mother[i];
+			if (e == 2)
+				res = res + father[i];
+		}
+		return res;
+	}
+	
 	private String[] init(String s) {
 		String[] done = new String[47];
 		if (s.length() < 78 || s.length() > 78){
@@ -130,6 +148,66 @@ public class Breeder {
 				case 22:
 					done[i] = s.substring(pos, pos+4);
 					pos = pos + 4;
+				}
+			}
+		}
+		return done;
+	}
+	
+	private String[] initCol(String s) {
+		String[] done = new String[47];
+		if (s.length() < 78 || s.length() > 78){
+			done[1] = "ERROR!";
+		} else{
+			done[1] = "Error!";
+			int pos = 2;
+			for (int i = 0; i < done.length; i++){
+				switch (i) {
+				case 0:
+				case 1:
+				case 22:
+				case 24:
+				case 28:
+					done[i] = s.substring(pos, pos+2);
+					pos = pos + 2;
+					break;
+				case 2:
+				case 3:
+				case 4:
+				case 5:
+				case 8:
+				case 9:
+				case 10:
+				case 11:
+				case 12:
+				case 14:
+				case 15:
+				case 17:
+				case 18:
+				case 19:
+				case 20:
+				case 21:
+				case 23:
+				case 25:
+				case 29:
+				case 30:
+					done[i] = s.substring(pos, pos+1);
+					pos = pos + 1;
+					break;
+				case 16:
+					done[i] = s.substring(pos, pos+4);
+					pos = pos + 4;
+					break;
+				case 6:
+				case 7:
+				case 13:
+				case 26:
+				case 27:
+				case 31:
+				case 32:
+					done[i] = s.substring(pos, pos+6);
+					pos = pos + 6;
+					break;
 				}
 			}
 		}

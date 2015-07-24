@@ -420,30 +420,6 @@ public class Char {
 			extract(chars[i]);
 		}
 	}
-
-	public static double getDefVer() {
-		return 3.5;
-	}
-
-	public static String[] getDefinitions(int i) {
-		String[] ret = new String[] {};
-		if (i == 0)
-			ret = chars;
-		if (i == 1)
-			ret = allias;
-		if (i == 2)
-			ret = cannon;
-		return ret;
-	}
-
-	public static Ponii[] getPoniiDefinitions(int i) {
-		Ponii[] ret = new Ponii[] {};
-		if (i == 0)
-			ret = OC;
-		if (i == 1)
-			ret = show;
-		return ret;
-	}
 	
 	public void punch(){
 		poni.action.actionPerformed(null);

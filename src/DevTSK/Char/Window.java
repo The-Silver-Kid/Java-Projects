@@ -47,7 +47,6 @@ public class Window {
 	public JTextArea father;
 	public JTextArea result;
 	public JButton begin;
-	public final Action breed = new Breed();
 	
 	public Window(String n, int close, int x, int y, int CharRPWin){
 		if (CharRPWin == 0) {
@@ -117,54 +116,6 @@ public class Window {
 			musikS.setText("Music Off");
 			frmPoniiPic.getContentPane().add(musikS);
 		}
-		if (CharRPWin == 1) {
-			frmBreeder = new JFrame();
-			frmBreeder.getContentPane().setBackground(SystemColor.window);
-			frmBreeder.setIconImage(Toolkit.getDefaultToolkit().getImage(Window.class.getResource("/images/ikon.png")));
-			frmBreeder.setTitle(n);
-			frmBreeder.setBackground(SystemColor.window);
-			frmBreeder.setResizable(false);
-			frmBreeder.setBounds(x, y, 600, 175);
-			if (close == 0) {
-				frmBreeder.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-			} else if (close == 1) {
-				frmBreeder.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			} else {
-				try {
-					throw new UnexceptableContentException("Invalad Close Opperation");
-				} catch (UnexceptableContentException e) {
-					e.printStackTrace();
-					frmBreeder.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-				}
-			}
-			frmBreeder.getContentPane().setLayout(null);		
-			
-			mother = new JTextArea();
-			mother.setBounds(10, 10, 575, 20);
-			mother.setBackground(new Color(0xffffff));
-			mother.setForeground(new Color(0xff8989));
-			mother.setText("Mother:");
-			frmBreeder.getContentPane().add(mother);
-			
-			father = new JTextArea();
-			father.setBounds(10, 40, 575, 20);
-			father.setBackground(new Color(0xffffff));
-			father.setForeground(new Color(0x0000ff));
-			father.setText("Father:");
-			frmBreeder.getContentPane().add(father);
-			
-			result = new JTextArea();
-			result.setBounds(10, 70, 575, 20);
-			result.setBackground(new Color(0xffffff));
-			result.setForeground(new Color(0xff8989));
-			result.setEditable(false);
-			frmBreeder.getContentPane().add(result);
-			
-			begin = new JButton();
-			begin.setAction(breed);
-			begin.setBounds(10, 100, 575, 40);
-			frmBreeder.getContentPane().add(begin);
-		}
 	}
 	
 	private ImageIcon getImIcn(String sr) throws Exception {
@@ -203,18 +154,6 @@ public class Window {
 			}
 		}
 		
-	}
-	
-	private class Breed extends AbstractAction {
-		private static final long serialVersionUID = 3646194311743048047L;
-		public Breed() {
-			putValue(NAME, "Breed!");
-		}
-		public void actionPerformed(ActionEvent arg0) {
-			Breeder b = new Breeder(PoniiBreeder.getMother(), PoniiBreeder.getFather());
-			b.check();
-			result.setText(b.breed());
-		}
 	}
 	
 	public void plaimusik(String s){

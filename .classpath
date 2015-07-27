@@ -13,5 +13,6 @@
 			<attribute name="javadoc_location" value="jar:platform:/resource/Silver/lwjgl.zip!/doc"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="ini4j-0.5.4.jar" sourcepath="ini4j-0.5.4-jdk14.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

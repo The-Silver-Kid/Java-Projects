@@ -1,14 +1,15 @@
 package development;
 
-import DevTSK.Configurator.Config;
-import DevTSK.Configurator.ConfigHandler;
+import org.ini4j.*;
+import org.ini4j.Profile.Section;
 
 public class TestingEnv {
 
 	public static void main(String[] args) throws Exception {
-		Config c = new Config(1);
+		Ini ini = new Ini();
+		Section value = new Selection();
+		ini.add("Hi", value);
 		
-		ConfigHandler ch = new ConfigHandler("file://laul");
 	}
 
 }

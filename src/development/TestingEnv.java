@@ -5,9 +5,9 @@ import DAG.Config.Config;
 public class TestingEnv {
 
 	public static void main(String[] args) throws Exception {
-		Config c = new Config("");
+		Config c = new Config("./PoniiConfig.cfg");
 		
-		c.getBoolean("");
+		c.getBoolean("music");
 	}
 
 }

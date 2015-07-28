@@ -253,8 +253,8 @@ public class Config
 	public static boolean parseBoolean(String val) throws ConfigException
 	{
 		val = val.toLowerCase();
-		if (val == "true" || val == "1") return true;
-		if (val == "false" || val == "0") return false;
+		if (val.equalsIgnoreCase("true") || val.equalsIgnoreCase("1")) return true;
+		if (val.equalsIgnoreCase("false") || val.equalsIgnoreCase("0")) return false;
 		throw new ConfigException("Invalid boolean format");
 	}
 

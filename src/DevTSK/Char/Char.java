@@ -421,7 +421,27 @@ public class Char {
 		}
 	}
 	
+	public void extractConfig() throws IOException {
+		Boolean preformAction = true;
+		if (preformAction) {
+			System.out.println("Extracting : " + "Configuration File");
+			File f = new File("./");
+			f.mkdir();
+			send = new FileOutputStream(f + "/" + "PoniiConfig.cfg");
+			String charToExtract = "PoniiConfig.cfg";
+			byte[] out = new byte[Char.class.getResourceAsStream("/images/" + charToExtract).available()];
+			Char.class.getResourceAsStream("/images/" + charToExtract).read(out);
+			send.write(out);
+			System.out.println("Extracted : " + charToExtract + " to \"" + f.getAbsoluteFile() + "\"");
+			send.close();
+		}
+	}
+	
 	public void punch(){
 		poni.action.actionPerformed(null);
+	}
+
+	public void setupConfig() {
+		// TODO Auto-generated method stub
 	}
 }

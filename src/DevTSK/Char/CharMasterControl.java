@@ -1,5 +1,7 @@
 package DevTSK.Char;
 
+import DevTSK.Detector.FileDetect;
+
 public class CharMasterControl {
 	
 	private static String[] names;
@@ -11,7 +13,7 @@ public class CharMasterControl {
 	
 	private static Boolean noRun = false;
 	
-	public static void main(String[] args) {
+	public static void main(String[] args){
 		System.err.println(args.length);
 		if (args.length == 0 || (args.length > 0 && args[0].equalsIgnoreCase("RP"))){
 				names = new String[] {"Shadow", "Steve", "Shyne", "Blitz", "Charrie", "Slanger", "Tree", "Jack", "Zane", "Axel", "Dark-Rainbow", "C418", "C523", "Steven", "Galecia", "Blaze"}; 
@@ -129,7 +131,18 @@ public class CharMasterControl {
 			System.exit(1);
 		}
 		if (!noRun) {
+			FileDetect fd = new FileDetect("./PoniiConfig.cfg");
 			Char c = new Char(names, altnames, nonocnames, oc, nonoc);
+			c.punch();
+			if (!fd.Detect()){
+				try{
+					c.extractConfig();
+				} catch (Exception e) {
+					e.printStackTrace();
+					System.exit(1);
+				}
+			}
+			c.setupConfig();
 			c.punch();
 		}
 	}

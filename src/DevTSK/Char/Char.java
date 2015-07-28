@@ -3,6 +3,8 @@ package DevTSK.Char;
 import java.awt.Color;
 import java.io.*;
 
+import DAG.Config.Config;
+import DAG.Config.ConfigException;
 import DevTSK.Exception.*;
 
 public class Char {
@@ -441,7 +443,24 @@ public class Char {
 		poni.action.actionPerformed(null);
 	}
 
-	public void setupConfig() {
-		// TODO Auto-generated method stub
+	public void setupConfig() throws ConfigException {
+		Config c = new Config("./PoniiConfig.cfg");
+		
+		musik = c.getBoolean("music");
+		
+		int r = c.getInt("bgr"), g = c.getInt("bgg"), b = c.getInt("bgb");
+		poni.frmPoniiPic.getContentPane().setBackground(new Color(r, g, b));
+		
+		r = c.getInt("inbr"); g = c.getInt("inbg"); b = c.getInt("inbb");
+		poni.lblTextArea.setBackground(new Color(r, g, b));
+		
+		r = c.getInt("infr"); g = c.getInt("infg"); b = c.getInt("infb");
+		poni.lblTextArea.setForeground(new Color(r, g, b));
+		
+		r = c.getInt("outfr"); g = c.getInt("outfg"); b = c.getInt("outfb");
+		poni.lblInfo.setForeground(new Color(r, g, b));
+		
+		r = c.getInt("outbr"); g = c.getInt("outbg"); b = c.getInt("outbb");
+		poni.lblInfo.setBackground(new Color(r, g, b));
 	}
 }

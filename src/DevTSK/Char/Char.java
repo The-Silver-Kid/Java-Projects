@@ -23,7 +23,7 @@ public class Char {
 	private static final String[] commands = new String[] {
 		"Colour", "Color", "InputColour", "InputColor", "OutputColour", "OutputColor", "Music", "Exit",
 		"OutputTextColor", "InputTextColor", "OutputTextColour", "InputTextColour", "errorcheck" , "extract",
-		"breed", "breedrand", "last", "l", "lastcmd"
+		"breed", "breedrand", "last", "l", "lastcmd", "cfg", "config"
 	};
 	
 	private static Boolean musik = false;
@@ -244,6 +244,10 @@ public class Char {
 		}
 		if (sl[0].equalsIgnoreCase("last") || sl[0].equalsIgnoreCase("lastcmd") || sl[0].equalsIgnoreCase("l")){
 			poni.lblTextArea.setText(lastCmd);
+		}
+		if (sl[0].equalsIgnoreCase("cfg") || sl[0].equalsIgnoreCase("config")) {
+			System.out.println("Saving Configuration...");
+			System.err.println("I have no idea how to do this so...");
 		}
 	}
 

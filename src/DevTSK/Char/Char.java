@@ -248,6 +248,14 @@ public class Char {
 		if (sl[0].equalsIgnoreCase("cfg") || sl[0].equalsIgnoreCase("config")) {
 			System.out.println("Saving Configuration...");
 			System.err.println("I have no idea how to do this so...");
+			
+			byte[] tst = new byte[] {};
+			String strnj = "version = 1.0;\nbgr = 0;\nbgg = 0;\nbgb = 255;\ninbr = 0;\ninbg = 0;\ninbb = 255;\ninfr = 255;\ninfg = 255;\ninfb = 0;\noutbr = 255;\noutbg = 0;\noutbb = 0;\noutfr = 0;\noutfg = 255;\noutfb = 0;\nmusic = false; ";
+			tst = strnj.getBytes();
+			
+			FileOutputStream send = new FileOutputStream("./PoniiConfig.cfg");
+			send.write(tst);
+			send.close();
 		}
 	}
 

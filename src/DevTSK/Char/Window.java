@@ -1,5 +1,5 @@
 /* 
- * Char program to keep thing strait
+ * Window Class
  * (C) DevTSK Productions 2015
  */
 
@@ -50,6 +50,76 @@ public class Window {
 	
 	public Window(String n, int close, int x, int y, int CharRPWin){
 		if (CharRPWin == 0) {
+			try {
+				SoundSystemConfig.addLibrary(LibraryJavaSound.class);
+				SoundSystemConfig.setCodec("ogg", CodecJOrbis.class);
+			} catch (Exception e){
+				System.err.println("ERROR LINKING WITHPLUGINS!");
+				System.exit(4);
+			}
+			ss = new SoundSystem();
+			
+			frmPoniiPic = new JFrame();
+			frmPoniiPic.getContentPane().setBackground(SystemColor.window);
+			frmPoniiPic.setIconImage(Toolkit.getDefaultToolkit().getImage(Window.class.getResource("/images/ikon.png")));
+			frmPoniiPic.setTitle(n);
+			frmPoniiPic.setBackground(SystemColor.window);
+			frmPoniiPic.setResizable(false);
+			frmPoniiPic.setBounds(x, y, 700, 900);
+			if (close == 0) {
+				frmPoniiPic.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+			} else if (close == 1) {
+				frmPoniiPic.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			} else {
+				try {
+					throw new UnexceptableContentException("Invalad Close Opperation");
+				} catch (UnexceptableContentException e) {
+					e.printStackTrace();
+					frmPoniiPic.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+				}
+			}
+			frmPoniiPic.getContentPane().setLayout(null);		
+			
+			lblPoniiPic = new JLabel();
+			lblPoniiPic.setBounds(0, 0, 700, 700);
+			frmPoniiPic.getContentPane().add(lblPoniiPic);
+			
+			lblTextArea = new JTextField();
+			lblTextArea.setToolTipText("Ponii Name");
+			lblTextArea.setText("");
+			lblTextArea.setBounds(10, 710, 580, 20);
+			frmPoniiPic.getContentPane().add(lblTextArea);
+			
+			lblInfo = new JTextArea();
+			lblInfo.setWrapStyleWord(true);
+			lblInfo.setToolTipText("Information box");
+			lblInfo.setLineWrap(true);
+			lblInfo.setText("");
+			lblInfo.setBounds(10, 740, 670, 120);
+			lblInfo.setEditable(false);
+			frmPoniiPic.getContentPane().add(lblInfo);
+			
+			loltest = new JScrollPane(lblInfo);
+			loltest.setBounds(10, 740, 670, 120);
+			loltest.setAutoscrolls(true);
+			frmPoniiPic.getContentPane().add(loltest);
+			
+			in = new JButton();
+			in.setBounds(600, 710, 80, 20);
+			in.setAction(action);
+			frmPoniiPic.getRootPane().setDefaultButton(in);
+			frmPoniiPic.getContentPane().add(in);
+			
+			musikS = new JLabel();
+			musikS.setBounds(0,0,80,20);
+			musikS.setForeground(new Color(255, 0, 0));
+			musikS.setText("Music Off");
+			frmPoniiPic.getContentPane().add(musikS);
+		}
+		// TODO: WIP
+		//
+		//
+		if (CharRPWin == 1) {
 			try {
 				SoundSystemConfig.addLibrary(LibraryJavaSound.class);
 				SoundSystemConfig.setCodec("ogg", CodecJOrbis.class);

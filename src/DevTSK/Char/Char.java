@@ -265,7 +265,8 @@ public class Char {
 					+ "outfr = " + poni.lblInfo.getForeground().getRed() + ";\n"
 					+ "outfg = " + poni.lblInfo.getForeground().getGreen() + ";\n"
 					+ "outfb = " + poni.lblInfo.getForeground().getBlue() + ";\n\n"
-					+ "music = "+ musik.toString() + "; ";
+					+ "music = " + musik.toString() + ";\n";
+					//+ "frame = " + framew + ";";
 			tst = strnj.getBytes();
 			
 			FileOutputStream send = new FileOutputStream("./PoniiConfig.cfg");
@@ -475,6 +476,10 @@ public class Char {
 		
 		musik = c.getBoolean("music");
 		
+		if (c.getBoolean("sep")) {
+			poni = new Window("Ponii Program 3.0", 1, 0, 0, 1);
+		}
+		
 		int r = c.getInt("bgr"), g = c.getInt("bgg"), b = c.getInt("bgb");
 		poni.frmPoniiPic.getContentPane().setBackground(new Color(r, g, b));
 		
@@ -489,5 +494,7 @@ public class Char {
 		
 		r = c.getInt("outbr"); g = c.getInt("outbg"); b = c.getInt("outbb");
 		poni.lblInfo.setBackground(new Color(r, g, b));
+		
+		
 	}
 }

@@ -247,10 +247,25 @@ public class Char {
 		}
 		if (sl[0].equalsIgnoreCase("cfg") || sl[0].equalsIgnoreCase("config")) {
 			System.out.println("Saving Configuration...");
-			System.err.println("I have no idea how to do this so...");
 			
 			byte[] tst = new byte[] {};
-			String strnj = "version = 1.0;\nbgr = 0;\nbgg = 0;\nbgb = 255;\ninbr = 0;\ninbg = 0;\ninbb = 255;\ninfr = 255;\ninfg = 255;\ninfb = 0;\noutbr = 255;\noutbg = 0;\noutbb = 0;\noutfr = 0;\noutfg = 255;\noutfb = 0;\nmusic = false; ";
+			String strnj = "version = 1.0;\n\n"
+					+ "bgr = " + poni.frmPoniiPic.getContentPane().getBackground().getRed() +";\n"
+					+ "bgg = " + poni.frmPoniiPic.getContentPane().getBackground().getGreen() +";\n"
+					+ "bgb = " + poni.frmPoniiPic.getContentPane().getBackground().getBlue() + ";\n\n"
+					+ "inbr = " + poni.lblTextArea.getBackground().getRed() + ";\n"
+					+ "inbg = " + poni.lblTextArea.getBackground().getGreen() + ";\n"
+					+ "inbb = " + poni.lblTextArea.getBackground().getBlue() + ";\n\n"
+					+ "infr = " + poni.lblTextArea.getForeground().getRed() + ";\n"
+					+ "infg = " + poni.lblTextArea.getForeground().getGreen() + ";\n"
+					+ "infb = " + poni.lblTextArea.getForeground().getBlue() + ";\n\n"
+					+ "outbr = " + poni.lblInfo.getBackground().getRed() + ";\n"
+					+ "outbg = " + poni.lblInfo.getBackground().getGreen() + ";\n"
+					+ "outbb = " + poni.lblInfo.getBackground().getBlue() + ";\n\n"
+					+ "outfr = " + poni.lblInfo.getForeground().getRed() + ";\n"
+					+ "outfg = " + poni.lblInfo.getForeground().getGreen() + ";\n"
+					+ "outfb = " + poni.lblInfo.getForeground().getBlue() + ";\n\n"
+					+ "music = "+ musik.toString() + "; ";
 			tst = strnj.getBytes();
 			
 			FileOutputStream send = new FileOutputStream("./PoniiConfig.cfg");

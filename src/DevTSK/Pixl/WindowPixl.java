@@ -16,7 +16,7 @@ public class WindowPixl {
 	public static JButton X;
 	
 	public JFrame Gameui;
-	public static JLabel GameFrame;
+	public JLabel GameFrame;
 	public static Boolean gamerunning;
 	
 	public static final Action Easy = new setEasy();

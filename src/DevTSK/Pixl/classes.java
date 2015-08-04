@@ -12,6 +12,12 @@ class setEasy extends AbstractAction {
 	}
 	public void actionPerformed(ActionEvent arg0) {
 		//TODO
+		Main.bad = 10;
+		
+		Main.Host.Menui.setVisible(false);
+		Main.Host.Gameui.setVisible(true);
+		
+		WindowPixl.gamerunning = true;
 	}
 	
 }
@@ -24,6 +30,7 @@ class setHard extends AbstractAction {
 	}
 	public void actionPerformed(ActionEvent arg0) {
 		//TODO
+		Main.bad = 50;
 	}
 	
 }
@@ -36,6 +43,7 @@ class setMedi extends AbstractAction {
 	}
 	public void actionPerformed(ActionEvent arg0) {
 		//TODO
+		Main.bad = 20;
 	}
 	
 }

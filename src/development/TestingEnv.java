@@ -1,12 +1,12 @@
 package development;
 
-import DevTSK.Pixl.*;
+import DevTSK.Pixl.WindowPixl;
 
 public class TestingEnv {
 
 	public static void main(String[] args) throws Exception {
-		WindowPixl wp = new WindowPixl();
-		wp.Menui.setVisible(true);
+		WindowPixl w = new WindowPixl();
+		w.Menui.setVisible(true);
 	}
 
 }

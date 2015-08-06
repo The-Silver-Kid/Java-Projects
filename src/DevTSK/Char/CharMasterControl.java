@@ -17,8 +17,8 @@ public class CharMasterControl {
 	public static void main(String[] args){
 		System.err.println(args.length);
 		if (args.length == 0 || (args.length > 0 && args[0].equalsIgnoreCase("RP"))){
-				names = new String[] {"Shadow", "Steve", "Shyne", "Blitz", "Charrie", "Slanger", "Tree", "Jack", "Zane", "Axel", "Dark-Rainbow", "C418", "C523", "Steven", "Galecia", "Blaze"}; 
-				altnames = new String[] {"Radon", "Orange", "Shyne", "Jet", "Firefly", "Radium", "Tree", "Jack", "Zane", "Axel", "Dark", "C4", "C5", "Pizza-ponii", "Galecia", "Blazer"}; 
+				names = new String[] {"Shadow", "Steve", "Shyne", "Blitz", "Charrie", "Slanger", "Tree", "Jack", "Zane", "Axel", "Dark-Rainbow", "C418", "C523", "Steven", "Galecia", "Blaze", "Sean"}; 
+				altnames = new String[] {"Radon", "Orange", "Shyne", "Jet", "Firefly", "Radium", "Tree", "Jack", "Zane", "Axel", "Dark", "C4", "C5", "Pizza-ponii", "Galecia", "Blazer", "Sean"}; 
 				nonocnames = new String[] {"Sunset-Shimmer", "Apple-Jack", "Rainbow-Dash"};
 				oc = new Ponii[] {
 					/* Married with kids: Name, Description, Cutii Mark, Mother, Father, Married to, INT age, INT amount of kids, STRING[] child names, Image path, CMImage path, PonycreatorV2 code, INT Birth day, INT birth month, INT birth year
@@ -31,7 +31,6 @@ public class CharMasterControl {
 					 * DO NOT FOR ANY REASON PUT THE CUTII MARK DESCRIPTION IN THE PONII DESCRIPTION! IF YOU DO I WILL HUNT YOU DOWN!
 					 *
 					 */
-						//132S000000818C0046540001000B700FEUN1837002000001H100BAAB00FFFE1G107F3FCC004CB2 sean code
 						//Destoliar
 					new Ponii("Shadow Radon", "\nStallion\nUnicorn\nBlack Coloured\nYellow Thunderbolt accross underside\nYellow Thunderbolts arround hooves\nYellow and Black mane\nLight Industries Member", "\nBlack Thundercloud with a yellow thunderbolt coming from it", "Charrie", "Slanger", "Apple Jack", 22, 2, new String[] {"Tree Lighting", "Shadow Jack"}, "radon.png", "null.png", "bgm.ogg", "3037000200000000FEFF0003001FFFF00TM183720202000141000000FFFF001B107F3FCC004CB2", 20, 7, 1993),
 					new Ponii("Steve (Orange) Radon", "\nStallion\nPegaus\nDark Orange Coloured\nWing style that of a alicorn\nMane colour is same as body colour but has a yellow streak in it\nGigaplex Member", "\nWind marks in frount of a double edged sword.", "Charrie", "Slanger", 19, "orange.png", "null.png", "2S2S000200FF8800FFFF0003001FF0000UN183720F02000141FF8800FFFF001B107F3FCC004CB2", 20, 9, 1996),
@@ -48,7 +47,8 @@ public class CharMasterControl {
 					new Ponii("C523 (C5)", "\nMare\nCream sort of colour\nAnother machine ponii built by radon however she was built for C4 to have a friend\nHas the same coloured mane as AJ", "\nDosent have one because she is a machine", "N/A", "Shadow Radon", "C418", 3, "C5.png", "null.png", "2S2S000000FDFEDF8000000000100FF00UN1837000000000N0F9FD729F4F4F0J107F3FCC004CB2", 12, 3, 2012),
 					new Ponii("Steven Stralanger", "\nStallion\nPegasus\nLight brown coloured\nDelivers Pizza\nLikes Blitz", "\nPizza slice", "Splater", "Plazza", 17, "steven.png", "null.png", "2S3H0000109F9F4F008AFF00000AFAFAFUN1837000000001D1DA5E11ADE51112107F3FCC004CB2", 28, 2, 1998),
 					new Ponii("Galecia Frostia", "\nMare\nUnicorn\nLight blue coloured\nWas Radon's Marefriend for a while. Likes the cold\nMane Even Lighter Blue", "\nIcicle", "Krystla", "Starliner", 20, "Galecia.png", "null.png", "2W2O0001000095B900CCCC030010080FFUN1837000000000N10080FF00C0FF0N107F3FCC004CB2", 28, 4, 1995),
-					new Ponii("Blaze ?", "\nStallion\nUnicorn\nCross Breed of Ponii and Quilava\nUsually not seen as his dad prefers to keep him hidden\nHe likes the Tree Radon.\nMane is firelike", "\nDosent have it yet...\nVolcanic storm", "Lavé", "Sharader", 4, "blaze.png", "null.png", "002S000200000000FF800003000F00000UN1839200210001D18000004000001B01800000400000", 19, 11, 2001)
+					new Ponii("Blaze ?", "\nStallion\nUnicorn\nCross Breed of Ponii and Quilava\nUsually not seen as his dad prefers to keep him hidden\nHe likes the Tree Radon.\nMane is firelike", "\nDosent have it yet...\nVolcanic storm", "Lavé", "Sharader", 4, "blaze.png", "null.png", "002S000200000000FF800003000F00000UN1839200210001D18000004000001B01800000400000", 19, 11, 2001),
+					new Ponii("Sean", "", "Music Note", "", "", 5, "null.png", "null.png", "132S000000818C0046540001000B700FEUN1837002000001H100BAAB00FFFE1G107F3FCC004CB2", 13, 7, 2008)
 				}; 
 				nonoc = new Ponii[] {
 					new Ponii("Sunset Shimmer", "\nMare\nUnicorn\nYou know from EQG?", "\nThe yellow and red sun thing", "?", "?", 19, "null.png", "null.png", "null", 16, 8, 1996),

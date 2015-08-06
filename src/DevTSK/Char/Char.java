@@ -265,7 +265,8 @@ public class Char {
 					+ "outfr = " + poni.lblInfo.getForeground().getRed() + ";\n"
 					+ "outfg = " + poni.lblInfo.getForeground().getGreen() + ";\n"
 					+ "outfb = " + poni.lblInfo.getForeground().getBlue() + ";\n\n"
-					+ "music = " + musik.toString() + ";\n";
+					+ "music = " + musik.toString() + ";\n"
+					+ "sep = " + "false;";
 					//+ "frame = " + framew + ";";
 			tst = strnj.getBytes();
 			
@@ -307,6 +308,7 @@ public class Char {
 		}
 		try{ 
 			poni.lblPoniiPic.setIcon(poni.getImageIcn("/images/" + OC[i].getImagePath()));
+			poni.lblCMPic.setIcon(poni.getImageIcn("/images/" + OC[i].getCMPath()));
 		} catch (IOException e) {
 			System.out.println("This Shouldn't Have Happened... But it did...");
 			e.printStackTrace();
@@ -338,6 +340,7 @@ public class Char {
 		}
 		try{ 
 			poni.lblPoniiPic.setIcon(poni.getImageIcn("/images/" + show[i].getImagePath()));
+			poni.lblCMPic.setIcon(poni.getImageIcn("/images/" + show[i].getCMPath()));
 		} catch (IOException e) {
 			System.out.println("This Shouldn't Have Happened... But it did...");
 			e.printStackTrace();

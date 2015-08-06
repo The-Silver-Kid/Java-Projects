@@ -4,7 +4,7 @@ public class Ponii {
 	private int age = 0, nc = 0, state = 0, dai = 0, month = 0, year = 0;
 	private String name = "", desc = "", cutii = "", m = "", f = "", mt = "", DNA = "Oops";
 	private String[] c = null;
-	private String impath = "/images/null.png", musik = "null.ogg", cmpath = "/images/null.png";
+	private String impath = "null.png", musik = "null.ogg", cmpath = "null.png";
 	
 	public Ponii(String n, String d, String cm, String mother, String father, String mato, int aje, int chl, String[] childnames, String imm, String tcm, String code, int dy, int mn, int y) {
 		//Married with kids

@@ -34,6 +34,7 @@ public class Window {
 	public JFrame frmPoniiPic;
 	public final Action action = new SwingAction();
 	public JLabel lblPoniiPic;
+	public JLabel lblCMPic;
 	public JTextField lblTextArea;
 	public JTextArea lblInfo;
 	public JScrollPane loltest;
@@ -83,6 +84,10 @@ public class Window {
 			lblPoniiPic = new JLabel();
 			lblPoniiPic.setBounds(0, 0, 700, 700);
 			frmPoniiPic.getContentPane().add(lblPoniiPic);
+			
+			lblCMPic = new JLabel();
+			lblCMPic.setBounds(350, 0, 350, 350);
+			frmPoniiPic.getContentPane().add(lblCMPic);
 			
 			lblTextArea = new JTextField();
 			lblTextArea.setToolTipText("Ponii Name");

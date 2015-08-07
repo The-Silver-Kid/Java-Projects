@@ -278,6 +278,7 @@ public class Char {
 
 	private static void getOCInfo(int i) {
 		int s = OC[i].getState(474201);
+		System.out.println(s);
 		poni.printCl();
 		if (s == 1) {
 			getInfoMWK(OC[i]);

@@ -1,4 +1,4 @@
-package DevTSK.Pixl;
+package projectArchive.Pixl;
 
 import java.awt.Toolkit;
 import java.awt.event.KeyListener;
@@ -16,7 +16,7 @@ public class WindowPixl {
 	public static JButton X;
 	
 	public JFrame Gameui;
-	public JLabel GameFrame;
+	public JApplet GameFrame;
 	public static Boolean gamerunning;
 	
 	public static final Action Easy = new setEasy();
@@ -57,7 +57,7 @@ public class WindowPixl {
 		Gameui = new JFrame();
 		int w = (int) Toolkit.getDefaultToolkit().getScreenSize().getWidth();
 		int h = (int) Toolkit.getDefaultToolkit().getScreenSize().getHeight();
-		if (w > 500 || h > 500) {
+		if (w < 500 || h < 500) {
 			Gameui.setBounds(0, 0, 200, 200);
 			Main.b = false;
 		} else {
@@ -70,7 +70,7 @@ public class WindowPixl {
 		Gameui.getContentPane().setVisible(false);
 		Gameui.getContentPane().setLayout(null);
 		
-		GameFrame = new JLabel();
+		GameFrame = new JApplet();
 		GameFrame.setBounds(Gameui.getBounds());
 		Gameui.getContentPane().add(GameFrame);
 		

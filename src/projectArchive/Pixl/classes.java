@@ -1,4 +1,4 @@
-package DevTSK.Pixl;
+package projectArchive.Pixl;
 
 import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
@@ -11,7 +11,6 @@ class setEasy extends AbstractAction {
 		putValue(SHORT_DESCRIPTION, "Easy, 10 Baddies");
 	}
 	public void actionPerformed(ActionEvent arg0) {
-		//TODO
 		Main.bad = 10;
 		
 		Main.Host.Menui.setVisible(false);
@@ -29,8 +28,13 @@ class setHard extends AbstractAction {
 		putValue(SHORT_DESCRIPTION, "Hard, 50 Baddies");
 	}
 	public void actionPerformed(ActionEvent arg0) {
-		//TODO
 		Main.bad = 50;
+		
+		Main.Host.Menui.setVisible(false);
+		Main.Host.Gameui.setVisible(true);
+		
+		WindowPixl.gamerunning = true;
+		
 	}
 	
 }
@@ -42,8 +46,12 @@ class setMedi extends AbstractAction {
 		putValue(SHORT_DESCRIPTION, "Medium, 20 Baddies");
 	}
 	public void actionPerformed(ActionEvent arg0) {
-		//TODO
 		Main.bad = 20;
+		
+		Main.Host.Menui.setVisible(false);
+		Main.Host.Gameui.setVisible(true);
+		
+		WindowPixl.gamerunning = true;
 	}
 	
 }

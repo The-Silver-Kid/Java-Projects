@@ -49,7 +49,7 @@ public class CharMasterControl {
 					new Ponii("Galecia Frostia", "\nMare\nUnicorn\nLight blue coloured\nWas Radon's Marefriend for a while. Likes the cold\nMane Even Lighter Blue", "\nIcicle", "Krystla", "Starliner", 20, "Galecia.png", "null.png", "2W2O0001000095B900CCCC030010080FFUN1837000000000N10080FF00C0FF0N107F3FCC004CB2", 28, 4, 1995),
 					new Ponii("Blaze ?", "\nStallion\nUnicorn\nCross Breed of Ponii and Quilava\nUsually not seen as his dad prefers to keep him hidden\nHe likes the Tree Radon.\nMane is firelike", "\nDosent have it yet...\nVolcanic storm", "Lavé", "Sharader", 4, "blaze.png", "null.png", "002S000200000000FF800003000F00000UN1839200210001D18000004000001B01800000400000", 19, 11, 2001),
 					new Ponii("Sean", "\nStallion\nEarth Ponii\nDarkish yellow-brown\nA kid with a talent\nmint Blue mane", "Music Note", "", "", 5, "Sean.png", "null.png", "Sean.ogg", "132S000000818C0046540001000B700FEUN1837002000001H100BAAB00FFFE1G107F3FCC004CB2", 13, 7, 2008),
-					new Ponii(/*Destoliar*/)
+					new Ponii("Destoliar", "\nStallion\nShadow Ponii\nBlack\nLooking for somepony called Krystla Frostia\nBlack with stars", "\nHmm", "Nijyte", "Sholdrio", 3126, "Dest.png", "Dst.png", "2S2S000000000000FFC49D00001200080UN1837204000001D10000000000000L01000000000000", 1, 1, -1111)
 				}; 
 				nonoc = new Ponii[] {
 					new Ponii("Sunset Shimmer", "\nMare\nUnicorn\nYou know from EQG?", "\nThe yellow and red sun thing", "?", "?", 19, "null.png", "null.png", "null", 16, 8, 1996),
@@ -57,6 +57,7 @@ public class CharMasterControl {
 					new Ponii("Rainbow Dash", "\nMare\nPegasus\nRainbow Dash... need i say more?", "\nThe Rainbow lightning bolt", "?", "?", "Dark Rainbow", 23, "RD.png", "null.png", "2S2S0000207ADAFFFFC49D00001C6006FUN1837000000000O07F3FCCFF7FFF0M107F3FCC004CB2", 5, 4, 1992),
 				};
 		} else if (args[0].equalsIgnoreCase("Hill")){
+				// Your OC set and stuff here
 				//OC NAME
 				names = new String[] {};
 				// OC ALT NAME

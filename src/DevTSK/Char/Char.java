@@ -88,6 +88,7 @@ public class Char {
 		poni.lblTextArea.setText("");
 		try {
 			poni.lblPoniiPic.setIcon(poni.getImageIcn("/images/null.png"));
+			poni.lblCMPic.setIcon(poni.getImageIcn("/images/null.png"));
 		} catch (IOException e) {
 		}
 		if (handler >= 0) {
@@ -356,7 +357,10 @@ public class Char {
 		poni.println();
 		poni.println("Description : " + tp.getDesc());
 		poni.println();
-		poni.println("Birthday : " + tp.getMonth() + " " + tp.getDay() + ", " + tp.getYear());
+		if (tp.getYear() >= 0)
+			poni.println("Birthday : " + tp.getMonth() + " " + tp.getDay() + ", " + tp.getYear());
+		if (tp.getYear() < 0)
+			poni.println("Birthday : " + tp.getMonth() + " " + tp.getDay() + ", " + (tp.getYear() * -1) + "BC");
 		poni.println();
 		poni.println("Cutii Mark : " + tp.getCMDesc());
 		poni.println();
@@ -382,7 +386,10 @@ public class Char {
 		poni.println();
 		poni.println("Description : " + tp.getDesc());
 		poni.println();
-		poni.println("Birthday : " + tp.getMonth() + " " + tp.getDay() + ", " + tp.getYear());
+		if (tp.getYear() >= 0)
+			poni.println("Birthday : " + tp.getMonth() + " " + tp.getDay() + ", " + tp.getYear());
+		if (tp.getYear() < 0)
+			poni.println("Birthday : " + tp.getMonth() + " " + tp.getDay() + ", " + (tp.getYear() * -1) + "BC");
 		poni.println();
 		poni.println("Cutii Mark : " + tp.getCMDesc());
 		poni.println();
@@ -403,7 +410,10 @@ public class Char {
 		poni.println();
 		poni.println("Description : " + tp.getDesc());
 		poni.println();
-		poni.println("Birthday : " + tp.getMonth() + " " + tp.getDay() + ", " + tp.getYear());
+		if (tp.getYear() >= 0)
+			poni.println("Birthday : " + tp.getMonth() + " " + tp.getDay() + ", " + tp.getYear());
+		if (tp.getYear() < 0)
+			poni.println("Birthday : " + tp.getMonth() + " " + tp.getDay() + ", " + (tp.getYear() * -1) + "BC");
 		poni.println();
 		poni.println("Cutii Mark : " + tp.getCMDesc());
 		poni.println();

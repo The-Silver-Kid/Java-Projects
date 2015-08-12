@@ -104,6 +104,7 @@ public class FileRead {
 		num.setText("15");
 		num.setForeground(SystemColor.windowText);
 		num.setBackground(SystemColor.window);
+		num.setEditable(true);
 		fileFrame.getContentPane().add(num);
 		
 		en = new JButton();

@@ -31,7 +31,6 @@ public class CharMasterControl {
 					 * DO NOT FOR ANY REASON PUT THE CUTII MARK DESCRIPTION IN THE PONII DESCRIPTION! IF YOU DO I WILL HUNT YOU DOWN!
 					 *
 					 */
-						//Destoliar
 					new Ponii("Shadow Radon", "\nStallion\nUnicorn\nBlack Coloured\nYellow Thunderbolt accross underside\nYellow Thunderbolts arround hooves\nYellow and Black mane\nLight Industries Member", "\nBlack Thundercloud with a yellow thunderbolt coming from it", "Charrie", "Slanger", "Apple Jack", 22, 2, new String[] {"Tree Lighting", "Shadow Jack"}, "radon.png", "Kloud.png", "bgm.ogg", "3037000200000000FEFF0003001FFFF00TM183720202000141000000FFFF001B107F3FCC004CB2", 20, 7, 1993),
 					new Ponii("Steve (Orange) Radon", "\nStallion\nPegaus\nDark Orange Coloured\nWing style that of a alicorn\nMane colour is same as body colour but has a yellow streak in it\nGigaplex Member", "\nWind marks in frount of a double edged sword.", "Charrie", "Slanger", 19, "orange.png", "null.png", "2S2S000200FF8800FFFF0003001FF0000UN183720F02000141FF8800FFFF001B107F3FCC004CB2", 20, 9, 1996),
 					new Ponii("Shyne Radon", "\nMare\nEarth Ponii\nLight Blue Coloured\ncoat sparkles when exposed to light\nMane colour is a bit brighter then body color\nPrefers to not take sides", "\nA devide simbol with green lines connecting the sides", "Charrie", "Slanger", 20, "shyne.png", "null.png", "2S3H000004006FFF008AFF000010000FFUN183700300000141009FFF007FFF1B107F3FCC004CB2", 4, 6, 1995),

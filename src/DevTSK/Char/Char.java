@@ -491,7 +491,12 @@ public class Char {
 		musik = c.getBoolean("music");
 		
 		if (c.getBoolean("sep")) {
+			poni.frmPoniiPic.setVisible(false);
 			poni = new Window("Ponii Program 3.0", 1, 0, 0, 1);
+			poni.frmPoniiPic.setVisible(true);
+			poni.frmPoniiPicCont.setVisible(true);
+			int r = c.getInt("bgr"), g = c.getInt("bgg"), b = c.getInt("bgb");
+			poni.frmPoniiPicCont.getContentPane().setBackground(new Color(r, g, b));
 		}
 		
 		int r = c.getInt("bgr"), g = c.getInt("bgg"), b = c.getInt("bgb");
@@ -508,7 +513,5 @@ public class Char {
 		
 		r = c.getInt("outbr"); g = c.getInt("outbg"); b = c.getInt("outbb");
 		poni.lblInfo.setBackground(new Color(r, g, b));
-		
-		
 	}
 }

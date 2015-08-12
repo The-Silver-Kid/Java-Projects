@@ -32,6 +32,8 @@ import paulscode.sound.libraries.LibraryJavaSound;
 
 public class Window {
 	public JFrame frmPoniiPic;
+	public JFrame frmPoniiPicCont;
+	
 	public final Action action = new SwingAction();
 	public JLabel lblPoniiPic;
 	public JLabel lblCMPic;
@@ -42,12 +44,6 @@ public class Window {
 	public String handler = "";
 	public SoundSystem ss;
 	public JLabel musikS;
-	
-	public JFrame frmBreeder;
-	public JTextArea mother;
-	public JTextArea father;
-	public JTextArea result;
-	public JButton begin;
 	
 	public Window(String n, int close, int x, int y, int CharRPWin){
 		if (CharRPWin == 0) {
@@ -137,10 +133,10 @@ public class Window {
 			frmPoniiPic = new JFrame();
 			frmPoniiPic.getContentPane().setBackground(SystemColor.window);
 			frmPoniiPic.setIconImage(Toolkit.getDefaultToolkit().getImage(Window.class.getResource("/images/ikon.png")));
-			frmPoniiPic.setTitle(n);
+			frmPoniiPic.setTitle(n + " Picture Window");
 			frmPoniiPic.setBackground(SystemColor.window);
 			frmPoniiPic.setResizable(false);
-			frmPoniiPic.setBounds(x, y, 700, 900);
+			frmPoniiPic.setBounds(x, y, 700, 700);
 			if (close == 0) {
 				frmPoniiPic.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 			} else if (close == 1) {
@@ -153,7 +149,17 @@ public class Window {
 					frmPoniiPic.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 				}
 			}
-			frmPoniiPic.getContentPane().setLayout(null);		
+			frmPoniiPic.getContentPane().setLayout(null);
+			
+			frmPoniiPicCont = new JFrame();
+			frmPoniiPicCont.getContentPane().setBackground(SystemColor.window);
+			frmPoniiPicCont.setIconImage(Toolkit.getDefaultToolkit().getImage(Window.class.getResource("/images/ikon.png")));
+			frmPoniiPicCont.setTitle(n + " Control Window");
+			frmPoniiPicCont.setBackground(SystemColor.window);
+			frmPoniiPicCont.setResizable(false);
+			frmPoniiPicCont.setBounds(x + 700, y, 705, 200);
+			frmPoniiPicCont.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+			frmPoniiPicCont.getContentPane().setLayout(null);
 			
 			lblPoniiPic = new JLabel();
 			lblPoniiPic.setBounds(0, 0, 700, 700);
@@ -166,28 +172,28 @@ public class Window {
 			lblTextArea = new JTextField();
 			lblTextArea.setToolTipText("Ponii Name");
 			lblTextArea.setText("");
-			lblTextArea.setBounds(10, 710, 580, 20);
-			frmPoniiPic.getContentPane().add(lblTextArea);
+			lblTextArea.setBounds(10, 10, 580, 20);
+			frmPoniiPicCont.getContentPane().add(lblTextArea);
 			
 			lblInfo = new JTextArea();
 			lblInfo.setWrapStyleWord(true);
 			lblInfo.setToolTipText("Information box");
 			lblInfo.setLineWrap(true);
 			lblInfo.setText("");
-			lblInfo.setBounds(10, 740, 670, 120);
+			lblInfo.setBounds(10, 40, 670, 120);
 			lblInfo.setEditable(false);
-			frmPoniiPic.getContentPane().add(lblInfo);
+			frmPoniiPicCont.getContentPane().add(lblInfo);
 			
 			loltest = new JScrollPane(lblInfo);
-			loltest.setBounds(10, 740, 670, 120);
+			loltest.setBounds(10, 40, 670, 120);
 			loltest.setAutoscrolls(true);
-			frmPoniiPic.getContentPane().add(loltest);
+			frmPoniiPicCont.getContentPane().add(loltest);
 			
 			in = new JButton();
-			in.setBounds(600, 710, 80, 20);
+			in.setBounds(600, 10, 80, 20);
 			in.setAction(action);
-			frmPoniiPic.getRootPane().setDefaultButton(in);
-			frmPoniiPic.getContentPane().add(in);
+			frmPoniiPicCont.getRootPane().setDefaultButton(in);
+			frmPoniiPicCont.getContentPane().add(in);
 			
 			musikS = new JLabel();
 			musikS.setBounds(0,0,80,20);

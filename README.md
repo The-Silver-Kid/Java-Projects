@@ -1,11 +1,20 @@
 # Java Things.
-Random Java projects I make because I'm ether bored, want to, xor both.
+Random Java projects I make because I'm either bored, want to, xor both.
 
 ```
-while (i.amAlive() == true) : do Java.run.this
+while (i.amAlive()){
+	i.setCodeing(true);
+	i.setAwesome(true);
+}
 ```
 
 I Am The-Silver-Kid.
 
-Signed: 
+###Signed: 
 ¡µ²¬ ¶¹Ã²¿¬¶±
+
+## Eclipse
+
+Any version of Eclipse should work.
+
+In the event that it doesn't use Eclipse Luna, Kepler, or Mars.

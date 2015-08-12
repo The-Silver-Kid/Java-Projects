@@ -157,7 +157,7 @@ public class Window {
 			frmPoniiPicCont.setTitle(n + " Control Window");
 			frmPoniiPicCont.setBackground(SystemColor.window);
 			frmPoniiPicCont.setResizable(false);
-			frmPoniiPicCont.setBounds(x + 700, y, 705, 200);
+			frmPoniiPicCont.setBounds(x + 700, y, 700, 500);
 			frmPoniiPicCont.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 			frmPoniiPicCont.getContentPane().setLayout(null);
 			
@@ -180,12 +180,12 @@ public class Window {
 			lblInfo.setToolTipText("Information box");
 			lblInfo.setLineWrap(true);
 			lblInfo.setText("");
-			lblInfo.setBounds(10, 40, 670, 120);
+			lblInfo.setBounds(10, 40, 670, 420);
 			lblInfo.setEditable(false);
 			frmPoniiPicCont.getContentPane().add(lblInfo);
 			
 			loltest = new JScrollPane(lblInfo);
-			loltest.setBounds(10, 40, 670, 120);
+			loltest.setBounds(lblInfo.getBounds());
 			loltest.setAutoscrolls(true);
 			frmPoniiPicCont.getContentPane().add(loltest);
 			

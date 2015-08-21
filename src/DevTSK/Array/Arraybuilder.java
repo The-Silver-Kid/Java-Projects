@@ -8,7 +8,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 
 import javax.swing.*;
-
+// ur a nerd
 public class Arraybuilder {
 	
 	private JFrame window;

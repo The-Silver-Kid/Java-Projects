@@ -6,7 +6,7 @@ import java.io.*;
 import DAG.Config.Config;
 import DAG.Config.ConfigException;
 import DevTSK.Exception.*;
-
+//5
 public class Char {
 	//private static final File f = new File("./config/Poniiconfig.ini");
 	private static String lastCmd;

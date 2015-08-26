@@ -3,7 +3,7 @@ package DevTSK.Char;
 public class Ponii {
 	private int age = 0, nc = 0, state = 0, dai = 0, month = 0, year = 0;
 	private String name = "", desc = "", cutii = "", m = "", f = "", mt = "", DNA = "Oops";
-	private String[] c = null;
+	private String[] c = null, w = null;
 	private String impath = "null.png", musik = "null.ogg", cmpath = "null.png";
 	
 	public Ponii(String n, String d, String cm, String mother, String father, String mato, int aje, int chl, String[] childnames, String imm, String tcm, String code, int dy, int mn, int y) {
@@ -118,6 +118,50 @@ public class Ponii {
 		year = y;
 	}
 	
+	public Ponii(String n, String d, String cm, String mother, String father, int aje, int chl, String[] childnames, String[] kidswith, String imm, String tcm, String code, int dy, int mn, int y) {
+		//Not married with kids
+		if (kidswith.length == childnames.length) {
+			state = 7;
+			w = kidswith;
+			name = n;
+			desc = d;
+			cutii = cm;
+			m = mother;
+			f = father;
+			age = aje;
+			nc = chl;
+			c = childnames;
+			impath = imm;
+			DNA = code;
+			cmpath = tcm;
+			dai = dy;
+			month = mn;
+			year = y;
+		}
+	}
+	
+	public Ponii(String n, String d, String cm, String mother, String father, int aje, int chl, String[] childnames, String[] kidswith, String imm, String tcm, String mp, String code, int dy, int mn, int y) {
+		if (kidswith.length == childnames.length) {
+			state = 8;
+			w = kidswith;
+			name = n;
+			desc = d;
+			cutii = cm;
+			m = mother;
+			f = father;
+			age = aje;
+			nc = chl;
+			c = childnames;
+			impath = imm;
+			musik = mp;
+			DNA = code;
+			cmpath = tcm;
+			dai = dy;
+			month = mn;
+			year = y;
+		}
+	}
+	
 	public Ponii() {
 	}
 	
@@ -163,6 +207,10 @@ public class Ponii {
 	
 	public String[] getKids() {
 		return c;
+	}
+	
+	public String[] getKidswith() {
+		return w;
 	}
 	
 	public String getImagePath() {

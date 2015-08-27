@@ -17,8 +17,8 @@ public class CharMasterControl {
 	public static void main(String[] args){
 		System.err.println(args.length);
 		if (args.length == 0 || (args.length > 0 && args[0].equalsIgnoreCase("RP"))){
-				names = new String[] {"Shadow", "Steve", "Shyne", "Blitz", "Charrie", "Slanger", "Tree", "Jack", "Zane", "Axel", "Dark-Rainbow", "C418", "C523", "Steven", "Galecia", "Blaze", "Sean", "Destoliar","test", "Krystla"};
-				altnames = new String[] {"Radon", "Orange", "Shyne", "Jet", "Firefly", "Radium", "Tree", "Jack", "Zane", "Axel", "Dark", "C4", "C5", "Pizza-ponii", "Galecia", "Blazer", "Sean", "Dest", "test", "Krystal"}; 
+				names = new String[] {"Shadow", "Steve", "Shyne", "Blitz", "Charrie", "Slanger", "Tree", "Jack", "Zane", "Axel", "Dark-Rainbow", "C418", "C523", "Steven", "Galecia", "Blaze", "Sean", "Destoliar","test", "Krystla","Cosmos","Saturn"};
+				altnames = new String[] {"Radon", "Orange", "Shyne", "Jet", "Firefly", "Radium", "Tree", "Jack", "Zane", "Axel", "Dark", "C4", "C5", "Pizza-ponii", "Galecia", "Blazer", "Sean", "Dest", "test", "Krystal","Cosmos","Saturn"}; 
 				nonocnames = new String[] {"Sunset-Shimmer", "Apple-Jack", "Rainbow-Dash"};
 				oc = new Ponii[] {
 					/* Married with kids                  : Name, Description, Cutii Mark, Mother, Father, Married to, INT age, INT amount of kids, STRING[] child names, Image path, CMImage path, PonycreatorV2 code, INT Birth day, INT birth month, INT birth year
@@ -52,7 +52,9 @@ public class CharMasterControl {
 					new Ponii("Sean", "\nStallion\nEarth Ponii\nDarkish yellow-brown\nA kid with a talent\nmint Blue mane", "Music Note", "", "", 5, "Sean.png", "null.png", "Sean.ogg", "132S000000818C0046540001000B700FEUN1837002000001H100BAAB00FFFE1G107F3FCC004CB2", 13, 7, 2008),
 					new Ponii("Destoliar", "\nStallion\nShadow Ponii\nBlack\nLooking for somepony called Krystla Frostia\nBlack with stars", "\nHmm", "Nijyte", "Sholdrio", 3126, "Dest.png", "Dst.png", "2S2S000000000000FFC49D00001200080UN1837204000001D10000000000000L01000000000000", 1, 1, -1111),
 					new Ponii("test","\nStallion\nEarth Ponii\nGreen\nFurpus\nRed","\nPie","Blub","Grog",43,"null.png","null.png","0",989894,6,12345),
-					new Ponii("Krystla Frostia", "\nMare\nUnicorn\nIce Blue\nUnknown to current time\nBlue", "\nSnowflake", "Unknown", "Unknown", 3126, "Kryst.png", "null.png", "0", 1, 1, -1111)
+					new Ponii("Krystla Frostia", "\nMare\nUnicorn\nIce Blue\nUnknown to current time\nBlue", "\nSnowflake", "Unknown", "Unknown", 3126, "Kryst.png", "null.png", "0", 1, 1, -1111),
+					new Ponii("Cosmos Darkstar","\nStallion\nPegasus\nPurple with grey stripes\nIs half zebra\nGray","\nPentagram","Nighmare Moon","Satan",851,"null.png","null.png","0",42,8,1164),
+					new Ponii("Saturn Darkstar","\nStallion\nDemon\nDar red\nBrother of Cosmos\nNeon red","\nGoat head","Unknown","Satan",4236,"null.png","null.png","0",0,6,-2221)
 				}; 
 				nonoc = new Ponii[] {
 					new Ponii("Sunset Shimmer", "\nMare\nUnicorn\nYou know from EQG?", "\nThe yellow and red sun thing", "?", "?", 19, "null.png", "null.png", "null", 16, 8, 1996),

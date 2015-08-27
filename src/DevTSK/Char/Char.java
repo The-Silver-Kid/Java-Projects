@@ -6,7 +6,7 @@ import java.io.*;
 import DAG.Config.Config;
 import DAG.Config.ConfigException;
 import DevTSK.Exception.*;
-//5
+
 public class Char {
 	//private static final File f = new File("./config/Poniiconfig.ini");
 	private static String lastCmd;
@@ -308,6 +308,19 @@ public class Char {
 				poni.plaimusik(OC[i].getMusicPath());
 			}
 		}
+		
+		if (s == 7 || s == 8) {
+			getInfoSNGK(OC[i]);
+			if (musik && s == 8)
+				poni.plaimusik(OC[i].getMusicPath());
+		}
+		
+		if (s == 9 || s == 10) {
+			getInfoMWKOMK(OC[i]);
+			if (musik && s == 10)
+				poni.plaimusik(OC[i].getMusicPath());
+		}
+		
 		try{ 
 			poni.lblPoniiPic.setIcon(poni.getImageIcn("/images/" + OC[i].getImagePath()));
 			poni.lblCMPic.setIcon(poni.getImageIcn("/images/" + OC[i].getCMPath()));
@@ -316,7 +329,7 @@ public class Char {
 			e.printStackTrace();
 		}
 	}
-	
+
 	private static void getCaInfo(int i) {
 		int s = show[i].getState(474201);
 		if (s == 1) {
@@ -340,6 +353,19 @@ public class Char {
 			getInfoMNK(show[i]);
 			poni.plaimusik(show[i].getMusicPath());
 		}
+		
+		if (s == 7 || s == 8) {
+			getInfoSNGK(OC[i]);
+			if (musik && s == 8)
+				poni.plaimusik(OC[i].getMusicPath());
+		}
+		
+		if (s == 9 || s == 10) {
+			getInfoMWKOMK(OC[i]);
+			if (musik && s == 10)
+				poni.plaimusik(OC[i].getMusicPath());
+		}
+		
 		try{ 
 			poni.lblPoniiPic.setIcon(poni.getImageIcn("/images/" + show[i].getImagePath()));
 			poni.lblCMPic.setIcon(poni.getImageIcn("/images/" + show[i].getCMPath()));
@@ -347,6 +373,69 @@ public class Char {
 			System.out.println("This Shouldn't Have Happened... But it did...");
 			e.printStackTrace();
 		}
+	}
+	
+	private static void getInfoMWKOMK(Ponii tp) {
+		// TODO Auto-generated method stub
+		String[] tSA = null;
+		System.out.println("Loading resources for ponii " + tp.getName());
+		poni.println("Name : " + tp.getName());
+		poni.println("Age : " + tp.getAge());
+		poni.println();
+		poni.println("Description : " + tp.getDesc());
+		poni.println();
+		if (tp.getYear() >= 0)
+			poni.println("Birthday : " + tp.getMonth() + " " + tp.getDay() + ", " + tp.getYear());
+		if (tp.getYear() < 0)
+			poni.println("Birthday : " + tp.getMonth() + " " + tp.getDay() + ", " + (tp.getYear() * -1) + "BC");
+		poni.println();
+		poni.println("Cutii Mark : " + tp.getCMDesc());
+		poni.println();
+		poni.println("Mother : " + tp.getMother());
+		poni.println("Father : " + tp.getFather());
+		poni.println();
+		poni.println("Married to : " + tp.getSp());
+		poni.println("Number of Kids : " + tp.getKidAmmount());
+		poni.println("Kids names : ");
+		tSA = tp.getKids();
+		String[] tpk = tp.getKidswith();
+		for (int i = 0; i < tSA.length; i++){
+			poni.println(tSA[i] + " : With " + tpk[i]);
+		}
+		poni.println();
+		poni.println("::End of Ponii::");
+		poni.println();
+	}
+
+	private static void getInfoSNGK(Ponii tp) {
+		// TODO Auto-generated method stub
+		String[] tSA = null;
+		System.out.println("Loading resources for ponii " + tp.getName());
+		poni.println("Name : " + tp.getName());
+		poni.println("Age : " + tp.getAge());
+		poni.println();
+		poni.println("Description : " + tp.getDesc());
+		poni.println();
+		if (tp.getYear() >= 0)
+			poni.println("Birthday : " + tp.getMonth() + " " + tp.getDay() + ", " + tp.getYear());
+		if (tp.getYear() < 0)
+			poni.println("Birthday : " + tp.getMonth() + " " + tp.getDay() + ", " + (tp.getYear() * -1) + "BC");
+		poni.println();
+		poni.println("Cutii Mark : " + tp.getCMDesc());
+		poni.println();
+		poni.println("Mother : " + tp.getMother());
+		poni.println("Father : " + tp.getFather());
+		poni.println();
+		poni.println("Number of Kids : " + tp.getKidAmmount());
+		poni.println("Kids names : ");
+		tSA = tp.getKids();
+		String[] tpk = tp.getKidswith();
+		for (int i = 0; i < tSA.length; i++){
+			poni.println(tSA[i] + " : With " + tpk[i]);
+		}
+		poni.println();
+		poni.println("::End of Ponii::");
+		poni.println();
 	}
 	
 	private static void getInfoMWK(Ponii tp) {

@@ -1,5 +1,5 @@
 package DevTSK.Char;
-//
+
 import DAG.Config.ConfigException;
 import DevTSK.Detector.FileDetect;
 

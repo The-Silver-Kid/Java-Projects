@@ -400,7 +400,7 @@ public class Char {
 		tSA = tp.getKids();
 		String[] tpk = tp.getKidswith();
 		for (int i = 0; i < tSA.length; i++){
-			poni.println(tSA[i] + " : With " + tpk[i]);
+			poni.println("With " + tpk[i] + " : " + tSA[i]);
 		}
 		poni.println();
 		poni.println("::End of Ponii::");
@@ -431,7 +431,7 @@ public class Char {
 		tSA = tp.getKids();
 		String[] tpk = tp.getKidswith();
 		for (int i = 0; i < tSA.length; i++){
-			poni.println(tSA[i] + " : With " + tpk[i]);
+			poni.println("With " + tpk[i] + " : " + tSA[i]);
 		}
 		poni.println();
 		poni.println("::End of Ponii::");

@@ -162,7 +162,7 @@ public class Ponii {
 		}
 	}
 	
-	public Ponii(String n, String d, String cm, String mother, String father, int aje, int chl, String mtt, String[] childnames, String[] kidswith, String imm, String tcm, String code, int dy, int mn, int y) {
+	public Ponii(String n, String d, String cm, String mother, String father, String mtt, int aje, int chl, String[] childnames, String[] kidswith, String imm, String tcm, String code, int dy, int mn, int y) {
 		//Married with kids Outside
 		if (kidswith.length == childnames.length) {
 			state = 9;
@@ -185,7 +185,7 @@ public class Ponii {
 		}
 	}
 	
-	public Ponii(String n, String d, String cm, String mother, String father, int aje, int chl, String mtt, String[] childnames, String[] kidswith, String imm, String tcm, String mp, String code, int dy, int mn, int y) {
+	public Ponii(String n, String d, String cm, String mother, String father, String mtt, int aje, int chl, String[] childnames, String[] kidswith, String imm, String tcm, String mp, String code, int dy, int mn, int y) {
 		if (kidswith.length == childnames.length) {
 			state = 10;
 			w = kidswith;

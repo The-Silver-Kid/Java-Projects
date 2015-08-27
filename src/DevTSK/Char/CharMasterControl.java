@@ -25,7 +25,7 @@ public class CharMasterControl {
 					 * Not Married                        : Name, Description, Cutii Mark, Mother, Father, INT age, Image path, CMImage path, PonycreatorV2 code, INT Birth day, INT birth month, INT birth year
 					 * Married no kids                    : Name, Description, Cutii Mark, Mother, Father, Married to, INT age, Image path, CMImage path, PonycreatorV2 code, INT Birth day, INT birth month, INT birth year
 					 * Not married with kids              : Name, Description, Cutii Mark, Mother, Father, INT age, INT amount of kids, STRING[] child names, STRING[] who child was had with, Image path, CMImage path, PonycreatorV2 code, INT Birth day, INT birth month, INT birth year
-					 * Married with kids outside marrage  : Name, Description, Cutii Mark, Mother, Father, Married to, INT age, INT amount of kids, STRING[] child names, STRING[] who child was had with, Image path, CMImage path, PonycreatorV2 code, INT Birth day, INT birth month, INT birth year
+					 * Married with kids outside marriage  : Name, Description, Cutii Mark, Mother, Father, Married to, INT age, INT amount of kids, STRING[] child names, STRING[] who child was had with, Image path, CMImage path, PonycreatorV2 code, INT Birth day, INT birth month, INT birth year
 					 * 
 					 * DESCRIPTIONS (Pony and Cutii mark) MUST START WITH \n OTHERWISE IT WILL LOOK BAD.
 					 * NEW LINES IN DESCRIPTIONS LOOK SOMETHING LIKE THIS "\nDescription\nmore description" NOTE THAT THERE IS NO SPACE BETWEEN \n AND THE NEXT WORD!

@@ -54,7 +54,8 @@ public class CharMasterControl {
 					new Ponii("test","\nStallion\nEarth Ponii\nGreen\nFurpus\nRed","\nPie","Blub","Grog",43,"null.png","null.png","0",989894,6,12345),
 					new Ponii("Krystla Frostia", "\nMare\nUnicorn\nIce Blue\nUnknown to current time\nBlue", "\nSnowflake", "Unknown", "Unknown", 3126, "Kryst.png", "null.png", "0", 1, 1, -1111),
 					new Ponii("Cosmos Darkstar","\nStallion\nPegasus\nPurple with grey stripes\nIs half zebra\nGray","\nPentagram","Nighmare Moon","King of Hell",851, 1, new String[] {}, new String[] {}, "null.png","null.png","0",42,8,1164),
-					new Ponii("Count Saturnus Darkstar","\nStallion\nDemon\nDark red\nBrother of Cosmos\nNeon red","\nGoat head","Unknown","King of Hell",4236,"Saturns.png","null.png","0",0,6,-2221)
+					new Ponii("Count Saturnus Darkstar","\nStallion\nDemon\nDark red\nBrother of Cosmos\nNeon red","\nGoat head","Unknown","King of Hell",4236,"Saturns.png","null.png","0",0,6,-2221),
+					//new Ponii("Nephthys Darkstar","\nMare\nDemon")
 				}; 
 				nonoc = new Ponii[] {
 					new Ponii("Sunset Shimmer", "\nMare\nUnicorn\nYou know from EQG?", "\nThe yellow and red sun thing", "?", "?", 19, "null.png", "null.png", "null", 16, 8, 1996),

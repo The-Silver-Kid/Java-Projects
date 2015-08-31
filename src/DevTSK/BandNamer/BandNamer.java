@@ -28,7 +28,13 @@ public class BandNamer {
 	public static JLabel bld;
 	public static JProgressBar bar;
 	
-	private final Action getResources = new SwingAction(); 
+	static int n;
+	static int v;
+	static int av=0;
+	static int aj;
+	
+	static String end = "";
+	 
 	private final Action getNeoName = new SwingAction2();
 	
 	private BandNamer(){
@@ -46,26 +52,16 @@ public class BandNamer {
 		bandNamer.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		bandNamer.getContentPane().setLayout(null);
 		
-		bar = new JProgressBar();
-		bar.setValue(100);
-		bar.setBounds(90, 253, 304, 20);
-		bar.setForeground(SystemColor.windowText);
-		bar.setBackground(SystemColor.window);
-		bar.setStringPainted(true);
-		bandNamer.getContentPane().add(bar);
-		
 		bld = new JLabel();
-		bld.setBounds(0, 253, 90, 20);
-		bld.setText("Progress:");
+		bld.setBounds(10, 253, 375, 20);
 		bandNamer.getContentPane().add(bld);
 		
-		output = new JLabel();
-		
-		get = new JButton();
-		get.setAction(getResources);
-		
 		neo = new JButton();
+		neo.setBounds(10, 10, 375, 245);
 		neo.setAction(getNeoName);
+		neo.setEnabled(false);
+		neo.setForeground(new Color(255, 255, 255));
+		bandNamer.getContentPane().add(neo);
 		
 	}
 	
@@ -73,9 +69,6 @@ public class BandNamer {
 		
 		BandNamer window = new BandNamer();
 		window.bandNamer.setVisible(true);
-		
-		String end = "";
-		int n, v, av=0, aj;
 		
 		av = av + 1;
 		
@@ -89,11 +82,17 @@ public class BandNamer {
 		String adj = getLst("/images/adjList.bnn", 28479);
 		System.out.println("Getting name...");
 		
-		String[] nouns = noun.split("\\r?\\n");
-		String[] verbs = verb.split("\\r?\\n");
+		nouns = noun.split("\\r?\\n");
+		verbs = verb.split("\\r?\\n");
 		//String[] adverbs = adv.split("\\r?\\n");
-		String[] adjectives = adj.split("\\r?\\n");
+		adjectives = adj.split("\\r?\\n");
 		
+		gen();
+		
+		neo.setEnabled(true);
+	}
+	
+	private static void gen() {
 		n = (int) (Math.random() * nouns.length);
 		v = (int) (Math.random() * verbs.length);
 		//av = (int) (Math.random() * adverbs.length);
@@ -101,9 +100,10 @@ public class BandNamer {
 		
 		end = adjectives[aj] + " " + nouns[n] + " " + verbs[v];
 		
-		System.out.println(end);
+		System.out.println(/*x +*/ end);
+		bld.setText(end);
 	}
-	
+
 	public static String getLst(String path, double t){
 		String temp = "",s;
 		double i = 0.0;
@@ -128,19 +128,6 @@ public class BandNamer {
 		return temp;
 	}
 	
-	private class SwingAction extends AbstractAction{
-		private static final long serialVersionUID = -6534894326484781815L;
-		
-		public SwingAction() {
-			putValue(NAME, "Generate Libs");
-			putValue(SHORT_DESCRIPTION, "Generates Required String[]s.");
-		}
-
-		public void actionPerformed(ActionEvent arg0) {	
-			
-		}
-	}
-	
 	private class SwingAction2 extends AbstractAction{
 		private static final long serialVersionUID = -4439810172513433428L;
 
@@ -150,7 +137,7 @@ public class BandNamer {
 		}
 
 		public void actionPerformed(ActionEvent arg0) {	
-			
+			gen();
 		}
 	}
 }

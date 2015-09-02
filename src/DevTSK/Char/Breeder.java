@@ -66,6 +66,7 @@ public class Breeder {
 		return res;
 	}
 	
+	@Deprecated
 	public String breedCol() {
 		String res = "00";
 		mother = initCol(md);

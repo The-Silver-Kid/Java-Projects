@@ -157,7 +157,7 @@ public class Taunkrr {
 			int from = d.daysFrom(new Day(Integer.parseInt(Year.getText()), Integer.parseInt(Month.getText()), Integer.parseInt(Daii.getText())));
 			int resoz = from * Integer.parseInt(oz.getText());
 			double resgal = resoz / 128;
-			double regtank = resgal / 80000;
+			double regtank = resgal / 8000;
 			resultt.setText("You would drink " + regtank + " tanker trucks of\ndihydrogen monoxide in you expected life...");
 		}
 	}

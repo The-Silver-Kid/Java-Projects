@@ -10,7 +10,6 @@ import javax.swing.SwingConstants;
 import javax.swing.JTextArea;
 import java.awt.Font;
 import java.awt.Color;
-import java.awt.Window.Type;
 import javax.swing.JButton;
 import javax.swing.AbstractAction;
 import java.awt.event.ActionEvent;

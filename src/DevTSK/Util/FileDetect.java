@@ -1,4 +1,4 @@
-package DevTSK.Detector;
+package DevTSK.Util;
 
 import java.io.File;
 

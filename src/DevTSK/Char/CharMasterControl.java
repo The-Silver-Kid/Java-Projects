@@ -1,7 +1,7 @@
 package DevTSK.Char;
 
 import DAG.Config.ConfigException;
-import DevTSK.Detector.FileDetect;
+import DevTSK.Util.FileDetect;
 
 public class CharMasterControl {
 	

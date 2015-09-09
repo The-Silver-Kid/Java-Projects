@@ -21,11 +21,11 @@ public class CharMasterControl {
 				altnames = new String[] {"Radon", "Orange", "Shyne", "Jet", "Firefly", "Radium", "Tree", "Jack", "Zane", "Axel", "Dark", "C4", "C5", "Pizza-ponii", "Galecia", "Blazer", "Sean", "Dest", "test", "Krystal","Cosmos","Saturnus","Nepht"}; 
 				nonocnames = new String[] {"Sunset-Shimmer", "Apple-Jack", "Rainbow-Dash"};
 				oc = new Ponii[] {
-					/* Married with kids                  : Name, Description, Cutii Mark, Mother, Father, Married to, INT age, INT amount of kids, STRING[] child names, Image path, CMImage path, PonycreatorV2 code, INT Birth day, INT birth month, INT birth year
-					 * Not Married                        : Name, Description, Cutii Mark, Mother, Father, INT age, Image path, CMImage path, PonycreatorV2 code, INT Birth day, INT birth month, INT birth year
-					 * Married no kids                    : Name, Description, Cutii Mark, Mother, Father, Married to, INT age, Image path, CMImage path, PonycreatorV2 code, INT Birth day, INT birth month, INT birth year
-					 * Not married with kids              : Name, Description, Cutii Mark, Mother, Father, INT age, INT amount of kids, STRING[] child names, STRING[] who child was had with, Image path, CMImage path, PonycreatorV2 code, INT Birth day, INT birth month, INT birth year
-					 * Married with kids outside marriage  : Name, Description, Cutii Mark, Mother, Father, Married to, INT age, INT amount of kids, STRING[] child names, STRING[] who child was had with, Image path, CMImage path, PonycreatorV2 code, INT Birth day, INT birth month, INT birth year
+					/* Married with kids                   : Name, Flag (/ufour diget unicode), Description, Cutii Mark, Mother, Father, Married to, INT age, INT amount of kids, STRING[] child names, Image path, CMImage path, PonycreatorV2 code, INT Birth day, INT birth month, INT birth year
+					 * Not Married                         : Name, Flag (/ufour diget unicode), Description, Cutii Mark, Mother, Father, INT age, Image path, CMImage path, PonycreatorV2 code, INT Birth day, INT birth month, INT birth year
+					 * Married no kids                     : Name, Flag (/ufour diget unicode), Description, Cutii Mark, Mother, Father, Married to, INT age, Image path, CMImage path, PonycreatorV2 code, INT Birth day, INT birth month, INT birth year
+					 * Not married with kids               : Name, Flag (/ufour diget unicode), Description, Cutii Mark, Mother, Father, INT age, INT amount of kids, STRING[] child names, STRING[] who child was had with, Image path, CMImage path, PonycreatorV2 code, INT Birth day, INT birth month, INT birth year
+					 * Married with kids outside marriage  : Name, Flag (/ufour diget unicode), Description, Cutii Mark, Mother, Father, Married to, INT age, INT amount of kids, STRING[] child names, STRING[] who child was had with, Image path, CMImage path, PonycreatorV2 code, INT Birth day, INT birth month, INT birth year
 					 * 
 					 * DESCRIPTIONS (Pony and Cutii mark) MUST START WITH \n OTHERWISE IT WILL LOOK BAD.
 					 * NEW LINES IN DESCRIPTIONS LOOK SOMETHING LIKE THIS "\nDescription\nmore description" NOTE THAT THERE IS NO SPACE BETWEEN \n AND THE NEXT WORD!

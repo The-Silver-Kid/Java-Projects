@@ -15,6 +15,8 @@ class setEasy extends AbstractAction {
 		Main.badposX = new int[Main.bad];
 		Main.badposY = new int[Main.bad];
 		Main.badAlive = new Boolean[Main.bad];
+		for (int i = 0; i < Main.bad; i++)
+			Main.badAlive[i] = false;
 		
 		NumGenerator ng = new NumGenerator(Main.Host.GameFrame.getWidth());
 		Main.winx = ng.gen();
@@ -39,6 +41,8 @@ class setHard extends AbstractAction {
 		Main.badposX = new int[Main.bad];
 		Main.badposY = new int[Main.bad];
 		Main.badAlive = new Boolean[Main.bad];
+		for (int i = 0; i < Main.bad; i++)
+			Main.badAlive[i] = false;
 		
 		NumGenerator ng = new NumGenerator(Main.Host.GameFrame.getWidth());
 		Main.winx = ng.gen();
@@ -64,6 +68,8 @@ class setMedi extends AbstractAction {
 		Main.badposX = new int[Main.bad];
 		Main.badposY = new int[Main.bad];
 		Main.badAlive = new Boolean[Main.bad];
+		for (int i = 0; i < Main.bad; i++)
+			Main.badAlive[i] = false;
 		
 		NumGenerator ng = new NumGenerator(Main.Host.GameFrame.getWidth());
 		Main.winx = ng.gen();

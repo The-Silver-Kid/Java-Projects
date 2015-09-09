@@ -1,4 +1,4 @@
-package projectArchive.Pixl;
+package pixl;
 
 import java.awt.*;
 
@@ -7,6 +7,8 @@ public class Main {
 	public static int[] goodpos = new int[] {200, 200};
 	public static int[] badposX, badposY;
 	public static Boolean[] badAlive;
+	
+	public static int winx, winy;
 	
 	public static Boolean b = true;
 	public static int bad = -128;
@@ -34,7 +36,7 @@ public class Main {
 	}
 	
 	private static Graphics u1(Graphics g, int[] gd, int[] bx, int[] by, Boolean[] ba) {
-		g.setColor(new Color(255, 255, 255));
+		g.setColor(SystemColor.window);
 		g.drawLine(gd[0], gd[1], gd[0], gd[1]);
 		
 		return g;
@@ -46,6 +48,11 @@ public class Main {
 		
 		return g;
 	}
+	
+	private static void check() {
+		// TODO Auto-generated method stub
+		
+	}
 
 	public static void Left() {
 		Host.GameFrame.setBackground(new Color(255, 255, 255));
@@ -54,32 +61,30 @@ public class Main {
 		if (goodpos[0] > 1) 
 			goodpos[0] = goodpos[0] - 1;
 		Host.GameFrame.paintAll(update(goodpos, badposX, badposY, badAlive, false));
+		handl();
+		check();
 	}
-	
+
 	public static void Right() {
 		Host.GameFrame.setBackground(new Color(255, 255, 255));
+		Host.Gameui.paint(update(goodpos, badposX, badposY, badAlive, true));
 		Host.GameFrame.paint(update(goodpos, badposX, badposY, badAlive, true));
-		if (b) {
-			if (goodpos[0] < 500) 
-				goodpos[0] = goodpos[0] + 1;
-		} else {
-			if (goodpos[0] < 200)
-				goodpos[0] = goodpos[0] + 1;
-		}
+		if (goodpos[1] < Host.GameFrame.getWidth()) 
+			goodpos[0] = goodpos[0] + 1;
 		Host.GameFrame.paintAll(update(goodpos, badposX, badposY, badAlive, false));
+		handl();
+		check();
 	}
 	
 	public static void Down() {
 		Host.GameFrame.setBackground(new Color(255, 255, 255));
+		Host.Gameui.paint(update(goodpos, badposX, badposY, badAlive, true));
 		Host.GameFrame.paint(update(goodpos, badposX, badposY, badAlive, true));
-		if (b) {
-			if (goodpos[1] < 500) 
-				goodpos[1] = goodpos[1] + 1;
-		} else {
-			if (goodpos[1] < 200)
-				goodpos[1] = goodpos[1] + 1;
-		}
+		if (goodpos[1] < Host.GameFrame.getWidth()) 
+			goodpos[1] = goodpos[1] + 1;
 		Host.GameFrame.paintAll(update(goodpos, badposX, badposY, badAlive, false));
+		handl();
+		check();
 	}
 	
 	public static void Up() {
@@ -89,5 +94,11 @@ public class Main {
 		if (goodpos[1] > 1) 
 			goodpos[1] = goodpos[1] - 1;
 		Host.GameFrame.paintAll(update(goodpos, badposX, badposY, badAlive, false));
+		handl();
+		check();
+	}
+
+	private static void handl() {
+		
 	}
 }

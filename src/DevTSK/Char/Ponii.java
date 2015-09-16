@@ -7,7 +7,7 @@ public class Ponii {
 	private String impath = "null.png", musik = "null.ogg", cmpath = "null.png";
 	
 	public Ponii(String n, String flg, String d, String cm, String mother, String father, String mato, int aje, int chl, String[] childnames, String imm, String tcm, String code, int dy, int mn, int y) {
-		//Married with kids
+		System.out.println("Married with kids");
 		state = 1;
 		name = n;
 		desc = d;
@@ -28,7 +28,7 @@ public class Ponii {
 	}
 	
 	public Ponii(String n, String flg, String d, String cm, String mother, String father, int aje, String imm, String tcm, String code, int dy, int mn, int y) {
-		//Single
+		System.out.println("single");
 		state = 2;
 		name = n;
 		desc = d;
@@ -46,7 +46,7 @@ public class Ponii {
 	}
 	
 	public Ponii(String n, String flg, String d, String cm, String mother, String father, String mato, int aje, String imm, String tcm, String code, int dy, int mn, int y) {
-		//Married no kids
+		System.out.println("no kids");
 		state = 3;
 		name = n;
 		desc = d;
@@ -125,7 +125,7 @@ public class Ponii {
 	}
 	
 	public Ponii(String n, String flg, String d, String cm, String mother, String father, int aje, int chl, String[] childnames, String[] kidswith, String imm, String tcm, String code, int dy, int mn, int y) {
-		//Not married with kids
+		System.out.println("Not married with kids");
 		if (kidswith.length == childnames.length) {
 			state = 7;
 			w = kidswith;
@@ -171,7 +171,7 @@ public class Ponii {
 	}
 	
 	public Ponii(String n, String flg, String d, String cm, String mother, String father, String mtt, int aje, int chl, String[] childnames, String[] kidswith, String imm, String tcm, String code, int dy, int mn, int y) {
-		//Married with kids Outside
+		System.out.println("Married with kids Outside");
 		if (kidswith.length == childnames.length) {
 			state = 9;
 			w = kidswith;

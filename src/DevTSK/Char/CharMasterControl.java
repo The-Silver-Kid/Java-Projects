@@ -19,7 +19,7 @@ public class CharMasterControl {
 		if (args.length == 0 || (args.length > 0 && args[0].equalsIgnoreCase("RP"))){
 				names = new String[] {"Shadow", "Steve", "Shyne", "Blitz", "Charrie", "Slanger", "Tree", "Jack", "Zane", "Axel", "Dark-Rainbow", "C418", "C523", "Steven", "Galecia", "Blaze", "Sean", "Destoliar","test", "Krystla","Cosmos","Saturnus","Nephthys"};
 				altnames = new String[] {"Radon", "Orange", "Shyne", "Jet", "Firefly", "Radium", "Tree", "Jack", "Zane", "Axel", "Dark", "C4", "C5", "Pizza-ponii", "Galecia", "Blazer", "Sean", "Dest", "test", "Krystal","Cosmos","Saturnus","Nepht"}; 
-				nonocnames = new String[] {"Sunset-Shimmer", "Apple-Jack", "Rainbow-Dash"};
+				nonocnames = new String[] {"Sunset-Shimmer", "Apple-Jack", "Rainbow-Dash", "Cadence"};
 				oc = new Ponii[] {
 					/* Married with kids                   : Name, Flag (/ufour diget unicode), Description, Cutii Mark, Mother, Father, Married to, INT age, INT amount of kids, STRING[] child names, Image path, CMImage path, PonycreatorV2 code, INT Birth day, INT birth month, INT birth year
 					 * Not Married                         : Name, Flag (/ufour diget unicode), Description, Cutii Mark, Mother, Father, INT age, Image path, CMImage path, PonycreatorV2 code, INT Birth day, INT birth month, INT birth year
@@ -64,7 +64,7 @@ public class CharMasterControl {
 					new Ponii("Sunset Shimmer", "", "\nMare\nUnicorn\nYou know from EQG?", "\nThe yellow and red sun thing", "?", "?", 19, "null.png", "null.png", "null", 16, 8, 1996),
 					new Ponii("Apple Jack Radon", "", "\nMare\nEarth Ponii\nIts Apple Jack... y'all know her", "\nThree red apples", "?", "?", "Shadow Radon", 22, 2, new String[] {"Tree Lighting", "Shadow Jack"}, "AJ.png", "AJMark.png", "2S2S000000FEA100FEB19E0040110BF00UN1837000100000I0FAFE73FF7FFF0H107F3FCC004CB2", 3, 4, 1993),
 					new Ponii("Rainbow Dash", "", "\nMare\nPegasus\nRainbow Dash... need i say more?", "\nThe Rainbow lightning bolt", "?", "?", "Dark Rainbow", 23, "RD.png", "null.png", "2S2S0000207ADAFFFFC49D00001C6006FUN1837000000000O07F3FCCFF7FFF0M107F3FCC004CB2", 5, 4, 1992),
-					new Ponii("Princess Cadence","/u2764","\nMare\nAlicorn\nPretty pink pony princess... WHAT MORE DO YOU WANT FROM ME?","\n the Crystal fekkin Heart","Make","Something up",11489,1, new String[] {}, new String[] {"Cosmos Darkstar"},"null.png","null.png","0",6,16,-9474),
+					new Ponii("Princess Cadence","/u2764","\nMare\nAlicorn\nPretty pink pony princess","\nCrystal Heart","Make","Something up",11489,1, new String[] {}, new String[] {"Cosmos Darkstar"},"null.png","null.png","0",6,16,-9474),
 				};
 		} else if (args[0].equalsIgnoreCase("Hill")){
 				// Your OC set and stuff here

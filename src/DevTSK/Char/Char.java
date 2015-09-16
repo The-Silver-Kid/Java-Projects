@@ -332,6 +332,7 @@ public class Char {
 
 	private static void getCaInfo(int i) {
 		int s = show[i].getState(474201);
+		System.out.println(show[i].getState(474201));
 		if (s == 1) {
 			getInfoMWK(show[i]);
 		}

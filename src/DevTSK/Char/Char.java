@@ -358,13 +358,13 @@ public class Char {
 		if (s == 7 || s == 8) {
 			getInfoSNGK(OC[i]);
 			if (musik && s == 8)
-				poni.plaimusik(OC[i].getMusicPath());
+				poni.plaimusik(show[i].getMusicPath());
 		}
 		
 		if (s == 9 || s == 10) {
 			getInfoMWKOMK(OC[i]);
 			if (musik && s == 10)
-				poni.plaimusik(OC[i].getMusicPath());
+				poni.plaimusik(show[i].getMusicPath());
 		}
 		
 		try{ 
@@ -377,7 +377,6 @@ public class Char {
 	}
 	
 	private static void getInfoMWKOMK(Ponii tp) {
-		// TODO Auto-generated method stub
 		String[] tSA = null;
 		System.out.println("Loading resources for ponii " + tp.getName());
 		poni.println("Name : " + tp.getName());
@@ -409,7 +408,6 @@ public class Char {
 	}
 
 	private static void getInfoSNGK(Ponii tp) {
-		// TODO Auto-generated method stub
 		String[] tSA = null;
 		System.out.println("Loading resources for ponii " + tp.getName());
 		poni.println("Name : " + tp.getName());

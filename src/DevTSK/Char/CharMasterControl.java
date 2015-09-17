@@ -26,7 +26,7 @@ public class CharMasterControl {
 					 * Married no kids                     : Name, Flag (/ufour diget unicode), Description, Cutii Mark, Mother, Father, Married to, INT age, Image path, CMImage path, PonycreatorV2 code, INT Birth day, INT birth month, INT birth year
 					 * Not married with kids               : Name, Flag (/ufour diget unicode), Description, Cutii Mark, Mother, Father, INT age, INT amount of kids, STRING[] child names, STRING[] who child was had with, Image path, CMImage path, PonycreatorV2 code, INT Birth day, INT birth month, INT birth year
 					 * Married with kids outside marriage  : Name, Flag (/ufour diget unicode), Description, Cutii Mark, Mother, Father, Married to, INT age, INT amount of kids, STRING[] child names, STRING[] who child was had with, Image path, CMImage path, PonycreatorV2 code, INT Birth day, INT birth month, INT birth year
-					 * 
+					 *
 					 * DESCRIPTIONS (Pony and Cutii mark) MUST START WITH \n OTHERWISE IT WILL LOOK BAD.
 					 * NEW LINES IN DESCRIPTIONS LOOK SOMETHING LIKE THIS "\nDescription\nmore description" NOTE THAT THERE IS NO SPACE BETWEEN \n AND THE NEXT WORD!
 					 * DESCRIPTION FORMAT IS: GENDER (M/S), RACE, COLOUR, SOMETHING SPECIAL, MANE COLOUR
@@ -56,7 +56,7 @@ public class CharMasterControl {
 					new Ponii("Destoliar", "", "\nStallion\nShadow Ponii\nBlack\nLooking for somepony called Krystla Frostia\nBlack with stars", "\nHmm", "Nijyte", "Sholdrio", 3126, "Dest.png", "Dst.png", "2S2S000000000000FFC49D00001200080UN1837204000001D10000000000000L01000000000000", 1, 1, -1111),
 					new Ponii("test", "", "\nStallion\nEarth Ponii\nGreen\nFurpus\nRed","\nPie","Blub","Grog",43,"null.png","null.png","0",989894,6,12345),
 					new Ponii("Krystla Frostia", "", "\nMare\nUnicorn\nIce Blue\nUnknown to current time\nBlue", "\nSnowflake", "Unknown", "Unknown", 3126, "Kryst.png", "null.png", "0", 1, 1, -1111),
-					new Ponii("Cosmos Darkstar","/u26e7","\nStallion\nPegasus\nPurple with grey stripes\nIs half zebra\nGray","\nPentagram","Nighmare Moon","King of Hell",851, 1, new String[] {}, new String[] {"Princess Cadence"}, "null.png","null.png","0",42,8,1164),
+					new Ponii("Cosmos Darkstar","\u26e7","\nStallion\nPegasus\nPurple with grey stripes\nIs half zebra\nGray","\nPentagram","Nighmare Moon","King of Hell", "Princess Cadence", 851, 1, new String[] {""}, new String[] {""}, "null.png","null.png","0",42,8,1164),
 					new Ponii("Count Saturnus Darkstar","/u1f410","\nStallion\nDemon\nDark red\nBrother of Cosmos\nNeon red","\nGoat head","Unknown","King of Hell",4236,"Saturns.png","null.png","0",0,6,-2221),
 					new Ponii("Nephthys Darkstar","","\nMare\nDemon\nFurpus\nSister of Cosmos\nBlight","\nSharp angular sword in an Orcish style","Unknown","King of Hell",9481,"null.png","null.png","0",0,8,-7466)
 				}; 
@@ -64,7 +64,7 @@ public class CharMasterControl {
 					new Ponii("Sunset Shimmer", "", "\nMare\nUnicorn\nYou know from EQG?", "\nThe yellow and red sun thing", "?", "?", 19, "null.png", "null.png", "null", 16, 8, 1996),
 					new Ponii("Apple Jack Radon", "", "\nMare\nEarth Ponii\nIts Apple Jack... y'all know her", "\nThree red apples", "?", "?", "Shadow Radon", 22, 2, new String[] {"Tree Lighting", "Shadow Jack"}, "AJ.png", "AJMark.png", "2S2S000000FEA100FEB19E0040110BF00UN1837000100000I0FAFE73FF7FFF0H107F3FCC004CB2", 3, 4, 1993),
 					new Ponii("Rainbow Dash", "", "\nMare\nPegasus\nRainbow Dash... need i say more?", "\nThe Rainbow lightning bolt", "?", "?", "Dark Rainbow", 23, "RD.png", "null.png", "2S2S0000207ADAFFFFC49D00001C6006FUN1837000000000O07F3FCCFF7FFF0M107F3FCC004CB2", 5, 4, 1992),
-					new Ponii("Princess Cadence","/u2764","\nMare\nAlicorn\nPretty pink pony princess","\nCrystal Heart","Queen of Hell","Unknown",11489,1, new String[] {}, new String[] {"Cosmos Darkstar"},"null.png","null.png","0",6,16,-9474),
+					new Ponii("Princess Cadence","\u2764","\nMare\nAlicorn\nPretty pink pony princess","\nCrystal Heart","Queen Galaxia","Unknown", "Cosmos Darkstar",11489, 1, new String[] {""}, "null.png","null.png","0",6,16,-9474),
 				};
 		} else if (args[0].equalsIgnoreCase("Hill")){
 				// Your OC set and stuff here

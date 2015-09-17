@@ -17,8 +17,8 @@ public class CharMasterControl {
 	public static void main(String[] args){
 		System.err.println(args.length);
 		if (args.length == 0 || (args.length > 0 && args[0].equalsIgnoreCase("RP"))){
-				names = new String[] {"Shadow", "Steve", "Shyne", "Blitz", "Charrie", "Slanger", "Tree", "Jack", "Zane", "Axel", "Dark-Rainbow", "C418", "C523", "Steven", "Galecia", "Blaze", "Sean", "Destoliar","test", "Krystla","Cosmos","Saturnus","Nephthys","Hrodmar Thorhalson"};
-				altnames = new String[] {"Radon", "Orange", "Shyne", "Jet", "Firefly", "Radium", "Tree", "Jack", "Zane", "Axel", "Dark", "C4", "C5", "Pizza-ponii", "Galecia", "Blazer", "Sean", "Dest", "test", "Krystal","Cosmos","Saturnus","Nepht","Hrodmar"}; 
+				names = new String[] {"Shadow", "Steve", "Shyne", "Blitz", "Charrie", "Slanger", "Tree", "Jack", "Zane", "Axel", "Dark-Rainbow", "C418", "C523", "Steven", "Galecia", "Blaze", "Sean", "Destoliar","test", "Krystla","Cosmos","Saturnus","Nephthys","Hrodmar"};
+				altnames = new String[] {"Radon", "Orange", "Shyne", "Jet", "Firefly", "Radium", "Tree", "Jack", "Zane", "Axel", "Dark", "C4", "C5", "Pizza-ponii", "Galecia", "Blazer", "Sean", "Dest", "test", "Krystal","Cosmos","Saturnus","Nepht","Hro"}; 
 				nonocnames = new String[] {"Sunset-Shimmer", "Apple-Jack", "Rainbow-Dash", "Cadence"};
 				oc = new Ponii[] {
 					/* Married with kids                   : Name, Flag (/ufour diget unicode), Description, Cutii Mark, Mother, Father, Married to, INT age, INT amount of kids, STRING[] child names, Image path, CMImage path, PonycreatorV2 code, INT Birth day, INT birth month, INT birth year

@@ -23,7 +23,7 @@ public class Char {
 	private static final String[] commands = new String[] {
 		"Colour", "Color", "InputColour", "InputColor", "OutputColour", "OutputColor", "Music", "Exit",
 		"OutputTextColor", "InputTextColor", "OutputTextColour", "InputTextColour", "errorcheck" , "extract",
-		"breed", "breedrand", "last", "l", "lastcmd", "cfg", "config"
+		"breed", "breedrand", "last", "l", "lastcmd", "cfg", "config", "listNonOC", "listall"
 	};
 	
 	private static Boolean musik = false;
@@ -243,6 +243,23 @@ public class Char {
 				}
 			}
 		}
+		if (sl[0].equalsIgnoreCase("listNonOC") || sl[0].equalsIgnoreCase("listall")){
+			poni.printCl();
+			if (sl[0].equalsIgnoreCase("listall")){
+				poni.println("Acceptable OC/NonOC Ponii Names: " + (chars.length + cannon.length));
+				for(int i = 0; i < chars.length; i++) {
+					poni.println(chars[i]);
+				}
+				for(int i = 0; i < cannon.length; i++) {
+					poni.println(cannon[i]);
+				}
+			} else {
+				poni.println("Acceptable NonOC Ponii Names: " + cannon.length);
+				for(int i = 0; i < cannon.length; i++) {
+					poni.println(cannon[i]);
+				}
+			}
+		}
 		if (sl[0].equalsIgnoreCase("last") || sl[0].equalsIgnoreCase("lastcmd") || sl[0].equalsIgnoreCase("l")){
 			poni.lblTextArea.setText(lastCmd);
 		}
@@ -403,6 +420,8 @@ public class Char {
 			poni.println("With " + tpk[i] + " : " + tSA[i]);
 		}
 		poni.println();
+		poni.println("Flag: " + tp.getFlag());
+		poni.println();
 		poni.println("::End of Ponii::");
 		poni.println();
 	}
@@ -432,6 +451,8 @@ public class Char {
 		for (int i = 0; i < tSA.length; i++){
 			poni.println("With " + tpk[i] + " : " + tSA[i]);
 		}
+		poni.println();
+		poni.println("Flag: " + tp.getFlag());
 		poni.println();
 		poni.println("::End of Ponii::");
 		poni.println();
@@ -463,6 +484,8 @@ public class Char {
 			poni.println(tSA[i]);
 		}
 		poni.println();
+		poni.println("Flag: " + tp.getFlag());
+		poni.println();
 		poni.println("::End of Ponii::");
 		poni.println();
 	}
@@ -487,6 +510,8 @@ public class Char {
 		poni.println("Married to : " + tp.getSp());
 		poni.println("Number of Kids : " + tp.getKidAmmount());
 		poni.println();
+		poni.println("Flag: " + tp.getFlag());
+		poni.println();
 		poni.println("::End of Ponii::");
 		poni.println();
 	}
@@ -507,6 +532,8 @@ public class Char {
 		poni.println();
 		poni.println("Mother : " + tp.getMother());
 		poni.println("Father : " + tp.getFather());
+		poni.println();
+		poni.println("Flag: " + tp.getFlag());
 		poni.println();
 		poni.println("::End of Ponii::");
 		poni.println();

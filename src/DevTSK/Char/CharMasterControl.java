@@ -17,7 +17,7 @@ public class CharMasterControl {
 	public static void main(String[] args){
 		System.err.println(args.length);
 		if (args.length == 0 || (args.length > 0 && args[0].equalsIgnoreCase("RP"))){
-				names = new String[] {"Shadow", "Steve", "Shyne", "Blitz", "Charrie", "Slanger", "Tree", "Jack", "Zane", "Axel", "Dark-Rainbow", "C418", "C523", "Steven", "Galecia", "Blaze", "Sean", "Destoliar","test", "Krystla","Cosmos","Saturnus","Nephthys","Hrodmar","Morrigan","Miiranth"};
+				names = new String[] {"Shadow", "Steve", "Shyne", "Blitz", "Charrie", "Slanger", "Tree", "Jack", "Zane", "Axel", "Dark-Rainbow", "C418", "C523", "Steven", "Galecia", "Blaze", "Sean", "Destoliar","test", "Krystla","Cosmos","Saturnus","Nephthys","Hrodmar","Morrigan","Miiryanth"};
 				altnames = new String[] {"Radon", "Orange", "Shyne", "Jet", "Firefly", "Radium", "Tree", "Jack", "Zane", "Axel", "Dark", "C4", "C5", "Pizza-ponii", "Galecia", "Blazer", "Sean", "Dest", "test", "Krystal","Cosmos","Saturnus","Nepht","Hro","Morr","Miir"}; 
 				nonocnames = new String[] {"Sunset-Shimmer", "Apple-Jack", "Rainbow-Dash", "Cadence"};
 				oc = new Ponii[] {
@@ -61,7 +61,7 @@ public class CharMasterControl {
 					new Ponii("Nephthys Darkstar","\u2694","\nMare\nDemon\nDark red\nSister of Cosmos\nBlack and gray","\nSharp angular sword in an Orcish style","Unknown","King of Hell",9481,"Nephthys Darkstar.png","null.png","0",0,8,-7466),
 					new Ponii("Hrodmar Thorhalson","","\nStallion\nViking Carribou\nBrown\nHe's a fekkin viking, what more exists need?\nRed","\nThree white swirls","Nina Faralddottir","Thoral Kiotvason",23,"Hrodmar Thorhalson.png","null.png","39230B4000705000FFC49D0010000BB96QN1D3A00800000191BA3000FFFFEE0001705000FFFFEE",12,1,1992),
 					new Ponii("Morrigan Darkstar","\u2620","\nMare\nDemon\nBlue\nAnother sister of Cosmos\nRed and orange","\nSkull and crossbones","Unknown","King of Hell",3847,"Morrigan Darkstar.png","null.png","3C1I0B620024356288242303A11FF3200UN193D205040001D1841100CC26001T107F3FCC004CB2",12,9,-1832),
-					new Ponii("Miiranth","\u1F409","\nStallion\nDragon pone\nG\nI can haz dragon?\nF","\nHe's a fekkin dragon. He doesn't have one","Unknown","Unknown",19,"null.png","null.png","0",4,8,1996),
+					new Ponii("Miiryanth","\u1F409","\nStallion\nDragon pone\nG\nI can haz dragon?\nF","\nHe's a fekkin dragon. He doesn't have one","Unknown","Unknown",19,"null.png","null.png","0",4,8,1996),
 				}; 
 				nonoc = new Ponii[] {
 					new Ponii("Sunset Shimmer", "", "\nMare\nUnicorn\nYou know from EQG?", "\nThe yellow and red sun thing", "?", "?", 19, "null.png", "null.png", "null", 16, 8, 1996),

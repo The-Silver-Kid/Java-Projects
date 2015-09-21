@@ -67,7 +67,7 @@ public class CharMasterControl {
 					new Ponii("Sunset Shimmer", "", "\nMare\nUnicorn\nYou know from EQG?", "\nThe yellow and red sun thing", "?", "?", 19, "null.png", "null.png", "null", 16, 8, 1996),
 					new Ponii("Apple Jack Radon", "", "\nMare\nEarth Ponii\nIts Apple Jack... y'all know her", "\nThree red apples", "?", "?", "Shadow Radon", 22, 2, new String[] {"Tree Lighting", "Shadow Jack"}, "AJ.png", "AJMark.png", "2S2S000000FEA100FEB19E0040110BF00UN1837000100000I0FAFE73FF7FFF0H107F3FCC004CB2", 3, 4, 1993),
 					new Ponii("Rainbow Dash", "", "\nMare\nPegasus\nRainbow Dash... need i say more?", "\nThe Rainbow lightning bolt", "?", "?", "Dark Rainbow", 23, "RD.png", "null.png", "2S2S0000207ADAFFFFC49D00001C6006FUN1837000000000O07F3FCCFF7FFF0M107F3FCC004CB2", 5, 4, 1992),
-					new Ponii("Princess Cadence","\u2764","\nMare\nAlicorn\nPretty pink pony princess","\nCrystal Heart","Queen Galaxia","Unknown", "Cosmos Darkstar",11489, 1, new String[] {""}, "Princess Cadence.png","null.png","3547006110FFC7DAFFC49D00101740096UI1G3C002000000817F3FA2DF44A50Q107F3FCC004CB2",16,6,-9474),
+					new Ponii("Princess Cadence","\u2764","\nMare\nAlicorn\nPretty pink ponii princess","\nCrystal Heart","Queen Galaxia","Unknown", "Cosmos Darkstar",11489, 1, new String[] {""}, "Princess Cadence.png","null.png","3547006110FFC7DAFFC49D00101740096UI1G3C002000000817F3FA2DF44A50Q107F3FCC004CB2",16,6,-9474),
 				};
 		} else if (args[0].equalsIgnoreCase("Hill")){
 				// Your OC set and stuff here

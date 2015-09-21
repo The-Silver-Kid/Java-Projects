@@ -420,7 +420,7 @@ public class Char {
 			poni.println("With " + tpk[i] + " : " + tSA[i]);
 		}
 		poni.println();
-		poni.println("Flag: " + tp.getFlag());
+		poni.println("Flag: '" + tp.getFlag() + "'");
 		poni.println();
 		poni.println("::End of Ponii::");
 		poni.println();
@@ -452,7 +452,7 @@ public class Char {
 			poni.println("With " + tpk[i] + " : " + tSA[i]);
 		}
 		poni.println();
-		poni.println("Flag: " + tp.getFlag());
+		poni.println("Flag: '" + tp.getFlag() + "'");
 		poni.println();
 		poni.println("::End of Ponii::");
 		poni.println();
@@ -484,7 +484,7 @@ public class Char {
 			poni.println(tSA[i]);
 		}
 		poni.println();
-		poni.println("Flag: " + tp.getFlag());
+		poni.println("Flag: '" + tp.getFlag() + "'");
 		poni.println();
 		poni.println("::End of Ponii::");
 		poni.println();
@@ -510,7 +510,7 @@ public class Char {
 		poni.println("Married to : " + tp.getSp());
 		poni.println("Number of Kids : " + tp.getKidAmmount());
 		poni.println();
-		poni.println("Flag: " + tp.getFlag());
+		poni.println("Flag: '" + tp.getFlag() + "'");
 		poni.println();
 		poni.println("::End of Ponii::");
 		poni.println();
@@ -533,7 +533,7 @@ public class Char {
 		poni.println("Mother : " + tp.getMother());
 		poni.println("Father : " + tp.getFather());
 		poni.println();
-		poni.println("Flag: " + tp.getFlag());
+		poni.println("Flag: '" + tp.getFlag() + "'");
 		poni.println();
 		poni.println("::End of Ponii::");
 		poni.println();

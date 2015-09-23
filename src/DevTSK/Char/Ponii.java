@@ -221,6 +221,40 @@ public class Ponii {
 	public Ponii() {
 	}
 	
+	public Ponii(int i, String n, String flg, String d, String cm, String mother, String father, int aje, String imm, String tcm, String code, int dy, int mn, int y) {
+		state = 2;
+		if (i == 1){
+			name = n;
+			desc = d;
+			cutii = cm;
+			m = mother;
+			f = father;
+			age = aje;
+			impath = "error.png";
+			DNA = code;
+			cmpath = tcm;
+			dai = dy;
+			month = mn;
+			year = y;
+			flag = flg + "\nImage is Missing, Corrupt or Invalad.";
+		}
+		if (i == 0){
+			name = n;
+			desc = "Missing info";
+			cutii = "Missing info";
+			m = "Missing info";
+			f = "Missing info";
+			age = 0;
+			impath = "error.png";
+			DNA = "Missing info";
+			cmpath = "null.png";
+			dai = 0;
+			month = 0;
+			year = 0;
+			flag = "Something is missing and as a result this message appears\nPlease Fix it and remove the 0 at the start of the constructor";
+		}
+	}
+
 	public String getName() {
 		return name;
 	}

@@ -21,7 +21,11 @@ public class Batterii {
 	}
 	
 	public double getPower(){
-		charge = charge - .01;
+		return power;
+	}
+	
+	public double getSupply(double load){
+		charge = charge - (load * .01);
 		power = 3000 * charge;
 		return power;
 	}

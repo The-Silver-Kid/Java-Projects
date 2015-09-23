@@ -59,10 +59,10 @@ public class CharMasterControl {
 					new Ponii("Cosmos Darkstar","\u26e7","\nStallion\nPegasus\nPurple with grey stripes\nIs half zebra\nGray","\nPentagram","Nighmare Moon","King of Hell", "Princess Cadence", 851, 1, new String[] {""}, new String[] {""}, "null.png","null.png","0",42,8,1164),
 					new Ponii("Count Saturnus Darkstar","\u1f41","\nStallion\nDemon\nDark red\nBrother of Cosmos\nNeon red","\nGoat head","Unknown","King of Hell",4236,"Saturns.png","null.png","0",0,6,-2221),
 					new Ponii("Nephthys Darkstar","\u2694","\nMare\nDemon\nDark red\nSister of Cosmos\nBlack and gray","\nSharp angular sword in an Orcish style","Unknown","King of Hell",9481,"Nephthys Darkstar.png","null.png","0",0,8,-7466),
-					new Ponii("Hrodmar Thorhalson","","\nStallion\nViking Carribou\nBrown\nHe's a fekkin viking, what more exists need?\nRed","\nThree white swirls","Nina Faralddottir","Thoral Kiotvason",23,"Hrodmar Thorhalson.png","null.png","39230B4000705000FFC49D0010000BB96QN1D3A00800000191BA3000FFFFEE0001705000FFFFEE",12,1,1992),
+					new Ponii(1, "Hrodmar Thorhalson","","\nStallion\nViking Carribou\nBrown\nHe's a fekkin viking, what more exists need?\nRed","\nThree white swirls","Nina Faralddottir","Thoral Kiotvason",23,"Hrodmar Thorhalson.png","null.png","39230B4000705000FFC49D0010000BB96QN1D3A00800000191BA3000FFFFEE0001705000FFFFEE",12,1,1992),
 					new Ponii("Morrigan Darkstar","\u2620","\nMare\nDemon\nBlue\nAnother sister of Cosmos\nRed and orange","\nSkull and crossbones","Unknown","King of Hell",3847,"Morrigan Darkstar.png","null.png","3C1I0B620024356288242303A11FF3200UN193D205040001D1841100CC26001T107F3FCC004CB2",12,9,-1832),
-					new Ponii("Miiryanth","\uD83D\uDC09","\nStallion\nDragon pone\nVery dark gray\nI can haz dragon?\nFirey orange-red color","\nDARGON NO GET","Unknown","Unknown",19,"null.png","null.png","0",4,8,1996),
-					new Ponii("Gorlanth","","\nStallion\nDragon ponii\nLight blue\nBaby dargon\nDark blue","\nHasn't gotten it yet...","Unknown","Unknown",3,"null.png","null.png","0",12,7,2011),
+					new Ponii(0, "Miiryanth","\uD83D\uDC09","\nStallion\nDragon ponii\nVery dark gray\nI can haz dragon?\nFirey orange-red color","\nDARGON NO GET","Unknown","Unknown",19,"null.png","null.png","0",4,8,1996),
+					new Ponii(0, "Gorlanth","","\nStallion\nDragon ponii\nLight blue\nBaby dargon\nDark blue","\nHasn't gotten it yet...","Unknown","Unknown",3,"null.png","null.png","0",12,7,2011),
 				}; 
 				nonoc = new Ponii[] {
 					new Ponii("Sunset Shimmer", "", "\nMare\nUnicorn\nYou know from EQG?", "\nThe yellow and red sun thing", "?", "?", 19, "null.png", "null.png", "null", 16, 8, 1996),

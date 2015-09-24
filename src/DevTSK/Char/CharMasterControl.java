@@ -17,8 +17,8 @@ public class CharMasterControl {
 	public static void main(String[] args){
 		System.err.println(args.length);
 		if (args.length == 0 || (args.length > 0 && args[0].equalsIgnoreCase("RP"))){
-				names = new String[] {"Shadow", "Steve", "Shyne", "Blitz", "Charrie", "Slanger", "Tree", "Jack", "Zane", "Axel", "Dark-Rainbow", "C418", "C523", "Steven", "Galecia", "Blaze", "Sean", "Destoliar","test", "Krystla","Cosmos","Saturnus","Nephthys","Hrodmar","Morrigan","Miiryanth","Gorlanth"};
-				altnames = new String[] {"Radon", "Orange", "Shyne", "Jet", "Firefly", "Radium", "Tree", "Jack", "Zane", "Axel", "Dark", "C4", "C5", "Pizza-ponii", "Galecia", "Blazer", "Sean", "Dest", "test", "Krystal","Cosmos","Saturnus","Nepht","Hro","Morr","Miir","Lance"}; 
+				names = new String[] {"Shadow", "Steve", "Shyne", "Blitz", "Charrie", "Slanger", "Tree", "Jack", "Zane", "Axel", "Dark-Rainbow", "C418", "C523", "Steven", "Galecia", "Blaze", "Sean", "Destoliar","Zelda", "Krystla","Cosmos","Saturnus","Nephthys","Hrodmar","Morrigan","Miiryanth","Gorlanth"};
+				altnames = new String[] {"Radon", "Orange", "Shyne", "Jet", "Firefly", "Radium", "Tree", "Jack", "Zane", "Axel", "Dark", "C4", "C5", "Pizza-ponii", "Galecia", "Blazer", "Sean", "Dest", "Zelda", "Krystal","Cosmos","Saturnus","Nepht","Mar","Morr","Miir","Lance"}; 
 				nonocnames = new String[] {"Sunset-Shimmer", "Apple-Jack", "Rainbow-Dash", "Cadence"};
 				oc = new Ponii[] {
 					/* Married with kids                   : Name, Flag (/ufour diget unicode), Description, Cutii Mark, Mother, Father, Married to, INT age, INT amount of kids, STRING[] child names, Image path, CMImage path, PonycreatorV2 code, INT Birth day, INT birth month, INT birth year
@@ -52,15 +52,15 @@ public class CharMasterControl {
 					new Ponii("Steven Stralanger", "", "\nStallion\nPegasus\nLight brown coloured\nDelivers Pizza\nLikes Blitz", "\nPizza slice", "Splater", "Plazza", 17, "steven.png", "null.png", "2S3H0000109F9F4F008AFF00000AFAFAFUN1837000000001D1DA5E11ADE51112107F3FCC004CB2", 28, 2, 1998),
 					new Ponii("Galecia Frostia", "", "\nMare\nUnicorn\nLight blue coloured\nWas Radon's Marefriend for a while. Likes the cold\nMane Even Lighter Blue", "\nIcicle", "Krystla", "Starliner", 20, "Galecia.png", "null.png", "2W2O0001000095B900CCCC030010080FFUN1837000000000N10080FF00C0FF0N107F3FCC004CB2", 28, 4, 1995),
 					new Ponii("Blaze ?", "", "\nStallion\nUnicorn\nCross Breed of Ponii and Quilava\nUsually not seen as his dad prefers to keep him hidden\nHe likes the Tree Radon.\nMane is firelike", "\nDosent have it yet...\nVolcanic storm", "Lavé", "Sharader", 4, "blaze.png", "null.png", "002S000200000000FF800003000F00000UN1839200210001D18000004000001B01800000400000", 19, 11, 2001),
-					new Ponii("Sean", "", "\nStallion\nEarth Ponii\nDarkish yellow-brown\nA kid with a talent\nmint Blue mane", "Music Note", "", "", 5, "Sean.png", "null.png", "Sean.ogg", "132S000000818C0046540001000B700FEUN1837002000001H100BAAB00FFFE1G107F3FCC004CB2", 13, 7, 2008),
+					new Ponii("Sean ?", "", "\nStallion\nEarth Ponii\nDarkish yellow-brown\nA kid with a talent\nmint Blue mane\nFriend to Tree", "Music Note", "", "", 5, "Sean.png", "null.png", "Sean.ogg", "132S000000818C0046540001000B700FEUN1837002000001H100BAAB00FFFE1G107F3FCC004CB2", 13, 7, 2008),
 					new Ponii("Destoliar", "", "\nStallion\nShadow Ponii\nBlack\nLooking for somepony called Krystla Frostia\nBlack with stars", "\nHmm", "Nijyte", "Sholdrio", 3126, "Dest.png", "Dst.png", "2S2S000000000000FFC49D00001200080UN1837204000001D10000000000000L01000000000000", 1, 1, -1111),
 					new Ponii("Zelda Fries", "", "\nStallion\nEarth Ponii\nGreen\nSuch sword\nYellow","\nTriforce","Dead","Dead",16,"null.png","null.png","0",9,6,-0),
 					new Ponii("Krystla Frostia", "", "\nMare\nUnicorn\nIce Blue\nUnknown to current time\nBlue", "\nSnowflake", "Unknown", "Unknown", 3126, "Kryst.png", "null.png", "0", 1, 1, -1111),
 					new Ponii("Cosmos Darkstar","\u26e7","\nStallion\nPegasus\nPurple with grey stripes\nIs half zebra\nGray","\nPentagram","Nighmare Moon","King of Hell", "Princess Cadence", 851, 1, new String[] {""}, new String[] {""}, "null.png","null.png","0",42,8,1164),
-					new Ponii("Count Saturnus Darkstar","\u1f41","\nStallion\nDemon\nDark red\nBrother of Cosmos\nNeon red","\nGoat head","Unknown","King of Hell",4236,"Saturns.png","null.png","0",0,6,-2221),
-					new Ponii("Nephthys Darkstar","\u2694","\nMare\nDemon\nDark red\nSister of Cosmos\nBlack and gray","\nSharp angular sword in an Orcish style","Unknown","King of Hell",9481,"Nephthys Darkstar.png","null.png","0",0,8,-7466),
+					new Ponii(1, "Count Saturnus Darkstar","\u1f41","\nStallion\nDemon\nDark red\nBrother of Cosmos\nNeon red","\nGoat head","Unknown","King of Hell",4236,"Saturns.png","null.png","0",0,6,-2221),
+					new Ponii(1, "Nephthys Darkstar","\u2694","\nMare\nDemon\nDark red\nSister of Cosmos\nBlack and gray","\nSharp angular sword in an Orcish style","Unknown","King of Hell",9481,"Nephthys Darkstar.png","null.png","0",0,8,-7466),
 					new Ponii(1, "Hrodmar Thorhalson","","\nStallion\nViking Carribou\nBrown\nHe's a fekkin viking, what more exists need?\nRed","\nThree white swirls","Nina Faralddottir","Thoral Kiotvason",23,"Hrodmar Thorhalson.png","null.png","39230B4000705000FFC49D0010000BB96QN1D3A00800000191BA3000FFFFEE0001705000FFFFEE",12,1,1992),
-					new Ponii("Morrigan Darkstar","\u2620","\nMare\nDemon\nBlue\nAnother sister of Cosmos\nRed and orange","\nSkull and crossbones","Unknown","King of Hell",3847,"Morrigan Darkstar.png","null.png","3C1I0B620024356288242303A11FF3200UN193D205040001D1841100CC26001T107F3FCC004CB2",12,9,-1832),
+					new Ponii(1, "Morrigan Darkstar","\u2620","\nMare\nDemon\nBlue\nAnother sister of Cosmos\nRed and orange","\nSkull and crossbones","Unknown","King of Hell",3847,"Morrigan Darkstar.png","null.png","3C1I0B620024356288242303A11FF3200UN193D205040001D1841100CC26001T107F3FCC004CB2",12,9,-1832),
 					new Ponii(0, "Miiryanth","\uD83D\uDC09","\nStallion\nDragon ponii\nVery dark gray\nI can haz dragon?\nFirey orange-red color","\nDARGON NO GET","Unknown","Unknown",19,"null.png","null.png","0",4,8,1996),
 					new Ponii(0, "Gorlanth","","\nStallion\nDragon ponii\nLight blue\nBaby dargon\nDark blue","\nHasn't gotten it yet...","Unknown","Unknown",3,"null.png","null.png","0",12,7,2011),
 				}; 
@@ -68,7 +68,7 @@ public class CharMasterControl {
 					new Ponii("Sunset Shimmer", "", "\nMare\nUnicorn\nYou know from EQG?", "\nThe yellow and red sun thing", "?", "?", 19, "null.png", "null.png", "null", 16, 8, 1996),
 					new Ponii("Apple Jack Radon", "", "\nMare\nEarth Ponii\nIts Apple Jack... y'all know her", "\nThree red apples", "?", "?", "Shadow Radon", 22, 2, new String[] {"Tree Lighting", "Shadow Jack"}, "AJ.png", "AJMark.png", "2S2S000000FEA100FEB19E0040110BF00UN1837000100000I0FAFE73FF7FFF0H107F3FCC004CB2", 3, 4, 1993),
 					new Ponii("Rainbow Dash", "", "\nMare\nPegasus\nRainbow Dash... need i say more?", "\nThe Rainbow lightning bolt", "?", "?", "Dark Rainbow", 23, "RD.png", "null.png", "2S2S0000207ADAFFFFC49D00001C6006FUN1837000000000O07F3FCCFF7FFF0M107F3FCC004CB2", 5, 4, 1992),
-					new Ponii("Princess Cadence","\u2764","\nMare\nAlicorn\nPretty pink ponii princess","\nCrystal Heart","Queen Galaxia","Unknown", "Cosmos Darkstar",11489, 1, new String[] {""}, "Princess Cadence.png","null.png","3547006110FFC7DAFFC49D00101740096UI1G3C002000000817F3FA2DF44A50Q107F3FCC004CB2",16,6,-9474),
+					new Ponii(1, "Princess Cadence","\u2764","\nMare\nAlicorn\nPretty pink ponii princess","\nCrystal Heart","Queen Galaxia","Unknown", "Cosmos Darkstar",11489, 1, new String[] {""}, "Princess Cadence.png","null.png","3547006110FFC7DAFFC49D00101740096UI1G3C002000000817F3FA2DF44A50Q107F3FCC004CB2",16,6,-9474),
 				};
 		} else if (args[0].equalsIgnoreCase("Hill")){
 				// Your OC set and stuff here

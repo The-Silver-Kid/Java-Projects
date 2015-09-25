@@ -1,19 +1,13 @@
 package development;
 
-import Class.BA;
+import DevTSK.Util.*;
 
 public class TestingEnv {
 
 	public static void main(String[] args) throws Exception {
-		BA ba = new BA(20);
-		System.out.println(ba.getBalance());
-		System.out.println("expected 20.0");
-		ba.deposit(5);
-		System.out.println(ba.getBalance());
-		System.out.println("expected 25.0");
-		ba.withdraw(5);
-		System.out.println(ba.getBalance());
-		System.out.println("expected 20.0");
+		BaseConv b = new BaseConv();
+		System.out.println(b.from10(50200, 16));
+		System.err.println(b.to10("C418", 16));
 	}
 
 }

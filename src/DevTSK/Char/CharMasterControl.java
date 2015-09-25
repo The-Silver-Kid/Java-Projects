@@ -35,6 +35,10 @@ public class CharMasterControl {
 					 *
 					 * 002S0002000D000080FF000300100FF00UN1837202000000N100FD729FFF0F1J107F3FCC004CB2
 					 * 
+					 * 0 = broken
+					 * 1 = image
+					 * 2 = parents
+					 * 3 = cutii mark
 					 */
 					new Ponii("Shadow Radon", "\u0020", "\nStallion\nUnicorn\nBlack Coloured\nYellow Thunderbolt accross underside\nYellow Thunderbolts arround hooves\nYellow and Black mane\nLight Industries Member", "\nBlack Thundercloud with a yellow thunderbolt coming from it", "Charrie", "Slanger", "Apple Jack", 22, 2, new String[] {"Tree Lighting", "Shadow Jack"}, "radon.png", "Kloud.png", "bgm.ogg", "3037000200000000FEFF0003001FFFF00TM183720202000141000000FFFF001B107F3FCC004CB2", 20, 7, 1993),
 					new Ponii("Steve (Orange) Radon", "\u0023", "\nStallion\nPegaus\nDark Orange Coloured\nWing style that of a alicorn\nMane colour is same as body colour but has a yellow streak in it\nGigaplex Member", "\nSword.", "Charrie", "Slanger", 19, "orange.png", "Sword.png", "2S2S000200FF8800FFFF0003001FF0000UN183720F02000141FF8800FFFF001B107F3FCC004CB2", 20, 9, 1996),
@@ -54,15 +58,15 @@ public class CharMasterControl {
 					new Ponii("Blaze ?", "", "\nStallion\nUnicorn\nCross Breed of Ponii and Quilava\nUsually not seen as his dad prefers to keep him hidden\nHe likes the Tree Radon.\nMane is firelike", "\nDosent have it yet...\nVolcanic storm", "Lavé", "Sharader", 4, "blaze.png", "null.png", "002S000200000000FF800003000F00000UN1839200210001D18000004000001B01800000400000", 19, 11, 2001),
 					new Ponii("Sean ?", "", "\nStallion\nEarth Ponii\nDarkish yellow-brown\nA kid with a talent\nmint Blue mane\nFriend to Tree", "Music Note", "", "", 5, "Sean.png", "null.png", "Sean.ogg", "132S000000818C0046540001000B700FEUN1837002000001H100BAAB00FFFE1G107F3FCC004CB2", 13, 7, 2008),
 					new Ponii("Destoliar", "", "\nStallion\nShadow Ponii\nBlack\nLooking for somepony called Krystla Frostia\nBlack with stars", "\nHmm", "Nijyte", "Sholdrio", 3126, "Dest.png", "Dst.png", "2S2S000000000000FFC49D00001200080UN1837204000001D10000000000000L01000000000000", 1, 1, -1111),
-					new Ponii("Zelda Fries", "", "\nStallion\nEarth Ponii\nGreen\nSuch sword\nYellow","\nTriforce","Unknown","Unknown",16,"null.png","null.png","0",9,6,-0),
+					new Ponii(2, "Zelda Fries", "", "\nStallion\nEarth Ponii\nGreen\nSuch sword\nYellow","\nTriforce","Unknown","Unknown",16,"null.png","null.png","0",9,6,-0),
 					new Ponii("Krystla Frostia", "", "\nMare\nUnicorn\nIce Blue\nUnknown to current time\nBlue", "\nSnowflake", "Unknown", "Unknown", 3126, "Kryst.png", "null.png", "0", 1, 1, -1111),
 					new Ponii("Cosmos Darkstar","\u26e7","\nStallion\nPegasus\nPurple with grey stripes\nIs half zebra\nGray","\nPentagram","Nighmare Moon","King of Hell", "Princess Cadence", 851, 1, new String[] {""}, new String[] {""}, "null.png","null.png","0",42,8,1164),
 					new Ponii("Count Saturnus Darkstar","\u1f41","\nStallion\nDemon\nDark red\nBrother of Cosmos\nNeon red","\nGoat head","Unknown","King of Hell",4236,"Saturn.png","null.png","0",0,6,-2221),
-					new Ponii("Nephthys Darkstar","\u2694","\nMare\nDemon\nDark red\nSister of Cosmos\nBlack and gray","\nSharp angular sword in an Orcish style","Unknown","King of Hell",9481,"Nephthys Darkstar.png","null.png","0",0,8,-7466),
-					new Ponii("Hrodmar Thorhalson","","\nStallion\nViking Carribou\nBrown\nHe's a fekkin viking, what more exists need?\nRed","\nThree white swirls","Nina Faralddottir","Thoral Kiotvason",23,"Hrodmar Thorhalson.jpg","null.png","39230B4000705000FFC49D0010000BB96QN1D3A00800000191BA3000FFFFEE0001705000FFFFEE",12,1,1992),
-					new Ponii("Morrigan Darkstar","\u2620","\nMare\nDemon\nBlue\nAnother sister of Cosmos\nRed and orange","\nSkull and crossbones","Unknown","King of Hell",3847,"Morrigan Darkstar.png","null.png","3C1I0B620024356288242303A11FF3200UN193D205040001D1841100CC26001T107F3FCC004CB2",12,9,-1832),
-					new Ponii("Miiryanth","\uD83D\uDC09","\nStallion\nDragon ponii\nVery dark gray\nI can haz dragon?\nFirey orange-red color","\nDARGON NO GET","Unknown","Unknown",19,"null.png","null.png","0",4,8,1996),
-					new Ponii("Gorlanth","","\nStallion\nDragon ponii\nLight blue\nBaby dargon\nDark blue","\nHasn't gotten it yet...","Unknown","Unknown",3,"null.png","null.png","0",12,7,2011),
+					new Ponii(1, "Nephthys Darkstar","\u2694","\nMare\nDemon\nDark red\nSister of Cosmos\nBlack and gray","\nSharp angular sword in an Orcish style","Unknown","King of Hell",9481,"Nephthys Darkstar.png","null.png","0",0,8,-7466),
+					new Ponii(1, "Hrodmar Thorhalson","","\nStallion\nViking Carribou\nBrown\nHe's a fekkin viking, what more exists need?\nRed","\nThree white swirls","Nina Faralddottir","Thoral Kiotvason",23,"Hrodmar Thorhalson.jpg","null.png","39230B4000705000FFC49D0010000BB96QN1D3A00800000191BA3000FFFFEE0001705000FFFFEE",12,1,1992),
+					new Ponii(1, "Morrigan Darkstar","\u2620","\nMare\nDemon\nBlue\nAnother sister of Cosmos\nRed and orange","\nSkull and crossbones","Unknown","King of Hell",3847,"Morrigan Darkstar.png","null.png","3C1I0B620024356288242303A11FF3200UN193D205040001D1841100CC26001T107F3FCC004CB2",12,9,-1832),
+					new Ponii(3, "Miiryanth","\uD83D\uDC09","\nStallion\nDragon ponii\nVery dark gray\nI can haz dragon?\nFirey orange-red color","\nDARGON NO GET","Unknown","Unknown",19,"null.png","null.png","0",4,8,1996),
+					new Ponii(3, "Gorlanth","","\nStallion\nDragon ponii\nLight blue\nBaby dargon\nDark blue","\nHasn't gotten it yet...","Unknown","Unknown",3,"null.png","null.png","0",12,7,2011),
 				}; 
 				nonoc = new Ponii[] {
 					new Ponii("Sunset Shimmer", "", "\nMare\nUnicorn\nYou know from EQG?", "\nThe yellow and red sun thing", "?", "?", 19, "null.png", "null.png", "null", 16, 8, 1996),

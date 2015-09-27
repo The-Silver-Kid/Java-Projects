@@ -1,3 +1,5 @@
+package GabeChecking;
+
 import java.util.Scanner;
 
 public class Student2 {
@@ -12,7 +14,7 @@ public class Student2 {
 		private float avgScore;
 		private float totalScore;
 		Scanner eat = new Scanner(System.in);
-		private float numm;
+		//private float numm;
 		private float score1;
 		private float score2;
 		private float score3;

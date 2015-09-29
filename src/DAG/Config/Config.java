@@ -10,7 +10,7 @@ import java.io.*;
 
 public class Config
 {
-	private final static boolean DEBUG = false;	// Set to true to show debugging information
+	private final static boolean DEBUG = true;	// Set to true to show debugging information
 
 	private int BUFFER_LENGTH = 1024;				// Length of character used for reading file
 	private Hashtable<String,String> table;		// Table of key value pairs

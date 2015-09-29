@@ -4,7 +4,7 @@ public class MarriedPonii extends Ponii {
 	
 	protected String[] kids;
 	protected int kidammount;
-	protected String marriedto;
+	protected String marriedto = "Empty";
 
 	public MarriedPonii(String Name, Boolean Gender, String Description, String ManeColour, String TailColour,
 			String Mother, String Father, int age, int month, int year, String Imagename, String CutiimarkImage,

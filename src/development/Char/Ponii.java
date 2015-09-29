@@ -2,10 +2,9 @@ package development.Char;
 
 public class Ponii extends Entity {
 	
-	protected String Mane = "", Tail = "", CutiiMarkPath = "";
+	protected String Mane = "Empty", Tail = "Empty", CutiiMarkPath = "Empty";
 	
 	public Ponii() {
-		System.err.println("PLEASE USE SOMETHING THAT EXTENDS PONII NOT PONII ITSELF");
 	}
 	
 	@Override

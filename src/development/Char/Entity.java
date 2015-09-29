@@ -3,11 +3,10 @@ package development.Char;
 public class Entity {
 	protected Boolean Gender = false; //false = Male, true = Female
 	protected int age = 0, state = 0, day = 0, month = 0, year = 0;
-	protected String name = "", description = "", mother = "", father = "", DNA = "Oops", flag = "/u0020";
+	protected String name = "Empty", description = "Empty", mother = "Empty", father = "Empty", DNA = "Empty", flag = "Empty";
 	protected String imagepath = "null.png";
 	
 	public Entity() {
-		System.err.println("PLEASE USE SOMETHING THAT EXTENDS ENTITY NOT ENTITY ITSELF");
 	}
 
 	public String getGender() {

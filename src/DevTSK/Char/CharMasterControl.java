@@ -78,11 +78,11 @@ public class CharMasterControl {
 		} else if (args[0].equalsIgnoreCase("Hill")){
 				// Your OC set and stuff here
 				//OC NAME
-				names = new String[] {};
+				names = new String[] {"Cosmos","Saturnus","Nephthys","Hrodmar","Morrigan","Miiryanth","Gorlanth"};
 				// OC ALT NAME
-				altnames = new String[] {};
+				altnames = new String[] {"Cosmos","Saturn","Neph","Hrodmar","Morry","Miir","Lance"};
 				// CANNON NAME
-				nonocnames = new String[] {};
+				nonocnames = new String[] {"Cadence"};
 				// OC
 				oc = new Ponii[] {
 					/* Married with kids                 : Name, Description, Cutii Mark, Mother, Father, Married to, INT age, INT amount of kids, STRING[] child names, Image path, CMImage path, PonycreatorV2 code, INT Birth day, INT birth month, INT birth year
@@ -97,9 +97,18 @@ public class CharMasterControl {
 					 * DO NOT FOR ANY REASON PUT THE CUTII MARK DESCRIPTION IN THE PONII DESCRIPTION! IF YOU DO I WILL HUNT YOU DOWN!
 					 *
 					*/
+						
+						new Ponii("Cosmos Darkstar","\u26e7","\nStallion\nPegasus\nPurple with grey stripes\nIs half zebra\nGray","\nPentagram","Nighmare Moon","King of Hell", "Princess Cadence", 851, 1, new String[] {""}, new String[] {""}, "null.png","null.png","0",42,8,1164),
+						new Ponii("Count Saturnus Darkstar","\u1f41","\nStallion\nDemon\nDark red\nBrother of Cosmos\nNeon red","\nGoat head","Unknown","King of Hell",4236,"Saturnus.png","null.png","0",0,6,-2221),
+						new Ponii("Nephthys Darkstar","\u2694","\nMare\nDemon\nDark red\nSister of Cosmos\nBlack and gray","\nSharp angular sword in an Orcish style","Unknown","King of Hell",9481,"null.png","null.png","0",0,8,-7466),
+						new Ponii("Hrodmar Thorhalson","","\nStallion\nViking Carribou\nBrown\nHe's a fekkin viking, what more exists need?\nRed","\nThree white swirls","Nina Faralddottir","Thoral Kiotvason",23,"null.png","null.png","39230B4000705000FFC49D0010000BB96QN1D3A00800000191BA3000FFFFEE0001705000FFFFEE",12,1,1992),
+						new Ponii("Morrigan Darkstar","\u2620","\nMare\nDemon\nBlue\nAnother sister of Cosmos\nRed and orange","\nSkull and crossbones","Unknown","King of Hell",3847,"null.png","null.png","3C1I0B620024356288242303A11FF3200UN193D205040001D1841100CC26001T107F3FCC004CB2",12,9,-1832),
+						new Ponii("Miiryanth",/*"\uD83D\uDC09"*/ "","\nStallion\nDragon ponii\nVery dark gray\nI can haz dragon?\nFirey orange-red color","\nDARGON NO GET "/*He's not getting one. He's mostly dragon so no cutie mark.*/,"Unknown","Unknown",19,"null.png","null.png","0",4,8,1996),
+						new Ponii("Gorlanth","","\nStallion\nDragon ponii\nLight blue\nExists\nDark blue","\nHasn't gotten it yet...Triangle beaker thing","Unknown","Unknown",3,"null.png","null.png","0",12,7,2011),
 				};
 				// CANNON
 				nonoc = new Ponii[] {
+						new Ponii("Princess Cadence","\u2764","\nMare\nAlicorn\nPretty pink ponii princess","\nCrystal Heart","Queen Galaxia","Unknown", "Cosmos Darkstar",11489, 1, new String[] {""}, "null.png","null.png","3547006110FFC7DAFFC49D00101740096UI1G3C002000000817F3FA2DF44A50Q107F3FCC004CB2",16,6,-9474),
 			};
 			//  ██╗    ██╗ █████╗ ██████╗ ███╗   ██╗██╗███╗   ██╗ ██████╗ ██╗
 			//  ██║    ██║██╔══██╗██╔══██╗████╗  ██║██║████╗  ██║██╔════╝ ██║

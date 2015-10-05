@@ -1,5 +1,5 @@
 /* 
- * Window Class
+ * Window Classgh
  * (C) DevTSK Productions 2015
  */
 

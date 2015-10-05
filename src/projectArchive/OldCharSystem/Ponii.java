@@ -1,4 +1,4 @@
-package DevTSK.Char;
+package projectArchive.OldCharSystem;
 
 public class Ponii {
 	private int age = 0, nc = 0, state = 0, dai = 0, month = 0, year = 0;

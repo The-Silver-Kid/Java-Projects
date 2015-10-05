@@ -1,4 +1,4 @@
-package DevTSK.Char;
+package projectArchive.OldCharSystem;
 
 import DAG.Config.ConfigException;
 import DevTSK.Util.FileDetect;

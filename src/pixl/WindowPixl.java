@@ -5,7 +5,7 @@ import java.awt.event.KeyListener;
 
 import javax.swing.*;
 
-import DevTSK.Char.Window;
+//import DevTSK.Char.Window;
 
 public class WindowPixl {
 	
@@ -29,7 +29,7 @@ public class WindowPixl {
 		Menui.setBounds(0, 0, 200, 277);
 		Menui.setResizable(false);
 		Menui.setTitle("Pixl Menui");
-		Menui.setIconImage(Toolkit.getDefaultToolkit().getImage(Window.class.getResource("/images/ikon.png")));
+		Menui.setIconImage(Toolkit.getDefaultToolkit().getImage(WindowPixl.class.getResource("/images/ikon.png")));
 		Menui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Menui.getContentPane().setVisible(true);
 		Menui.getContentPane().setLayout(null);	
@@ -65,7 +65,7 @@ public class WindowPixl {
 		}
 		Gameui.setResizable(false);
 		Gameui.setTitle("Pixl Game");
-		Gameui.setIconImage(Toolkit.getDefaultToolkit().getImage(Window.class.getResource("/images/ikon.png")));
+		Gameui.setIconImage(Toolkit.getDefaultToolkit().getImage(WindowPixl.class.getResource("/images/ikon.png")));
 		Gameui.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		Gameui.getContentPane().setVisible(false);
 		Gameui.getContentPane().setLayout(null);

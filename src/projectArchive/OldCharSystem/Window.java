@@ -3,7 +3,7 @@
  * (C) DevTSK Productions 2015
  */
 
-package DevTSK.Char;
+package projectArchive.OldCharSystem;
 
 import java.awt.Color;
 import java.awt.Image;

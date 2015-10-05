@@ -1,14 +1,13 @@
-package development.Char;
+package DevTSK.Entity;
 
-public class MarriedPonii extends Ponii {
+public class UnMarriedPoniiWithKids extends Ponii {
 	
-	protected String[] kids;
+	protected String[] kids, with;
 	protected int kidammount;
-	protected String marriedto = "Empty";
-
-	public MarriedPonii(String Name, Boolean Gender, String Description, String ManeColour, String TailColour,
+	
+	public UnMarriedPoniiWithKids(String Name, Boolean Gender, String Description, String ManeColour, String TailColour,
 			String Mother, String Father, int age, int month, int year, String Imagename, String CutiimarkImage,
-			String MarriedTo, int ammountOfKids, String[] kidNames) {
+			int ammountOfKids, String[] kidNames, String[] kidOtherParent) {
 		this.name = Name;
 		this.Gender = Gender;
 		this.description = Description;
@@ -23,11 +22,11 @@ public class MarriedPonii extends Ponii {
 		this.CutiiMarkPath = CutiimarkImage;
 		this.kidammount = ammountOfKids;
 		this.kids = kidNames;
-		this.marriedto = MarriedTo;
+		this.with = kidOtherParent;
 	}
 	
-	public String getPartner(){
-		return marriedto;
+	public String[] kidParents(){
+		return with;
 	}
 	
 	public int getKidAmmount(){

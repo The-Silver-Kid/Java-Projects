@@ -1,4 +1,4 @@
-package development.Char;
+package DevTSK.Entity;
 
 public class UnMarriedPonii extends Ponii {
 	

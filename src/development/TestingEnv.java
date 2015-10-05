@@ -1,8 +1,6 @@
 package development;
 
-import development.Char.Entity;
-import development.Char.EntityHandler;
-import development.Char.UnMarriedPonii;
+import DevTSK.Entity.*;
 
 public class TestingEnv {
 	//Name, Gender, Description, ManeColour, TailColour, Mother, Father, int age, int month, int year, Imagename, CutiimarkImage

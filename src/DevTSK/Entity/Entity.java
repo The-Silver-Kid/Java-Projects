@@ -1,4 +1,4 @@
-package development.Char;
+package DevTSK.Entity;
 
 public class Entity {
 	protected Boolean Gender = false; //false = Male, true = Female

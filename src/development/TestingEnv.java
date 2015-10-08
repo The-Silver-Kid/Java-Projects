@@ -3,7 +3,7 @@ package development;
 import DevTSK.Entity.*;
 
 public class TestingEnv {
-	//Name, Gender, Description, ManeColour, TailColour, Mother, Father, int age, int month, int year, Imagename, CutiimarkImage
+	//Name, AltName, Flag, Gender, Description, ManeColour, TailColour, Mother, Father, Integer age, Integer day, Integer month, Integer year, ImageName, CutiimarkImage
 	public static void main(String[] args) throws Exception {
 		EntityLoader h = new EntityLoader(new Entity[] {
 				new UnMarriedPonii("OC 1", "OC one", "", false, "Desc", "CMDesc", "Mane", "Tail", "mom", "dad", 10, 10, 10, 10, "null.png", "null.png"),

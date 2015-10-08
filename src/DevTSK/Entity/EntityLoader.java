@@ -1,11 +1,12 @@
 package DevTSK.Entity;
 
 import java.awt.Color;
-import java.io.*;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 import DAG.Config.Config;
 import DAG.Config.ConfigException;
-import DevTSK.Exception.*;
 
 public class EntityLoader {
 	//private static final File f = new File("./config/Poniiconfig.ini");
@@ -16,25 +17,16 @@ public class EntityLoader {
 	
 	private static Window poni = new Window("Ponii Program 3.0", 1, 0, 0, 0);
 	
-	private static String[] chars;
-	private static String[] allias;
-	private static String[] cannon;
-	
 	private static final String[] commands = new String[] {
-		"Colour", "Color", "InputColour", "InputColor", "OutputColour", "OutputColor", "Music", "Exit",
+		"Colour", "Color", "InputColour", "InputColor", "OutputColour", "OutputColor", "Exit",
 		"OutputTextColor", "InputTextColor", "OutputTextColour", "InputTextColour", "errorcheck" , "extract",
 		"breed", "breedrand", "last", "l", "lastcmd", "cfg", "config", "listNonOC", "listall"
 	};
 	
-	private static Boolean musik = false;
+	private static Entity[] OC;
+	private static Entity[] show;
 	
-	private static Ponii[] OC;
-	private static Ponii[] show;
-	
-	public EntityLoader(String[] ch, String[] al, String[] cn, Ponii[] o, Ponii[] c){
-		chars = ch;
-		allias = al;
-		cannon = cn;
+	public EntityLoader(Entity[] o, Entity[] c){
 		OC = o;
 		show = c;
 		poni.lblInfo.setText("If you see this press the button before doing anything.");
@@ -44,17 +36,8 @@ public class EntityLoader {
 
 	public static void errorCheck() throws Exception{
 		System.out.println("\nChecking out Inputed Resources...\n\nChecking chars and allias String[]s...");
-		if (chars.length != allias.length) {
-			throw new LengthException("String[] chars and String[] allias arent the same length!");
-		}
 		System.out.println("chars and allias String[]s checks out...\nChecking Ponii[] OC compatablity...");
-		if (chars.length != OC.length) {
-			throw new LengthException("String[] chars and Ponii[] OC are different lengths!");
-		}
 		System.out.println("Ponii[] OC compatablity checks out...\nChecking Ponii[] show compatablity...");
-		if (show.length != cannon.length) {
-			throw new LengthException("Ponii[] show and String[] cannon are different lengths!");
-		}
 		System.out.println("Ponii[] show compatablity checks out...\nChecking ponii resources...");
 		System.out.println("Everything Checks out fine... Assuming all is well in the land...");
 	}
@@ -62,16 +45,20 @@ public class EntityLoader {
 	public static void handle(String s) throws Exception {
 		int handler = -1;
 		Boolean origin = true, controlVar = false;
-		for (int i = 0; i < chars.length; i++){
-			if (chars[i].equalsIgnoreCase(s)) {
+		for (int i = 0; i < OC.length; i++){
+			if (OC[i].getName().equalsIgnoreCase(s)) {
 				handler = i;
 			}
-			if (s.equalsIgnoreCase(allias[i])) {
+			if (s.equalsIgnoreCase(OC[i].getAltName())) {
 				handler = i;
 			}
 		}
-		for (int i = 0; i < cannon.length; i++){
-			if (cannon[i].equalsIgnoreCase(poni.lblTextArea.getText())) {
+		for (int i = 0; i < show.length; i++){
+			if (show[i].getName().equalsIgnoreCase(s)) {
+				handler = i;
+				origin = false;
+			}
+			if (show[i].getAltName().equalsIgnoreCase(s)) {
 				handler = i;
 				origin = false;
 			}
@@ -114,17 +101,6 @@ public class EntityLoader {
 		String[] sl = cmd.split("\\s+");
 		if (sl[0].equalsIgnoreCase("Exit"))
 			System.exit(0);
-		if (sl[0].equalsIgnoreCase("Music")){
-			musik = !musik;
-			if (musik) {
-				poni.musikS.setText("Music On");
-				poni.musikS.setForeground(new Color(0, 255, 0));
-			} else {
-				poni.ss.stop("bgm.ogg");
-				poni.musikS.setText("Music Off");
-				poni.musikS.setForeground(new Color(255, 0, 0));
-			}
-		}
 		if (sl[0].equalsIgnoreCase("ErrorCheck")){
 			errorCheck();
 		}
@@ -187,30 +163,38 @@ public class EntityLoader {
 			} else {
 				Boolean OCo = true, OCt = true;
 				int f = -1, m = -1;
-				for (int i = 0; i < chars.length; i ++){
-					if (sl[1].equalsIgnoreCase(chars[i])) {
+				for (int i = 0; i < OC.length; i ++){
+					if (sl[1].equalsIgnoreCase(OC[i].getName())) {
 						f = i;
 					}
-					if (sl[1].equalsIgnoreCase(allias[i])) {
+					if (sl[1].equalsIgnoreCase(OC[i].getAltName())) {
 						f = i;
 					}
 				}
-				for (int i = 0; i < cannon.length; i ++){
-					if (sl[1].equalsIgnoreCase(cannon[i])) {
+				for (int i = 0; i < show.length; i ++){
+					if (sl[1].equalsIgnoreCase(show[i].getName())) {
+						f = i;
+						OCo = false;
+					}
+					if (sl[1].equalsIgnoreCase(show[i].getAltName())) {
 						f = i;
 						OCo = false;
 					}
 				}
-				for (int i = 0; i < chars.length; i ++){
-					if (sl[2].equalsIgnoreCase(chars[i])) {
+				for (int i = 0; i < OC.length; i ++){
+					if (sl[2].equalsIgnoreCase(OC[i].getName())) {
 						m = i;
 					}
-					if (sl[2].equalsIgnoreCase(allias[i])) {
+					if (sl[2].equalsIgnoreCase(OC[i].getAltName())) {
 						m = i;
 					}
 				}
-				for (int i = 0; i < cannon.length; i ++){
-					if (sl[2].equalsIgnoreCase(cannon[i])) {
+				for (int i = 0; i < show.length; i ++){
+					if (sl[2].equalsIgnoreCase(show[i].getName())) {
+						m = i;
+						OCt = false;
+					}
+					if (sl[2].equalsIgnoreCase(show[i].getAltName())) {
 						m = i;
 						OCt = false;
 					}
@@ -246,17 +230,17 @@ public class EntityLoader {
 		if (sl[0].equalsIgnoreCase("listNonOC") || sl[0].equalsIgnoreCase("listall")){
 			poni.printCl();
 			if (sl[0].equalsIgnoreCase("listall")){
-				poni.println("Acceptable OC/NonOC Ponii Names: " + (chars.length + cannon.length));
-				for(int i = 0; i < chars.length; i++) {
-					poni.println(chars[i]);
+				poni.println("Acceptable OC/NonOC Ponii Names: " + (OC.length + show.length));
+				for(int i = 0; i < OC.length; i++) {
+					poni.println(OC[i].getName() + " AKA " + OC[i].getAltName());
 				}
-				for(int i = 0; i < cannon.length; i++) {
-					poni.println(cannon[i]);
+				for(int i = 0; i < show.length; i++) {
+					poni.println(show[i].getName() + " AKA " + show[i].getAltName());
 				}
 			} else {
-				poni.println("Acceptable NonOC Ponii Names: " + cannon.length);
-				for(int i = 0; i < cannon.length; i++) {
-					poni.println(cannon[i]);
+				poni.println("Acceptable NonOC Ponii Names: " + show.length);
+				for(int i = 0; i < show.length; i++) {
+					poni.println(show[i].getName() + " AKA " + show[i].getAltName());
 				}
 			}
 		}
@@ -283,7 +267,6 @@ public class EntityLoader {
 					+ "outfr = " + poni.lblInfo.getForeground().getRed() + ";\n"
 					+ "outfg = " + poni.lblInfo.getForeground().getGreen() + ";\n"
 					+ "outfb = " + poni.lblInfo.getForeground().getBlue() + ";\n\n"
-					+ "music = " + musik.toString() + ";\n"
 					+ "sep = " + "false;";
 					//+ "frame = " + framew + ";";
 			tst = strnj.getBytes();
@@ -295,22 +278,19 @@ public class EntityLoader {
 	}
 
 	private static void getOCInfo(int i) {
-		int s = OC[i].getState(474201);
+		String s = OC[i].toString();
 		System.out.println(s);
 		poni.printCl();
-		if (s == 1) {
+		if (s.equalsIgnoreCase("MarriedPonii")) {
 			getInfoMWK(OC[i]);
 		}
-		if (s == 2) {
+		if (s.equalsIgnoreCase("UnMarriedPonii")) {
 			getInfoSNG(OC[i]);
 		}
-		if (s == 3) {
-			getInfoMNK(OC[i]);
-		}
-		if (s == 7) {
+		if (s.equalsIgnoreCase("UnMarriedPoniiWithKids")) {
 			getInfoSNGK(OC[i]);
 		}
-		if (s == 9) {
+		if (s.equalsIgnoreCase("MarriedPoniiWithOtherKids")) {
 			getInfoMWKOMK(OC[i]);
 		}
 		
@@ -324,21 +304,19 @@ public class EntityLoader {
 	}
 
 	private static void getCaInfo(int i) {
-		int s = show[i].getState(474201);
-		System.out.println(show[i].getState(474201));
-		if (s == 1) {
-			getInfoMWK(show[i]);
+		String s = show[i].toString();
+		System.out.println(s);
+		poni.printCl();
+		if (s.equalsIgnoreCase("MarriedPonii")) {
+			getInfoMWK(OC[i]);
 		}
-		if (s == 2) {
-			getInfoSNG(show[i]);
+		if (s.equalsIgnoreCase("UnMarriedPonii")) {
+			getInfoSNG(OC[i]);
 		}
-		if (s == 3) {
-			getInfoMNK(show[i]);
-		}
-		if (s == 7) {
+		if (s.equalsIgnoreCase("UnMarriedPoniiWithKids")) {
 			getInfoSNGK(OC[i]);
 		}
-		if (s == 9) {
+		if (s.equalsIgnoreCase("MarriedPoniiWithOtherKids")) {
 			getInfoMWKOMK(OC[i]);
 		}
 		
@@ -351,7 +329,7 @@ public class EntityLoader {
 		}
 	}
 	
-	private static void getInfoMWKOMK(Ponii tp) {
+	private static void getInfoMWKOMK(Entity tp) {
 		String[] tSA = null;
 		System.out.println("Loading resources for ponii " + tp.getName());
 		poni.println("Name : " + tp.getName());
@@ -384,7 +362,7 @@ public class EntityLoader {
 		poni.println();
 	}
 
-	private static void getInfoSNGK(Ponii tp) {
+	private static void getInfoSNGK(Entity tp) {
 		String[] tSA = null;
 		System.out.println("Loading resources for ponii " + tp.getName());
 		poni.println("Name : " + tp.getName());
@@ -416,7 +394,7 @@ public class EntityLoader {
 		poni.println();
 	}
 	
-	private static void getInfoMWK(Ponii tp) {
+	private static void getInfoMWK(Entity tp) {
 		String[] tSA = null;
 		System.out.println("Loading resources for ponii " + tp.getName());
 		poni.println("Name : " + tp.getName());
@@ -448,33 +426,7 @@ public class EntityLoader {
 		poni.println();
 	}
 	
-	private static void getInfoMNK(Ponii tp) {
-		System.out.println("Loading resources for ponii " + tp.getName());
-		poni.println("Name : " + tp.getName());
-		poni.println("Age : " + tp.getAge());
-		poni.println();
-		poni.println("Description : " + tp.getDesc());
-		poni.println();
-		if (tp.getYear() >= 0)
-			poni.println("Birthday : " + tp.getMonth() + " " + tp.getDay() + ", " + tp.getYear());
-		if (tp.getYear() < 0)
-			poni.println("Birthday : " + tp.getMonth() + " " + tp.getDay() + ", " + (tp.getYear() * -1) + "BC");
-		poni.println();
-		poni.println("Cutii Mark : " + tp.getAddDesc());
-		poni.println();
-		poni.println("Mother : " + tp.getMother());
-		poni.println("Father : " + tp.getFather());
-		poni.println();
-		poni.println("Married to : " + tp.getPartner());
-		poni.println("Number of Kids : " + tp.getKidAmmount());
-		poni.println();
-		poni.println("Flag: '" + tp.getFlag() + "'");
-		poni.println();
-		poni.println("::End of Ponii::");
-		poni.println();
-	}
-	
-	private static void getInfoSNG(Ponii tp) {
+	private static void getInfoSNG(Entity tp) {
 		System.out.println("Loading resources for ponii " + tp.getName());
 		poni.println("Name : " + tp.getName());
 		poni.println("Age : " + tp.getAge());
@@ -498,10 +450,10 @@ public class EntityLoader {
 	}
 	
 	private static String help() {
-		String XD = "Acceptable Ponii names:\n";
+		String XD = "Acceptable Ponii names : " + OC.length + "\n";
 		poni.printCl();
-		for (int i = 0; i < chars.length; i++) {
-			XD = XD + "\n" + chars[i];
+		for (int i = 0; i < OC.length; i++) {
+			XD = XD + "\n" + OC[i].getName() + " AKA " + OC[i].getAltName();
 		}
 		return XD;
 	}
@@ -510,11 +462,11 @@ public class EntityLoader {
 		Boolean preformAction = false;
 		String charToExtract = "null";
 		for (int i = 0; i < OC.length; i ++){
-			if (string.equalsIgnoreCase(chars[i])) {
+			if (string.equalsIgnoreCase(OC[i].getAltName())) {
 				preformAction = true;
 				charToExtract = OC[i].getImagePath();
 			}
-			if (string.equalsIgnoreCase(allias[i])) {
+			if (string.equalsIgnoreCase(OC[i].getName())) {
 				preformAction = true;
 				charToExtract = OC[i].getImagePath();
 			}
@@ -534,7 +486,7 @@ public class EntityLoader {
 	
 	private static void extract() throws IOException {
 		for (int i = 0; i < OC.length; i ++) {
-			extract(chars[i]);
+			extract(OC[i].getName());
 		}
 	}
 	
@@ -560,8 +512,6 @@ public class EntityLoader {
 
 	public void setupConfig() throws ConfigException {
 		Config c = new Config("./PoniiConfig.cfg");
-		
-		musik = c.getBoolean("music");
 		
 		if (c.getBoolean("sep")) {
 			poni.frmPoniiPic.setVisible(false);

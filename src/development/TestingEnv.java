@@ -5,20 +5,16 @@ import DevTSK.Entity.*;
 public class TestingEnv {
 	//Name, Gender, Description, ManeColour, TailColour, Mother, Father, int age, int month, int year, Imagename, CutiimarkImage
 	public static void main(String[] args) throws Exception {
-		EntityHandler h = new EntityHandler(
-				new Entity[] {
-						//new UnMarriedPonii("Test", false, "lol", "Black", "Black", "Mother", "Father", 0, 0, 0, null, null),
-						new Entity()
-				}, 
-				new Entity[] {
-						//new UnMarriedPonii("F", true, null, null, null, null, null, 0, 0, 0, null, null)
-				});
-		System.out.println(h.getOriginalString());
-		System.out.println(h.getNonOriginalString());
-		System.out.println(h.getEntityByNumber(true, 1).getGender());
-		System.out.println(h.getEntityByNumber(false, 0).getGender());
-		System.out.println(h.getEntityByName(true, "test").getGender());
-		System.out.println(h.getEntityByName(false, "F").getGender());
+		EntityLoader h = new EntityLoader(new Entity[] {
+				new UnMarriedPonii("OC 1", "OC one", "", false, "Desc", "CMDesc", "Mane", "Tail", "mom", "dad", 10, 10, 10, 10, "null.png", "null.png"),
+				new UnMarriedPonii("OC 2", "OC two", "", false, "Desc", "CMDesc", "Mane", "Tail", "mom", "dad", 10, 10, 10, 10, "null.png", "null.png")
+		}, new Entity[] {
+				new UnMarriedPonii("NOC 1", "NOC one", "", false, "test", "test", "Mane", "Tail", "mom", "dad", 10, 10, 10, 10, "null.png", "null.png"),
+				new UnMarriedPonii("NOC 2", "NOC two", "", false, "test", "test", "Mane", "Tail", "mom", "dad", 10, 10, 10, 10, "null.png", "null.png")
+		});
+		h.punch();
+		h.setupConfig();
+		h.punch();
 	}
 
 }

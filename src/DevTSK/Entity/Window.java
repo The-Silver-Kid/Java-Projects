@@ -5,7 +5,6 @@
 
 package DevTSK.Entity;
 
-import java.awt.Color;
 import java.awt.Image;
 import java.awt.SystemColor;
 import java.awt.Toolkit;
@@ -25,10 +24,6 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import DevTSK.Exception.UnexceptableContentException;
-import paulscode.sound.SoundSystem;
-import paulscode.sound.SoundSystemConfig;
-import paulscode.sound.codecs.CodecJOrbis;
-import paulscode.sound.libraries.LibraryJavaSound;
 
 public class Window {
 	public JFrame frmPoniiPic;
@@ -42,19 +37,9 @@ public class Window {
 	public JScrollPane loltest;
 	public JButton in;
 	public String handler = "";
-	public SoundSystem ss;
-	public JLabel musikS;
 	
 	public Window(String n, int close, int x, int y, int CharRPWin){
 		if (CharRPWin == 0) {
-			try {
-				SoundSystemConfig.addLibrary(LibraryJavaSound.class);
-				SoundSystemConfig.setCodec("ogg", CodecJOrbis.class);
-			} catch (Exception e){
-				System.err.println("ERROR LINKING WITHPLUGINS!");
-				System.exit(4);
-			}
-			ss = new SoundSystem();
 			
 			frmPoniiPic = new JFrame();
 			frmPoniiPic.getContentPane().setBackground(SystemColor.window);
@@ -110,25 +95,11 @@ public class Window {
 			in.setAction(action);
 			frmPoniiPic.getRootPane().setDefaultButton(in);
 			frmPoniiPic.getContentPane().add(in);
-			
-			musikS = new JLabel();
-			musikS.setBounds(0,0,80,20);
-			musikS.setForeground(new Color(255, 0, 0));
-			musikS.setText("Music Off");
-			frmPoniiPic.getContentPane().add(musikS);
 		}
 		// TODO: WIP
 		//
 		//
 		if (CharRPWin == 1) {
-			try {
-				SoundSystemConfig.addLibrary(LibraryJavaSound.class);
-				SoundSystemConfig.setCodec("ogg", CodecJOrbis.class);
-			} catch (Exception e){
-				System.err.println("ERROR LINKING WITHPLUGINS!");
-				System.exit(4);
-			}
-			ss = new SoundSystem();
 			
 			frmPoniiPic = new JFrame();
 			frmPoniiPic.getContentPane().setBackground(SystemColor.window);
@@ -194,12 +165,6 @@ public class Window {
 			in.setAction(action);
 			frmPoniiPicCont.getRootPane().setDefaultButton(in);
 			frmPoniiPicCont.getContentPane().add(in);
-			
-			musikS = new JLabel();
-			musikS.setBounds(0,0,80,20);
-			musikS.setForeground(new Color(255, 0, 0));
-			musikS.setText("Music Off");
-			frmPoniiPic.getContentPane().add(musikS);
 		}
 	}
 	
@@ -233,16 +198,12 @@ public class Window {
 		}
 		public void actionPerformed(ActionEvent arg0) {
 			try {
-				//Char.handle(lblTextArea.getText());
+				EntityLoader.handle(lblTextArea.getText());
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
 		
-	}
-	
-	public void plaimusik(String s){
-		ss.backgroundMusic("bgm.ogg", Window.class.getResource("/images/" + s), s, true);
 	}
 
 	public Icon getImageIcn(String imagePath) throws IOException {

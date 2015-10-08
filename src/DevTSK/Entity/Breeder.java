@@ -2,7 +2,9 @@ package DevTSK.Entity;
 
 public class Breeder {
 	
-	private Ponii m, f;
+	private Entity m;
+
+	private Entity f;
 	
 	private String[] mother, father;
 	
@@ -10,7 +12,7 @@ public class Breeder {
 	
 	private static String md = "", fd = "";
 	
-	public Breeder(Ponii mt, Ponii ft){
+	public Breeder(Entity mt, Entity ft){
 		md = mt.getDNA();
 		fd = ft.getDNA();
 		m = mt;

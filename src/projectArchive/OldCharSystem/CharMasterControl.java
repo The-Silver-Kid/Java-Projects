@@ -110,12 +110,6 @@ public class CharMasterControl {
 				nonoc = new Ponii[] {
 						new Ponii("Princess Cadence","\u2764","\nMare\nAlicorn\nPretty pink ponii princess","\nCrystal Heart","Queen Galaxia","Unknown", "Cosmos Darkstar",11489, 1, new String[] {""}, "null.png","null.png","3547006110FFC7DAFFC49D00101740096UI1G3C002000000817F3FA2DF44A50Q107F3FCC004CB2",16,6,-9474),
 			};
-			//  ██╗    ██╗ █████╗ ██████╗ ███╗   ██╗██╗███╗   ██╗ ██████╗ ██╗
-			//  ██║    ██║██╔══██╗██╔══██╗████╗  ██║██║████╗  ██║██╔════╝ ██║
-			//  ██║ █╗ ██║███████║██████╔╝██╔██╗ ██║██║██╔██╗ ██║██║  ███╗██║
-			//  ██║███╗██║██╔══██║██╔══██╗██║╚██╗██║██║██║╚██╗██║██║   ██║╚═╝
-			//  ╚███╔███╔╝██║  ██║██║  ██║██║ ╚████║██║██║ ╚████║╚██████╔╝██╗
-			//   ╚══╝╚══╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝
 			//
 			//  DO NOT MODIFY ANYTHING BEYOND THIS POINT!
 			//  IF YOU DO I WILL REVERT ALL YOUR HARD WORK...

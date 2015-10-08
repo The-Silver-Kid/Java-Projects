@@ -2,8 +2,8 @@ package DevTSK.Entity;
 
 public class MarriedPonii extends Ponii {
 
-	public MarriedPonii(String Name, Boolean Gender, String Description, String CutiiMarkInfo, String ManeColour, String TailColour,
-			String Mother, String Father, int age, int month, int year, String Imagename, String CutiimarkImage,
+	public MarriedPonii(String Name, String AlternateName, String Flag, Boolean Gender, String Description, String CutiiMarkInfo, String ManeColour, String TailColour,
+			String Mother, String Father, int age, int day, int month, int year, String Imagename, String CutiimarkImage,
 			String MarriedTo, int ammountOfKids, String[] kidNames) {
 		this.name = Name;
 		this.Gender = Gender;
@@ -21,5 +21,13 @@ public class MarriedPonii extends Ponii {
 		this.kids = kidNames;
 		this.marriedto = MarriedTo;
 		this.additionalInfo = CutiiMarkInfo;
+		this.altName = AlternateName;
+		this.day = day;
+		this.flag = Flag;
+	}
+	
+	@Override
+	public String toString(){
+		return "MarriedPonii";
 	}
 }

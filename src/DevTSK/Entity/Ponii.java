@@ -2,7 +2,7 @@ package DevTSK.Entity;
 
 public class Ponii extends Entity {
 	
-	protected String Mane = "Empty", Tail = "Empty", CutiiMarkPath = "Empty";
+	protected String Mane = "Empty", Tail = "Empty";
 	
 	public Ponii() {
 	}
@@ -21,9 +21,5 @@ public class Ponii extends Entity {
 	
 	public String getTail() {
 		return Tail;
-	}
-	
-	public String getCutiiMarkPath(){
-		return CutiiMarkPath;
 	}
 }

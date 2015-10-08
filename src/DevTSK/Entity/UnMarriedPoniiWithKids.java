@@ -2,10 +2,7 @@ package DevTSK.Entity;
 
 public class UnMarriedPoniiWithKids extends Ponii {
 	
-	protected String[] kids, with;
-	protected int kidammount;
-	
-	public UnMarriedPoniiWithKids(String Name, Boolean Gender, String Description, String ManeColour, String TailColour,
+	public UnMarriedPoniiWithKids(String Name, Boolean Gender, String Description, String CutiiMarkInfo, String ManeColour, String TailColour,
 			String Mother, String Father, int age, int month, int year, String Imagename, String CutiimarkImage,
 			int ammountOfKids, String[] kidNames, String[] kidOtherParent) {
 		this.name = Name;
@@ -19,10 +16,11 @@ public class UnMarriedPoniiWithKids extends Ponii {
 		this.month = month;
 		this.year = year;
 		this.imagepath = Imagename;
-		this.CutiiMarkPath = CutiimarkImage;
+		this.altimagepath = CutiimarkImage;
 		this.kidammount = ammountOfKids;
 		this.kids = kidNames;
 		this.with = kidOtherParent;
+		this.additionalInfo = CutiiMarkInfo;
 	}
 	
 	public String[] kidParents(){

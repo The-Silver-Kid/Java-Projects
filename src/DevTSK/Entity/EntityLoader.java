@@ -1,14 +1,14 @@
 package DevTSK.Entity;
 
-/*import java.awt.Color;
+import java.awt.Color;
 import java.io.*;
 
 import DAG.Config.Config;
 import DAG.Config.ConfigException;
-import DevTSK.Exception.*;*/
+import DevTSK.Exception.*;
 
 public class EntityLoader {
-	/*//private static final File f = new File("./config/Poniiconfig.ini");
+	//private static final File f = new File("./config/Poniiconfig.ini");
 	private static String lastCmd;
 	private static String[] sl;
 	
@@ -31,7 +31,7 @@ public class EntityLoader {
 	private static Ponii[] OC;
 	private static Ponii[] show;
 	
-	public Char(String[] ch, String[] al, String[] cn, Ponii[] o, Ponii[] c){
+	public EntityLoader(String[] ch, String[] al, String[] cn, Ponii[] o, Ponii[] c){
 		chars = ch;
 		allias = al;
 		cannon = cn;
@@ -307,40 +307,16 @@ public class EntityLoader {
 		if (s == 3) {
 			getInfoMNK(OC[i]);
 		}
-		if (s == 4) {
-			getInfoMWK(OC[i]);
-			if (musik) {
-				poni.plaimusik(OC[i].getMusicPath());
-			}
-		}
-		if (s == 5) {
-			getInfoSNG(OC[i]);
-			if (musik) {
-				poni.plaimusik(OC[i].getMusicPath());
-			}
-		}
-		if (s == 6) {
-			getInfoMNK(OC[i]);
-			if (musik) {
-				poni.plaimusik(OC[i].getMusicPath());
-			}
-		}
-		
-		if (s == 7 || s == 8) {
+		if (s == 7) {
 			getInfoSNGK(OC[i]);
-			if (musik && s == 8)
-				poni.plaimusik(OC[i].getMusicPath());
 		}
-		
-		if (s == 9 || s == 10) {
+		if (s == 9) {
 			getInfoMWKOMK(OC[i]);
-			if (musik && s == 10)
-				poni.plaimusik(OC[i].getMusicPath());
 		}
 		
 		try{ 
 			poni.lblPoniiPic.setIcon(poni.getImageIcn("/images/" + OC[i].getImagePath()));
-			poni.lblCMPic.setIcon(poni.getImageIcn("/images/" + OC[i].getCMPath()));
+			poni.lblCMPic.setIcon(poni.getImageIcn("/images/" + OC[i].getAltImagePath()));
 		} catch (IOException e) {
 			System.out.println("This Shouldn't Have Happened... But it did...");
 			e.printStackTrace();
@@ -359,34 +335,16 @@ public class EntityLoader {
 		if (s == 3) {
 			getInfoMNK(show[i]);
 		}
-		if (s == 4) {
-			getInfoMWK(show[i]);
-			poni.plaimusik(show[i].getMusicPath());
-		}
-		if (s == 5) {
-			getInfoSNG(show[i]);
-			poni.plaimusik(show[i].getMusicPath());
-		}
-		if (s == 6) {
-			getInfoMNK(show[i]);
-			poni.plaimusik(show[i].getMusicPath());
-		}
-		
-		if (s == 7 || s == 8) {
+		if (s == 7) {
 			getInfoSNGK(OC[i]);
-			if (musik && s == 8)
-				poni.plaimusik(show[i].getMusicPath());
 		}
-		
-		if (s == 9 || s == 10) {
+		if (s == 9) {
 			getInfoMWKOMK(OC[i]);
-			if (musik && s == 10)
-				poni.plaimusik(show[i].getMusicPath());
 		}
 		
 		try{ 
 			poni.lblPoniiPic.setIcon(poni.getImageIcn("/images/" + show[i].getImagePath()));
-			poni.lblCMPic.setIcon(poni.getImageIcn("/images/" + show[i].getCMPath()));
+			poni.lblCMPic.setIcon(poni.getImageIcn("/images/" + show[i].getAltImagePath()));
 		} catch (IOException e) {
 			System.out.println("This Shouldn't Have Happened... But it did...");
 			e.printStackTrace();
@@ -406,16 +364,16 @@ public class EntityLoader {
 		if (tp.getYear() < 0)
 			poni.println("Birthday : " + tp.getMonth() + " " + tp.getDay() + ", " + (tp.getYear() * -1) + "BC");
 		poni.println();
-		poni.println("Cutii Mark : " + tp.getCMDesc());
+		poni.println("Cutii Mark : " + tp.getAddDesc());
 		poni.println();
 		poni.println("Mother : " + tp.getMother());
 		poni.println("Father : " + tp.getFather());
 		poni.println();
-		poni.println("Married to : " + tp.getSp());
+		poni.println("Married to : " + tp.getPartner());
 		poni.println("Number of Kids : " + tp.getKidAmmount());
 		poni.println("Kids names : ");
-		tSA = tp.getKids();
-		String[] tpk = tp.getKidswith();
+		tSA = tp.getKidnames();
+		String[] tpk = tp.getKidnames();
 		for (int i = 0; i < tSA.length; i++){
 			poni.println("With\t" + tpk[i] + "\t : " + tSA[i]);
 		}
@@ -439,15 +397,15 @@ public class EntityLoader {
 		if (tp.getYear() < 0)
 			poni.println("Birthday : " + tp.getMonth() + " " + tp.getDay() + ", " + (tp.getYear() * -1) + "BC");
 		poni.println();
-		poni.println("Cutii Mark : " + tp.getCMDesc());
+		poni.println("Cutii Mark : " + tp.getAddDesc());
 		poni.println();
 		poni.println("Mother : " + tp.getMother());
 		poni.println("Father : " + tp.getFather());
 		poni.println();
 		poni.println("Number of Kids : " + tp.getKidAmmount());
 		poni.println("Kids names : ");
-		tSA = tp.getKids();
-		String[] tpk = tp.getKidswith();
+		tSA = tp.getKidnames();
+		String[] tpk = tp.getKidParents();
 		for (int i = 0; i < tSA.length; i++){
 			poni.println("With\t" + tpk[i] + "\t : " + tSA[i]);
 		}
@@ -471,15 +429,15 @@ public class EntityLoader {
 		if (tp.getYear() < 0)
 			poni.println("Birthday : " + tp.getMonth() + " " + tp.getDay() + ", " + (tp.getYear() * -1) + "BC");
 		poni.println();
-		poni.println("Cutii Mark : " + tp.getCMDesc());
+		poni.println("Cutii Mark : " + tp.getAddDesc());
 		poni.println();
 		poni.println("Mother : " + tp.getMother());
 		poni.println("Father : " + tp.getFather());
 		poni.println();
-		poni.println("Married to : " + tp.getSp());
+		poni.println("Married to : " + tp.getPartner());
 		poni.println("Number of Kids : " + tp.getKidAmmount());
 		poni.println("Kids names : ");
-		tSA = tp.getKids();
+		tSA = tp.getKidnames();
 		for (int i = 0; i < tSA.length; i++){
 			poni.println(tSA[i]);
 		}
@@ -502,12 +460,12 @@ public class EntityLoader {
 		if (tp.getYear() < 0)
 			poni.println("Birthday : " + tp.getMonth() + " " + tp.getDay() + ", " + (tp.getYear() * -1) + "BC");
 		poni.println();
-		poni.println("Cutii Mark : " + tp.getCMDesc());
+		poni.println("Cutii Mark : " + tp.getAddDesc());
 		poni.println();
 		poni.println("Mother : " + tp.getMother());
 		poni.println("Father : " + tp.getFather());
 		poni.println();
-		poni.println("Married to : " + tp.getSp());
+		poni.println("Married to : " + tp.getPartner());
 		poni.println("Number of Kids : " + tp.getKidAmmount());
 		poni.println();
 		poni.println("Flag: '" + tp.getFlag() + "'");
@@ -528,7 +486,7 @@ public class EntityLoader {
 		if (tp.getYear() < 0)
 			poni.println("Birthday : " + tp.getMonth() + " " + tp.getDay() + ", " + (tp.getYear() * -1) + "BC");
 		poni.println();
-		poni.println("Cutii Mark : " + tp.getCMDesc());
+		poni.println("Cutii Mark : " + tp.getAddDesc());
 		poni.println();
 		poni.println("Mother : " + tp.getMother());
 		poni.println("Father : " + tp.getFather());
@@ -566,8 +524,8 @@ public class EntityLoader {
 			File f = new File("./extracted/");
 			f.mkdir();
 			send = new FileOutputStream(f + "/" + charToExtract);
-			byte[] out = new byte[Char.class.getResourceAsStream("/images/" + charToExtract).available()];
-			Char.class.getResourceAsStream("/images/" + charToExtract).read(out);
+			byte[] out = new byte[EntityLoader.class.getResourceAsStream("/images/" + charToExtract).available()];
+			EntityLoader.class.getResourceAsStream("/images/" + charToExtract).read(out);
 			send.write(out);
 			System.out.println("Extracted : " + charToExtract + " to \"" + f.getAbsoluteFile() + "\"");
 			send.close();
@@ -588,8 +546,8 @@ public class EntityLoader {
 			f.mkdir();
 			send = new FileOutputStream(f + "/" + "PoniiConfig.cfg");
 			String charToExtract = "PoniiConfig.cfg";
-			byte[] out = new byte[Char.class.getResourceAsStream("/images/" + charToExtract).available()];
-			Char.class.getResourceAsStream("/images/" + charToExtract).read(out);
+			byte[] out = new byte[EntityLoader.class.getResourceAsStream("/images/" + charToExtract).available()];
+			EntityLoader.class.getResourceAsStream("/images/" + charToExtract).read(out);
 			send.write(out);
 			System.out.println("Extracted : " + charToExtract + " to \"" + f.getAbsoluteFile() + "\"");
 			send.close();
@@ -628,5 +586,5 @@ public class EntityLoader {
 		
 		r = c.getInt("outbr"); g = c.getInt("outbg"); b = c.getInt("outbb");
 		poni.lblInfo.setBackground(new Color(r, g, b));
-	}*/
+	}
 }

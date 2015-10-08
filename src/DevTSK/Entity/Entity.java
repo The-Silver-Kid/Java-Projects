@@ -2,18 +2,43 @@ package DevTSK.Entity;
 
 public class Entity {
 	protected Boolean Gender = false; //false = Male, true = Female
-	protected int age = 0, state = 0, day = 0, month = 0, year = 0;
-	protected String name = "Empty", description = "Empty", mother = "Empty", father = "Empty", DNA = "Empty", flag = "Empty";
-	protected String imagepath = "null.png";
+	protected int age = 0, state = 0, day = 0, month = 0, year = 0, kidammount = 0;
+	protected String name = "Empty", description = "Empty", mother = "Empty", father = "Empty", DNA = "Empty", flag = "Empty", additionalInfo = "Empty", marriedto = "Empty";
+	protected String imagepath = "null.png", altimagepath = "null.png";
+	protected String[] kids = null, with = null;
 	
 	public Entity() {
 	}
-
+	
+	public String getPartner(){
+		return marriedto;
+	}
+	
+	public String[] getKidParents(){
+		return with;
+	}
+	
+	public int getKidAmmount(){
+		return kidammount;
+	}
+	
+	public String[] getKidnames(){
+		return kids;
+	}
+	
+	public String getAddDesc() {
+		return additionalInfo;
+	}
+	
 	public String getGender() {
 		String g = "Male";
 		if (Gender)
 			g = "Female";
 		return g;
+	}
+	
+	public String getAltImagePath(){
+		return altimagepath;
 	}
 
 	public String getName() {

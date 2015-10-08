@@ -7,7 +7,7 @@ import DAG.Config.Config;
 import DAG.Config.ConfigException;
 import DevTSK.Exception.*;*/
 
-public class Char {
+public class EntityLoader {
 	/*//private static final File f = new File("./config/Poniiconfig.ini");
 	private static String lastCmd;
 	private static String[] sl;

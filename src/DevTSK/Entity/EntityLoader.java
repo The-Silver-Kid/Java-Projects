@@ -308,16 +308,16 @@ public class EntityLoader {
 		System.out.println(s);
 		poni.printCl();
 		if (s.equalsIgnoreCase("MarriedPonii")) {
-			getInfoMWK(OC[i]);
+			getInfoMWK(show[i]);
 		}
 		if (s.equalsIgnoreCase("UnMarriedPonii")) {
-			getInfoSNG(OC[i]);
+			getInfoSNG(show[i]);
 		}
 		if (s.equalsIgnoreCase("UnMarriedPoniiWithKids")) {
-			getInfoSNGK(OC[i]);
+			getInfoSNGK(show[i]);
 		}
 		if (s.equalsIgnoreCase("MarriedPoniiWithOtherKids")) {
-			getInfoMWKOMK(OC[i]);
+			getInfoMWKOMK(show[i]);
 		}
 		
 		try{ 

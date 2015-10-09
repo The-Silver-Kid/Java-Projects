@@ -351,7 +351,7 @@ public class EntityLoader {
 		poni.println("Number of Kids : " + tp.getKidAmmount());
 		poni.println("Kids names : ");
 		tSA = tp.getKidnames();
-		String[] tpk = tp.getKidnames();
+		String[] tpk = tp.getKidParents();
 		for (int i = 0; i < tSA.length; i++){
 			poni.println("With\t" + tpk[i] + "\t : " + tSA[i]);
 		}

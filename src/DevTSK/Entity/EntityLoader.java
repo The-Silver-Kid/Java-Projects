@@ -12,21 +12,21 @@ public class EntityLoader {
 	//private static final File f = new File("./config/Poniiconfig.ini");
 	private static String lastCmd;
 	private static String[] sl;
-	
+
 	private static FileOutputStream send;
-	
+
 	private static Window poni = new Window("Ponii Program 3.0", 1, 0, 0, 0);
-	
+
 	private static final String[] commands = new String[] {
-		"Colour", "Color", "InputColour", "InputColor", "OutputColour", "OutputColor", "Exit",
-		"OutputTextColor", "InputTextColor", "OutputTextColour", "InputTextColour", "errorcheck" , "extract",
-		"breed", "breedrand", "last", "l", "lastcmd", "cfg", "config", "listNonOC", "listall"
+			"Colour", "Color", "InputColour", "InputColor", "OutputColour", "OutputColor", "Exit",
+			"OutputTextColor", "InputTextColor", "OutputTextColour", "InputTextColour", "errorcheck", "extract",
+			"breed", "breedrand", "last", "l", "lastcmd", "cfg", "config", "listNonOC", "listall"
 	};
-	
+
 	private static Entity[] OC;
 	private static Entity[] show;
-	
-	public EntityLoader(Entity[] o, Entity[] c){
+
+	public EntityLoader(Entity[] o, Entity[] c) {
 		OC = o;
 		show = c;
 		poni.lblInfo.setText("If you see this press the button before doing anything.");
@@ -34,7 +34,7 @@ public class EntityLoader {
 		poni.frmPoniiPic.setVisible(true);
 	}
 
-	public static void errorCheck() throws Exception{
+	public static void errorCheck() throws Exception {
 		System.out.println("\nChecking out Inputed Resources...\n\nChecking chars and allias String[]s...");
 		System.out.println("chars and allias String[]s checks out...\nChecking Ponii[] OC compatablity...");
 		System.out.println("Ponii[] OC compatablity checks out...\nChecking Ponii[] show compatablity...");
@@ -45,7 +45,7 @@ public class EntityLoader {
 	public static void handle(String s) throws Exception {
 		int handler = -1;
 		Boolean origin = true, controlVar = false;
-		for (int i = 0; i < OC.length; i++){
+		for (int i = 0; i < OC.length; i++) {
 			if (OC[i].getName().equalsIgnoreCase(s)) {
 				handler = i;
 			}
@@ -53,7 +53,7 @@ public class EntityLoader {
 				handler = i;
 			}
 		}
-		for (int i = 0; i < show.length; i++){
+		for (int i = 0; i < show.length; i++) {
 			if (show[i].getName().equalsIgnoreCase(s)) {
 				handler = i;
 				origin = false;
@@ -63,13 +63,13 @@ public class EntityLoader {
 				origin = false;
 			}
 		}
-		for (int i = 0; i < commands.length; i ++) {
+		for (int i = 0; i < commands.length; i++) {
 			sl = s.split("\\s+");
-			if (commands[i].equalsIgnoreCase(sl[0])){
+			if (commands[i].equalsIgnoreCase(sl[0])) {
 				controlVar = true;
 			}
 		}
-		if (!sl[0].equalsIgnoreCase("last") && !sl[0].equalsIgnoreCase("lastcmd") && !sl[0].equalsIgnoreCase("l")){
+		if (!sl[0].equalsIgnoreCase("last") && !sl[0].equalsIgnoreCase("lastcmd") && !sl[0].equalsIgnoreCase("l")) {
 			lastCmd = poni.lblTextArea.getText();
 		}
 		poni.lblTextArea.setText("");
@@ -94,17 +94,17 @@ public class EntityLoader {
 			}
 		}
 	}
-	
+
 	@SuppressWarnings("deprecation")
 	private static void control(String s) throws Exception {
 		String cmd = s;
 		String[] sl = cmd.split("\\s+");
 		if (sl[0].equalsIgnoreCase("Exit"))
 			System.exit(0);
-		if (sl[0].equalsIgnoreCase("ErrorCheck")){
+		if (sl[0].equalsIgnoreCase("ErrorCheck")) {
 			errorCheck();
 		}
-		if (sl[0].equalsIgnoreCase("Color") || sl[0].equalsIgnoreCase("Colour")){
+		if (sl[0].equalsIgnoreCase("Color") || sl[0].equalsIgnoreCase("Colour")) {
 			if (sl.length == 4) {
 				int r, g, b;
 				r = Integer.parseInt(sl[1]);
@@ -113,7 +113,7 @@ public class EntityLoader {
 				poni.frmPoniiPic.getContentPane().setBackground(new Color(r, g, b));
 			}
 		}
-		if (sl[0].equalsIgnoreCase("InputColor") || sl[0].equalsIgnoreCase("InputColour")){
+		if (sl[0].equalsIgnoreCase("InputColor") || sl[0].equalsIgnoreCase("InputColour")) {
 			if (sl.length == 4) {
 				int r, g, b;
 				r = Integer.parseInt(sl[1]);
@@ -122,7 +122,7 @@ public class EntityLoader {
 				poni.lblTextArea.setBackground(new Color(r, g, b));
 			}
 		}
-		if (sl[0].equalsIgnoreCase("OutputColor") || sl[0].equalsIgnoreCase("OutputColour")){
+		if (sl[0].equalsIgnoreCase("OutputColor") || sl[0].equalsIgnoreCase("OutputColour")) {
 			if (sl.length == 4) {
 				int r, g, b;
 				r = Integer.parseInt(sl[1]);
@@ -131,7 +131,7 @@ public class EntityLoader {
 				poni.lblInfo.setBackground(new Color(r, g, b));
 			}
 		}
-		if (sl[0].equalsIgnoreCase("OutputTextColor") || sl[0].equalsIgnoreCase("OutputTextColour")){
+		if (sl[0].equalsIgnoreCase("OutputTextColor") || sl[0].equalsIgnoreCase("OutputTextColour")) {
 			if (sl.length == 4) {
 				int r, g, b;
 				r = Integer.parseInt(sl[1]);
@@ -140,7 +140,7 @@ public class EntityLoader {
 				poni.lblInfo.setForeground(new Color(r, g, b));
 			}
 		}
-		if (sl[0].equalsIgnoreCase("InputTextColor") || sl[0].equalsIgnoreCase("InputTextColour")){
+		if (sl[0].equalsIgnoreCase("InputTextColor") || sl[0].equalsIgnoreCase("InputTextColour")) {
 			if (sl.length == 4) {
 				int r, g, b;
 				r = Integer.parseInt(sl[1]);
@@ -152,7 +152,7 @@ public class EntityLoader {
 		if (sl[0].equalsIgnoreCase("extract")) {
 			if (sl.length > 1) {
 				extract(sl[1]);
-			} else { 
+			} else {
 				extract();
 			}
 		}
@@ -163,7 +163,7 @@ public class EntityLoader {
 			} else {
 				Boolean OCo = true, OCt = true;
 				int f = -1, m = -1;
-				for (int i = 0; i < OC.length; i ++){
+				for (int i = 0; i < OC.length; i++) {
 					if (sl[1].equalsIgnoreCase(OC[i].getName())) {
 						f = i;
 					}
@@ -171,7 +171,7 @@ public class EntityLoader {
 						f = i;
 					}
 				}
-				for (int i = 0; i < show.length; i ++){
+				for (int i = 0; i < show.length; i++) {
 					if (sl[1].equalsIgnoreCase(show[i].getName())) {
 						f = i;
 						OCo = false;
@@ -181,7 +181,7 @@ public class EntityLoader {
 						OCo = false;
 					}
 				}
-				for (int i = 0; i < OC.length; i ++){
+				for (int i = 0; i < OC.length; i++) {
 					if (sl[2].equalsIgnoreCase(OC[i].getName())) {
 						m = i;
 					}
@@ -189,7 +189,7 @@ public class EntityLoader {
 						m = i;
 					}
 				}
-				for (int i = 0; i < show.length; i ++){
+				for (int i = 0; i < show.length; i++) {
 					if (sl[2].equalsIgnoreCase(show[i].getName())) {
 						m = i;
 						OCt = false;
@@ -210,7 +210,7 @@ public class EntityLoader {
 				if (sl.length == 4) {
 					poni.printCl();
 					b.check();
-					for (int i = 0; i < Integer.parseInt(sl[3]); i ++) {
+					for (int i = 0; i < Integer.parseInt(sl[3]); i++) {
 						if (sl[0].equalsIgnoreCase("breed")) {
 							poni.lblInfo.setText(poni.lblInfo.getText() + "\n" + b.breed());
 						} else {
@@ -227,33 +227,33 @@ public class EntityLoader {
 				}
 			}
 		}
-		if (sl[0].equalsIgnoreCase("listNonOC") || sl[0].equalsIgnoreCase("listall")){
+		if (sl[0].equalsIgnoreCase("listNonOC") || sl[0].equalsIgnoreCase("listall")) {
 			poni.printCl();
-			if (sl[0].equalsIgnoreCase("listall")){
+			if (sl[0].equalsIgnoreCase("listall")) {
 				poni.println("Acceptable OC/NonOC Ponii Names: " + (OC.length + show.length));
-				for(int i = 0; i < OC.length; i++) {
+				for (int i = 0; i < OC.length; i++) {
 					poni.println(OC[i].getName() + " AKA " + OC[i].getAltName());
 				}
-				for(int i = 0; i < show.length; i++) {
+				for (int i = 0; i < show.length; i++) {
 					poni.println(show[i].getName() + " AKA " + show[i].getAltName());
 				}
 			} else {
 				poni.println("Acceptable NonOC Ponii Names: " + show.length);
-				for(int i = 0; i < show.length; i++) {
+				for (int i = 0; i < show.length; i++) {
 					poni.println(show[i].getName() + " AKA " + show[i].getAltName());
 				}
 			}
 		}
-		if (sl[0].equalsIgnoreCase("last") || sl[0].equalsIgnoreCase("lastcmd") || sl[0].equalsIgnoreCase("l")){
+		if (sl[0].equalsIgnoreCase("last") || sl[0].equalsIgnoreCase("lastcmd") || sl[0].equalsIgnoreCase("l")) {
 			poni.lblTextArea.setText(lastCmd);
 		}
 		if (sl[0].equalsIgnoreCase("cfg") || sl[0].equalsIgnoreCase("config")) {
 			System.out.println("Saving Configuration...");
-			
+
 			byte[] tst = new byte[] {};
 			String strnj = "version = 1.0;\n\n"
-					+ "bgr = " + poni.frmPoniiPic.getContentPane().getBackground().getRed() +";\n"
-					+ "bgg = " + poni.frmPoniiPic.getContentPane().getBackground().getGreen() +";\n"
+					+ "bgr = " + poni.frmPoniiPic.getContentPane().getBackground().getRed() + ";\n"
+					+ "bgg = " + poni.frmPoniiPic.getContentPane().getBackground().getGreen() + ";\n"
 					+ "bgb = " + poni.frmPoniiPic.getContentPane().getBackground().getBlue() + ";\n\n"
 					+ "inbr = " + poni.lblTextArea.getBackground().getRed() + ";\n"
 					+ "inbg = " + poni.lblTextArea.getBackground().getGreen() + ";\n"
@@ -268,9 +268,9 @@ public class EntityLoader {
 					+ "outfg = " + poni.lblInfo.getForeground().getGreen() + ";\n"
 					+ "outfb = " + poni.lblInfo.getForeground().getBlue() + ";\n\n"
 					+ "sep = " + "false;";
-					//+ "frame = " + framew + ";";
+			//+ "frame = " + framew + ";";
 			tst = strnj.getBytes();
-			
+
 			FileOutputStream send = new FileOutputStream("./PoniiConfig.cfg");
 			send.write(tst);
 			send.close();
@@ -293,8 +293,8 @@ public class EntityLoader {
 		if (s.equalsIgnoreCase("MarriedPoniiWithOtherKids")) {
 			getInfoMWKOMK(OC[i]);
 		}
-		
-		try{ 
+
+		try {
 			poni.lblPoniiPic.setIcon(poni.getImageIcn("/images/" + OC[i].getImagePath()));
 			poni.lblCMPic.setIcon(poni.getImageIcn("/images/" + OC[i].getAltImagePath()));
 		} catch (IOException e) {
@@ -319,8 +319,8 @@ public class EntityLoader {
 		if (s.equalsIgnoreCase("MarriedPoniiWithOtherKids")) {
 			getInfoMWKOMK(show[i]);
 		}
-		
-		try{ 
+
+		try {
 			poni.lblPoniiPic.setIcon(poni.getImageIcn("/images/" + show[i].getImagePath()));
 			poni.lblCMPic.setIcon(poni.getImageIcn("/images/" + show[i].getAltImagePath()));
 		} catch (IOException e) {
@@ -328,14 +328,14 @@ public class EntityLoader {
 			e.printStackTrace();
 		}
 	}
-	
+
 	private static void getInfoMWKOMK(Entity tp) {
 		String[] tSA = null;
 		System.out.println("Loading resources for ponii " + tp.getName());
 		poni.println("Name : " + tp.getName());
 		poni.println("Age : " + tp.getAge());
 		poni.println();
-		poni.println("Description : " + tp.getDesc());
+		poni.println("Description : " + "\n" + tp.getGender() + tp.getDesc());
 		poni.println();
 		if (tp.getYear() >= 0)
 			poni.println("Birthday : " + tp.getMonth() + " " + tp.getDay() + ", " + tp.getYear());
@@ -352,7 +352,7 @@ public class EntityLoader {
 		poni.println("Kids names : ");
 		tSA = tp.getKidnames();
 		String[] tpk = tp.getKidParents();
-		for (int i = 0; i < tSA.length; i++){
+		for (int i = 0; i < tSA.length; i++) {
 			poni.println("With\t" + tpk[i] + "\t : " + tSA[i]);
 		}
 		poni.println();
@@ -368,7 +368,7 @@ public class EntityLoader {
 		poni.println("Name : " + tp.getName());
 		poni.println("Age : " + tp.getAge());
 		poni.println();
-		poni.println("Description : " + tp.getDesc());
+		poni.println("Description : " + "\n" + tp.getGender() + tp.getDesc());
 		poni.println();
 		if (tp.getYear() >= 0)
 			poni.println("Birthday : " + tp.getMonth() + " " + tp.getDay() + ", " + tp.getYear());
@@ -384,7 +384,7 @@ public class EntityLoader {
 		poni.println("Kids names : ");
 		tSA = tp.getKidnames();
 		String[] tpk = tp.getKidParents();
-		for (int i = 0; i < tSA.length; i++){
+		for (int i = 0; i < tSA.length; i++) {
 			poni.println("With\t" + tpk[i] + "\t : " + tSA[i]);
 		}
 		poni.println();
@@ -393,14 +393,14 @@ public class EntityLoader {
 		poni.println("::End of Ponii::");
 		poni.println();
 	}
-	
+
 	private static void getInfoMWK(Entity tp) {
 		String[] tSA = null;
 		System.out.println("Loading resources for ponii " + tp.getName());
 		poni.println("Name : " + tp.getName());
 		poni.println("Age : " + tp.getAge());
 		poni.println();
-		poni.println("Description : " + tp.getDesc());
+		poni.println("Description : " + "\n" + tp.getGender() + tp.getDesc());
 		poni.println();
 		if (tp.getYear() >= 0)
 			poni.println("Birthday : " + tp.getMonth() + " " + tp.getDay() + ", " + tp.getYear());
@@ -416,7 +416,7 @@ public class EntityLoader {
 		poni.println("Number of Kids : " + tp.getKidAmmount());
 		poni.println("Kids names : ");
 		tSA = tp.getKidnames();
-		for (int i = 0; i < tSA.length; i++){
+		for (int i = 0; i < tSA.length; i++) {
 			poni.println(tSA[i]);
 		}
 		poni.println();
@@ -425,13 +425,13 @@ public class EntityLoader {
 		poni.println("::End of Ponii::");
 		poni.println();
 	}
-	
+
 	private static void getInfoSNG(Entity tp) {
 		System.out.println("Loading resources for ponii " + tp.getName());
 		poni.println("Name : " + tp.getName());
 		poni.println("Age : " + tp.getAge());
 		poni.println();
-		poni.println("Description : " + tp.getDesc());
+		poni.println("Description : " + "\n" + tp.getGender() + tp.getDesc());
 		poni.println();
 		if (tp.getYear() >= 0)
 			poni.println("Birthday : " + tp.getMonth() + " " + tp.getDay() + ", " + tp.getYear());
@@ -448,7 +448,7 @@ public class EntityLoader {
 		poni.println("::End of Ponii::");
 		poni.println();
 	}
-	
+
 	private static String help() {
 		String XD = "Acceptable Ponii names : " + OC.length + "\n";
 		poni.printCl();
@@ -457,11 +457,11 @@ public class EntityLoader {
 		}
 		return XD;
 	}
-	
+
 	private static void extract(String string) throws IOException {
 		Boolean preformAction = false;
 		String charToExtract = "null";
-		for (int i = 0; i < OC.length; i ++){
+		for (int i = 0; i < OC.length; i++) {
 			if (string.equalsIgnoreCase(OC[i].getAltName())) {
 				preformAction = true;
 				charToExtract = OC[i].getImagePath();
@@ -483,13 +483,13 @@ public class EntityLoader {
 			send.close();
 		}
 	}
-	
+
 	private static void extract() throws IOException {
-		for (int i = 0; i < OC.length; i ++) {
+		for (int i = 0; i < OC.length; i++) {
 			extract(OC[i].getName());
 		}
 	}
-	
+
 	public void extractConfig() throws IOException {
 		Boolean preformAction = true;
 		if (preformAction) {
@@ -505,14 +505,14 @@ public class EntityLoader {
 			send.close();
 		}
 	}
-	
-	public void punch(){
+
+	public void punch() {
 		poni.action.actionPerformed(null);
 	}
 
 	public void setupConfig() throws ConfigException {
 		Config c = new Config("./PoniiConfig.cfg");
-		
+
 		if (c.getBoolean("sep")) {
 			poni.frmPoniiPic.setVisible(false);
 			poni = new Window("Ponii Program 3.0", 1, 0, 0, 1);
@@ -521,20 +521,28 @@ public class EntityLoader {
 			int r = c.getInt("bgr"), g = c.getInt("bgg"), b = c.getInt("bgb");
 			poni.frmPoniiPicCont.getContentPane().setBackground(new Color(r, g, b));
 		}
-		
+
 		int r = c.getInt("bgr"), g = c.getInt("bgg"), b = c.getInt("bgb");
 		poni.frmPoniiPic.getContentPane().setBackground(new Color(r, g, b));
-		
-		r = c.getInt("inbr"); g = c.getInt("inbg"); b = c.getInt("inbb");
+
+		r = c.getInt("inbr");
+		g = c.getInt("inbg");
+		b = c.getInt("inbb");
 		poni.lblTextArea.setBackground(new Color(r, g, b));
-		
-		r = c.getInt("infr"); g = c.getInt("infg"); b = c.getInt("infb");
+
+		r = c.getInt("infr");
+		g = c.getInt("infg");
+		b = c.getInt("infb");
 		poni.lblTextArea.setForeground(new Color(r, g, b));
-		
-		r = c.getInt("outfr"); g = c.getInt("outfg"); b = c.getInt("outfb");
+
+		r = c.getInt("outfr");
+		g = c.getInt("outfg");
+		b = c.getInt("outfb");
 		poni.lblInfo.setForeground(new Color(r, g, b));
-		
-		r = c.getInt("outbr"); g = c.getInt("outbg"); b = c.getInt("outbb");
+
+		r = c.getInt("outbr");
+		g = c.getInt("outbg");
+		b = c.getInt("outbb");
 		poni.lblInfo.setBackground(new Color(r, g, b));
 	}
 }

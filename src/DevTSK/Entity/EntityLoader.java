@@ -335,7 +335,7 @@ public class EntityLoader {
 		poni.println("Name : " + tp.getName());
 		poni.println("Age : " + tp.getAge());
 		poni.println();
-		poni.println("Description : " + "\n" + tp.getGender() + tp.getDesc());
+		poni.println("Description :\n" + tp.getGender() + "\nMane Colour : " + tp.getColour(0) + "\nTail Colour : " + tp.getColour(1) + tp.getDesc());
 		poni.println();
 		if (tp.getYear() >= 0)
 			poni.println("Birthday : " + tp.getMonth() + " " + tp.getDay() + ", " + tp.getYear());
@@ -368,7 +368,7 @@ public class EntityLoader {
 		poni.println("Name : " + tp.getName());
 		poni.println("Age : " + tp.getAge());
 		poni.println();
-		poni.println("Description : " + "\n" + tp.getGender() + tp.getDesc());
+		poni.println("Description :\n" + tp.getGender() + "\nMane Colour : " + tp.getColour(0) + "\nTail Colour : " + tp.getColour(1) + tp.getDesc());
 		poni.println();
 		if (tp.getYear() >= 0)
 			poni.println("Birthday : " + tp.getMonth() + " " + tp.getDay() + ", " + tp.getYear());
@@ -400,7 +400,7 @@ public class EntityLoader {
 		poni.println("Name : " + tp.getName());
 		poni.println("Age : " + tp.getAge());
 		poni.println();
-		poni.println("Description : " + "\n" + tp.getGender() + tp.getDesc());
+		poni.println("Description :\n" + tp.getGender() + "\nMane Colour : " + tp.getColour(0) + "\nTail Colour : " + tp.getColour(1) + tp.getDesc());
 		poni.println();
 		if (tp.getYear() >= 0)
 			poni.println("Birthday : " + tp.getMonth() + " " + tp.getDay() + ", " + tp.getYear());
@@ -431,7 +431,7 @@ public class EntityLoader {
 		poni.println("Name : " + tp.getName());
 		poni.println("Age : " + tp.getAge());
 		poni.println();
-		poni.println("Description : " + "\n" + tp.getGender() + tp.getDesc());
+		poni.println("Description :\n" + tp.getGender() + "\nMane Colour : " + tp.getColour(0) + "\nTail Colour : " + tp.getColour(1) + tp.getDesc());
 		poni.println();
 		if (tp.getYear() >= 0)
 			poni.println("Birthday : " + tp.getMonth() + " " + tp.getDay() + ", " + tp.getYear());

@@ -1,6 +1,6 @@
 package DevTSK.Entity;
 
-public class UnMarriedPlane extends Ponii {
+public class UnMarriedPlane extends PlanePonii {
 
 	public UnMarriedPlane(String Name, String AlternateName, String Flag, Boolean Gender, String Description, String CutiiMarkInfo, String ManeColour, String TailColour, String Mother, String Father, int age, int day, int month, int year, String Imagename, String CutiimarkImage) {
 		this.name = Name;

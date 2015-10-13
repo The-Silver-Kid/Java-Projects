@@ -20,7 +20,7 @@ public class EntityLoader {
 	private static final String[] commands = new String[] {
 			"Colour", "Color", "InputColour", "InputColor", "OutputColour", "OutputColor", "Exit",
 			"OutputTextColor", "InputTextColor", "OutputTextColour", "InputTextColour", "errorcheck", "extract",
-			"breed", "breedrand", "last", "l", "lastcmd", "cfg", "config", "listNonOC", "listall"
+			"breed", "breedrand", "last", "l", "lastcmd", "cfg", "config", "listNonOC", "listall", "info"
 	};
 
 	private static Entity[] OC;
@@ -251,7 +251,7 @@ public class EntityLoader {
 			System.out.println("Saving Configuration...");
 
 			byte[] tst = new byte[] {};
-			String strnj = "version = 1.0;\n\n"
+			String strnj = "version = 2.0;\n\n"
 					+ "bgr = " + poni.frmPoniiPic.getContentPane().getBackground().getRed() + ";\n"
 					+ "bgg = " + poni.frmPoniiPic.getContentPane().getBackground().getGreen() + ";\n"
 					+ "bgb = " + poni.frmPoniiPic.getContentPane().getBackground().getBlue() + ";\n\n"
@@ -274,6 +274,38 @@ public class EntityLoader {
 			FileOutputStream send = new FileOutputStream("./PoniiConfig.cfg");
 			send.write(tst);
 			send.close();
+		}
+		if (sl[0].equalsIgnoreCase("info")) {
+			if (sl.length < 2 || sl.length > 2) {
+				poni.printCl();
+				poni.println("Syntax is info <Entity>\nGives Info on the TYPE of ponii.\nIf the Entity name contains a space it wont work.");
+			} else {
+				poni.printCl();
+				Boolean doop = false, origin = false;
+				int loc = -1;
+				for (int i = 0; i < OC.length; i++) {
+					if (sl[1].equalsIgnoreCase(OC[i].getName()) || sl[1].equalsIgnoreCase(OC[i].getAltName())) {
+						doop = true;
+						loc = i;
+					}
+				}
+				for (int i = 0; i < show.length; i++) {
+					if (sl[1].equalsIgnoreCase(show[i].getName()) || sl[1].equalsIgnoreCase(show[i].getAltName())) {
+						doop = true;
+						origin = true;
+						loc = i;
+					}
+				}
+				if (doop) {
+					if (!origin) {
+						poni.println(OC[loc].getInfo());
+					} else {
+						poni.println(OC[loc].getInfo());
+					}
+				} else {
+					System.err.println("Entity not found : " + sl[1]);
+				}
+			}
 		}
 	}
 
@@ -506,8 +538,13 @@ public class EntityLoader {
 		}
 	}
 
-	public void punch() {
+	public void punch() throws ConfigException {
 		poni.action.actionPerformed(null);
+		if (new Config("./PoniiConfig.cfg").getDouble("version") < 2.0) {
+			poni.println("Re-wrote internal system entirely...\n"
+					+ "added info command : info <Entity> : cannot be used with spaces in names\n"
+					+ "removed sound system and music command");
+		}
 	}
 
 	public void setupConfig() throws ConfigException {

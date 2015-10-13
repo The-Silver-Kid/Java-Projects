@@ -9,7 +9,10 @@ public class WerewolfPonii extends Ponii {
 	public WerewolfPonii() {
 	}
 	/*
-	 * OH NOES! It appears that this class is missing a marriage status!
+	 * OH NOES! It appears that this is a main class witch shouldn't contain a detailed constructor.
+	 * It also appears that it is missing its getInfo() override
+	 * if you need help look at the planeponii class or fireponii class :D
+	 * 
 	public WerewolfPonii(String Name, String AlternateName, String Flag, Boolean Gender, String Description, String CutiiMarkInfo, String ManeColour, String TailColour, String Mother, String Father, int age, int day, int month, int year, String Imagename, String CutiimarkImage) {
 		this.name = Name;
 		this.Gender = Gender;

@@ -141,4 +141,11 @@ public class Entity {
 		}
 		return mnth;
 	}
+
+	public String getInfo() {
+		return "An Entity is a being or thing with real existance.\n"
+				+ "In this case it is any living thing that can be described by\n"
+				+ "the following parameters as listed in the appropriate constructor.";
+
+	}
 }

@@ -1,6 +1,6 @@
 package DevTSK.Entity;
 
-public class UnMarriedFirePonii extends Ponii {
+public class UnMarriedFirePonii extends FirePonii {
 
 	public UnMarriedFirePonii(String Name, String AlternateName, String Flag, Boolean Gender, String Description, String CutiiMarkInfo, String ManeColour, String TailColour, String Mother, String Father, int age, int day, int month, int year, String Imagename, String CutiimarkImage) {
 		this.name = Name;

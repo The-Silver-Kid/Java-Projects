@@ -9,7 +9,7 @@ import DAG.Config.Config;
 import DAG.Config.ConfigException;
 
 public class EntityLoader {
-	//private static final File f = new File("./config/Poniiconfig.ini");
+	// private static final File f = new File("./config/Poniiconfig.ini");
 	private static String lastCmd;
 	private static String[] sl;
 
@@ -17,11 +17,10 @@ public class EntityLoader {
 
 	private static Window poni = new Window("Ponii Program 3.0", 1, 0, 0, 0);
 
-	private static final String[] commands = new String[] {
-			"Colour", "Color", "InputColour", "InputColor", "OutputColour", "OutputColor", "Exit",
-			"OutputTextColor", "InputTextColor", "OutputTextColour", "InputTextColour", "errorcheck", "extract",
-			"breed", "breedrand", "last", "l", "lastcmd", "cfg", "config", "listNonOC", "listall", "info"
-	};
+	private static final String[] commands = new String[] { "Colour", "Color", "InputColour", "InputColor",
+			"OutputColour", "OutputColor", "Exit", "OutputTextColor", "InputTextColor", "OutputTextColour",
+			"InputTextColour", "errorcheck", "extract", "breed", "breedrand", "last", "l", "lastcmd", "cfg", "config",
+			"listNonOC", "listall", "info" };
 
 	private static Entity[] OC;
 	private static Entity[] show;
@@ -251,24 +250,22 @@ public class EntityLoader {
 			System.out.println("Saving Configuration...");
 
 			byte[] tst = new byte[] {};
-			String strnj = "version = 2.0;\n\n"
-					+ "bgr = " + poni.frmPoniiPic.getContentPane().getBackground().getRed() + ";\n"
-					+ "bgg = " + poni.frmPoniiPic.getContentPane().getBackground().getGreen() + ";\n"
-					+ "bgb = " + poni.frmPoniiPic.getContentPane().getBackground().getBlue() + ";\n\n"
-					+ "inbr = " + poni.lblTextArea.getBackground().getRed() + ";\n"
-					+ "inbg = " + poni.lblTextArea.getBackground().getGreen() + ";\n"
-					+ "inbb = " + poni.lblTextArea.getBackground().getBlue() + ";\n\n"
-					+ "infr = " + poni.lblTextArea.getForeground().getRed() + ";\n"
-					+ "infg = " + poni.lblTextArea.getForeground().getGreen() + ";\n"
-					+ "infb = " + poni.lblTextArea.getForeground().getBlue() + ";\n\n"
-					+ "outbr = " + poni.lblInfo.getBackground().getRed() + ";\n"
-					+ "outbg = " + poni.lblInfo.getBackground().getGreen() + ";\n"
-					+ "outbb = " + poni.lblInfo.getBackground().getBlue() + ";\n\n"
-					+ "outfr = " + poni.lblInfo.getForeground().getRed() + ";\n"
-					+ "outfg = " + poni.lblInfo.getForeground().getGreen() + ";\n"
-					+ "outfb = " + poni.lblInfo.getForeground().getBlue() + ";\n\n"
-					+ "sep = " + "false;";
-			//+ "frame = " + framew + ";";
+			String strnj = "version = 2.0;\n\n" + "bgr = " + poni.frmPoniiPic.getContentPane().getBackground().getRed()
+					+ ";\n" + "bgg = " + poni.frmPoniiPic.getContentPane().getBackground().getGreen() + ";\n" + "bgb = "
+					+ poni.frmPoniiPic.getContentPane().getBackground().getBlue() + ";\n\n" + "inbr = "
+					+ poni.lblTextArea.getBackground().getRed() + ";\n" + "inbg = "
+					+ poni.lblTextArea.getBackground().getGreen() + ";\n" + "inbb = "
+					+ poni.lblTextArea.getBackground().getBlue() + ";\n\n" + "infr = "
+					+ poni.lblTextArea.getForeground().getRed() + ";\n" + "infg = "
+					+ poni.lblTextArea.getForeground().getGreen() + ";\n" + "infb = "
+					+ poni.lblTextArea.getForeground().getBlue() + ";\n\n" + "outbr = "
+					+ poni.lblInfo.getBackground().getRed() + ";\n" + "outbg = "
+					+ poni.lblInfo.getBackground().getGreen() + ";\n" + "outbb = "
+					+ poni.lblInfo.getBackground().getBlue() + ";\n\n" + "outfr = "
+					+ poni.lblInfo.getForeground().getRed() + ";\n" + "outfg = "
+					+ poni.lblInfo.getForeground().getGreen() + ";\n" + "outfb = "
+					+ poni.lblInfo.getForeground().getBlue() + ";\n\n" + "sep = " + "false;";
+			// + "frame = " + framew + ";";
 			tst = strnj.getBytes();
 
 			FileOutputStream send = new FileOutputStream("./PoniiConfig.cfg");
@@ -278,7 +275,8 @@ public class EntityLoader {
 		if (sl[0].equalsIgnoreCase("info")) {
 			if (sl.length < 2 || sl.length > 2) {
 				poni.printCl();
-				poni.println("Syntax is info <Entity>\nGives Info on the TYPE of ponii.\nIf the Entity name contains a space it wont work.");
+				poni.println(
+						"Syntax is info <Entity>\nGives Info on the TYPE of ponii.\nIf the Entity name contains a space it wont work.");
 			} else {
 				poni.printCl();
 				Boolean doop = false, origin = false;
@@ -367,7 +365,8 @@ public class EntityLoader {
 		poni.println("Name : " + tp.getName());
 		poni.println("Age : " + tp.getAge());
 		poni.println();
-		poni.println("Description :\n" + tp.getGender() + "\nMane Colour : " + tp.getColour(0) + "\nTail Colour : " + tp.getColour(1) + tp.getDesc());
+		poni.println("Description :\n" + tp.getGender() + "\nMane Colour : " + tp.getColour(0) + "\nTail Colour : "
+				+ tp.getColour(1) + tp.getDesc());
 		poni.println();
 		if (tp.getYear() >= 0)
 			poni.println("Birthday : " + tp.getMonth() + " " + tp.getDay() + ", " + tp.getYear());
@@ -400,7 +399,8 @@ public class EntityLoader {
 		poni.println("Name : " + tp.getName());
 		poni.println("Age : " + tp.getAge());
 		poni.println();
-		poni.println("Description :\n" + tp.getGender() + "\nMane Colour : " + tp.getColour(0) + "\nTail Colour : " + tp.getColour(1) + tp.getDesc());
+		poni.println("Description :\n" + tp.getGender() + "\nMane Colour : " + tp.getColour(0) + "\nTail Colour : "
+				+ tp.getColour(1) + tp.getDesc());
 		poni.println();
 		if (tp.getYear() >= 0)
 			poni.println("Birthday : " + tp.getMonth() + " " + tp.getDay() + ", " + tp.getYear());
@@ -432,7 +432,8 @@ public class EntityLoader {
 		poni.println("Name : " + tp.getName());
 		poni.println("Age : " + tp.getAge());
 		poni.println();
-		poni.println("Description :\n" + tp.getGender() + "\nMane Colour : " + tp.getColour(0) + "\nTail Colour : " + tp.getColour(1) + tp.getDesc());
+		poni.println("Description :\n" + tp.getGender() + "\nMane Colour : " + tp.getColour(0) + "\nTail Colour : "
+				+ tp.getColour(1) + tp.getDesc());
 		poni.println();
 		if (tp.getYear() >= 0)
 			poni.println("Birthday : " + tp.getMonth() + " " + tp.getDay() + ", " + tp.getYear());
@@ -463,7 +464,8 @@ public class EntityLoader {
 		poni.println("Name : " + tp.getName());
 		poni.println("Age : " + tp.getAge());
 		poni.println();
-		poni.println("Description :\n" + tp.getGender() + "\nMane Colour : " + tp.getColour(0) + "\nTail Colour : " + tp.getColour(1) + tp.getDesc());
+		poni.println("Description :\n" + tp.getGender() + "\nMane Colour : " + tp.getColour(0) + "\nTail Colour : "
+				+ tp.getColour(1) + tp.getDesc());
 		poni.println();
 		if (tp.getYear() >= 0)
 			poni.println("Birthday : " + tp.getMonth() + " " + tp.getDay() + ", " + tp.getYear());
@@ -541,6 +543,7 @@ public class EntityLoader {
 	public void punch() throws ConfigException {
 		poni.action.actionPerformed(null);
 		if (new Config("./PoniiConfig.cfg").getDouble("version") < 2.0) {
+			poni.printCl();
 			poni.println("Re-wrote internal system entirely...\n"
 					+ "added info command : info <Entity> : cannot be used with spaces in names\n"
 					+ "removed sound system and music command");

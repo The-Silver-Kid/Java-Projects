@@ -7,7 +7,7 @@ public class PlanePonii extends Ponii {
 
 	@Override
 	public String getInfo() {
-		return "A Plane Ponii is a Ponii that looks like an airplane.\n"
+		return "A Plane Ponii or plone is a Ponii that looks like an airplane.\n"
 				+ "They also have different internal workings then a normal Ponii:\n"
 				+ "-Internal Wing Engine Conbustion Unit (IWECU) used for flying like a plane\n"
 				+ "-Have jet fuel in place of blood.\n"

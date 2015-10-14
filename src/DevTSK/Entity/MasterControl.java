@@ -15,13 +15,14 @@ public class MasterControl {
 				new UnMarriedPlane("Blitz Radon", "Blitz", "", true, "\nStandard\nHas a boyfrind that makes pizza", "\n\u2708", "Copper Colour", "Copper Colour", "Charrie", "Slanger", 18, 12, 12, 1997, "blitz.png", "null.png"),
 				new UnMarriedPonii("Steven Shuttleknight", "Steven", "", false, "\nPegasus\nDelivers Pizza\nLikes Blitz Radon", "\nPizza Box", "", "", "Speedometere", "Plizzia", 17, 28, 2, 1998, "steven.png", "null.png"),
 				new UnMarriedFirePonii("Blaze Oxydation", "Blaze", "", false, "\nUnicorn\nCross Breed of a Ponii and Quilava\nMane acts a little like fire.\nUsually not seen as his dad prefers to keep him hidden\nHe likes the Tree Radon.", "\nDosent have it yet...\nVolcanic storm type thing", "Deep Red", "Deep Red", "Lavé", "?", 4, 19, 11, 2001, "blaze.png", "null.png"),
-
-				new UnMarriedPoniiWithKids/*Nop. Just hasn't been announced yet. Still working on the name though.*/("Cosmos Darkstar", "Cosmos", "\u26e7", false, "\nZebra pegasus\nIs half demon and is also a vampony\nLives in the old castle in Everfree", "\nPentagram", "Purple with gray stripes", "Gray", "Nighmare Moon", "King of Hell", 851, 21, 8, 1164 /*1, new String[] {""}, new String[] {""},*/, "null.png", "null.png", 1, new String[] { "" }, new String[] { "Cadence" }),
-				
-				new UnMarriedDargonPonii("Miiryanth", "Miir", "", false, "\nDragon ponii\nI can haz dragon?"/*A better Desc would be nice*/,"Firey orange-red color", "Very dark gray",  "Unknown", "Unknown", 19, 4, 8, 1996, "null.png"),
+				//check
+				//new UnMarriedPoniiWithKids/*then change the constructor till then.*/("Cosmos Darkstar", "Cosmos", "\u26e7", false, "\nZebra pegasus\nIs half demon and is also a vampony\nLives in the old castle in Everfree", "\nPentagram", "Purple with gray stripes", "Gray", "Nighmare Moon", "King of Hell", 851, 21, 8, 1164 /*1, new String[] {""}, new String[] {""},*/, "null.png", "null.png", 1, new String[] { "" }, new String[] { "Cadence" }),
+				//check
+				//new UnMarriedDargonPonii("Miiryanth", "Miir", "", false, "\nDragon ponii\nI can haz dragon?"/*A better Desc would be nice*/,"Firey orange-red color", "Very dark gray",  "Unknown", "Unknown", 19, 4, 8, 1996, "null.png"),
 		}, new Entity[] {
 				new MarriedPonii("Apple Jack Radon", "AJ", "", true, "\nEarth\nIts Apple Jack... y'all know her", "\nThree red apples", "Pale Yellow", "Pale Yellow", "?", "?", 22, 3, 4, 1993, "AJ.png", "AJMark.png", "Shadow Radon", 2, new String[] { "Tree Lighting", "Shadow Jack" }),
-				new UnMarriedPoniiWithKids/*Same as on Cosmos.*/("Princess Cadence", "Cadence", "\u2764", true, "\nAlicorn\nPretty pink ponii princess", "\nCrystal Heart", "Pink as can be", "Yellow, purple, and pink", "Queen Galaxia", "Unknown", 11489, 16, 6, -9474, "null.png", "null.png", /*"3547006110FFC7DAFFC49D00101740096UI1G3C002000000817F3FA2DF44A50Q107F3FCC004CB2"*/ 1, new String[] { "" }, new String[] { "Cosmos" }),
+				//check
+				//new UnMarriedPoniiWithKids/*Same as on Cosmos.*/("Princess Cadence", "Cadence", "\u2764", true, "\nAlicorn\nPretty pink ponii princess", "\nCrystal Heart", "Pink as can be", "Yellow, purple, and pink", "Queen Galaxia", "Unknown", 11489, 16, 6, -9474, "null.png", "null.png", /*"3547006110FFC7DAFFC49D00101740096UI1G3C002000000817F3FA2DF44A50Q107F3FCC004CB2"*/ 1, new String[] { "" }, new String[] { "Cosmos" }),
 		});
 		h.punch();
 		h.setupConfig();

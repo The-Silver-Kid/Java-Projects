@@ -20,8 +20,7 @@ public class MasterControl {
 				
 				//check
 				//new UnMarriedPoniiWithKids/*then change the constructor till then.*/("Cosmos Darkstar", "Cosmos", "\u26e7", false, "\nZebra pegasus\nIs half demon and is also a vampony\nLives in the old castle in Everfree", "\nPentagram", "Purple with gray stripes", "Gray", "Nighmare Moon", "King of Hell", 851, 21, 8, 1164 /*1, new String[] {""}, new String[] {""},*/, "null.png", "null.png", 1, new String[] { "" }, new String[] { "Cadence" }),
-				//check
-				//new UnMarriedDargonPonii("Miiryanth", "Miir", "", false, "\nDragon ponii\nI can haz dragon?"/*A better Desc would be nice*/,"Firey orange-red color", "Very dark gray",  "Unknown", "Unknown", 19, 4, 8, 1996, "null.png"),
+				new UnMarriedDargonPonii("Miiryanth", "Miir", "", false, "\nDragon ponii\nStill young but takes care of his younger brother Gorlanth.","Firey orange-red color", "Very dark gray and scale covered like the body, then the firery orange-red for the tuft at the tip",  "Unknown", "Unknown", 19, 4, 8, 1996, "null.png"),
 		}, new Entity[] {
 				new MarriedPonii("Apple Jack Radon", "AJ", "", true, "\nEarth\nIts Apple Jack... y'all know her", "\nThree red apples", "Pale Yellow", "Pale Yellow", "?", "?", 22, 3, 4, 1993, "AJ.png", "AJMark.png", "Shadow Radon", 2, new String[] { "Tree Lighting", "Shadow Jack" }),
 				//check

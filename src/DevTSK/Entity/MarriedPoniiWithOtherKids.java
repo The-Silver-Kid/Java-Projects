@@ -2,12 +2,13 @@ package DevTSK.Entity;
 
 public class MarriedPoniiWithOtherKids extends Ponii {
 
-	public MarriedPoniiWithOtherKids(String Name, String AlternateName, String Flag, Boolean Gender, String Description, String CutiiMarkInfo, String ManeColour, String TailColour, String Mother, String Father, int age, int day, int month, int year, String Imagename, String CutiimarkImage, String Marriedto, int ammountOfKids, String[] kidNames, String[] kidOtherParent) {
+	public MarriedPoniiWithOtherKids(String Name, String AlternateName, String Flag, Boolean Gender, Boolean IsVamponii, String Description, String CutiiMarkInfo, String ManeColour, String TailColour, String Mother, String Father, int age, int day, int month, int year, String Imagename, String CutiimarkImage, String Marriedto, int ammountOfKids, String[] kidNames, String[] kidOtherParent) {
 		this.name = Name;
 		this.Gender = Gender;
 		this.description = "\nRegular" + Description;
 		this.colour = ManeColour;
 		this.anotherColour = TailColour;
+		this.otherBoolean = IsVamponii;
 		this.mother = Mother;
 		this.father = Father;
 		this.age = age;

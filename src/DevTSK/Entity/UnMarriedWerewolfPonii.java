@@ -1,3 +1,6 @@
+/**
+ * @author CosmosDarkstar
+ */
 package DevTSK.Entity;
 
 public class UnMarriedWerewolfPonii extends WerewolfPonii {

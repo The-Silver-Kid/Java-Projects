@@ -1,13 +1,21 @@
 package DevTSK.Entity;
 
 public class Entity {
-	protected Boolean Gender = false; //false = Male, true = Female
+	protected Boolean Gender = false, /*false = Male, true = Female*/ otherBoolean = false, yaBoolean = false;
 	protected int age = 0, state = 0, day = 0, month = 0, year = 0, kidammount = 0;
 	protected String name = "Empty", altName = "Empty", description = "Empty", mother = "Empty", father = "Empty", DNA = "Empty", flag = "Empty", additionalInfo = "Empty", marriedto = "Empty";
 	protected String imagepath = "null.png", altimagepath = "null.png", colour = "Empty", anotherColour = "Empty";
 	protected String[] kids = null, with = null;
 
 	public Entity() {
+	}
+
+	public Boolean getOtherBoolean() {
+		return otherBoolean;
+	}
+
+	public Boolean getYetAnotherBoolean() {
+		return yaBoolean;
 	}
 
 	public String getColour(int i) {

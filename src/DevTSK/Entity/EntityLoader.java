@@ -329,6 +329,9 @@ public class EntityLoader {
 		if (s.equalsIgnoreCase("UnMarriedMachinePonii")) {
 			getInfoMachineSNG(OC[i]);
 		}
+		if (s.equalsIgnoreCase("UnMarriedFirePonii")) {
+			getInfoFireSNG(OC[i]);
+		}
 
 		try {
 			poni.lblPoniiPic.setIcon(poni.getImageIcn("/images/" + OC[i].getImagePath()));
@@ -356,10 +359,13 @@ public class EntityLoader {
 			getInfoMWKOMK(show[i]);
 		}
 		if (s.equalsIgnoreCase("UnMarriedDargonPonii")) {
-			getInfoDargonSNG(OC[i]);
+			getInfoDargonSNG(show[i]);
 		}
 		if (s.equalsIgnoreCase("UnMarriedMachinePonii")) {
-			getInfoMachineSNG(OC[i]);
+			getInfoMachineSNG(show[i]);
+		}
+		if (s.equalsIgnoreCase("UnMarriedFirePonii")) {
+			getInfoFireSNG(show[i]);
 		}
 
 		try {
@@ -377,7 +383,10 @@ public class EntityLoader {
 		poni.println("Name : " + tp.getName());
 		poni.println("Age : " + tp.getAge());
 		poni.println();
-		poni.println("Description :\n" + tp.getGender() + "\nMane Colour : " + tp.getColour(0) + "\nTail Colour : "
+		String s = " ";
+		if (tp.getOtherBoolean())
+			s = "\nIs a vamponii";
+		poni.println("Description :\n" + tp.getGender() + s + "\nMane Colour : " + tp.getColour(0) + "\nTail Colour : "
 				+ tp.getColour(1) + tp.getDesc());
 		poni.println();
 		if (tp.getYear() >= 0)
@@ -411,7 +420,10 @@ public class EntityLoader {
 		poni.println("Name : " + tp.getName());
 		poni.println("Age : " + tp.getAge());
 		poni.println();
-		poni.println("Description :\n" + tp.getGender() + "\nMane Colour : " + tp.getColour(0) + "\nTail Colour : "
+		String s = " ";
+		if (tp.getOtherBoolean())
+			s = "\nIs a vamponii";
+		poni.println("Description :\n" + tp.getGender() + s + "\nMane Colour : " + tp.getColour(0) + "\nTail Colour : "
 				+ tp.getColour(1) + tp.getDesc());
 		poni.println();
 		if (tp.getYear() >= 0)
@@ -444,7 +456,10 @@ public class EntityLoader {
 		poni.println("Name : " + tp.getName());
 		poni.println("Age : " + tp.getAge());
 		poni.println();
-		poni.println("Description :\n" + tp.getGender() + "\nMane Colour : " + tp.getColour(0) + "\nTail Colour : "
+		String s = " ";
+		if (tp.getOtherBoolean())
+			s = "\nIs a vamponii";
+		poni.println("Description :\n" + tp.getGender() + s + "\nMane Colour : " + tp.getColour(0) + "\nTail Colour : "
 				+ tp.getColour(1) + tp.getDesc());
 		poni.println();
 		if (tp.getYear() >= 0)
@@ -476,7 +491,10 @@ public class EntityLoader {
 		poni.println("Name : " + tp.getName());
 		poni.println("Age : " + tp.getAge());
 		poni.println();
-		poni.println("Description :\n" + tp.getGender() + "\nMane Colour : " + tp.getColour(0) + "\nTail Colour : "
+		String s = " ";
+		if (tp.getOtherBoolean())
+			s = "\nIs a vamponii";
+		poni.println("Description :\n" + tp.getGender() + s + "\nMane Colour : " + tp.getColour(0) + "\nTail Colour : "
 				+ tp.getColour(1) + tp.getDesc());
 		poni.println();
 		if (tp.getYear() >= 0)
@@ -494,7 +512,39 @@ public class EntityLoader {
 		poni.println("::End of Ponii::");
 		poni.println();
 	}
-	
+
+	private static void getInfoFireSNG(Entity tp) {
+		System.out.println("Loading resources for ponii " + tp.getName());
+		poni.println("Name : " + tp.getName());
+		poni.println("Age : " + tp.getAge());
+		poni.println();
+		String s = " ";
+		if (tp.getOtherBoolean())
+			s = "\nIs a vamponii";
+		poni.println("Description :\n" + tp.getGender() + s + "\nMane Colour : " + tp.getColour(0) + "\nTail Colour : "
+				+ tp.getColour(1) + tp.getDesc());
+		s = tp.getFather() + " (Father)";
+		if (tp.getYetAnotherBoolean())
+			s = tp.getMother() + " (Mother)";
+		poni.println();
+		poni.println("Ponii Parent : " + s);
+		poni.println();
+		if (tp.getYear() >= 0)
+			poni.println("Birthday : " + tp.getMonth() + " " + tp.getDay() + ", " + tp.getYear());
+		if (tp.getYear() < 0)
+			poni.println("Birthday : " + tp.getMonth() + " " + tp.getDay() + ", " + (tp.getYear() * -1) + "BC");
+		poni.println();
+		poni.println("Cutii Mark : " + tp.getAddDesc());
+		poni.println();
+		poni.println("Mother : " + tp.getMother());
+		poni.println("Father : " + tp.getFather());
+		poni.println();
+		poni.println("Flag: '" + tp.getFlag() + "'");
+		poni.println();
+		poni.println("::End of Ponii::");
+		poni.println();
+	}
+
 	private static void getInfoMachineSNG(Entity tp) {
 		System.out.println("Loading resources for ponii " + tp.getName());
 		poni.println("Name : " + tp.getName());
@@ -520,7 +570,7 @@ public class EntityLoader {
 		poni.println("::End of Ponii::");
 		poni.println();
 	}
-	
+
 	private static void getInfoDargonSNG(Entity tp) {
 		System.out.println("Loading resources for ponii " + tp.getName());
 		poni.println("Name : " + tp.getName());

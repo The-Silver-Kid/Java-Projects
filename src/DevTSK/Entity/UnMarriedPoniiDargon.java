@@ -1,3 +1,7 @@
+/**
+ * @author CosmosDarkstar
+ */
+
 package DevTSK.Entity;
 
 public class UnMarriedPoniiDargon extends PoniiDargon {

@@ -2,9 +2,11 @@ package DevTSK.Entity;
 
 public class UnMarriedFirePonii extends FirePonii {
 
-	public UnMarriedFirePonii(String Name, String AlternateName, String Flag, Boolean Gender, String Description, String CutiiMarkInfo, String ManeColour, String TailColour, String Mother, String Father, int age, int day, int month, int year, String Imagename, String CutiimarkImage) {
+	public UnMarriedFirePonii(String Name, String AlternateName, String Flag, Boolean Gender, Boolean IsVamponii, Boolean poniiparent, String Description, String CutiiMarkInfo, String ManeColour, String TailColour, String Mother, String Father, int age, int day, int month, int year, String Imagename, String CutiimarkImage) {
 		this.name = Name;
 		this.Gender = Gender;
+		this.otherBoolean = IsVamponii;
+		this.yaBoolean = poniiparent;
 		this.description = "\nFire" + Description;
 		this.colour = ManeColour;
 		this.anotherColour = TailColour;
@@ -23,6 +25,6 @@ public class UnMarriedFirePonii extends FirePonii {
 
 	@Override
 	public String toString() {
-		return "UnMarriedPonii";
+		return "UnMarriedFirePonii";
 	}
 }

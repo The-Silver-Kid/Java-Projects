@@ -20,6 +20,7 @@ public class UnMarriedPlane extends PlanePonii {
 		this.altName = AlternateName;
 		this.day = day;
 		this.flag = Flag;
+
 	}
 
 	@Override

@@ -19,15 +19,20 @@ public class MasterControl {
 				new UnMarriedMachinePonii("C523", "C5", "", true, "\nAnother machine ponii built by radon however she was built for C4 to have a friend", "\nC523", "Pale Yellow", "Pale Yellow", "N/A", "N/A", 3, 12, 3, 2012, "C5.png", "null.png"),
 				new MarriedPonii("Charrie (Firefly) Sychace Radon", "Charrie", "", true, false, "\nPegasus\nOld but cares allot about everyponii", "\nBlack Outlined White Thunderbolt", "Pinkish brown", "Pinkish brown", "Keri", "Craider", 67, 13, 7, 1948, "charrie.png", "null.png", "Slanger", 4, new String[] { "Shadow", "Shyne", "Steve", "Blitz" }),
 
-				//check
-				//new UnMarriedPoniiWithKids/*then change the constructor till then.*/("Cosmos Darkstar", "Cosmos", "\u26e7", false, "\nZebra pegasus\nIs half demon and is also a vampony\nLives in the old castle in Everfree", "\nPentagram", "Purple with gray stripes", "Gray", "Nighmare Moon", "King of Hell", 851, 21, 8, 1164 /*1, new String[] {""}, new String[] {""},*/, "null.png", "null.png", 1, new String[] { "" }, new String[] { "Cadence" }),
+				new UnMarriedPoniiWithKids("Cosmos Darkstar", "Cosmos", "\u26e7", false, true, "\nZebra pegasus\nIs half demon and is also a vampony\nLives in the old castle in Everfree", "\nPentagram", "Purple with gray stripes", "Gray", "Nighmare Moon", "King of Hell", 851, 21, 8, 1164, "null.png", "null.png", 1, new String[] { "" }, new String[] { "Cadence" }/*pone code: 3D2D0J40A172007A4D4B49040000077C2UN1837205010000V18600AC4D4B490T107F3FCC004CB2
+																																																																																											*/),
 
 				new UnMarriedDargonPonii("Miiryanth", "Miir", "", false, "\nDragon ponii\nStill young but takes care of his younger brother Gorlanth.", "Firey orange-red color", "Very dark gray and scale covered like the body, then the firery orange-red for the tuft at the tip", "Unknown", "Unknown", 19, 4, 8, 1996, "null.png"),
+				/*Cosmos: 3B240J41004E4E4E6B6B6B02000B49600UN1837205030001Q05F6366FF7FFF00107F3FCC004CB2
+				 * Cadence: 3547006110FFC7DAFFC49D00101740096UI1G3C002000000817F3FA2DF44A50Q107F3FCC004CB2
+				 *Cosmos/cadence daughter who needs name: 112A08710118181864646400101513247MN1C35008300001U12F005C00377221107F3FCC004CB2
+				 *cosmos son (winged unicorn not alicon): 1O5K007110247AB27A009C1000000BB96JN1837000200000U1E8E633DC33320S107F3FCC004CB2
+				 * */
 		}, new Entity[] {
 				new MarriedPonii("Apple Jack Radon", "AJ", "", true, false, "\nEarth\nIts Apple Jack... y'all know her", "\nThree red apples", "Pale Yellow", "Pale Yellow", "?", "?", 22, 3, 4, 1993, "AJ.png", "AJMark.png", "Shadow Radon", 2, new String[] { "Tree Lighting", "Shadow Jack" }),
-				//check
-				//new UnMarriedPoniiWithKids/*Same as on Cosmos.*/("Princess Cadence", "Cadence", "\u2764", true, "\nAlicorn\nPretty pink ponii princess", "\nCrystal Heart", "Pink as can be", "Yellow, purple, and pink", "Queen Galaxia", "Unknown", 11489, 16, 6, -9474, "null.png", "null.png", /*"3547006110FFC7DAFFC49D00101740096UI1G3C002000000817F3FA2DF44A50Q107F3FCC004CB2"*/ 1, new String[] { "" }, new String[] { "Cosmos" }),
- });
+				new UnMarriedPonii("Nurse Redheart", "Redheart", "", true, false, "\nEarth pony\nShe's a nurse.", "\nRed cross with hearts", "Light pink", "Light pink", "?", "?", 33, 9, 8, 1982, "null.png", "null.png"),
+				new UnMarriedPoniiWithKids("Princess Cadence", "Cadence", "\u2764", true, false, "\nAlicorn\nPretty pink ponii princess", "\nCrystal Heart", "Pink as can be", "Yellow, purple, and pink", "Queen Galaxia", "Unknown", 11489, 16, 6, -9474, "null.png", "null.png", 1, new String[] { "" }, new String[] { "Cosmos" }),
+		});
 		h.punch();
 		h.setupConfig();
 		h.punch();

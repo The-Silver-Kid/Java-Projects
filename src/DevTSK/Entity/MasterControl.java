@@ -25,7 +25,7 @@ public class MasterControl {
 
 		}, new Entity[] {
 				new MarriedPonii("Apple Jack Radon", "AJ", "", true, false, "\nEarth\nIts Apple Jack... y'all know her", "\nThree red apples", "Pale Yellow", "Pale Yellow", "?", "?", 22, 3, 4, 1993, "AJ.png", "AJMark.png", "Shadow Radon", 2, new String[] { "Tree Lighting", "Shadow Jack" }),
-				new UnMarriedPonii("Nurse Redheart", "Redheart", "", true, false, "\nEarth pony\nShe's a nurse.", "\nRed cross with hearts", "Light pink", "Light pink", "?", "?", 33, 9, 8, 1982, "null.png", "null.png"),
+				new UnMarriedPonii("Nurse RedHeart", "RedHeart", "", true, false, "\nEarth pony\nShe's a nurse.", "\nRed cross with hearts", "Light pink", "Light pink", "?", "?", 33, 9, 8, 1982, "null.png", "null.png"),
 				//still not right constructor
 				new UnMarriedPoniiWithKids("Princess Cadence", "Cadence", "\u2764", true, false, "\nAlicorn\nPretty pink ponii princess", "\nCrystal Heart", "Pink as can be", "Yellow, purple, and pink", "Queen Galaxia", "Unknown", 11489, 16, 6, -9474, "null.png", "null.png", 1, new String[] { "" }, new String[] { "Cosmos" }),
 		});

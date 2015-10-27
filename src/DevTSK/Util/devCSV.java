@@ -1,4 +1,4 @@
-package development;
+package DevTSK.Util;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -10,9 +10,9 @@ import org.apache.commons.csv.CSVRecord;
 
 import org.apache.commons.lang3.ArrayUtils;
 
-public class TestingEnv {
+public class devCSV {
 	
-	public TestingEnv() {
+	public devCSV() {
 	}
 
 	public static final void main(String args[]){
@@ -21,7 +21,7 @@ public class TestingEnv {
 			return;
 		}
 			
-		TestingEnv te = new TestingEnv();
+		devCSV te = new devCSV();
 		te.readCsvFile(args[1]);
 	}
 	

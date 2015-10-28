@@ -6,7 +6,7 @@ public class NeuroxRead {
 	
 	private static final devCSV dcsv = new devCSV();
 	
-	private static final String map = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ\u03B8 .\u2796+-*/^(),\u00B2\u00B9e\u0274\n0143uvw{}[]\u0113\u03C0nxyabcderpzt\u0492\u03D0s=\u003D>\u2265<\u2264:'!?";
+	//private static final String map = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ\u03B8 .\u2796+-*/^(),\u00B2\u00B9e\u0274\n0143uvw{}[]\u0113\u03C0nxyabcderpzt\u0492\u03D0s=\u003D>\u2265<\u2264:'!?";
 	
 	public String GetPage(Boolean encrypted, int i, String in) {
 		String s = "";

@@ -5,6 +5,8 @@ import javax.swing.JTextField;
 import javax.swing.JTextArea;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
 
 public class test extends JApplet {
 	private static final long serialVersionUID = 1944613951505626683L;
@@ -17,6 +19,7 @@ public class test extends JApplet {
 	/**
 	 * Create the applet.
 	 */
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public test() {
 		getContentPane().setLayout(null);
 		
@@ -55,6 +58,12 @@ public class test extends JApplet {
 		lblCalberB.setHorizontalAlignment(SwingConstants.CENTER);
 		lblCalberB.setBounds(234, 12, 86, 14);
 		getContentPane().add(lblCalberB);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Default", "laul"}));
+		comboBox.setSelectedIndex(0);
+		comboBox.setBounds(42, 170, 278, 20);
+		getContentPane().add(comboBox);
 		
 		rd.start();
 	}

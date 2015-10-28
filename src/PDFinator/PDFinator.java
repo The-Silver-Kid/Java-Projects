@@ -1,4 +1,4 @@
-package Stuff;
+package PDFinator;
 
 import javax.swing.JApplet;
 import javax.swing.JTextField;
@@ -8,10 +8,12 @@ import javax.swing.SwingConstants;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 
-public class test extends JApplet {
+//import org.apache.pdfbox.pdmodel.*;
+
+public class PDFinator extends JApplet {
 	private static final long serialVersionUID = 1944613951505626683L;
 	public static JTextField textField;
-	private RunnableDemo rd = new RunnableDemo("hi");
+	private BackgroundCalculation rd = new BackgroundCalculation("hi");
 	public static JTextArea textArea;
 	public static JTextField calbMain;
 	public static JTextField calbPod;
@@ -20,7 +22,7 @@ public class test extends JApplet {
 	 * Create the applet.
 	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public test() {
+	public PDFinator() {
 		getContentPane().setLayout(null);
 		
 		textField = new JTextField();

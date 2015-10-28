@@ -1,8 +1,5 @@
 /**
- * 
- */
-/**
  * @author The_Silver_Kid
  *
  */
-package Stuff;
+package PDFinator;

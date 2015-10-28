@@ -23,5 +23,6 @@
 			<attribute name="javadoc_location" value="jar:platform:/resource/Silver/commons-csv-1.2-bin.zip!/commons-csv-1.2/apidocs"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="pdfbox-1.8.10.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -8,5 +8,9 @@ public class Colour extends Color {
 	public Colour(int rgb) {
 		super(rgb);
 	}
+	
+	public Colour(int r, int g, int b){
+		super(r, g, b);
+	}
 
 }

@@ -24,6 +24,7 @@ public class MasterControl {
 				new UnMarriedPoniiDargon("Gorlanth", "Lance", "", false, "\nPonii dragon\nExists", "Dark blue", "Dark blue", "\nHasn't gotten it yet...Triangle beaker thing", "Unknown", "Unknown", 4, 12, 7, 2010, "null.png", "null.png"),
 				new UnMarriedPonii("Maven RedHeart", "Maven", "", false, false, "\nUnicorn\nKnows almost as much as his mother about taking care of poniis", "\nRed cross", "Red", "Red", "Nurse RedHeart", "Raygle", 5, 1, 1, 2010, "Maven.png", "null.png"),
 				new UnMarriedPlane("Boeing <lastnamehere>", "Boeing", "", false, false, "\nF16 fighter jet plone\nUsually has a bandana around mouth when flying that has the shark face design thinger on it", "Missile", "Fire-red", "Fire-red", "Unknown", "Unknown", 21, 13, 7, 1994, "null.png", "null.png"),
+				new UnMarriedCarribou("Hrodmar Thorhalson", "Hrodmar", "", false, false, "\nViking Carribou\nHe's a fekkin viking, what more exists need?\nCame through a time rift while hunting Cosmos", "\nThree white swirls", "Red with white highlights", "Red with white highlights", "Nina Faralddottir", "Thoral Kiotvason", 23, 12, 1, 1992, "null.png", "null.png" /*"39230B4000705000FFC49D0010000BB96QN1D3A00800000191BA3000FFFFEE0001705000FFFFEE"*/ ),
 
 		}, new Entity[] {
 				new MarriedPonii("Apple Jack Radon", "AJ", "", true, false, "\nEarth\nIts Apple Jack... y'all know her", "\nThree red apples", "Pale Yellow", "Pale Yellow", "?", "?", 22, 3, 4, 1993, "AJ.png", "AJMark.png", "Shadow Radon", 2, new String[] { "Tree Lighting", "Shadow Jack" }),

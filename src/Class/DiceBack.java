@@ -11,6 +11,11 @@ class DiceBack implements Runnable {
 	   while (true) {
 		  Dice.lblNewLabel.setText("" + Dice.dslide.getValue());
 		  Dice.label.setText("" + Dice.rslide.getValue());
+		  if (Dice.tglbtnShowExtendedInfo.isSelected()){
+			  Dice.tglbtnShowExtendedInfo.setText("Showing stats");
+		  } else {
+			  Dice.tglbtnShowExtendedInfo.setText("Showing results");
+		  }
 	   }
    }
    

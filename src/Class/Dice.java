@@ -8,6 +8,7 @@ import javax.swing.Action;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JScrollPane;
 import javax.swing.JSlider;
 import javax.swing.JTextArea;
 import javax.swing.JToggleButton;
@@ -23,7 +24,8 @@ public class Dice {
 	static JSlider dslide, rslide;
 	private static DiceBack db = new DiceBack("Calc");
 	private static JTextArea out;
-	private static JToggleButton tglbtnShowExtendedInfo;
+	static JToggleButton tglbtnShowExtendedInfo;
+	static String rolz, stats;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -95,8 +97,8 @@ public class Dice {
 		rslide.setBounds(10, 109, 422, 37);
 		frame.getContentPane().add(rslide);
 
-		tglbtnShowExtendedInfo = new JToggleButton("Show Stats");
-		tglbtnShowExtendedInfo.setSelected(true);
+		tglbtnShowExtendedInfo = new JToggleButton("");
+		tglbtnShowExtendedInfo.setSelected(false);
 		tglbtnShowExtendedInfo.setBounds(10, 157, 186, 23);
 		frame.getContentPane().add(tglbtnShowExtendedInfo);
 
@@ -109,6 +111,10 @@ public class Dice {
 		btnNewButton.setBounds(246, 157, 186, 23);
 		frame.getRootPane().setDefaultButton(btnNewButton);
 		frame.getContentPane().add(btnNewButton);
+		
+		JScrollPane scrl = new JScrollPane(out);
+		scrl.setBounds(out.getBounds());
+		frame.getContentPane().add(scrl);
 
 		db.start();
 	}
@@ -124,11 +130,11 @@ public class Dice {
 		public void actionPerformed(ActionEvent e) {
 			int[] list = new int[rslide.getValue()], devarlist = list;
 			double avg = 0, sum = 0, max = 0, min = 0, standarddev = 0, var = 0;
-			String rolz = "rolls : \n";
+			rolz = "rolls : \n";
 			NumGenerator ng = new NumGenerator(dslide.getValue());
 			for (int i = 0; i < list.length; i++) {
 				list[i] = ng.gen();
-				rolz = rolz + i + " : " + list[i] + "\n";
+				rolz = rolz + (i + 1) + " : " + list[i] + "\n";
 				devarlist[i] = (int) Math.pow(list[i], 2);
 				sum = sum + list[i];
 				var = var + devarlist[i];
@@ -142,10 +148,12 @@ public class Dice {
 			avg = sum / list.length;
 			var = var / list.length;
 			standarddev = Math.sqrt(var);
-
-			if (tglbtnShowExtendedInfo.)
-				out.setText("Average : " + avg + "\nMaximum : " + max + "\nMinimum : " + min + "\nSum : " + sum + "\nStandard Deviation : " + standarddev + "\nVariance : " + var);
-			if (tglbtnShowExtendedInfo)
+			
+			stats = "Average : " + avg + "\nMaximum : " + max + "\nMinimum : " + min + "\nSum : " + sum + "\nStandard Deviation : " + standarddev + "\nVariance : " + var;
+			
+			if (tglbtnShowExtendedInfo.isSelected())
+				out.setText(stats);
+			if (!tglbtnShowExtendedInfo.isSelected())
 				out.setText(rolz);
 		}
 	}

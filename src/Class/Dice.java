@@ -23,7 +23,7 @@ public class Dice {
 	static JLabel lblNewLabel, lblRoles, label;
 	static JSlider dslide, rslide;
 	private static DiceBack db = new DiceBack("Calc");
-	private static JTextArea out;
+	static JTextArea out;
 	static JToggleButton tglbtnShowExtendedInfo;
 	static String rolz, stats;
 

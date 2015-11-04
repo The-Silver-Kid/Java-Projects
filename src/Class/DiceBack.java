@@ -13,8 +13,12 @@ class DiceBack implements Runnable {
 		  Dice.label.setText("" + Dice.rslide.getValue());
 		  if (Dice.tglbtnShowExtendedInfo.isSelected()){
 			  Dice.tglbtnShowExtendedInfo.setText("Showing stats");
+			  if (!(Dice.stats == null))
+				  Dice.out.setText(Dice.stats);
 		  } else {
 			  Dice.tglbtnShowExtendedInfo.setText("Showing results");
+			  if (!(Dice.rolz == null))
+				  Dice.out.setText(Dice.rolz);
 		  }
 	   }
    }

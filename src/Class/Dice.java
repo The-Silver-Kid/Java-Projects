@@ -18,7 +18,7 @@ import DevTSK.Util.NumGenerator;
 
 public class Dice {
 
-	private JFrame frame;
+	private JFrame frmDiceinator;
 	private final Action action = new SwingAction();
 	static JLabel lblNewLabel, lblRoles, label;
 	static JSlider dslide, rslide;
@@ -32,7 +32,7 @@ public class Dice {
 			public void run() {
 				try {
 					Dice window = new Dice();
-					window.frame.setVisible(true);
+					window.frmDiceinator.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -51,19 +51,20 @@ public class Dice {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 354);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frmDiceinator = new JFrame();
+		frmDiceinator.setTitle("Diceinator");
+		frmDiceinator.setBounds(100, 100, 450, 354);
+		frmDiceinator.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmDiceinator.getContentPane().setLayout(null);
 
 		JLabel lblDiceSides = new JLabel("Dice sides :");
 		lblDiceSides.setBounds(10, 11, 69, 14);
-		frame.getContentPane().add(lblDiceSides);
+		frmDiceinator.getContentPane().add(lblDiceSides);
 
 		lblNewLabel = new JLabel("6");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBounds(78, 11, 46, 14);
-		frame.getContentPane().add(lblNewLabel);
+		frmDiceinator.getContentPane().add(lblNewLabel);
 
 		dslide = new JSlider();
 		dslide.setValue(6);
@@ -74,16 +75,16 @@ public class Dice {
 		dslide.setMaximum(104);
 		dslide.setMinimum(4);
 		dslide.setBounds(10, 36, 422, 37);
-		frame.getContentPane().add(dslide);
+		frmDiceinator.getContentPane().add(dslide);
 
 		lblRoles = new JLabel("Roles :");
 		lblRoles.setBounds(10, 84, 46, 14);
-		frame.getContentPane().add(lblRoles);
+		frmDiceinator.getContentPane().add(lblRoles);
 
 		label = new JLabel("100");
 		label.setHorizontalAlignment(SwingConstants.CENTER);
 		label.setBounds(63, 84, 46, 14);
-		frame.getContentPane().add(label);
+		frmDiceinator.getContentPane().add(label);
 
 		rslide = new JSlider();
 		rslide.setValue(100);
@@ -95,26 +96,26 @@ public class Dice {
 		rslide.setPaintLabels(true);
 		rslide.setPaintTicks(true);
 		rslide.setBounds(10, 109, 422, 37);
-		frame.getContentPane().add(rslide);
+		frmDiceinator.getContentPane().add(rslide);
 
 		tglbtnShowExtendedInfo = new JToggleButton("");
 		tglbtnShowExtendedInfo.setSelected(false);
 		tglbtnShowExtendedInfo.setBounds(10, 157, 186, 23);
-		frame.getContentPane().add(tglbtnShowExtendedInfo);
+		frmDiceinator.getContentPane().add(tglbtnShowExtendedInfo);
 
 		out = new JTextArea();
 		out.setBounds(10, 191, 422, 125);
-		frame.getContentPane().add(out);
+		frmDiceinator.getContentPane().add(out);
 
 		JButton btnNewButton = new JButton("New button");
 		btnNewButton.setAction(action);
 		btnNewButton.setBounds(246, 157, 186, 23);
-		frame.getRootPane().setDefaultButton(btnNewButton);
-		frame.getContentPane().add(btnNewButton);
+		frmDiceinator.getRootPane().setDefaultButton(btnNewButton);
+		frmDiceinator.getContentPane().add(btnNewButton);
 		
 		JScrollPane scrl = new JScrollPane(out);
 		scrl.setBounds(out.getBounds());
-		frame.getContentPane().add(scrl);
+		frmDiceinator.getContentPane().add(scrl);
 
 		db.start();
 	}

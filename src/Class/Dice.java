@@ -15,6 +15,8 @@ import javax.swing.JToggleButton;
 import javax.swing.SwingConstants;
 
 import DevTSK.Util.NumGenerator;
+import java.awt.Component;
+import javax.swing.Box;
 
 public class Dice {
 
@@ -52,6 +54,7 @@ public class Dice {
 	 */
 	private void initialize() {
 		frmDiceinator = new JFrame();
+		frmDiceinator.setResizable(false);
 		frmDiceinator.setTitle("Diceinator");
 		frmDiceinator.setBounds(100, 100, 450, 354);
 		frmDiceinator.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

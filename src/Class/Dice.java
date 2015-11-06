@@ -14,10 +14,6 @@ import javax.swing.JTextArea;
 import javax.swing.JToggleButton;
 import javax.swing.SwingConstants;
 
-import DevTSK.Util.NumGenerator;
-import java.awt.Component;
-import javax.swing.Box;
-
 public class Dice {
 
 	private JFrame frmDiceinator;
@@ -115,7 +111,7 @@ public class Dice {
 		btnNewButton.setBounds(246, 157, 186, 23);
 		frmDiceinator.getRootPane().setDefaultButton(btnNewButton);
 		frmDiceinator.getContentPane().add(btnNewButton);
-		
+
 		JScrollPane scrl = new JScrollPane(out);
 		scrl.setBounds(out.getBounds());
 		frmDiceinator.getContentPane().add(scrl);
@@ -152,9 +148,9 @@ public class Dice {
 			avg = sum / list.length;
 			var = var / list.length;
 			standarddev = Math.sqrt(var);
-			
+
 			stats = "Average : " + avg + "\nMaximum : " + max + "\nMinimum : " + min + "\nSum : " + sum + "\nStandard Deviation : " + standarddev + "\nVariance : " + var;
-			
+
 			if (tglbtnShowExtendedInfo.isSelected())
 				out.setText(stats);
 			if (!tglbtnShowExtendedInfo.isSelected())

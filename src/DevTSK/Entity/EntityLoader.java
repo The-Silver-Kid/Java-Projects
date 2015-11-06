@@ -399,7 +399,13 @@ public class EntityLoader {
 		poni.println("Mother : " + tp.getMother());
 		poni.println("Father : " + tp.getFather());
 		poni.println();
-		poni.println("Married to : " + tp.getPartner());
+		poni.println("Married to : ");
+		String[] strn = tp.getPartner();
+		for (int i = 0; i < strn.length; i++) {
+			System.out.println(strn.length);
+			poni.println(strn[i]);
+		}
+		poni.println();
 		poni.println("Number of Kids : " + tp.getKidAmmount());
 		poni.println("Kids names : ");
 		tSA = tp.getKidnames();
@@ -472,7 +478,12 @@ public class EntityLoader {
 		poni.println("Mother : " + tp.getMother());
 		poni.println("Father : " + tp.getFather());
 		poni.println();
-		poni.println("Married to : " + tp.getPartner());
+		poni.println("Married to :");
+		String[] strn = tp.getPartner();
+		for (int i = 0; i < strn.length; i++) {
+			poni.println(strn[i]);
+		}
+		poni.println();
 		poni.println("Number of Kids : " + tp.getKidAmmount());
 		poni.println("Kids names : ");
 		tSA = tp.getKidnames();

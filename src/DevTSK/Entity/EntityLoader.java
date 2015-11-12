@@ -389,10 +389,7 @@ public class EntityLoader {
 		poni.println("Description :\n" + tp.getGender() + s + "\nMane Colour : " + tp.getColour(0) + "\nTail Colour : "
 				+ tp.getColour(1) + tp.getDesc());
 		poni.println();
-		if (tp.getYear() >= 0)
-			poni.println("Birthday : " + tp.getMonth() + " " + tp.getDay() + ", " + tp.getYear());
-		if (tp.getYear() < 0)
-			poni.println("Birthday : " + tp.getMonth() + " " + tp.getDay() + ", " + (tp.getYear() * -1) + "BC");
+		poni.println("Birthday : " + tp.getBirthday());
 		poni.println();
 		poni.println("Cutii Mark : " + tp.getAddDesc());
 		poni.println();
@@ -432,10 +429,7 @@ public class EntityLoader {
 		poni.println("Description :\n" + tp.getGender() + s + "\nMane Colour : " + tp.getColour(0) + "\nTail Colour : "
 				+ tp.getColour(1) + tp.getDesc());
 		poni.println();
-		if (tp.getYear() >= 0)
-			poni.println("Birthday : " + tp.getMonth() + " " + tp.getDay() + ", " + tp.getYear());
-		if (tp.getYear() < 0)
-			poni.println("Birthday : " + tp.getMonth() + " " + tp.getDay() + ", " + (tp.getYear() * -1) + "BC");
+		poni.println("Birthday : " + tp.getBirthday());
 		poni.println();
 		poni.println("Cutii Mark : " + tp.getAddDesc());
 		poni.println();
@@ -468,10 +462,7 @@ public class EntityLoader {
 		poni.println("Description :\n" + tp.getGender() + s + "\nMane Colour : " + tp.getColour(0) + "\nTail Colour : "
 				+ tp.getColour(1) + tp.getDesc());
 		poni.println();
-		if (tp.getYear() >= 0)
-			poni.println("Birthday : " + tp.getMonth() + " " + tp.getDay() + ", " + tp.getYear());
-		if (tp.getYear() < 0)
-			poni.println("Birthday : " + tp.getMonth() + " " + tp.getDay() + ", " + (tp.getYear() * -1) + "BC");
+		poni.println("Birthday : " + tp.getBirthday());
 		poni.println();
 		poni.println("Cutii Mark : " + tp.getAddDesc());
 		poni.println();
@@ -508,10 +499,7 @@ public class EntityLoader {
 		poni.println("Description :\n" + tp.getGender() + s + "\nMane Colour : " + tp.getColour(0) + "\nTail Colour : "
 				+ tp.getColour(1) + tp.getDesc());
 		poni.println();
-		if (tp.getYear() >= 0)
-			poni.println("Birthday : " + tp.getMonth() + " " + tp.getDay() + ", " + tp.getYear());
-		if (tp.getYear() < 0)
-			poni.println("Birthday : " + tp.getMonth() + " " + tp.getDay() + ", " + (tp.getYear() * -1) + "BC");
+		poni.println("Birthday : " + tp.getBirthday());
 		poni.println();
 		poni.println("Cutii Mark : " + tp.getAddDesc());
 		poni.println();
@@ -540,10 +528,7 @@ public class EntityLoader {
 		poni.println();
 		poni.println("Ponii Parent : " + s);
 		poni.println();
-		if (tp.getYear() >= 0)
-			poni.println("Birthday : " + tp.getMonth() + " " + tp.getDay() + ", " + tp.getYear());
-		if (tp.getYear() < 0)
-			poni.println("Birthday : " + tp.getMonth() + " " + tp.getDay() + ", " + (tp.getYear() * -1) + "BC");
+		poni.println("Birthday : " + tp.getBirthday());
 		poni.println();
 		poni.println("Cutii Mark : " + tp.getAddDesc());
 		poni.println();
@@ -566,10 +551,7 @@ public class EntityLoader {
 		poni.println();
 		poni.println("Machine Signature (Code) : " + tp.getAddDesc());
 		poni.println();
-		if (tp.getYear() >= 0)
-			poni.println("Birthday : " + tp.getMonth() + " " + tp.getDay() + ", " + tp.getYear());
-		if (tp.getYear() < 0)
-			poni.println("Birthday : " + tp.getMonth() + " " + tp.getDay() + ", " + (tp.getYear() * -1) + "BC");
+		poni.println("Birthday : " + tp.getBirthday());
 		poni.println();
 		poni.println("Cutii Mark : " + tp.getAddDesc());
 		poni.println();
@@ -590,10 +572,7 @@ public class EntityLoader {
 		poni.println("Description :\n" + tp.getGender() + "\nMane Colour : " + tp.getColour(0) + "\nTail Colour : "
 				+ tp.getColour(1) + tp.getDesc());
 		poni.println();
-		if (tp.getYear() >= 0)
-			poni.println("Birthday : " + tp.getMonth() + " " + tp.getDay() + ", " + tp.getYear());
-		if (tp.getYear() < 0)
-			poni.println("Birthday : " + tp.getMonth() + " " + tp.getDay() + ", " + (tp.getYear() * -1) + "BC");
+		poni.println("Birthday : " + tp.getBirthday());
 		poni.println();
 		poni.println("Mother : " + tp.getMother());
 		poni.println("Father : " + tp.getFather());

@@ -1,11 +1,14 @@
 package DevTSK.Entity;
 
+import DevTSK.Util.Day;
+
 public class Entity {
 	protected Boolean Gender = false, /*false = Male, true = Female*/ otherBoolean = false, yaBoolean = false;
-	protected int age = 0, state = 0, day = 0, month = 0, year = 0, kidammount = 0;
+	protected int state = 0, kidammount = 0;
 	protected String name = "Empty", altName = "Empty", description = "Empty", mother = "Empty", father = "Empty", DNA = "Empty", flag = "Empty", additionalInfo = "Empty";
 	protected String imagepath = "null.png", altimagepath = "null.png", colour = "Empty", anotherColour = "Empty";
 	protected String[] kids = null, with = null, marriedTo = null;
+	protected Day birthday;
 
 	public Entity() {
 	}
@@ -77,6 +80,7 @@ public class Entity {
 	}
 
 	public int getAge() {
+		int age = birthday.daysFrom(new Day());
 		return age;
 	}
 
@@ -92,62 +96,8 @@ public class Entity {
 		return DNA;
 	}
 
-	public int getYear() {
-		return year;
-	}
-
-	public int getDay() {
-		return day;
-	}
-
 	public String getFlag() {
 		return flag;
-	}
-
-	public String getMonth() {
-		String mnth = "";
-		switch (month) {
-		default:
-			mnth = "nil";
-			break;
-		case 1:
-			mnth = "January";
-			break;
-		case 2:
-			mnth = "Febuary";
-			break;
-		case 3:
-			mnth = "March";
-			break;
-		case 4:
-			mnth = "April";
-			break;
-		case 5:
-			mnth = "May";
-			break;
-		case 6:
-			mnth = "June";
-			break;
-		case 7:
-			mnth = "July";
-			break;
-		case 8:
-			mnth = "August";
-			break;
-		case 9:
-			mnth = "September";
-			break;
-		case 10:
-			mnth = "October";
-			break;
-		case 11:
-			mnth = "November";
-			break;
-		case 12:
-			mnth = "December";
-			break;
-		}
-		return mnth;
 	}
 
 	public String getInfo() {
@@ -155,5 +105,10 @@ public class Entity {
 				+ "In this case it is any living thing that can be described by\n"
 				+ "the following parameters as listed in the appropriate constructor.";
 
+	}
+
+	public String getBirthday() {
+		String s = birthday.getMonth() + " " + birthday.getDay() + ", " + birthday.getYear();
+		return s;
 	}
 }

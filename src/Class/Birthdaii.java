@@ -9,7 +9,7 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.*;
 
-import BJ.resources.Day;
+import DevTSK.Util.Day;
 import DevTSK.Util.NumGenerator;
 // ur a nerd
 public class Birthdaii {

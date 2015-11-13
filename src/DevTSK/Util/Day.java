@@ -45,7 +45,7 @@ public class Day {
 	 * @param aDate
 	 *            a date between 1 and 31
 	 */
-	public Day(int aYear, int aMonth, int aDate) {
+	public Day(int aDate, int aMonth, int aYear) {
 		year = aYear;
 		month = aMonth;
 		date = aDate;

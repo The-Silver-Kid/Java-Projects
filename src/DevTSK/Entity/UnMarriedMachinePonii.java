@@ -1,8 +1,10 @@
 package DevTSK.Entity;
 
+import DevTSK.Util.Day;
+
 public class UnMarriedMachinePonii extends MachinePonii {
 
-	public UnMarriedMachinePonii(String Name, String AlternateName, String Flag, Boolean Gender, String Description, String Code, String ManeColour, String TailColour, String Mother, String Father, int age, int day, int month, int year, String Imagename, String CutiimarkImage) {
+	public UnMarriedMachinePonii(String Name, String AlternateName, String Flag, Boolean Gender, String Description, String Code, String ManeColour, String TailColour, String Mother, String Father, Day bday, String Imagename, String CutiimarkImage) {
 		this.name = Name;
 		this.Gender = Gender;
 		this.description = "\nRegular" + Description;
@@ -10,14 +12,11 @@ public class UnMarriedMachinePonii extends MachinePonii {
 		this.anotherColour = TailColour;
 		this.mother = Mother;
 		this.father = Father;
-		this.age = age;
-		this.month = month;
-		this.year = year;
+		this.birthday = bday;
 		this.imagepath = Imagename;
 		this.altimagepath = CutiimarkImage;
 		this.additionalInfo = Code;
 		this.altName = AlternateName;
-		this.day = day;
 		this.flag = Flag;
 	}
 

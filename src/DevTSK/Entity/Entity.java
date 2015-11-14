@@ -80,7 +80,7 @@ public class Entity {
 	}
 
 	public int getAge() {
-		int age = birthday.daysFrom(new Day());
+		int age = new Day().yearsFrom(birthday);
 		return age;
 	}
 

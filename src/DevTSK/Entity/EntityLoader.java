@@ -10,17 +10,17 @@ import DAG.Config.ConfigException;
 
 public class EntityLoader {
 	// private static final File f = new File("./config/Poniiconfig.ini");
-	private static String lastCmd;
+	private static String lastCmd, name;
 	private static String[] sl;
 
 	private static FileOutputStream send;
 
-	private static Window poni = new Window("Ponii Program 3.0", 1, 0, 0, 0);
+	static Window poni = new Window("Ponii Program 3.0", 1, 0, 0, 0);
 
 	private static final String[] commands = new String[] { "Colour", "Color", "InputColour", "InputColor",
 			"OutputColour", "OutputColor", "Exit", "OutputTextColor", "InputTextColor", "OutputTextColour",
 			"InputTextColour", "errorcheck", "extract", "breed", "breedrand", "last", "l", "lastcmd", "cfg", "config",
-			"listNonOC", "listall", "info" };
+			"listNonOC", "listall", "info", "charset", "switchcharset" };
 
 	private static Entity[] OC;
 	private static Entity[] show;
@@ -34,11 +34,11 @@ public class EntityLoader {
 	}
 
 	public static void errorCheck() throws Exception {
-		System.out.println("\nChecking out Inputed Resources...\n\nChecking chars and allias String[]s...");
+		/*System.out.println("\nChecking out Inputed Resources...\n\nChecking chars and allias String[]s...");
 		System.out.println("chars and allias String[]s checks out...\nChecking Ponii[] OC compatablity...");
 		System.out.println("Ponii[] OC compatablity checks out...\nChecking Ponii[] show compatablity...");
 		System.out.println("Ponii[] show compatablity checks out...\nChecking ponii resources...");
-		System.out.println("Everything Checks out fine... Assuming all is well in the land...");
+		System.out.println("Everything Checks out fine... Assuming all is well in the land...");*/
 	}
 
 	public static void handle(String s) throws Exception {
@@ -303,6 +303,19 @@ public class EntityLoader {
 				} else {
 					System.err.println("Entity not found : " + sl[1]);
 				}
+			}
+		}
+		if (sl[0].equalsIgnoreCase("charset")) {
+			poni.printCl();
+			poni.println(name);
+		}
+		if (sl[0].equalsIgnoreCase("switchcharset")) {
+			if (sl.length > 1) {
+				System.out.println(sl[1]);
+				MasterControl.main(new String[] { sl[1] });
+			} else {
+				poni.printCl();
+				poni.println("Usage :\nswitchcharset <charset>");
 			}
 		}
 	}
@@ -650,8 +663,10 @@ public class EntityLoader {
 		}
 	}
 
-	public void setupConfig() throws ConfigException {
+	public void setupConfig(String charsetname) throws ConfigException {
 		Config c = new Config("./PoniiConfig.cfg");
+
+		name = charsetname;
 
 		if (c.getBoolean("sep")) {
 			poni.frmPoniiPic.setVisible(false);

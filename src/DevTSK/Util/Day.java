@@ -176,11 +176,11 @@ public class Day {
 	public int yearsFrom(Day other) {
 		int n = 0;
 		Day d = this;
-		while (d.compareTo(other) > 0) {
+		while (d.compareYearTo(other) > 0) {
 			d = d.previousYear();
 			n++;
 		}
-		while (d.compareTo(other) < 0) {
+		while (d.compareYearTo(other) < 0) {
 			d = d.nextYear();
 			n--;
 		}
@@ -213,6 +213,23 @@ public class Day {
 	}
 
 	/**
+	 * Compares this year with another year.
+	 * 
+	 * @param other
+	 *            the other day
+	 * @return a positive number if this day comes after the
+	 *         other day, a negative number if this day comes before
+	 *         the other day, and zero if the days are the same
+	 */
+	private int compareYearTo(Day other) {
+		if (year > other.year)
+			return 1;
+		if (year < other.year)
+			return -1;
+		return 0;
+	}
+
+	/**
 	 * Computes the next day.
 	 * 
 	 * @return the day following this day
@@ -238,7 +255,7 @@ public class Day {
 					y++;
 			}
 		}
-		return new Day(y, m, d);
+		return new Day(d, m, y);
 	}
 
 	/**
@@ -267,7 +284,7 @@ public class Day {
 			}
 			d = daysPerMonth(y, m);
 		}
-		return new Day(y, m, d);
+		return new Day(d, m, y);
 	}
 
 	/**
@@ -280,7 +297,7 @@ public class Day {
 		int m = month;
 		int d = date;
 		y++;
-		return new Day(y, m, d);
+		return new Day(d, m, y);
 	}
 
 	/**
@@ -293,7 +310,7 @@ public class Day {
 		int m = month;
 		int d = date;
 		y--;
-		return new Day(y, m, d);
+		return new Day(d, m, y);
 	}
 
 	/**

@@ -6,10 +6,19 @@ import DevTSK.Util.Day;
 public class MasterControl {
 
 	private static EntityLoader h;
+	private static String charsetname = "null";
 
 	public static void main(String[] args) throws ConfigException {
+		if (args.length != 0)
+			for (int i = 0; i < args.length; i++)
+				System.out.println(args[i]);
 		//Unmarried : Name, AltName, Flag, Gender, Description, ManeColour, TailColour, Mother, Father, Integer age, Integer day, Integer month, Integer year, ImageName, CutiimarkImage
-		if (args.length < 1 || args[0].equals("actual"))
+		if (h != null) {
+			EntityLoader.poni.frmPoniiPic.dispose();
+			EntityLoader.poni.frmPoniiPicCont.dispose();
+		}
+		if (args.length < 1 || args[0].equals("actual")) {
+			charsetname = "RP";
 			h = new EntityLoader(new Entity[] {
 					new MarriedPoniiWithOtherKids("Shadow Radon", "Radon", "", false, true, "\nUnicorn\nYellow Thunderbolt accross underside\nYellow Thunderbolts arround hooves\nLight Industries Admin", "\nBlack Thundercloud with a yellow thunderbolt coming from it", "Yellow and Black", "Yellow and Black", "Charrie", "Slanger", new Day(20, 7, 1993), "Radon.png", "kloud.png", new String[] { "Apple Jack", "Galecia Frostia" }, 3, new String[] { "Tree Lighting", "Shadow Jack", "Powder" }, new String[] { "Apple Jack", "Apple Jack", "Galecia Frostia" }),
 					new UnMarriedPonii("Tree Lighting Radon", "Tree", "", true, true, "\nEarth\nCutest little filly ever sparkling with the same spark that her dad has\nShe likes Blaze.", "\nDosent have it yet...\nApple tree with lightning bolt behind it", "Lttle more yellow then AJ's", "Slightly darker orange then AJ", "Apple Jack", "Shadow Radon", new Day(11, 9, 2011), "lightning.png", "null.png"),
@@ -37,17 +46,20 @@ public class MasterControl {
 					new UnMarriedPonii("Nurse RedHeart", "RedHeart", "", true, false, "\nEarth\nShe's a nurse.", "\nRed cross with hearts", "Light pink", "Light pink", "?", "?", new Day(9, 8, 1982), "null.png", "null.png"),
 					new UnMarriedPonii("Princess Cadence", "Cadence", "\u2764", true, false, "\nAlicorn\nPretty pink ponii princess", "\nCrystal Heart", "Pink as can be", "Yellow, purple, and pink", "Queen Galaxia", "Unknown", new Day(16, 6, -9474), "null.png", "null.png"),
 			});
+		}
 		/*
 		 * use for your own set of poniis that arent included or planed
 		 * to be used in the rp thing
 		 */
 		if (args.length >= 1) {
-			if (args[0].equals("Hill"))
+			if (args[0].equals("Hill")) {
+				charsetname = "Hill";
 				h = new EntityLoader(new Entity[] {
 						//oc
 				}, new Entity[] {
 						//non-oc
 				});
+			}
 			/* CODES
 			 * Maven : 2S2S000100FFFFFEFFC49D000014080FFUN1837001200000N1800000FF00000L01800000FF0000
 			 * 
@@ -56,7 +68,8 @@ public class MasterControl {
 			 * Cosmos/cadence daughter who needs name: 112A08710118181864646400101513247MN1C35008300001U12F005C00377221107F3FCC004CB2
 			 * cosmos son (winged unicorn not alicon; because there is so much difference...): 1O5K007110247AB27A009C1000000BB96JN1837000200000U1E8E633DC33320S107F3FCC004CB2
 			 */
-			if (args[0].equals("Reggii"))
+			if (args[0].equals("Reggii")) {
+				charsetname = "Reggii";
 				h = new EntityLoader(new Entity[] {
 						new MarriedPoniiWithOtherKids("Shadow Radon", "Radon", "", false, true, "\nUnicorn\nYellow Thunderbolt accross underside\nYellow Thunderbolts arround hooves\nLight Industries Admin", "\nBlack Thundercloud with a yellow thunderbolt coming from it", "Yellow and Black", "Yellow and Black", "Charrie", "Slanger", new Day(20, 7, 1993), "Radon.png", "kloud.png", new String[] { "Apple Jack", "Galecia Frostia" }, 8, new String[] { "Tree Lightning", "Shadow Jack", "Rhyne", "Aaron", "Powder", "Thorn", "Nhyte", "Blue Powder" }, new String[] { "Apple Jack", "Apple Jack", "Apple Jack", "Apple Jack", "Apple Jack", "Apple Jack", "Apple Jack", "Galecia Frostia" }),
 						new UnMarriedPonii("Tree Lighting Radon", "Tree", "", true, false, "\nEarth\nCutest little filly ever sparkling with the same spark that her dad has\nShe likes Blaze.", "\nDosent have it yet...\nApple tree with lightning bolt behind it", "Lttle more yellow then AJ's", "Slightly darker orange then AJ", "Apple Jack", "Shadow Radon", new Day(11, 9, 2011), "lightning.png", "null.png"),
@@ -72,9 +85,10 @@ public class MasterControl {
 						//new UnMarriedPoniiWithKids("Cosmos Darkstar", "Cosmos", "\u26e7", false, true, "\nZebra pegasus\nIs half demon\nLives in the old castle in Everfree", "\nPentagram", "Purple with gray stripes", "Gray", "Nighmare Moon", "King of Hell", 851, 21, 8, 1164, "null.png", "null.png", 1, new String[] { "" }, new String[] { "Cadence" }),
 				}, new Entity[] {
 				});
+			}
 		}
 		h.punch();
-		h.setupConfig();
+		h.setupConfig(charsetname);
 		h.punch();
 	}
 }

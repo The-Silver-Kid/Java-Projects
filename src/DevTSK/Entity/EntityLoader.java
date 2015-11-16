@@ -17,10 +17,23 @@ public class EntityLoader {
 
 	static Window poni = new Window("Ponii Program 3.0", 1, 0, 0, 0);
 
+	private static final String[] commandsyntax = new String[] { "Color <R> <G> <B>", "InputColor <R> <G> <B>",
+			"OutputColor <R> <G> <B>", "OutputTextColor <R> <G> <B>", "InputTextColor <R> <G> <B>", "Exit",
+			"extract [Entity name]", "breed <Mother> <Father> (broken)", "last / l / lastcmd", "cfg / config",
+			"listNonOC", "listall", "info <entity name>", "charset", "switchcharset <Charset String Identifyer>" };
+
+	private static final String[] commandexpl = new String[] { "Changes Background Color", "Changes input box color",
+			"Changes outputbox color", "Changes outputbox text color", "Changes input box text color", "Exit the program (duh)",
+			"extracts the given entity's image or all if none provided", "Generates a string derived from both parents",
+			"reinputs last given command into the input box for editing or re-exicution",
+			"saves color scheme to config file : poniconfig.cfg", "lists all defined OC entitys", "lists all defined entitys",
+			"gives general on the given entity type", "prints to console the current entity list String Identifyer",
+			"switches the entity list" };
+
 	private static final String[] commands = new String[] { "Colour", "Color", "InputColour", "InputColor",
 			"OutputColour", "OutputColor", "Exit", "OutputTextColor", "InputTextColor", "OutputTextColour",
-			"InputTextColour", "errorcheck", "extract", "breed", "breedrand", "last", "l", "lastcmd", "cfg", "config",
-			"listNonOC", "listall", "info", "charset", "switchcharset" };
+			"InputTextColour", "errorcheck", "extract", "breed", "last", "l", "lastcmd", "cfg", "config",
+			"listNonOC", "listall", "info", "charset", "switchcharset", "help" };
 
 	private static Entity[] OC;
 	private static Entity[] show;
@@ -94,7 +107,6 @@ public class EntityLoader {
 		}
 	}
 
-	@SuppressWarnings("deprecation")
 	private static void control(String s) throws Exception {
 		String cmd = s;
 		String[] sl = cmd.split("\\s+");
@@ -155,7 +167,7 @@ public class EntityLoader {
 				extract();
 			}
 		}
-		if (sl[0].equalsIgnoreCase("breed") || sl[0].equalsIgnoreCase("Breedrand")) {
+		if (sl[0].equalsIgnoreCase("breed")) {
 			Breeder b = new Breeder(new Ponii(), new Ponii());
 			if (sl.length < 3) {
 				poni.lblInfo.setText("Syntax is breed <Father>, <Mother>, [times]");
@@ -212,16 +224,12 @@ public class EntityLoader {
 					for (int i = 0; i < Integer.parseInt(sl[3]); i++) {
 						if (sl[0].equalsIgnoreCase("breed")) {
 							poni.lblInfo.setText(poni.lblInfo.getText() + "\n" + b.breed());
-						} else {
-							poni.lblInfo.setText(poni.lblInfo.getText() + "\n" + b.breedrand());
 						}
 					}
 				} else {
 					b.check();
 					if (sl[0].equalsIgnoreCase("breed")) {
 						poni.lblInfo.setText(b.breed());
-					} else {
-						poni.lblInfo.setText(b.breedrand());
 					}
 				}
 			}
@@ -317,6 +325,11 @@ public class EntityLoader {
 				poni.printCl();
 				poni.println("Usage :\nswitchcharset <charset>");
 			}
+		}
+		if (sl[0].equalsIgnoreCase("help")) {
+			poni.printCl();
+			for (int i = 0; i < commandsyntax.length; i++)
+				poni.println(commandsyntax[i] + " : " + commandexpl[i]);
 		}
 	}
 

@@ -1,63 +1,60 @@
 package DAG.Config;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
+
 // Configuration file class
 // A.Greensted
 // http://www.labbookpages.co.uk
 // Version 1.0
+import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.Hashtable;
 
-import java.util.*;
-import java.io.*;
+public class Config {
+	private final static boolean DEBUG = false; // Set to true to show debugging information
 
-public class Config
-{
-	private final static boolean DEBUG = true;	// Set to true to show debugging information
+	private int BUFFER_LENGTH = 1024; // Length of character used for reading file
+	private Hashtable<String, String> table; // Table of key value pairs
 
-	private int BUFFER_LENGTH = 1024;				// Length of character used for reading file
-	private Hashtable<String,String> table;		// Table of key value pairs
-
-	public Config(String filename) throws ConfigException
-	{
+	public Config(String filename) throws ConfigException {
 		this(filename, false, false);
 	}
 
-	public Config(String filename, boolean useSysProperties, boolean showOverrides) throws ConfigException
-	{
+	public Config(String filename, boolean useSysProperties, boolean showOverrides) throws ConfigException {
 		// Loading a config file is a two stage process
 		// The first stage scans the file and extracts key-value datums as complete strings
 		// The second stage iterates through these strings and separates them into a key and a value
 
-		char[] buffer = new char[BUFFER_LENGTH];						// Buffer used to read characters from config file
-		StringBuilder configBuilder = new StringBuilder();			// Used to build up a complete key-value datum
-		ArrayList<String> configArray = new ArrayList<String>();	// Array of key-value data, held a strings
-		table = new Hashtable<String,String>();						// Table of key-value pairs
+		char[] buffer = new char[BUFFER_LENGTH]; // Buffer used to read characters from config file
+		StringBuilder configBuilder = new StringBuilder(); // Used to build up a complete key-value datum
+		ArrayList<String> configArray = new ArrayList<String>(); // Array of key-value data, held a strings
+		table = new Hashtable<String, String>(); // Table of key-value pairs
 
-		try
-		{
+		try {
 			// Create a reader for reading Config file
 			InputStreamReader reader = new InputStreamReader(new FileInputStream(new File(filename)));
 
-			int read;							// Number of characters read on last file read
-			boolean inComment = false;		// Is reading currently within a comment
-			boolean slash = false;			// Has a slash character just been found
-			boolean inString = false;		// Is reading currently within a string
+			int read; // Number of characters read on last file read
+			boolean inComment = false; // Is reading currently within a comment
+			boolean slash = false; // Has a slash character just been found
+			boolean inString = false; // Is reading currently within a string
 
 			// Try to read BUFFER_LENGTH characters into the buffer
-			while ((read = reader.read(buffer, 0, BUFFER_LENGTH)) > 0)
-			{
+			while ((read = reader.read(buffer, 0, BUFFER_LENGTH)) > 0) {
 				// Iterate through the characters read
-				for (int i=0 ; i<read ; i++)
-				{
+				for (int i = 0; i < read; i++) {
 					// Get the current character
 					char c = buffer[i];
 
-					if (inString)
-					{
+					if (inString) {
 						// If currentlny in a string, check for a closing double-quote
 						// If found, clear inString flag
-						if (c == '"' && !slash) inString = false;
-					}
-					else
-					{
+						if (c == '"' && !slash)
+							inString = false;
+					} else {
 						// Check for an end of line, if found make sure the inComment flag is cleared
 						if (c == '\n' || c == '\r') {
 							inComment = false;
@@ -81,11 +78,13 @@ public class Config
 						}
 
 						// Check for the start of a string
-						if (c == '"') inString = true;
+						if (c == '"')
+							inString = true;
 
 						// Convert tabs into spaces, this ensures consistent indentation when
 						// outputting config information
-						if (c == '\t') c = ' ';
+						if (c == '\t')
+							c = ' ';
 					}
 
 					// If current character is a slash, update flag
@@ -98,40 +97,38 @@ public class Config
 
 			// Close the reader
 			reader.close();
-		}
-		catch (Exception e)
-		{
+		} catch (Exception e) {
 			throw new ConfigException(e);
 		}
 
 		// Iterate through the configArray converting each line into a key value pair
-		for (String configLine : configArray)
-		{
+		for (String configLine : configArray) {
 			// Get position of equals sign, if not found throw an exception
 			int splitPos = configLine.indexOf('=');
-			if (splitPos == -1) throw new ConfigException("Bad config line: " + configLine);
+			if (splitPos == -1)
+				throw new ConfigException("Bad config line: " + configLine);
 
 			// Extract key and value, outer whitespace is trimmed
 			String key = configLine.substring(0, splitPos).trim();
-			String val = configLine.substring(splitPos+1).trim();
+			String val = configLine.substring(splitPos + 1).trim();
 
 			// If enabled, override the loaded val with that from the System Property value
-			if (useSysProperties)
-			{
+			if (useSysProperties) {
 				// Try to get a system property with the same key
 				String sysVal = System.getProperty(key);
 
 				// If a system property has been found, set that as the value
-				if (sysVal != null)
-				{
+				if (sysVal != null) {
 					val = sysVal;
 
 					// If selected, show that the config value has been overridden
-					if (showOverrides) System.out.println("Override: " + key  + " = " + val);
+					if (showOverrides)
+						System.out.println("Override: " + key + " = " + val);
 				}
 			}
 
-			if (DEBUG) System.out.println(key + " = " + val);
+			if (DEBUG)
+				System.out.println(key + " = " + val);
 
 			// Check for key duplication
 			if (table.containsKey(key)) {
@@ -145,81 +142,73 @@ public class Config
 
 	/* String Methods */
 	/* -------------- */
-	public String getElement(String key)
-	{
+	public String getElement(String key) {
 		return table.get(key);
 	}
 
-	public String parseString(String val) throws ConfigException
-	{
+	public String parseString(String val) throws ConfigException {
 		// The method iterates over the characters in a string combining each double-quoted section.
 		// The double quotes are removed. Escaped characters are converted to their true encoding
 		// Within this method, string sections can only be separated by spaces and tabs. During the load phase, new lines
 		// charcaters will have been removed, so within the configuratio file any whitespace can be
 		// used to separate string sections
 
-		int s, d;						// Source and Destination character pointers
-		boolean slash = false;		// Has a slash character been found
-		boolean inString = false;	// Is reading currently within a string
+		int s, d; // Source and Destination character pointers
+		boolean slash = false; // Has a slash character been found
+		boolean inString = false; // Is reading currently within a string
 
 		// Convert value string into array of characters
 		char[] chars = val.toCharArray();
 
 		// Iterate through string charcters
-		for (s=0, d=0 ; s<chars.length ; s++)
-		{
-			if (!inString)
-			{
+		for (s = 0, d = 0; s < chars.length; s++) {
+			if (!inString) {
 				// If not currently in a string, check for double-quote
-				if (chars[s] == '"')
-				{
+				if (chars[s] == '"') {
 					// Flag that now currently within a string
 					inString = true;
-				}
-				else
-				{
+				} else {
 					// Check for invalid characters outside string
 					// Only space and tabs allowed
 					if (chars[s] != ' ' && chars[s] != '\t') {
-						throw new ConfigException("Illegal character between strings: '"  + chars[s] + "'");
+						throw new ConfigException("Illegal character between strings: '" + chars[s] + "'");
 					}
 				}
-			}
-			else
-			{
-				if (slash == false && chars[s] == '\\')
-				{
+			} else {
+				if (slash == false && chars[s] == '\\') {
 					// If previous character was not a slash and current character
 					// is a slash, flag that a slash has been found
 					slash = true;
-				}
-				else
-				{
-					if (slash)
-					{
+				} else {
+					if (slash) {
 						// If previous character was a slash, convert escaped character
 						// into required character
-						switch (chars[s])
-						{
-							case '\\':	chars[d] = '\\';	break;
-							case '"':	chars[d] = '"';	break;
-							case 'n':	chars[d] = '\n';	break;
-							case 't':	chars[d] = '\t';	break;
-							case 'r':	chars[d] = '\r';	break;
-							default :	throw new ConfigException("Invalid escape code: " + chars[s]);
+						switch (chars[s]) {
+						case '\\':
+							chars[d] = '\\';
+							break;
+						case '"':
+							chars[d] = '"';
+							break;
+						case 'n':
+							chars[d] = '\n';
+							break;
+						case 't':
+							chars[d] = '\t';
+							break;
+						case 'r':
+							chars[d] = '\r';
+							break;
+						default:
+							throw new ConfigException("Invalid escape code: " + chars[s]);
 						}
 						d++;
 						slash = false;
-					}
-					else
-					{
+					} else {
 						// Check for end of string double-quote
-						if (chars[s] == '"')
-						{
+						if (chars[s] == '"') {
 							inString = false;
-						}
-						else
-						{
+						} else {
 							// Just copy the character from the source to destination position
 							chars[d] = chars[s];
 							d++;
@@ -233,158 +222,144 @@ public class Config
 		return new String(chars, 0, d);
 	}
 
-	public String getString(String key, String def) throws ConfigException
-	{
+	public String getString(String key, String def) throws ConfigException {
 		String val = table.get(key);
-		if (val == null) return def;
+		if (val == null)
+			return def;
 		return parseString(val);
 	}
 
-	public String getString(String key) throws ConfigException
-	{
+	public String getString(String key) throws ConfigException {
 		String val = table.get(key);
-		if (val == null) throw new ConfigException("No such key - '" + key + "'");
+		if (val == null)
+			throw new ConfigException("No such key - '" + key + "'");
 		return parseString(val);
 	}
-
 
 	/* Boolean Methods */
 	/* --------------- */
-	public static boolean parseBoolean(String val) throws ConfigException
-	{
+	public static boolean parseBoolean(String val) throws ConfigException {
 		val = val.toLowerCase();
-		if (val.equalsIgnoreCase("true") || val.equalsIgnoreCase("1")) return true;
-		if (val.equalsIgnoreCase("false") || val.equalsIgnoreCase("0")) return false;
+		if (val.equalsIgnoreCase("true") || val.equalsIgnoreCase("1"))
+			return true;
+		if (val.equalsIgnoreCase("false") || val.equalsIgnoreCase("0"))
+			return false;
 		throw new ConfigException("Invalid boolean format");
 	}
 
-	public boolean getBoolean(String key, boolean def) throws ConfigException
-	{
+	public boolean getBoolean(String key, boolean def) throws ConfigException {
 		String val = table.get(key);
-		if (val == null) return def;
+		if (val == null)
+			return def;
 		return parseBoolean(val);
 	}
 
-	public boolean getBoolean(String key) throws ConfigException
-	{
+	public boolean getBoolean(String key) throws ConfigException {
 		String val = table.get(key);
-		if (val == null) throw new ConfigException("No such key - '" + key + "'");
+		if (val == null)
+			throw new ConfigException("No such key - '" + key + "'");
 		return parseBoolean(val);
 	}
-
 
 	/* Long Methods */
 	/* --------------- */
-	public static long parseLong(String val) throws ConfigException
-	{
+	public static long parseLong(String val) throws ConfigException {
 		try {
 			return Long.parseLong(val);
-		}
-		catch (NumberFormatException nFE) {
+		} catch (NumberFormatException nFE) {
 			throw new ConfigException(nFE);
 		}
 	}
 
-	public long getLong(String key, int def) throws ConfigException
-	{
+	public long getLong(String key, int def) throws ConfigException {
 		String val = getElement(key);
-		if (val == null) return def;
+		if (val == null)
+			return def;
 		return parseLong(val);
 	}
 
-	public long getLong(String key) throws ConfigException
-	{
+	public long getLong(String key) throws ConfigException {
 		String val = getElement(key);
-		if (val == null) throw new ConfigException("No such key - '" + key + "'");
+		if (val == null)
+			throw new ConfigException("No such key - '" + key + "'");
 		return parseLong(val);
 	}
-
 
 	/* Integer Methods */
 	/* --------------- */
-	public static int parseInt(String val) throws ConfigException
-	{
+	public static int parseInt(String val) throws ConfigException {
 		try {
 			return Integer.parseInt(val);
-		}
-		catch (NumberFormatException nFE) {
+		} catch (NumberFormatException nFE) {
 			throw new ConfigException(nFE);
 		}
 	}
 
-	public int getInt(String key, int def) throws ConfigException
-	{
+	public int getInt(String key, int def) throws ConfigException {
 		String val = getElement(key);
-		if (val == null) return def;
+		if (val == null)
+			return def;
 		return parseInt(val);
 	}
 
-	public int getInt(String key) throws ConfigException
-	{
+	public int getInt(String key) throws ConfigException {
 		String val = getElement(key);
-		if (val == null) throw new ConfigException("No such key - '" + key + "'");
+		if (val == null)
+			throw new ConfigException("No such key - '" + key + "'");
 		return parseInt(val);
 	}
-
 
 	/* Float Methods */
 	/* ------------- */
-	public static float parseFloat(String val) throws ConfigException
-	{
+	public static float parseFloat(String val) throws ConfigException {
 		try {
 			return Float.parseFloat(val);
-		}
-		catch (NumberFormatException nFE) {
+		} catch (NumberFormatException nFE) {
 			throw new ConfigException(nFE);
 		}
 	}
 
-	public float getFloat(String key, float def) throws ConfigException
-	{
+	public float getFloat(String key, float def) throws ConfigException {
 		String val = getElement(key);
-		if (val == null) return def;
+		if (val == null)
+			return def;
 		return parseFloat(val);
 	}
 
-	public float getFloat(String key) throws ConfigException
-	{
+	public float getFloat(String key) throws ConfigException {
 		String val = getElement(key);
-		if (val == null) throw new ConfigException("No such key - '" + key + "'");
+		if (val == null)
+			throw new ConfigException("No such key - '" + key + "'");
 		return parseFloat(val);
 	}
-
 
 	/* Double Methods */
 	/* -------------- */
-	public static double parseDouble(String val) throws ConfigException
-	{
+	public static double parseDouble(String val) throws ConfigException {
 		try {
 			return Double.parseDouble(val);
-		}
-		catch (NumberFormatException nFE) {
+		} catch (NumberFormatException nFE) {
 			throw new ConfigException(nFE);
 		}
 	}
 
-	public double getDouble(String key, double def) throws ConfigException
-	{
+	public double getDouble(String key, double def) throws ConfigException {
 		String val = getElement(key);
-		if (val == null) return def;
+		if (val == null)
+			return def;
 		return parseDouble(val);
 	}
 
-	public double getDouble(String key) throws ConfigException
-	{
+	public double getDouble(String key) throws ConfigException {
 		String val = getElement(key);
-		if (val == null) throw new ConfigException("No such key - '" + key + "'");
+		if (val == null)
+			throw new ConfigException("No such key - '" + key + "'");
 		return parseDouble(val);
 	}
-
 
 	/* Arrays Methods */
 	/* -------------- */
-	public static String[] splitArray(String str) throws ConfigException
-	{
+	public static String[] splitArray(String str) throws ConfigException {
 		// This method takes an array encoded in a string and splits it into separate strings
 		// Given the support for tree structures, it splits the top level only
 		// This is a two stage process
@@ -398,8 +373,8 @@ public class Config
 		// Convert string into character array
 		char[] charArray = str.toCharArray();
 
-		boolean slash = false;		// Has a slash character been found
-		boolean inString = false;	// Is reading currently within a string
+		boolean slash = false; // Has a slash character been found
+		boolean inString = false; // Is reading currently within a string
 
 		int minCommaDepth = Integer.MAX_VALUE;
 		int depth = 0;
@@ -408,41 +383,27 @@ public class Config
 		// Check for matching pairs of brackets
 		// Find the minimum depth that contains separating commas, this corresponds
 		// to the highest level of the array tree
-		for (int i=0 ; i<charArray.length ; i++)
-		{
-			if (inString)
-			{
-				if (slash && charArray[i] == '\\')
-				{
+		for (int i = 0; i < charArray.length; i++) {
+			if (inString) {
+				if (slash && charArray[i] == '\\') {
 					// If previous character was a slash and current character
 					// is a slash, clear slash flag
 					slash = false;
-				}
-				else if (charArray[i] == '"' && !slash)
-				{
+				} else if (charArray[i] == '"' && !slash) {
 					// If non-escaped double-quote, no longer in string
 					inString = false;
 				}
-			}
-			else
-			{
-				if (charArray[i] == '"')
-				{
+			} else {
+				if (charArray[i] == '"') {
 					// If double-quote found, now in String
 					inString = true;
-				}
-				else if (charArray[i] == '(')
-				{
+				} else if (charArray[i] == '(') {
 					// Open bracket signifies start of new array
-					depth ++;
-				}
-				else if (charArray[i] == ')')
-				{
+					depth++;
+				} else if (charArray[i] == ')') {
 					// Close bracket signifies end of new array
-					depth --;
-				}
-				else if (charArray[i] == ',' && depth < minCommaDepth)
-				{
+					depth--;
+				} else if (charArray[i] == ',' && depth < minCommaDepth) {
 					// Record new min Depth
 					minCommaDepth = depth;
 				}
@@ -452,10 +413,12 @@ public class Config
 			slash = (charArray[i] == '\\');
 		}
 
-		if (DEBUG) System.out.printf("MinDepth: %d, Final Depth: %d, Length: %d\n", minCommaDepth, depth, charArray.length);
+		if (DEBUG)
+			System.out.printf("MinDepth: %d, Final Depth: %d, Length: %d\n", minCommaDepth, depth, charArray.length);
 
 		// Throw an exception if there are an unequal number of brackets
-		if (depth != 0) throw new ConfigException("Badly matched array brackets");
+		if (depth != 0)
+			throw new ConfigException("Badly matched array brackets");
 
 		int startPos = 0;
 		int stopPos = charArray.length;
@@ -463,63 +426,62 @@ public class Config
 		slash = false;
 		inString = false;
 
-		for (int i=0 ; i<charArray.length ; i++)
-		{
+		for (int i = 0; i < charArray.length; i++) {
 			char c = charArray[i];
 
-			if (DEBUG) System.out.printf("%3d - %c %d %b\n", i, c, depth, inString);
+			if (DEBUG)
+				System.out.printf("%3d - %c %d %b\n", i, c, depth, inString);
 
-			if (inString)
-			{
+			if (inString) {
 				if (c == '\\' && slash) {
 					slash = false;
-				}
-				else if (c == '"' && !slash)
-				{
+				} else if (c == '"' && !slash) {
 					inString = false;
 				}
-			}
-			else
-			{
-				if (c == '"')
-				{
+			} else {
+				if (c == '"') {
 					inString = true;
-				}
-				else if (charArray[i] == '(')
-				{
-					depth ++;
-					if (depth == minCommaDepth) startPos = i+1;
-					if (DEBUG) System.out.printf("( Depth: %d, StartPos: %d\n", depth, startPos);
-				}
-				else if (charArray[i] == ')')
-				{
-					depth --;
-					if (depth == minCommaDepth-1) stopPos = i;
-					if (DEBUG) System.out.printf(") Depth: %d, StartPos: %d\n", depth, startPos);
-				}
-				else if (charArray[i] == ',' && depth == minCommaDepth)
-				{
+				} else if (charArray[i] == '(') {
+					depth++;
+					if (depth == minCommaDepth)
+						startPos = i + 1;
+					if (DEBUG)
+						System.out.printf("( Depth: %d, StartPos: %d\n", depth, startPos);
+				} else if (charArray[i] == ')') {
+					depth--;
+					if (depth == minCommaDepth - 1)
+						stopPos = i;
+					if (DEBUG)
+						System.out.printf(") Depth: %d, StartPos: %d\n", depth, startPos);
+				} else if (charArray[i] == ',' && depth == minCommaDepth) {
 					String part = str.substring(startPos, i).trim();
-					if (part.startsWith("(") && part.endsWith(")")) part = part.substring(1, part.length()-1);
-					if (part.length() == 0) throw new ConfigException("Empty field");
+					if (part.startsWith("(") && part.endsWith(")"))
+						part = part.substring(1, part.length() - 1);
+					if (part.length() == 0)
+						throw new ConfigException("Empty field");
 					parts.add(part);
-					startPos = i+1;
+					startPos = i + 1;
 
-					if (DEBUG) System.out.println("ADDING , '" + part + "'");
+					if (DEBUG)
+						System.out.println("ADDING , '" + part + "'");
 				}
 			}
 
 			slash = (c == '\\');
 		}
 
-		if (DEBUG) System.out.printf("startPos: %d, stopPos: %d\n",startPos, stopPos);
+		if (DEBUG)
+			System.out.printf("startPos: %d, stopPos: %d\n", startPos, stopPos);
 
 		String part = str.substring(startPos, stopPos).trim();
-		if (part.startsWith("(") && part.endsWith(")")) part = part.substring(1, part.length()-1);
-		if (part.length() == 0) throw new ConfigException("Empty field");
+		if (part.startsWith("(") && part.endsWith(")"))
+			part = part.substring(1, part.length() - 1);
+		if (part.length() == 0)
+			throw new ConfigException("Empty field");
 		parts.add(part);
 
-		if (DEBUG) System.out.println("ADDING e '" + part + "'");
+		if (DEBUG)
+			System.out.println("ADDING e '" + part + "'");
 
 		// Convert ArrayList into array and then return
 		String[] partsArray = new String[parts.size()];
@@ -527,17 +489,14 @@ public class Config
 		return partsArray;
 	}
 
-
 	/* Display Methods */
 	/* --------------- */
-	public void display(PrintStream out)
-	{
+	public void display(PrintStream out) {
 		// Get an enumeration of all the table keys
 		Enumeration<String> keys = table.keys();
 
 		// Iterate through the keys
-		while (keys.hasMoreElements())
-		{
+		while (keys.hasMoreElements()) {
 			// Output the key and value
 			String key = keys.nextElement();
 			String val = table.get(key);
@@ -545,16 +504,13 @@ public class Config
 		}
 	}
 
-
 	/* Tree Display Methods */
 	/* -------------------- */
-	public static void displayTree(String str, boolean details) throws ConfigException
-	{
+	public static void displayTree(String str, boolean details) throws ConfigException {
 		displayTree(str, 0, 0, 0, "", false, new TreeInfo(details, str.length()));
 	}
 
-	private static void displayTree(String str, int depth, int index, int parents, String indent, boolean last, TreeInfo info) throws ConfigException
-	{
+	private static void displayTree(String str, int depth, int index, int parents, String indent, boolean last, TreeInfo info) throws ConfigException {
 		depth++;
 		String[] array = splitArray(str);
 
@@ -565,51 +521,51 @@ public class Config
 		System.out.print(indent);
 
 		if (depth > 1) {
-			if (index == parents-1) {
+			if (index == parents - 1) {
 				System.out.print(" └─ ");
 				indent += "    ";
-				if (depth == 2 || last == true) last = true;
-			}
-			else {
+				if (depth == 2 || last == true)
+					last = true;
+			} else {
 				System.out.print(" ├─ ");
 				indent += " │  ";
 				last = false;
 			}
 		}
 
-		if (array.length == 1) System.out.print(str + " ");
-		else System.out.print(str + " ");
+		if (array.length == 1)
+			System.out.print(str + " ");
+		else
+			System.out.print(str + " ");
 
 		if (info.details) {
 			int pad = info.padSize - (indent.length() + str.length());
-			for (int i=0 ; i<pad ; i++) System.out.print(".");
+			for (int i = 0; i < pad; i++)
+				System.out.print(".");
 			System.out.printf(" Depth:%d, Index:%d, Parents:%d, Length:%d\n", depth, index, parents, array.length);
-		}
-		else {
+		} else {
 			System.out.println();
 		}
 
 		info.space = false;
-		if (array.length == 1 && index == parents-1 && last == false) {
+		if (array.length == 1 && index == parents - 1 && last == false) {
 			System.out.println(indent);
 			info.space = true;
 		}
 
 		if (array.length != 1) {
-			for (int i=0 ; i<array.length ; i++) {
+			for (int i = 0; i < array.length; i++) {
 				displayTree(array[i], depth, i, array.length, indent, last, info);
 			}
 		}
 	}
 
-	private static class TreeInfo
-	{
+	private static class TreeInfo {
 		public boolean details;
 		public int padSize;
 		public boolean space = true;
 
-		public TreeInfo(boolean details, int padSize)
-		{
+		public TreeInfo(boolean details, int padSize) {
 			this.details = details;
 			this.padSize = padSize;
 		}

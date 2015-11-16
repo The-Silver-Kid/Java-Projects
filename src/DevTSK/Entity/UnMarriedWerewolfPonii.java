@@ -3,9 +3,11 @@
  */
 package DevTSK.Entity;
 
+import DevTSK.Util.Day;
+
 public class UnMarriedWerewolfPonii extends WerewolfPonii {
 
-	public UnMarriedWerewolfPonii(String Name, String AlternateName, String Flag, Boolean Gender, String Description, String CutiiMarkInfo, String ManeColour, String TailColour, String Mother, String Father, int age, int day, int month, int year, String Imagename, String CutiimarkImage) {
+	public UnMarriedWerewolfPonii(String Name, String AlternateName, String Flag, Boolean Gender, String Description, String CutiiMarkInfo, String ManeColour, String TailColour, String Mother, String Father, Day bday, String Imagename, String CutiimarkImage) {
 		this.name = Name;
 		this.Gender = Gender;
 		this.description = "\nWerewolf" + Description;
@@ -13,14 +15,13 @@ public class UnMarriedWerewolfPonii extends WerewolfPonii {
 		this.anotherColour = TailColour;
 		this.mother = Mother;
 		this.father = Father;
-		this.age = age;
-		this.month = month;
-		this.year = year;
+		this.birthday = bday;
+
 		this.imagepath = Imagename;
 		this.altimagepath = CutiimarkImage;
 		this.additionalInfo = CutiiMarkInfo;
 		this.altName = AlternateName;
-		this.day = day;
+
 		this.flag = Flag;
 	}
 

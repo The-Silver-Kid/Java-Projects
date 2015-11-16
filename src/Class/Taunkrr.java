@@ -2,11 +2,13 @@ package Class;
 
 import java.awt.EventQueue;
 
-import BJ.resources.Day;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
+
+import DevTSK.Util.Day;
+
 import javax.swing.JTextArea;
 import java.awt.Font;
 import java.awt.Color;

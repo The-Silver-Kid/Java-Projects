@@ -1,8 +1,10 @@
 package DevTSK.Entity;
 
+import DevTSK.Util.Day;
+
 public class MarriedPonii extends Ponii {
 
-	public MarriedPonii(String Name, String AlternateName, String Flag, Boolean Gender, Boolean IsVamponii, String Description, String CutiiMarkInfo, String ManeColour, String TailColour, String Mother, String Father, int age, int day, int month, int year, String Imagename, String CutiimarkImage, String MarriedTo, int ammountOfKids, String[] kidNames) {
+	public MarriedPonii(String Name, String AlternateName, String Flag, Boolean Gender, Boolean IsVamponii, String Description, String CutiiMarkInfo, String ManeColour, String TailColour, String Mother, String Father, Day bday, String Imagename, String CutiimarkImage, String MarriedTo, int ammountOfKids, String[] kidNames) {
 		this.name = Name;
 		this.Gender = Gender;
 		this.description = "\nRegular" + Description;
@@ -11,9 +13,7 @@ public class MarriedPonii extends Ponii {
 		this.mother = Mother;
 		this.otherBoolean = IsVamponii;
 		this.father = Father;
-		this.age = age;
-		this.month = month;
-		this.year = year;
+		this.birthday = bday;
 		this.imagepath = Imagename;
 		this.altimagepath = CutiimarkImage;
 		this.kidammount = ammountOfKids;
@@ -21,11 +21,10 @@ public class MarriedPonii extends Ponii {
 		this.marriedTo = new String[] { MarriedTo };
 		this.additionalInfo = CutiiMarkInfo;
 		this.altName = AlternateName;
-		this.day = day;
 		this.flag = Flag;
 	}
 
-	public MarriedPonii(String Name, String AlternateName, String Flag, Boolean Gender, Boolean IsVamponii, String Description, String CutiiMarkInfo, String ManeColour, String TailColour, String Mother, String Father, int age, int day, int month, int year, String Imagename, String CutiimarkImage, String[] MarriedTo, int ammountOfKids, String[] kidNames) {
+	public MarriedPonii(String Name, String AlternateName, String Flag, Boolean Gender, Boolean IsVamponii, String Description, String CutiiMarkInfo, String ManeColour, String TailColour, String Mother, String Father, Day bday, String Imagename, String CutiimarkImage, String[] MarriedTo, int ammountOfKids, String[] kidNames) {
 		this.name = Name;
 		this.Gender = Gender;
 		this.description = "\nRegular" + Description;
@@ -34,9 +33,7 @@ public class MarriedPonii extends Ponii {
 		this.mother = Mother;
 		this.otherBoolean = IsVamponii;
 		this.father = Father;
-		this.age = age;
-		this.month = month;
-		this.year = year;
+		this.birthday = bday;
 		this.imagepath = Imagename;
 		this.altimagepath = CutiimarkImage;
 		this.kidammount = ammountOfKids;
@@ -44,7 +41,6 @@ public class MarriedPonii extends Ponii {
 		this.marriedTo = MarriedTo;
 		this.additionalInfo = CutiiMarkInfo;
 		this.altName = AlternateName;
-		this.day = day;
 		this.flag = Flag;
 	}
 

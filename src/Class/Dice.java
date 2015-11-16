@@ -128,7 +128,7 @@ public class Dice {
 		}
 
 		public void actionPerformed(ActionEvent e) {
-			int[] list = new int[rslide.getValue()], devarlist = list;
+			int[] list = new int[rslide.getValue()], devarlist = list/*, wins = new int[rslide.getValue()]*/;
 			double avg = 0, sum = 0, max = 0, min = 0, standarddev = 0, var = 0;
 			rolz = "rolls : \n";
 			NumGenerator ng = new NumGenerator(dslide.getValue());
@@ -138,6 +138,7 @@ public class Dice {
 				devarlist[i] = (int) Math.pow(list[i], 2);
 				sum = sum + list[i];
 				var = var + devarlist[i];
+				//wins[list[i]] = wins[list[i]] + 1;
 				if (i == 0)
 					min = list[i];
 				if (list[i] < min)
@@ -149,7 +150,15 @@ public class Dice {
 			var = var / list.length;
 			standarddev = Math.sqrt(var);
 
-			stats = "Average : " + avg + "\nMaximum : " + max + "\nMinimum : " + min + "\nSum : " + sum + "\nStandard Deviation : " + standarddev + "\nVariance : " + var;
+			String s = " ";
+			/*int winner = 0;
+			for (int i = 0; i < wins.length; i++)
+				if (wins[i] > wins[winner])
+					winner = wins[i];
+			
+			String s = "Winner is : " + winner + " with " + wins[winner] + " rolls!";*/
+
+			stats = "Average : " + avg + "\nMaximum : " + max + "\nMinimum : " + min + "\nSum : " + sum + "\nStandard Deviation : " + standarddev + "\nVariance : " + var + "\n" + s;
 
 			if (tglbtnShowExtendedInfo.isSelected())
 				out.setText(stats);

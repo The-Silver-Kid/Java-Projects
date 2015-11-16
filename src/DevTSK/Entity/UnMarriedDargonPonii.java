@@ -4,9 +4,11 @@
 
 package DevTSK.Entity;
 
+import DevTSK.Util.Day;
+
 public class UnMarriedDargonPonii extends DargonPonii {
 
-	public UnMarriedDargonPonii(String Name, String AlternateName, String Flag, Boolean Gender, String Description, String ManeColour, String TailColour, String Mother, String Father, int age, int day, int month, int year, String Imagename) {
+	public UnMarriedDargonPonii(String Name, String AlternateName, String Flag, Boolean Gender, String Description, String ManeColour, String TailColour, String Mother, String Father, Day bday, String Imagename) {
 		this.name = Name;
 		this.Gender = Gender;
 		this.description = "\nDargon" + Description;
@@ -14,12 +16,11 @@ public class UnMarriedDargonPonii extends DargonPonii {
 		this.anotherColour = TailColour;
 		this.mother = Mother;
 		this.father = Father;
-		this.age = age;
-		this.month = month;
-		this.year = year;
+		this.birthday = bday;
+
 		this.imagepath = Imagename;
 		this.altName = AlternateName;
-		this.day = day;
+
 		this.flag = Flag;
 	}
 

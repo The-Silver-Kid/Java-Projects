@@ -670,9 +670,8 @@ public class EntityLoader {
 		poni.action.actionPerformed(null);
 		if (new Config("./PoniiConfig.cfg").getDouble("version") < 2.0) {
 			poni.printCl();
-			poni.println("Re-wrote internal system entirely...\n"
-					+ "added info command : info <Entity> : cannot be used with spaces in names\n"
-					+ "removed sound system and music command");
+			poni.println("Added SwtichCharSet command\n"
+					+ "Syntax is SwitchCharSet charSetStringID");
 		}
 	}
 

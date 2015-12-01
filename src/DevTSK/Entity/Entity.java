@@ -5,7 +5,7 @@ import DevTSK.Util.Day;
 public class Entity {
 	protected Boolean Gender = false, /*false = Male, true = Female*/ otherBoolean = false, yaBoolean = false;
 	protected int state = 0, kidammount = 0;
-	protected String name = "Empty", altName = "Empty", description = "Empty", mother = "Empty", father = "Empty", DNA = "Empty", flag = "Empty", additionalInfo = "Empty";
+	protected String name = "Empty", altName = "Empty", description = "Empty", mother = "Empty", father = "Empty", DNA = "Empty", flag = "Empty", additionalInfo = "Empty", dna = "NullDNA";
 	protected String imagepath = "null.png", altimagepath = "null.png", colour = "Empty", anotherColour = "Empty";
 	protected String[] kids = null, with = null, marriedTo = null;
 	protected Day birthday;

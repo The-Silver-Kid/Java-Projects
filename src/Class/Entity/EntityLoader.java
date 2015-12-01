@@ -1,3 +1,7 @@
+/**
+ * @author The_Silver_Kid
+ */
+
 package Class.Entity;
 
 import java.awt.Color;
@@ -8,6 +12,9 @@ import java.io.IOException;
 import DAG.Config.Config;
 import DAG.Config.ConfigException;
 
+/**
+ * Class that handles the window and the displaying of information
+ */
 public class EntityLoader {
 	// private static final File f = new File("./config/Poniiconfig.ini");
 	private static String lastCmd, name;
@@ -38,6 +45,14 @@ public class EntityLoader {
 	private static Entity[] OC;
 	private static Entity[] show;
 
+	/**
+	 * Main constructor that sets up everything.
+	 *
+	 * @param Entity
+	 *            array of your own made up chars
+	 * @param Entity
+	 *            array of original chars
+	 */
 	public EntityLoader(Entity[] o, Entity[] c) {
 		OC = o;
 		show = c;
@@ -46,15 +61,12 @@ public class EntityLoader {
 		poni.frmPoniiPic.setVisible(true);
 	}
 
-	public static void errorCheck() throws Exception {
-		/*System.out.println("\nChecking out Inputed Resources...\n\nChecking chars and allias String[]s...");
-		System.out.println("chars and allias String[]s checks out...\nChecking Ponii[] OC compatablity...");
-		System.out.println("Ponii[] OC compatablity checks out...\nChecking Ponii[] show compatablity...");
-		System.out.println("Ponii[] show compatablity checks out...\nChecking ponii resources...");
-		System.out.println("Everything Checks out fine... Assuming all is well in the land...");*/
-	}
-
-	public static void handle(String s) throws Exception {
+	/**
+	 * Method that handles input and outpus hence the name
+	 *
+	 * @param s
+	 */
+	public static void handle(String s) {
 		int handler = -1;
 		Boolean origin = true, controlVar = false;
 		for (int i = 0; i < OC.length; i++) {
@@ -94,7 +106,8 @@ public class EntityLoader {
 			if (origin) {
 				getOCInfo(handler);
 			} else {
-				getCaInfo(handler);
+				//TODO
+				getOCInfo(handler);
 			}
 		} else if (!controlVar) {
 			poni.println(help());
@@ -107,13 +120,20 @@ public class EntityLoader {
 		}
 	}
 
-	private static void control(String s) throws Exception {
+	/**
+	 * Method for interpreting commands and executing them accordingly
+	 *
+	 * @param s
+	 * @throws IOException
+	 * @throws ConfigException
+	 */
+	private static void control(String s) throws IOException, ConfigException {
 		String cmd = s;
 		String[] sl = cmd.split("\\s+");
 		if (sl[0].equalsIgnoreCase("Exit"))
 			System.exit(0);
 		if (sl[0].equalsIgnoreCase("ErrorCheck")) {
-			errorCheck();
+			System.out.println("HA HA fooled you all!");
 		}
 		if (sl[0].equalsIgnoreCase("Color") || sl[0].equalsIgnoreCase("Colour")) {
 			if (sl.length == 4) {
@@ -333,31 +353,16 @@ public class EntityLoader {
 		}
 	}
 
+	/**
+	 * Method to get and display information from the Entity
+	 *
+	 * @param i
+	 */
 	private static void getOCInfo(int i) {
 		String s = OC[i].toString();
 		System.out.println(s);
 		poni.printCl();
-		if (s.equalsIgnoreCase("MarriedPonii")) {
-			getInfoMWK(OC[i]);
-		}
-		if (s.equalsIgnoreCase("UnMarriedPonii")) {
-			getInfoSNG(OC[i]);
-		}
-		if (s.equalsIgnoreCase("UnMarriedPoniiWithKids")) {
-			getInfoSNGK(OC[i]);
-		}
-		if (s.equalsIgnoreCase("MarriedPoniiWithOtherKids")) {
-			getInfoMWKOMK(OC[i]);
-		}
-		if (s.equalsIgnoreCase("UnMarriedDargonPonii")) {
-			getInfoDargonSNG(OC[i]);
-		}
-		if (s.equalsIgnoreCase("UnMarriedMachinePonii")) {
-			getInfoMachineSNG(OC[i]);
-		}
-		if (s.equalsIgnoreCase("UnMarriedFirePonii")) {
-			getInfoFireSNG(OC[i]);
-		}
+		poni.println(s);
 
 		try {
 			poni.lblPoniiPic.setIcon(poni.getImageIcn("/images/" + OC[i].getImagePath()));
@@ -368,247 +373,11 @@ public class EntityLoader {
 		}
 	}
 
-	private static void getCaInfo(int i) {
-		String s = show[i].toString();
-		System.out.println(s);
-		poni.printCl();
-		if (s.equalsIgnoreCase("MarriedPonii")) {
-			getInfoMWK(show[i]);
-		}
-		if (s.equalsIgnoreCase("UnMarriedPonii")) {
-			getInfoSNG(show[i]);
-		}
-		if (s.equalsIgnoreCase("UnMarriedPoniiWithKids")) {
-			getInfoSNGK(show[i]);
-		}
-		if (s.equalsIgnoreCase("MarriedPoniiWithOtherKids")) {
-			getInfoMWKOMK(show[i]);
-		}
-		if (s.equalsIgnoreCase("UnMarriedDargonPonii")) {
-			getInfoDargonSNG(show[i]);
-		}
-		if (s.equalsIgnoreCase("UnMarriedMachinePonii")) {
-			getInfoMachineSNG(show[i]);
-		}
-		if (s.equalsIgnoreCase("UnMarriedFirePonii")) {
-			getInfoFireSNG(show[i]);
-		}
-
-		try {
-			poni.lblPoniiPic.setIcon(poni.getImageIcn("/images/" + show[i].getImagePath()));
-			poni.lblCMPic.setIcon(poni.getImageIcn("/images/" + show[i].getAltImagePath()));
-		} catch (IOException e) {
-			System.out.println("This Shouldn't Have Happened... But it did...");
-			e.printStackTrace();
-		}
-	}
-
-	private static void getInfoMWKOMK(Entity tp) {
-		String[] tSA = null;
-		System.out.println("Loading resources for ponii " + tp.getName());
-		poni.println("Name : " + tp.getName());
-		poni.println("Age : " + tp.getAge());
-		poni.println();
-		String s = " ";
-		if (tp.getOtherBoolean())
-			s = "\nIs a vamponii";
-		poni.println("Description :\n" + tp.getGender() + s + "\nMane Colour : " + tp.getColour(0) + "\nTail Colour : "
-				+ tp.getColour(1) + tp.getDesc());
-		poni.println();
-		poni.println("Birthday : " + tp.getBirthday());
-		poni.println();
-		poni.println("Cutii Mark : " + tp.getAddDesc());
-		poni.println();
-		poni.println("Mother : " + tp.getMother());
-		poni.println("Father : " + tp.getFather());
-		poni.println();
-		poni.println("Married to : ");
-		String[] strn = tp.getPartner();
-		for (int i = 0; i < strn.length; i++) {
-			System.out.println(strn.length);
-			poni.println(strn[i]);
-		}
-		poni.println();
-		poni.println("Number of Kids : " + tp.getKidAmmount());
-		poni.println("Kids names : ");
-		tSA = tp.getKidnames();
-		String[] tpk = tp.getKidParents();
-		for (int i = 0; i < tSA.length; i++) {
-			poni.println("With\t" + tpk[i] + "\t : " + tSA[i]);
-		}
-		poni.println();
-		poni.println("Flag: '" + tp.getFlag() + "'");
-		poni.println();
-		poni.println("::End of Ponii::");
-		poni.println();
-	}
-
-	private static void getInfoSNGK(Entity tp) {
-		String[] tSA = null;
-		System.out.println("Loading resources for ponii " + tp.getName());
-		poni.println("Name : " + tp.getName());
-		poni.println("Age : " + tp.getAge());
-		poni.println();
-		String s = " ";
-		if (tp.getOtherBoolean())
-			s = "\nIs a vamponii";
-		poni.println("Description :\n" + tp.getGender() + s + "\nMane Colour : " + tp.getColour(0) + "\nTail Colour : "
-				+ tp.getColour(1) + tp.getDesc());
-		poni.println();
-		poni.println("Birthday : " + tp.getBirthday());
-		poni.println();
-		poni.println("Cutii Mark : " + tp.getAddDesc());
-		poni.println();
-		poni.println("Mother : " + tp.getMother());
-		poni.println("Father : " + tp.getFather());
-		poni.println();
-		poni.println("Number of Kids : " + tp.getKidAmmount());
-		poni.println("Kids names : ");
-		tSA = tp.getKidnames();
-		String[] tpk = tp.getKidParents();
-		for (int i = 0; i < tSA.length; i++) {
-			poni.println("With\t" + tpk[i] + "\t : " + tSA[i]);
-		}
-		poni.println();
-		poni.println("Flag: '" + tp.getFlag() + "'");
-		poni.println();
-		poni.println("::End of Ponii::");
-		poni.println();
-	}
-
-	private static void getInfoMWK(Entity tp) {
-		String[] tSA = null;
-		System.out.println("Loading resources for ponii " + tp.getName());
-		poni.println("Name : " + tp.getName());
-		poni.println("Age : " + tp.getAge());
-		poni.println();
-		String s = " ";
-		if (tp.getOtherBoolean())
-			s = "\nIs a vamponii";
-		poni.println("Description :\n" + tp.getGender() + s + "\nMane Colour : " + tp.getColour(0) + "\nTail Colour : "
-				+ tp.getColour(1) + tp.getDesc());
-		poni.println();
-		poni.println("Birthday : " + tp.getBirthday());
-		poni.println();
-		poni.println("Cutii Mark : " + tp.getAddDesc());
-		poni.println();
-		poni.println("Mother : " + tp.getMother());
-		poni.println("Father : " + tp.getFather());
-		poni.println();
-		poni.println("Married to :");
-		String[] strn = tp.getPartner();
-		for (int i = 0; i < strn.length; i++) {
-			poni.println(strn[i]);
-		}
-		poni.println();
-		poni.println("Number of Kids : " + tp.getKidAmmount());
-		poni.println("Kids names : ");
-		tSA = tp.getKidnames();
-		for (int i = 0; i < tSA.length; i++) {
-			poni.println(tSA[i]);
-		}
-		poni.println();
-		poni.println("Flag: '" + tp.getFlag() + "'");
-		poni.println();
-		poni.println("::End of Ponii::");
-		poni.println();
-	}
-
-	private static void getInfoSNG(Entity tp) {
-		System.out.println("Loading resources for ponii " + tp.getName());
-		poni.println("Name : " + tp.getName());
-		poni.println("Age : " + tp.getAge());
-		poni.println();
-		String s = " ";
-		if (tp.getOtherBoolean())
-			s = "\nIs a vamponii";
-		poni.println("Description :\n" + tp.getGender() + s + "\nMane Colour : " + tp.getColour(0) + "\nTail Colour : "
-				+ tp.getColour(1) + tp.getDesc());
-		poni.println();
-		poni.println("Birthday : " + tp.getBirthday());
-		poni.println();
-		poni.println("Cutii Mark : " + tp.getAddDesc());
-		poni.println();
-		poni.println("Mother : " + tp.getMother());
-		poni.println("Father : " + tp.getFather());
-		poni.println();
-		poni.println("Flag: '" + tp.getFlag() + "'");
-		poni.println();
-		poni.println("::End of Ponii::");
-		poni.println();
-	}
-
-	private static void getInfoFireSNG(Entity tp) {
-		System.out.println("Loading resources for ponii " + tp.getName());
-		poni.println("Name : " + tp.getName());
-		poni.println("Age : " + tp.getAge());
-		poni.println();
-		String s = " ";
-		if (tp.getOtherBoolean())
-			s = "\nIs a vamponii";
-		poni.println("Description :\n" + tp.getGender() + s + "\nMane Colour : " + tp.getColour(0) + "\nTail Colour : "
-				+ tp.getColour(1) + tp.getDesc());
-		s = tp.getFather() + " (Father)";
-		if (tp.getYetAnotherBoolean())
-			s = tp.getMother() + " (Mother)";
-		poni.println();
-		poni.println("Ponii Parent : " + s);
-		poni.println();
-		poni.println("Birthday : " + tp.getBirthday());
-		poni.println();
-		poni.println("Cutii Mark : " + tp.getAddDesc());
-		poni.println();
-		poni.println("Mother : " + tp.getMother());
-		poni.println("Father : " + tp.getFather());
-		poni.println();
-		poni.println("Flag: '" + tp.getFlag() + "'");
-		poni.println();
-		poni.println("::End of Ponii::");
-		poni.println();
-	}
-
-	private static void getInfoMachineSNG(Entity tp) {
-		System.out.println("Loading resources for ponii " + tp.getName());
-		poni.println("Name : " + tp.getName());
-		poni.println("Age : " + tp.getAge());
-		poni.println();
-		poni.println("Description :\n" + tp.getGender() + "\nMane Colour : " + tp.getColour(0) + "\nTail Colour : "
-				+ tp.getColour(1) + tp.getDesc());
-		poni.println();
-		poni.println("Machine Signature (Code) : " + tp.getAddDesc());
-		poni.println();
-		poni.println("Birthday : " + tp.getBirthday());
-		poni.println();
-		poni.println("Cutii Mark : " + tp.getAddDesc());
-		poni.println();
-		poni.println("Mother : " + tp.getMother());
-		poni.println("Father : " + tp.getFather());
-		poni.println();
-		poni.println("Flag: '" + tp.getFlag() + "'");
-		poni.println();
-		poni.println("::End of Ponii::");
-		poni.println();
-	}
-
-	private static void getInfoDargonSNG(Entity tp) {
-		System.out.println("Loading resources for ponii " + tp.getName());
-		poni.println("Name : " + tp.getName());
-		poni.println("Age : " + tp.getAge());
-		poni.println();
-		poni.println("Description :\n" + tp.getGender() + "\nMane Colour : " + tp.getColour(0) + "\nTail Colour : "
-				+ tp.getColour(1) + tp.getDesc());
-		poni.println();
-		poni.println("Birthday : " + tp.getBirthday());
-		poni.println();
-		poni.println("Mother : " + tp.getMother());
-		poni.println("Father : " + tp.getFather());
-		poni.println();
-		poni.println("Flag: '" + tp.getFlag() + "'");
-		poni.println();
-		poni.println("::End of Ponii::");
-		poni.println();
-	}
-
+	/**
+	 * Returns a list of all made up chars
+	 *
+	 * @return stringOfNames
+	 */
 	private static String help() {
 		String XD = "Acceptable Ponii names : " + OC.length + "\n";
 		poni.printCl();
@@ -618,6 +387,12 @@ public class EntityLoader {
 		return XD;
 	}
 
+	/**
+	 * Extracts a Entity image from the jar to extracted\EntityName.png
+	 *
+	 * @param entityName
+	 * @throws IOException
+	 */
 	private static void extract(String string) throws IOException {
 		Boolean preformAction = false;
 		String charToExtract = "null";
@@ -644,16 +419,26 @@ public class EntityLoader {
 		}
 	}
 
+	/**
+	 * Extracts all made up entity images to extracted\EntityName.png
+	 *
+	 * @throws IOException
+	 */
 	private static void extract() throws IOException {
 		for (int i = 0; i < OC.length; i++) {
 			extract(OC[i].getName());
 		}
 	}
 
+	/**
+	 * Extracts the default configuration file to .\poniiconfig.cfg
+	 *
+	 * @throws IOException
+	 */
 	public void extractConfig() throws IOException {
 		Boolean preformAction = true;
 		if (preformAction) {
-			System.out.println("Extracting : " + "Configuration File");
+			System.out.println("Extracting : Configuration File");
 			File f = new File("./");
 			f.mkdir();
 			send = new FileOutputStream(f + "/" + "PoniiConfig.cfg");
@@ -666,16 +451,26 @@ public class EntityLoader {
 		}
 	}
 
+	/**
+	 * 'Punches' the system to activate it and load the configuration from file
+	 * and sets the text to the last update log
+	 *
+	 * @throws ConfigException
+	 */
 	public void punch() throws ConfigException {
 		poni.action.actionPerformed(null);
 		if (new Config("./PoniiConfig.cfg").getDouble("version") < 2.0) {
 			poni.printCl();
-			poni.println("Re-wrote internal system entirely...\n"
-					+ "added info command : info <Entity> : cannot be used with spaces in names\n"
-					+ "removed sound system and music command");
+			poni.println("Modifyed the system for school");
 		}
 	}
 
+	/**
+	 * Modifyes the window's apperence based upon the configuration file
+	 * 
+	 * @param charsetname
+	 * @throws ConfigException
+	 */
 	public void setupConfig(String charsetname) throws ConfigException {
 		Config c = new Config("./PoniiConfig.cfg");
 

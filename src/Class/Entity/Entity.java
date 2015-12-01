@@ -195,4 +195,12 @@ public class Entity {
 		String s = birthday.getMonth() + " " + birthday.getDay() + ", " + birthday.getYear();
 		return s;
 	}
+
+	/**
+	 * Returns a string based on what information has been given
+	 */
+	@Override
+	public String toString() {
+		return "null";
+	}
 }

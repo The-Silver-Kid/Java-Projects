@@ -104,6 +104,7 @@ public class EntityLoader {
 		}
 		if (handler >= 0) {
 			if (origin) {
+				//TODO
 				getOCInfo(handler);
 			} else {
 				//TODO
@@ -185,73 +186,6 @@ public class EntityLoader {
 				extract(sl[1]);
 			} else {
 				extract();
-			}
-		}
-		if (sl[0].equalsIgnoreCase("breed")) {
-			Breeder b = new Breeder(new Entity(), new Entity());
-			if (sl.length < 3) {
-				poni.lblInfo.setText("Syntax is breed <Father>, <Mother>, [times]");
-			} else {
-				Boolean OCo = true, OCt = true;
-				int f = -1, m = -1;
-				for (int i = 0; i < OC.length; i++) {
-					if (sl[1].equalsIgnoreCase(OC[i].getName())) {
-						f = i;
-					}
-					if (sl[1].equalsIgnoreCase(OC[i].getAltName())) {
-						f = i;
-					}
-				}
-				for (int i = 0; i < show.length; i++) {
-					if (sl[1].equalsIgnoreCase(show[i].getName())) {
-						f = i;
-						OCo = false;
-					}
-					if (sl[1].equalsIgnoreCase(show[i].getAltName())) {
-						f = i;
-						OCo = false;
-					}
-				}
-				for (int i = 0; i < OC.length; i++) {
-					if (sl[2].equalsIgnoreCase(OC[i].getName())) {
-						m = i;
-					}
-					if (sl[2].equalsIgnoreCase(OC[i].getAltName())) {
-						m = i;
-					}
-				}
-				for (int i = 0; i < show.length; i++) {
-					if (sl[2].equalsIgnoreCase(show[i].getName())) {
-						m = i;
-						OCt = false;
-					}
-					if (sl[2].equalsIgnoreCase(show[i].getAltName())) {
-						m = i;
-						OCt = false;
-					}
-				}
-				if (OCo && OCt)
-					b = new Breeder(OC[f], OC[m]);
-				if (OCo && !OCt)
-					b = new Breeder(OC[f], show[m]);
-				if (!OCo && OCt)
-					b = new Breeder(show[f], OC[m]);
-				if (!OCo && !OCt)
-					b = new Breeder(show[f], show[m]);
-				if (sl.length == 4) {
-					poni.printCl();
-					b.check();
-					for (int i = 0; i < Integer.parseInt(sl[3]); i++) {
-						if (sl[0].equalsIgnoreCase("breed")) {
-							poni.lblInfo.setText(poni.lblInfo.getText() + "\n" + b.breed());
-						}
-					}
-				} else {
-					b.check();
-					if (sl[0].equalsIgnoreCase("breed")) {
-						poni.lblInfo.setText(b.breed());
-					}
-				}
 			}
 		}
 		if (sl[0].equalsIgnoreCase("listNonOC") || sl[0].equalsIgnoreCase("listall")) {
@@ -358,6 +292,7 @@ public class EntityLoader {
 	 *
 	 * @param i
 	 */
+	//TODO
 	private static void getOCInfo(int i) {
 		String s = OC[i].toString();
 		System.out.println(s);
@@ -467,7 +402,7 @@ public class EntityLoader {
 
 	/**
 	 * Modifyes the window's apperence based upon the configuration file
-	 * 
+	 *
 	 * @param charsetname
 	 * @throws ConfigException
 	 */

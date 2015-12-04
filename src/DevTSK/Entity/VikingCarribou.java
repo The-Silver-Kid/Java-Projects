@@ -1,17 +1,6 @@
 package DevTSK.Entity;
 
-public class VikingCarribou extends Entity {
-
-	public VikingCarribou() {
-	}
-
-	@Override
-	public String getGender() {
-		String g = "Stallion";
-		if (Gender)
-			g = "Mare";
-		return g;
-	}
+public abstract class VikingCarribou extends Entity {
 
 	@Override
 	public String getInfo() {

@@ -1,17 +1,6 @@
 package DevTSK.Entity;
 
-public class MachinePonii extends Entity {
-
-	public MachinePonii() {
-	}
-
-	@Override
-	public String getGender() {
-		String g = "Stallion";
-		if (Gender)
-			g = "Mare";
-		return g;
-	}
+public abstract class MachinePonii extends Entity {
 
 	@Override
 	public String getInfo() {
@@ -30,5 +19,12 @@ public class MachinePonii extends Entity {
 				+ "They would just think it was just another ponii.\n"
 				+ "Yes : They can reproduce.";
 
+	}
+
+	public String getGender() {
+		String s = "Stallion";
+		if (super.Gender)
+			s = "Mare";
+		return s;
 	}
 }

@@ -27,6 +27,39 @@ public class UnMarriedPoniiDargon extends PoniiDargon {
 
 	@Override
 	public String toString() {
-		return "UnMarriedPonii";
+		String vpni = "";
+		if (otherBoolean)
+			vpni = "\nIs a Vamponii";
+		String s = "Name : " + name + " AKA " + altName +
+				"\nAge : " + new Day().yearsFrom(birthday) +
+				"\n\n" + super.getGender() +
+				"\n\n" + description + vpni +
+				"\nMane : " + colour + "\nTail : " + anotherColour +
+				"\nBirthday : " + birthday.getMonth() + " " + birthday.getDay() + " " + birthday.getYear() +
+				"\n\nCutii Mark : " + additionalInfo +
+				"\n\nMother : " + mother + "\nFather : " + father +
+				"\nFlag : '" + flag + "'" +
+				"\n::End Of Ponii::";
+		return s;
+	}
+
+	@Override
+	public String getName() {
+		return name;
+	}
+
+	@Override
+	public String getAltName() {
+		return altName;
+	}
+
+	@Override
+	public String getImagePath() {
+		return imagepath;
+	}
+
+	@Override
+	public String getAltImagePath() {
+		return altimagepath;
 	}
 }

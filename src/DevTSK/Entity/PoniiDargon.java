@@ -1,6 +1,6 @@
 package DevTSK.Entity;
 
-public class PoniiDargon extends Ponii {
+public abstract class PoniiDargon extends Ponii {
 
 	public PoniiDargon() {
 	}

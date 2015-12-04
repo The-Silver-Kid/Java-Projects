@@ -1,9 +1,6 @@
 package DevTSK.Entity;
 
-public class PlanePonii extends Ponii {
-
-	public PlanePonii() {
-	}
+public abstract class PlanePonii extends Ponii {
 
 	@Override
 	public String getInfo() {
@@ -17,5 +14,12 @@ public class PlanePonii extends Ponii {
 				+ "-If their jet fuel is low their IWECU wont start.\n"
 				+ "-They have dampeners on tank and vains to prevent them from exploding.";
 
+	}
+
+	public String getGender() {
+		String s = "Stallion";
+		if (super.Gender)
+			s = "Mare";
+		return s;
 	}
 }

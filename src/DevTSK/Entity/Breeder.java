@@ -1,24 +1,24 @@
 package DevTSK.Entity;
 
 public class Breeder {
-	
+
 	private Entity m;
 
 	private Entity f;
-	
+
 	private String[] mother, father;
-	
+
 	private static Boolean checked = false;
-	
+
 	private static String md = "", fd = "";
-	
-	public Breeder(Entity mt, Entity ft){
-		md = mt.getDNA();
-		fd = ft.getDNA();
+
+	public Breeder(Entity mt, Entity ft) {
+		//	md = mt.getDNA();
+		//	fd = ft.getDNA();
 		m = mt;
 		f = ft;
 	}
-	
+
 	public void check() {
 		if (md.length() != fd.length()) {
 			checked = false;
@@ -26,7 +26,7 @@ public class Breeder {
 			checked = true;
 		}
 	}
-	
+
 	@Deprecated
 	public String breedrand() {
 		String res = "";
@@ -37,7 +37,7 @@ public class Breeder {
 			char[] df = fd.toCharArray();
 			char[] dm = md.toCharArray();
 			char[] k = new char[dm.length];
-			for (int i = 2; i < fd.length(); i ++){
+			for (int i = 2; i < fd.length(); i++) {
 				int e = (int) (Math.random() * 2 + 1);
 				if (e == 1)
 					k[i] = dm[i];
@@ -49,16 +49,16 @@ public class Breeder {
 		}
 		return res;
 	}
-	
+
 	public String breed() {
 		String res = "00";
 		mother = init(md);
 		father = init(fd);
-		if (mother[1].equalsIgnoreCase("ERROR!") || father[1].equalsIgnoreCase("ERROR!")){
+		if (mother[1].equalsIgnoreCase("ERROR!") || father[1].equalsIgnoreCase("ERROR!")) {
 			res = "Something went wrong...\n" + f.getName() + " and " + m.getName() + " did not want to breed.";
 		}
-		
-		for (int i = 0; i < mother.length; i ++){
+
+		for (int i = 0; i < mother.length; i++) {
 			int e = (int) (Math.random() * 2 + 1);
 			if (e == 1)
 				res = res + mother[i];
@@ -67,17 +67,17 @@ public class Breeder {
 		}
 		return res;
 	}
-	
+
 	@Deprecated
 	public String breedCol() {
 		String res = "00";
 		mother = initCol(md);
 		father = initCol(fd);
-		if (mother[1].equalsIgnoreCase("ERROR!") || father[1].equalsIgnoreCase("ERROR!")){
+		if (mother[1].equalsIgnoreCase("ERROR!") || father[1].equalsIgnoreCase("ERROR!")) {
 			res = "Something went wrong...\n" + f.getName() + " and " + m.getName() + " did not want to breed.";
 		}
-		
-		for (int i = 0; i < mother.length; i ++){
+
+		for (int i = 0; i < mother.length; i++) {
 			int e = (int) (Math.random() * 2 + 1);
 			if (e == 1)
 				res = res + mother[i];
@@ -86,15 +86,15 @@ public class Breeder {
 		}
 		return res;
 	}
-	
+
 	private String[] init(String s) {
 		String[] done = new String[47];
-		if (s.length() < 78 || s.length() > 78){
+		if (s.length() < 78 || s.length() > 78) {
 			done[1] = "ERROR!";
-		} else{
+		} else {
 			done[1] = "Error!";
 			int pos = 2;
-			for (int i = 0; i < done.length; i++){
+			for (int i = 0; i < done.length; i++) {
 				switch (i) {
 				case 0:
 				case 1:
@@ -122,7 +122,7 @@ public class Breeder {
 				case 44:
 				case 45:
 				case 46:
-					done[i] = s.substring(pos, pos+2);
+					done[i] = s.substring(pos, pos + 2);
 					pos = pos + 2;
 					break;
 				case 2:
@@ -145,33 +145,33 @@ public class Breeder {
 				case 31:
 				case 39:
 				case 40:
-					done[i] = s.substring(pos, pos+1);
+					done[i] = s.substring(pos, pos + 1);
 					pos = pos + 1;
 					break;
 				case 22:
-					done[i] = s.substring(pos, pos+4);
+					done[i] = s.substring(pos, pos + 4);
 					pos = pos + 4;
 				}
 			}
 		}
 		return done;
 	}
-	
+
 	private String[] initCol(String s) {
 		String[] done = new String[47];
-		if (s.length() < 78 || s.length() > 78){
+		if (s.length() < 78 || s.length() > 78) {
 			done[1] = "ERROR!";
-		} else{
+		} else {
 			done[1] = "Error!";
 			int pos = 2;
-			for (int i = 0; i < done.length; i++){
+			for (int i = 0; i < done.length; i++) {
 				switch (i) {
 				case 0:
 				case 1:
 				case 22:
 				case 24:
 				case 28:
-					done[i] = s.substring(pos, pos+2);
+					done[i] = s.substring(pos, pos + 2);
 					pos = pos + 2;
 					break;
 				case 2:
@@ -194,11 +194,11 @@ public class Breeder {
 				case 25:
 				case 29:
 				case 30:
-					done[i] = s.substring(pos, pos+1);
+					done[i] = s.substring(pos, pos + 1);
 					pos = pos + 1;
 					break;
 				case 16:
-					done[i] = s.substring(pos, pos+4);
+					done[i] = s.substring(pos, pos + 4);
 					pos = pos + 4;
 					break;
 				case 6:
@@ -208,7 +208,7 @@ public class Breeder {
 				case 27:
 				case 31:
 				case 32:
-					done[i] = s.substring(pos, pos+6);
+					done[i] = s.substring(pos, pos + 6);
 					pos = pos + 6;
 					break;
 				}

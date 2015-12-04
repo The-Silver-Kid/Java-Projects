@@ -1,9 +1,6 @@
 package DevTSK.Entity;
 
-public class FirePonii extends Ponii {
-
-	public FirePonii() {
-	}
+public abstract class FirePonii extends Ponii {
 
 	@Override
 	public String getInfo() {
@@ -25,5 +22,12 @@ public class FirePonii extends Ponii {
 				+ "---These events occur while mating... Married or not.\n"
 				+ "-Very hot to the touch.";
 
+	}
+
+	public String getGender() {
+		String s = "Stallion";
+		if (super.Gender)
+			s = "Mare";
+		return s;
 	}
 }

@@ -1,17 +1,6 @@
 package DevTSK.Entity;
 
-public class Ponii extends Entity {
-
-	public Ponii() {
-	}
-
-	@Override
-	public String getGender() {
-		String g = "Stallion";
-		if (Gender)
-			g = "Mare";
-		return g;
-	}
+public abstract class Ponii extends Entity {
 
 	@Override
 	public String getInfo() {
@@ -19,5 +8,12 @@ public class Ponii extends Entity {
 				+ "And as such have special Features that other Entitys might not have.\n"
 				+ "This also results in them having special constructors.";
 
+	}
+
+	public String getGender() {
+		String s = "Stallion";
+		if (super.Gender)
+			s = "Mare";
+		return s;
 	}
 }

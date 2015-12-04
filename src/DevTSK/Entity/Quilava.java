@@ -1,9 +1,6 @@
 package DevTSK.Entity;
 
-public class Quilava extends Entity {
-
-	public Quilava() {
-	}
+public abstract class Quilava extends Entity {
 
 	@Override
 	public String getInfo() {

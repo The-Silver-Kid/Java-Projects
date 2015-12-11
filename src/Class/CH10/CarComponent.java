@@ -6,7 +6,7 @@ import java.awt.Graphics2D;
 import javax.swing.JComponent;
 
 public class CarComponent extends JComponent {
-
+	private static final long serialVersionUID = 5891729702945211040L;
 	private Car car;
 
 	public CarComponent() {

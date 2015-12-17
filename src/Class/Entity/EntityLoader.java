@@ -16,13 +16,13 @@ import DAG.Config.ConfigException;
  * Class that handles the window and the displaying of information
  */
 public class EntityLoader {
-	// private static final File f = new File("./config/Poniiconfig.ini");
+	// private static final File f = new File("./config/EntityConfig.ini");
 	private static String lastCmd, name;
 	private static String[] sl;
 
 	private static FileOutputStream send;
 
-	static Window poni = new Window("Ponii Program 3.0", 1, 0, 0, 0);
+	static Window poni = new Window("Entity Program 3.0 School", 1, 0, 0, 0);
 
 	private static final String[] commandsyntax = new String[] { "Color <R> <G> <B>", "InputColor <R> <G> <B>",
 			"OutputColor <R> <G> <B>", "OutputTextColor <R> <G> <B>", "InputTextColor <R> <G> <B>", "Exit",
@@ -191,7 +191,7 @@ public class EntityLoader {
 		if (sl[0].equalsIgnoreCase("listNonOC") || sl[0].equalsIgnoreCase("listall")) {
 			poni.printCl();
 			if (sl[0].equalsIgnoreCase("listall")) {
-				poni.println("Acceptable OC/NonOC Ponii Names: " + (OC.length + show.length));
+				poni.println("Acceptable OC/NonOC Entity Names: " + (OC.length + show.length));
 				for (int i = 0; i < OC.length; i++) {
 					poni.println(OC[i].getName() + " AKA " + OC[i].getAltName());
 				}
@@ -199,7 +199,7 @@ public class EntityLoader {
 					poni.println(show[i].getName() + " AKA " + show[i].getAltName());
 				}
 			} else {
-				poni.println("Acceptable NonOC Ponii Names: " + show.length);
+				poni.println("Acceptable NonOC Entity Names: " + show.length);
 				for (int i = 0; i < show.length; i++) {
 					poni.println(show[i].getName() + " AKA " + show[i].getAltName());
 				}
@@ -230,7 +230,7 @@ public class EntityLoader {
 			// + "frame = " + framew + ";";
 			tst = strnj.getBytes();
 
-			FileOutputStream send = new FileOutputStream("./PoniiConfig.cfg");
+			FileOutputStream send = new FileOutputStream("./EntityConfig.cfg");
 			send.write(tst);
 			send.close();
 		}
@@ -238,7 +238,7 @@ public class EntityLoader {
 			if (sl.length < 2 || sl.length > 2) {
 				poni.printCl();
 				poni.println(
-						"Syntax is info <Entity>\nGives Info on the TYPE of ponii.\nIf the Entity name contains a space it wont work.");
+						"Syntax is info <Entity>\nGives Info on the TYPE of Entity.\nIf the Entity name contains a space it wont work.");
 			} else {
 				poni.printCl();
 				Boolean doop = false, origin = false;
@@ -314,7 +314,7 @@ public class EntityLoader {
 	 * @return stringOfNames
 	 */
 	private static String help() {
-		String XD = "Acceptable Ponii names : " + OC.length + "\n";
+		String XD = "Acceptable Entity names : " + OC.length + "\n";
 		poni.printCl();
 		for (int i = 0; i < OC.length; i++) {
 			XD = XD + "\n" + OC[i].getName() + " AKA " + OC[i].getAltName();
@@ -366,7 +366,7 @@ public class EntityLoader {
 	}
 
 	/**
-	 * Extracts the default configuration file to .\poniiconfig.cfg
+	 * Extracts the default configuration file to .\EntityConfig.cfg
 	 *
 	 * @throws IOException
 	 */
@@ -376,8 +376,8 @@ public class EntityLoader {
 			System.out.println("Extracting : Configuration File");
 			File f = new File("./");
 			f.mkdir();
-			send = new FileOutputStream(f + "/" + "PoniiConfig.cfg");
-			String charToExtract = "PoniiConfig.cfg";
+			send = new FileOutputStream(f + "/" + "EntityConfig.cfg");
+			String charToExtract = "poniiconfig.cfg";
 			byte[] out = new byte[EntityLoader.class.getResourceAsStream("/images/" + charToExtract).available()];
 			EntityLoader.class.getResourceAsStream("/images/" + charToExtract).read(out);
 			send.write(out);
@@ -394,7 +394,7 @@ public class EntityLoader {
 	 */
 	public void punch() throws ConfigException {
 		poni.action.actionPerformed(null);
-		if (new Config("./PoniiConfig.cfg").getDouble("version") < 2.0) {
+		if (new Config("./EntityConfig.cfg").getDouble("version") < 2.0) {
 			poni.printCl();
 			poni.println("Modifyed the system for school");
 		}
@@ -405,15 +405,19 @@ public class EntityLoader {
 	 *
 	 * @param charsetname
 	 * @throws ConfigException
+	 * @throws IOException
 	 */
-	public void setupConfig(String charsetname) throws ConfigException {
-		Config c = new Config("./PoniiConfig.cfg");
+	public void setupConfig(String charsetname) throws ConfigException, IOException {
+		File f = new File("./EntityConfig.cfg");
+		if (!f.exists())
+			extractConfig();
+		Config c = new Config("./EntityConfig.cfg");
 
 		name = charsetname;
 
 		if (c.getBoolean("sep")) {
 			poni.frmPoniiPic.setVisible(false);
-			poni = new Window("Ponii Program 3.0", 1, 0, 0, 1);
+			poni = new Window("Entity Program 3.0 School", 1, 0, 0, 1);
 			poni.frmPoniiPic.setVisible(true);
 			poni.frmPoniiPicCont.setVisible(true);
 			int r = c.getInt("bgr"), g = c.getInt("bgg"), b = c.getInt("bgb");

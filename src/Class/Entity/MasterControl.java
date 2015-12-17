@@ -7,6 +7,8 @@
  */
 package Class.Entity;
 
+import java.io.IOException;
+
 import DAG.Config.ConfigException;
 
 /**
@@ -17,7 +19,7 @@ public class MasterControl {
 	private static EntityLoader h;
 	private static String charsetname = "null";
 
-	public static void main(String[] args) throws ConfigException {
+	public static void main(String[] args) throws ConfigException, IOException {
 		if (args.length != 0)
 			for (int i = 0; i < args.length; i++)
 				System.out.println(args[i]);

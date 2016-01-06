@@ -1,5 +1,7 @@
 package DevTSK.Entity;
 
+import java.io.IOException;
+
 import DAG.Config.ConfigException;
 import DevTSK.Util.Day;
 
@@ -8,7 +10,7 @@ public class MasterControl {
 	private static EntityLoader h;
 	private static String charsetname = "null";
 
-	public static void main(String[] args) throws ConfigException {
+	public static void main(String[] args) throws ConfigException, IOException {
 		if (args.length != 0)
 			for (int i = 0; i < args.length; i++)
 				System.out.println(args[i]);
@@ -40,8 +42,8 @@ public class MasterControl {
 					new UnMarriedPlane("Boeing Stratoliner", "Boeing", "", false, false, "\nF16 fighter jet plone\nUsually has a bandana around mouth when flying that has the shark face design thinger on it", "Missile", "Fire-red", "Fire-red", "Unknown", "Unknown", new Day(13, 7, 1994), "null.png", "null.png"),
 					new UnMarriedCarribou("Hrodmar Thorhalson", "Hrodmar", "", false, false, "\nViking Carribou\nHe's a fekkin viking, what more exists need?\nCame through a time rift while hunting Cosmos", "\nThree white swirls", "Red with white highlights", "Red with white highlights", "Nina Faralddottir", "Thoral Kiotvason", new Day(12, 1, 1992), "null.png", "null.png" /*"39230B4000705000FFC49D0010000BB96QN1D3A00800000191BA3000FFFFEE0001705000FFFFEE"*/ ),
 					new UnMarriedPlane("Banshee Nighthawk", "Nighthawk", "", false, true, "\nMilitary plone\nHead of the NLRAF and the LAF", "Targeting reticle", "Black", "Black", "REDACTED", "REDACTED", new Day(12, 9, 1989), "null.png", "null.png"),
-					new UnMarriedPonii("Agent V42666J", "Octave", "", true, false, "\nRefer to Nova.png for outfit and weapon\nPegasus\nMember of group of elite assasins known as Ghosts\nOctave is pronounced with a hard A sound", "Targeting reticle", "Silver", "Silver", "REDACTED", "REDACTED", new Day(5, 1, 1995), "Agent V42666J (Octave).png", "null.png"),
-					new UnMarriedPonii("Snowfall Glacier", "Snowy", "", false, true, "\nPegasus\nHalf sister of Galecia\nRecently came back from living with the griffons for a while", "Glacier", "Blue", "Blue", "Unknown (She ran off as soon as Snowy was born)", "Ice Blue", new Day(13, 6, 1994), "Snowy.png", "null.png")
+					new UnMarriedPonii("Agent V42666J", "Octave", "", true, false, "\nRefer to Nova.png for outfit and weapon\nPegasus\nMember of group of elite assasins known as Ghosts\nOctave is pronounced with a hard A sound", "Targeting reticle", "Silver", "Silver", "REDACTED", "REDACTED", new Day(5, 1, 1995), "null.png", "nova.png"),
+					new UnMarriedPonii("Snowfall Glacier", "Snowy", "", false, true, "\nPegasus\nHalf sister of Galecia\nRecently came back from living with the griffons for a while", "Glacier", "Blue", "Blue", "Unknown (She ran off as soon as Snowy was born)", "Ice Blue", new Day(13, 6, 1994), "null.png", "null.png")
 
 			}, new Entity[] {
 					new MarriedPonii("Apple Jack Radon", "AJ", "", true, false, "\nEarth\nIts Apple Jack... y'all know her", "\nThree red apples", "Pale Yellow", "Pale Yellow", "?", "?", new Day(3, 4, 1993), "AJ.png", "AJMark.png", "Shadow Radon", 2, new String[] { "Tree Lighting", "Shadow Jack" }),
@@ -64,9 +66,9 @@ public class MasterControl {
 			}
 			/* CODES
 			 * Maven : 2S2S000100FFFFFEFFC49D000014080FFUN1837001200000N1800000FF00000L01800000FF0000
-			 * 
+			 *
 			 * Snowfall: 3K24006010CCCCCCFFFFFF022010092BBUN1837000200000800040FFFF7FFF0B107F3FCC004CB2
-			 * 
+			 *
 			 * Cosmos: 3B240J41004E4E4E6B6B6B02000B49600UN1837205030001Q05F6366FF7FFF00107F3FCC004CB2
 			 * Cadence: 3547006110FFC7DAFFC49D00101740096UI1G3C002000000817F3FA2DF44A50Q107F3FCC004CB2
 			 * Cosmos/cadence daughter who needs name: 112A08710118181864646400101513247MN1C35008300001U12F005C00377221107F3FCC004CB2

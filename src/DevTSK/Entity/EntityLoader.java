@@ -7,6 +7,7 @@ import java.io.IOException;
 
 import DAG.Config.Config;
 import DAG.Config.ConfigException;
+import DevTSK.Util.FileDetect;
 
 public class EntityLoader {
 	// private static final File f = new File("./config/Poniiconfig.ini");
@@ -422,7 +423,11 @@ public class EntityLoader {
 		}
 	}
 
-	public void setupConfig(String charsetname) throws ConfigException {
+	public void setupConfig(String charsetname) throws ConfigException, IOException {
+		FileDetect fd = new FileDetect("./PoniiConfig.cfg");
+
+		if (!fd.Detect())
+			extractConfig();
 		Config c = new Config("./PoniiConfig.cfg");
 
 		name = charsetname;

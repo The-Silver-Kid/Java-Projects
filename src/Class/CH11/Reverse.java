@@ -1,58 +1,54 @@
 package Class.CH11;
 
-import java.util.ArrayList;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 
-/**
- * This program replaces each line of a file with its reverse.
- */
 public class Reverse {
-	/**
-	 * This method reads a file line by line and returns the result in an
-	 * array list.
-	 *
-	 * @param filename
-	 *            the file to read
-	 * @return an array list with the words in the file
-	 */
-	public static ArrayList<String> readLinesToArray(String filename) {
-		return null;
 
+	private static byte[] by;
+
+	public static void main(String[] args) {
+		if (args.length < 1 || args.length > 2) {
+			System.err.println("Usage : java Reverse [filename]");
+			System.exit(1);
+		}
+
+		File f = new File(args[0]);
+		if (!f.exists()) {
+			System.err.println("The file '" + args[0] + "' was not found!");
+			System.exit(2);
+		}
+
+		try {
+			flip(f);
+			FileOutputStream br = new FileOutputStream(f);
+			f.delete();
+			br.write(by);
+			br.close();
+		} catch (Exception e) {
+			System.out.println("Whoa! Something went wrong!\n\nThe Details are as follows :\n\n");
+			e.printStackTrace();
+		}
 	}
 
-	/**
-	 * Reverses a string.
-	 *
-	 * @param line
-	 *            the string to reverse
-	 * @return the reverse of line
-	 */
-	public static String reverse(String line) {
-		return "fic u";
+	private static void flip(File f) throws Exception {
+		FileInputStream br = new FileInputStream(f);
 
-	}
+		by = new byte[(int) br.available()];
+		byte[] byfin = new byte[by.length];
+		System.out.println(by.length + " bytes to reverse!");
+		br.read(by);
+		br.close();
 
-	/**
-	 * Reverses all elements of listOfLines.
-	 *
-	 * @param listOfLines
-	 *            the list of lines to reverse
-	 */
-	public static void reverseAll(ArrayList<String> listOfLines) {
-
-	}
-
-	/**
-	 * Write all lines in array list to given file.
-	 *
-	 * @param filename
-	 *            the name of the file to write to
-	 * @param lines
-	 *            the lines to write to the file
-	 */
-	public static void writeAll(String filename, ArrayList<String> lines) {
-	}
-
-	public static void main(String[] args) { // Filename is passed as command line argument{
-
+		int i = by.length - 1;
+		int ii = 0;
+		while (i >= 0) {
+			byfin[i] = by[ii];
+			System.out.println(i + ":|:" + ii + ":|-|:" + ii + " of " + (by.length - 1));
+			i--;
+			ii++;
+		}
+		by = byfin;
 	}
 }

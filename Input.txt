@@ -1,8 +1,1 @@
-11. -d, file1.txt
-12. ?
-13. Yes it searches all the options before begining
-14. FHDVHU
-15. commandline option to change it
-16. Starts over from 'a' or 'A'
-17. X is the greatest char so it goes to the next char '{' or '[' but cannot decrypt them as they are not in the char list
-18. nothing happens when a number is found : fire the guy that built this app and build a new one that handles every char : https://github.com/The-Silver-Kid/Java-Projects/tree/master/src/DevTSK/Encryptor/
+HELLO WORLD!

@@ -8,9 +8,9 @@ import javax.swing.JLabel;
 
 public class EWindow {
 
-	public JFrame Gameui;
-	public JLabel GameFrame;
-	public static Boolean gamerunning;
+	JFrame Gameui;
+	JLabel GameFrame;
+	int w = 500;
 
 	public EWindow() {
 		Gameui = new JFrame();
@@ -19,14 +19,15 @@ public class EWindow {
 
 		if (w < 500 || h < 500) {
 			Gameui.setBounds(0, 0, 200, 200);
+			w = 200;
 		} else {
 			Gameui.setBounds(0, 0, 500, 500);
 		}
 		Gameui.setResizable(false);
 		Gameui.setTitle("E");
 		Gameui.setIconImage(Toolkit.getDefaultToolkit().getImage(EWindow.class.getResource("/images/ikon.png")));
-		Gameui.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-		Gameui.getContentPane().setVisible(false);
+		Gameui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		Gameui.getContentPane().setVisible(true);
 		Gameui.getContentPane().setLayout(null);
 
 		GameFrame = new JLabel();
@@ -35,5 +36,10 @@ public class EWindow {
 
 		KeyListener gi = new EInput();
 		Gameui.addKeyListener(gi);
+	}
+
+	public void gen() {
+		// TODO Auto-generated method stub
+
 	}
 }

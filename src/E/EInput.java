@@ -10,6 +10,15 @@ public class EInput implements KeyListener {
 		if (KeyEvent.getKeyText(e.getKeyCode()).equalsIgnoreCase("Escape"))
 			System.exit(0);
 
+		if (KeyEvent.getKeyText(e.getKeyCode()).equalsIgnoreCase("E") || KeyEvent.getKeyText(e.getKeyCode()).equalsIgnoreCase("enter") || KeyEvent.getKeyText(e.getKeyCode()).equalsIgnoreCase("return"))
+			E.Ex();
+		if (KeyEvent.getKeyText(e.getKeyCode()).equalsIgnoreCase("S"))
+			E.Device('s');
+		if (KeyEvent.getKeyText(e.getKeyCode()).equalsIgnoreCase("A"))
+			E.Device('a');
+		if (KeyEvent.getKeyText(e.getKeyCode()).equalsIgnoreCase("D"))
+			E.Device('d');
+
 		if (KeyEvent.getKeyText(e.getKeyCode()).equalsIgnoreCase("Left"))
 			E.Left();
 		if (KeyEvent.getKeyText(e.getKeyCode()).equalsIgnoreCase("Right"))

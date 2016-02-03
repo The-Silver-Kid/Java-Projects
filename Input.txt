@@ -1,1 +1,46 @@
-HELLO WORLD!
+public boolean escape(int i, int j) {
+
+		int dir = 0, y = i, x = j;
+		System.out.println("Starting at : (" + j + "," + i + ")");
+		while (!isExit(y, x)) {
+
+			if (dir == 0) {
+				if (maze[x][y - 1] == '*') {
+					dir = 1;
+				} else {
+					System.out.println("Up from : (" + x + "," + y + ")");
+					path = path + "Up\n";
+					y = y - 1;
+				}
+			}
+			if (dir == 1) {
+				if (maze[x + 1][y] == '*') {
+					dir = 2;
+				} else {
+					System.out.println("Right from : (" + x + "," + y + ")");
+					path = path + "Right\n";
+					x = x + 1;
+				}
+			}
+			if (dir == 2) {
+				if (maze[x][y + 1] == '*') {
+					dir = 3;
+				} else {
+					System.out.println("Down from : (" + x + "," + y + ")");
+					path = path + "Down\n";
+					y = y + 1;
+				}
+			}
+			if (dir == 3) {
+				if (maze[x - 1][y] == '*') {
+					dir = 0;
+				} else {
+					System.out.println("Left from : (" + x + "," + y + ")");
+					path = path + "Left\n";
+					x = x - 1;
+				}
+			}
+		}
+
+		return true;
+	}

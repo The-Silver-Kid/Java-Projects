@@ -1,8 +1,9 @@
-1. you would loose your data; overritten
-2. finds smallest and shoves it in spot after where the last one was shoved
-3. tell it to start at the bigest number and go to the smalsest
-4. reverses ordr
-5. 6400000000
-6. exponential parabala curv
-
-private String bigO = new String("how you define groth or decay rates for the speed of algarithums that sort stuff");
+1. puts element in position in dataset
+2. Its the Big O. represents visits
+3. sorts arrays into smaller ones then puts them together
+4. serches the element for the smallest and puts it at the frount and does that till done O(n)
+5. splits into halfs and sorts those then combines them O(log(n))
+27. works with integer arrays and not rectangls
+28. sort the accounts by ammount stored
+29. tells you where to insert it
+30. tells space before so that implies the next spot

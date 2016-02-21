@@ -11,6 +11,13 @@ public abstract class Entity {
 
 	public abstract String toString();
 
+	public String getGender() {
+		if (Gender) {
+			return "Female";
+		}
+		return "Male";
+	}
+
 	public abstract String getInfo();
 
 	public abstract String getName();

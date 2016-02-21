@@ -19,7 +19,7 @@ public class MasterControl {
 			EntityLoader.poni.frmPoniiPic.dispose();
 			EntityLoader.poni.frmPoniiPicCont.dispose();
 		}
-		if (args.length < 1 || args[0].equals("actual")) {
+		if (args.length < 1 || args[0].equalsIgnoreCase("actual") || args[0].equalsIgnoreCase("Default")) {
 			charsetname = "RP";
 			h = new EntityLoader(new Entity[] {
 					new MarriedPoniiWithOtherKids("Shadow Radon", "Radon", "", false, true, "\nUnicorn\nYellow Thunderbolt accross underside\nYellow Thunderbolts arround hooves\nLight Industries Admin", "\nBlack Thundercloud with a yellow thunderbolt coming from it", "Yellow and Black", "Yellow and Black", "Charrie", "Slanger", new Day(20, 7, 1993), "Radon.png", "kloud.png", new String[] { "Apple Jack", "Galecia Frostia" }, 3, new String[] { "Tree Lighting", "Shadow Jack", "Powder" }, new String[] { "Apple Jack", "Apple Jack", "Galecia Frostia" }),
@@ -29,11 +29,13 @@ public class MasterControl {
 					new UnMarriedPonii("Powder Frostia", "Powder", "", true, false, "\nEarth\nAccedental Child of Radon and Galecia when he went to visit.", "\nCloud with snowflakes", "Light blue", "Light blue", "Galecia", "Shadow Radon", new Day(25, 12, 2015), "PowderBlue.png", "null.png"),
 					new UnMarriedPlane("Blitz Radon", "Blitz", "", true, true, "\nStandard\nHas a boyfrind that makes pizza", "\n\u2708", "Copper Colour", "Copper Colour", "Charrie", "Slanger", new Day(12, 12, 1997), "blitz.png", "null.png"),
 					new UnMarriedPonii("Steven Shuttleknight", "Steven", "", false, false, "\nPegasus\nDelivers Pizza\nLikes Blitz Radon", "\nPizza Box", "", "", "Speedometere", "Plizzia", new Day(28, 2, 1998), "steven.png", "null.png"),
-					new UnMarriedFirePonii("Blaze Oxydation", "Blaze", "", false, false, false, "\nUnicorn\nCross Breed of a Ponii and Quilava\nMane acts a little like fire.\nUsually not seen as his dad prefers to keep him hidden\nHe likes the Tree Radon.", "\nDosent have it yet...\nVolcanic storm type thing", "Deep Red", "Deep Red", "Lav�", "?", new Day(19, 11, 2001), "blaze.png", "null.png"),
+					new UnMarriedFirePonii("Blaze Oxydation", "Blaze", "", false, false, false, "\nUnicorn\nCross Breed of a Ponii and Quilava\nMane acts a little like fire.\nUsually not seen as his dad prefers to keep him hidden\nHe likes the Tree Radon.", "\nDosent have it yet...\nVolcanic storm type thing", "Deep Red", "Deep Red", "Lavé", "?", new Day(19, 11, 2001), "blaze.png", "null.png"),
 					new UnMarriedMachinePonii("C418", "C4", "", false, "\nMachine ponii built by radon that Looks almost exactly like him...", "\nC418", "Yellow and Black", "Yellow and Black", "N/A", "N/A", new Day(3, 12, 2010), "C4.png", "null.png"),
 					new UnMarriedMachinePonii("C523", "C5", "", true, "\nAnother machine ponii built by radon however she was built for C4 to have a friend", "\nC523", "Pale Yellow", "Pale Yellow", "N/A", "N/A", new Day(12, 3, 2012), "C5.png", "null.png"),
 					new MarriedPonii("Charrie (Firefly) Sychace Radon", "Charrie", "", true, false, "\nPegasus\nOld but cares allot about everyponii", "\nBlack Outlined White Thunderbolt", "Pinkish brown", "Pinkish brown", "Keri", "Craider", new Day(13, 7, 1948), "charrie.png", "null.png", "Slanger", 4, new String[] { "Shadow", "Shyne", "Steve", "Blitz" }),
 					new UnMarriedPonii("Maven RedHeart", "Maven", "", false, false, "\nUnicorn\nKnows almost as much as his mother about taking care of poniis", "\nRed cross", "Red", "Red", "Nurse RedHeart", "Raygle", new Day(1, 1, 2010), "Maven.png", "null.png"),
+					new UnMarriedPlane("Belle Carbone", "Belle", "", true, false, "\nAir Bus Plone\nLikes Bowing", "\nAn 'A' with Airplane in it", "n/a", "n/a", "unknown", "unknown", new Day(12, 8, 1994), "null.png", "null.png"),
+					new MarriedQuilava("Lavé", "Lave", true, false, "\nNo Information Avalable", "Unknown", "Unknown", new Day(24, 8, 1991), "null.png", "null.png", "Unknown", 2, new String[] { "Unknown", "Blaze" }),
 
 					// Hill made pones
 					new UnMarriedPonii("Cosmos Darkstar", "Cosmos", "\u26e7", false, true, "\nZebra pegasus\nIs half demon\nLives in the old castle in Everfree", "\nPentagram", "Purple with gray stripes", "Gray", "Nighmare Moon", "King of Hell", new Day(21, 8, 1164), "null.png", "null.png"),
@@ -44,7 +46,7 @@ public class MasterControl {
 					new UnMarriedPlane("Banshee Nighthawk", "Nighthawk", "", false, true, "\nMilitary plone\nHead of the NLRAF and the LAF", "Targeting reticle", "Black", "Black", "REDACTED", "REDACTED", new Day(12, 9, 1989), "null.png", "null.png"),
 					new UnMarriedPonii("Agent V42666J", "Octave", "", true, false, "\nRefer to Nova.png for outfit and weapon\nPegasus\nMember of group of elite assasins known as Ghosts\nOctave is pronounced with a hard A sound", "Targeting reticle", "Silver", "Silver", "REDACTED", "REDACTED", new Day(5, 1, 1995), "null.png", "null.png"),
 					new UnMarriedPonii("Snowfall Glacier", "Snowy", "", false, true, "\nPegasus\nHalf sister of Galecia\nRecently came back from living with the griffons for a while", "Glacier", "Blue", "Blue", "Unknown (She ran off as soon as Snowy was born)", "Ice Blue", new Day(13, 6, 1994), "null.png", "null.png"),
-					new UnMarriedMachinePonii("D105","D1","",true,"\nKid of C4 and C5\nUsually found playing with Tree and Blaze","\nD105","Blue and red","Blue and red","C523","C418",new Day(4,6,2015),"null.png","null.png"),
+					new UnMarriedMachinePonii("D105", "Bit", "", true, "\nKid of C4 and C5\nUsually found playing with Tree and Blaze", "\nD105", "Blue and red", "Blue and red", "C523", "C418", new Day(4, 6, 2015), "null.png", "null.png"),
 
 			}, new Entity[] {
 					new MarriedPonii("Apple Jack Radon", "AJ", "", true, false, "\nEarth\nIts Apple Jack... y'all know her", "\nThree red apples", "Pale Yellow", "Pale Yellow", "?", "?", new Day(3, 4, 1993), "AJ.png", "AJMark.png", "Shadow Radon", 2, new String[] { "Tree Lighting", "Shadow Jack" }),
@@ -57,7 +59,7 @@ public class MasterControl {
 		 * to be used in the rp thing
 		 */
 		if (args.length >= 1) {
-			if (args[0].equals("Hill")) {
+			if (args[0].equalsIgnoreCase("Hill")) {
 				charsetname = "Hill";
 				h = new EntityLoader(new Entity[] {
 						//oc
@@ -75,23 +77,28 @@ public class MasterControl {
 			 * Cosmos/cadence daughter who needs name: 112A08710118181864646400101513247MN1C35008300001U12F005C00377221107F3FCC004CB2
 			 * cosmos son (winged unicorn not alicon; because there is so much difference...): 1O5K007110247AB27A009C1000000BB96JN1837000200000U1E8E633DC33320S107F3FCC004CB2
 			 */
-			if (args[0].equals("Reggii")) {
+			if (args[0].equalsIgnoreCase("Reggii")) {
 				charsetname = "Reggii";
 				h = new EntityLoader(new Entity[] {
-						new MarriedPoniiWithOtherKids("Shadow Radon", "Radon", "", false, true, "\nUnicorn\nYellow Thunderbolt accross underside\nYellow Thunderbolts arround hooves\nLight Industries Admin", "\nBlack Thundercloud with a yellow thunderbolt coming from it", "Yellow and Black", "Yellow and Black", "Charrie", "Slanger", new Day(20, 7, 1993), "Radon.png", "kloud.png", new String[] { "Apple Jack", "Galecia Frostia" }, 11, new String[] { "Tree Lightning", "Shadow Jack", "Rhyne", "Aaron", "Powder", "Thorn", "Nhyte", "Blue Powder", "Morgan", "Drone", "Lineair" }, new String[] { "Apple Jack", "Apple Jack", "Apple Jack", "Apple Jack", "Apple Jack", "Apple Jack", "Apple Jack", "Galecia Frostia", "Blitz Radon", "Blitz Radon", "Blitz Radon" }),
+						new MarriedPoniiWithOtherKids("Shadow Radon", "Radon", "", false, true, "\nUnicorn\nYellow Thunderbolt accross underside\nYellow Thunderbolts arround hooves\nLight Industries Admin", "\nBlack Thundercloud with a yellow thunderbolt coming from it", "Yellow and Black", "Yellow and Black", "Charrie", "Slanger", new Day(20, 7, 1993), "Radon.png", "kloud.png", new String[] { "Apple Jack", "Galecia Frostia", "Night Glider" }, 19, new String[] { "Tree Lightning", "Shadow Jack", "Rhyne", "Aaron", "Powder", "Thorn", "Nhyte", "?", "Blue Powder", "Icicle", "Morgan", "Drone", "Lineair", "Anna", "Blaze", "Copper", "Alloy", "Drop Forge", "Blast Flame" }, new String[] { "Apple Jack", "Apple Jack", "Apple Jack", "Apple Jack", "Apple Jack", "Apple Jack", "Apple Jack", "Apple Jack", "Galecia Frostia", "Galecia Frostia", "Blitz Radon", "Blitz Radon", "Blitz Radon", "Lavé", "Lavé", "Lavé", "Lavé", "Lavé", "Lavé" }),
 						new MarriedPonii("Tree Lighting Radon", "Tree", "", true, false, "\nEarth\nCutest little filly ever sparkling with the same spark that her dad has.", "\nApple tree with lightning bolt behind it", "Lttle more yellow then AJ's", "Slightly darker orange then AJ", "Apple Jack", "Shadow Radon", new Day(11, 9, 2011), "lightning.png", "null.png", "Blaze Oxydation", 1, new String[] { "Flame Oxydation" }),
-						new UnMarriedPonii("Shadow Jack Radon", "Jack", "", false, true, "\nUnicorn\nSecond Ponii on the AJ-Radon Line.", "\nA cloud with snowflakes", "Pale White and yellow", "Pale White and yellow", "Apple Jack", "Shadow Radon", new Day(25, 12, 2015), "jack.png", "null.png"),
+						new UnMarriedPonii("Shadow Jack Radon", "Jack", "", false, true, "\nUnicorn\nSecond Ponii on the AJ-Radon Line.\nJerk\nMostly spends time with Rhyne", "\nA cloud with snowflakes", "Pale White and yellow", "Pale White and yellow", "Apple Jack", "Shadow Radon", new Day(25, 12, 2012), "jack.png", "null.png"),
 
 						new MarriedPonii("Galecia Frostia", "Galecia", "", true, false, "\nUnicorn\nWas Radon's Marefriend for a while.... er, well still his marefreind.\nLikes the cold", "\nIcicle", "Light blue", "Light blue", "Krystla", "Starliner", new Day(20, 7, 1993), "Galecia.png", "null.png", "Shadow Radon", 1, new String[] { "Powder" }),
-						//new UnMarriedPonii("Powder Frostia", "Powder", "", true, false, "\nEarth\nAccedental Child of Radon and Galecia when he went to visit.", "\nCloud with snowflakes", "Light blue", "Light blue", "Galecia", "Shadow Radon", 0, 25, 12, 2015, "PowderBlue.png", "null.png"),
-						//new UnMarriedPlane("Blitz Radon", "Blitz", "", true, true, "\nStandard\nHas a boyfrind that makes pizza", "\n\u2708", "Copper Colour", "Copper Colour", "Charrie", "Slanger", 18, 12, 12, 1997, "blitz.png", "null.png"),
-						//new UnMarriedPonii("Steven Shuttleknight", "Steven", "", false, false, "\nPegasus\nDelivers Pizza\nLikes Blitz Radon", "\nPizza Box", "", "", "Speedometere", "Plizzia", 17, 28, 2, 1998, "steven.png", "null.png"),
+						new UnMarriedPonii("Powder Frostia", "Powder", "", true, false, "\nEarth\nA Pony that looks and acts exactly like Powder from the Radon-AJ group except she is blue.", "\nCloud with snowflakes", "Light blue", "Light blue", "Galecia", "Shadow Radon", new Day(25, 12, 2013), "PowderBlue.png", "null.png"),
+
+						new UnMarriedQuilava("Lavé", "Lave", true, false, "\nRadon's Pet (more or less)", "Reggii", "Radon", new Day(24, 8, 1991), "null.png", "null.png"),
+
+						new MarriedPlaneWithOtherKids("Blitz Radon", "Blitz", "", true, true, "\nStandard\nWas geneticly modifyed by her brother, Shadow Radon, to be a plane", "\n\u2708", "Copper Colour", "Copper Colour", "Charrie", "Slanger", new Day(12, 12, 1997), "blitz.png", "null.png", "Steve ShuttleKnight", 5, new String[] { "Morgan", "Drone", "Lineair", "Lieutenant", "Captain" }, new String[] { "Shadow Radon", "Shadow Radon", "Shadow Radon", "Steve", "Steve" }),
+						new MarriedPonii("Steven Shuttleknight", "Steven", "", false, false, "\nPegasus\nDelivers Pizza and ocasionally works the night shift", "\nPizza Box", "", "", "Speedometere", "Plizzia", new Day(28, 2, 1998), "steven.png", "null.png", "Blitz Radon", 2, new String[] { "Lieutenant", "Captain" }),
 						//new UnMarriedFirePonii("Blaze Oxydation", "Blaze", "", false, false, false, "\nUnicorn\nCross Breed of a Ponii and Quilava\nMane acts a little like fire.\nUsually not seen as his dad prefers to keep him hidden\nHe likes the Tree Radon.", "\nDosent have it yet...\nVolcanic storm type thing", "Deep Red", "Deep Red", "Lav�", "?", 4, 19, 11, 2001, "blaze.png", "null.png"),
 						//new UnMarriedMachinePonii("C418", "C4", "", false, "\nMachine ponii built by radon that Looks almost exactly like him...", "\nC418", "Yellow and Black", "Yellow and Black", "N/A", "N/A", 5, 3, 12, 2010, "C4.png", "null.png"),
 						//new UnMarriedMachinePonii("C523", "C5", "", true, "\nAnother machine ponii built by radon however she was built for C4 to have a friend", "\nC523", "Pale Yellow", "Pale Yellow", "N/A", "N/A", 3, 12, 3, 2012, "C5.png", "null.png"),
 						//new MarriedPonii("Charrie (Firefly) Sychace Radon", "Charrie", "", true, false, "\nPegasus\nOld but cares allot about everyponii", "\nBlack Outlined White Thunderbolt", "Pinkish brown", "Pinkish brown", "Keri", "Craider", 67, 13, 7, 1948, "charrie.png", "null.png", "Slanger", 4, new String[] { "Shadow", "Shyne", "Steve", "Blitz" }),
 						//new UnMarriedPoniiWithKids("Cosmos Darkstar", "Cosmos", "\u26e7", false, true, "\nZebra pegasus\nIs half demon\nLives in the old castle in Everfree", "\nPentagram", "Purple with gray stripes", "Gray", "Nighmare Moon", "King of Hell", 851, 21, 8, 1164, "null.png", "null.png", 1, new String[] { "" }, new String[] { "Cadence" }),
 				}, new Entity[] {
+						new MarriedPonii("Apple Jack Radon", "AJ", "", true, false, "\nEarth\nIts Apple Jack... y'all know her", "\nThree red apples", "Pale Yellow", "Pale Yellow", "?", "?", new Day(3, 4, 1993), "AJ.png", "AJMark.png", "Shadow Radon", 2, new String[] { "Tree Lightning", "Shadow Jack", "Rhyne", "Aaron", "Powder", "Thorn", "Nhyte", "?", }),
+						new UnMarriedPoniiWithKids("Nurse RedHeart", "RedHeart", "", true, false, "\nEarth\nShe's a nurse.", "\nRed cross with hearts", "Light pink", "Light pink", "?", "?", new Day(9, 8, 1982), "null.png", "null.png", 1, new String[] { "Maven" }, new String[] { "Unknown" }),
 				});
 			}
 		}

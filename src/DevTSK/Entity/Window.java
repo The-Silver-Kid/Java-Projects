@@ -189,7 +189,7 @@ public class Window {
 		private static final long serialVersionUID = 3646194311743048047L;
 
 		public SwingAction() {
-			putValue(NAME, "Get string");
+			putValue(NAME, "Run");
 			putValue(SHORT_DESCRIPTION, "Pushes string to internal system.");
 		}
 

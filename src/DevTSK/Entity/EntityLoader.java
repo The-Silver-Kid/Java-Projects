@@ -434,7 +434,7 @@ public class EntityLoader {
 
 		if (c.getBoolean("sep")) {
 			poni.frmPoniiPic.setVisible(false);
-			poni = new Window("Ponii Program 3.0", 1, 0, 0, 1);
+			poni = new Window("Ponii Program 4.0", 1, 0, 0, 1);
 			poni.frmPoniiPic.setVisible(true);
 			poni.frmPoniiPicCont.setVisible(true);
 			int r = c.getInt("bgr"), g = c.getInt("bgg"), b = c.getInt("bgb");

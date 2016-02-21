@@ -46,7 +46,7 @@ public class MasterControl {
 					new UnMarriedPlane("Banshee Nighthawk", "Nighthawk", "", false, true, "\nMilitary plone\nHead of the NLRAF and the LAF", "Targeting reticle", "Black", "Black", "REDACTED", "REDACTED", new Day(12, 9, 1989), "null.png", "null.png"),
 					new UnMarriedPonii("Agent V42666J", "Octave", "", true, false, "\nRefer to Nova.png for outfit and weapon\nPegasus\nMember of group of elite assasins known as Ghosts\nOctave is pronounced with a hard A sound", "Targeting reticle", "Silver", "Silver", "REDACTED", "REDACTED", new Day(5, 1, 1995), "null.png", "null.png"),
 					new UnMarriedPonii("Snowfall Glacier", "Snowy", "", false, true, "\nPegasus\nHalf sister of Galecia\nRecently came back from living with the griffons for a while", "Glacier", "Blue", "Blue", "Unknown (She ran off as soon as Snowy was born)", "Ice Blue", new Day(13, 6, 1994), "null.png", "null.png"),
-					new UnMarriedMachinePonii("D105", "Bit", "", true, "\nKid of C4 and C5\nUsually found playing with Tree and Blaze", "\nD105", "Blue and red", "Blue and red", "C523", "C418", new Day(4, 6, 2015), "null.png", "null.png"),
+					new UnMarriedMachinePonii("D105", "Bit", "", false, "\nKid of C4 and C5\nUsually found playing with Tree and Blaze", "\nD105", "Blue and red", "Blue and red", "C523", "C418", new Day(4, 6, 2015), "null.png", "null.png"),
 
 			}, new Entity[] {
 					new MarriedPonii("Apple Jack Radon", "AJ", "", true, false, "\nEarth\nIts Apple Jack... y'all know her", "\nThree red apples", "Pale Yellow", "Pale Yellow", "?", "?", new Day(3, 4, 1993), "AJ.png", "AJMark.png", "Shadow Radon", 2, new String[] { "Tree Lighting", "Shadow Jack" }),

@@ -1,7 +1,6 @@
 package DevTSK.Entity;
 
 import java.io.IOException;
-
 import DAG.Config.ConfigException;
 import DevTSK.Util.Day;
 
@@ -91,6 +90,7 @@ public class MasterControl {
 
 						new MarriedPlaneWithOtherKids("Blitz Radon", "Blitz", "", true, true, "\nStandard\nWas geneticly modifyed by her brother, Shadow Radon, to be a plane", "\n\u2708", "Copper Colour", "Copper Colour", "Charrie", "Slanger", new Day(12, 12, 1997), "blitz.png", "null.png", "Steve ShuttleKnight", 5, new String[] { "Morgan", "Drone", "Lineair", "Lieutenant", "Captain" }, new String[] { "Shadow Radon", "Shadow Radon", "Shadow Radon", "Steve", "Steve" }),
 						new MarriedPonii("Steven Shuttleknight", "Steven", "", false, false, "\nPegasus\nDelivers Pizza and ocasionally works the night shift", "\nPizza Box", "", "", "Speedometere", "Plizzia", new Day(28, 2, 1998), "steven.png", "null.png", "Blitz Radon", 2, new String[] { "Lieutenant", "Captain" }),
+
 						//new UnMarriedFirePonii("Blaze Oxydation", "Blaze", "", false, false, false, "\nUnicorn\nCross Breed of a Ponii and Quilava\nMane acts a little like fire.\nUsually not seen as his dad prefers to keep him hidden\nHe likes the Tree Radon.", "\nDosent have it yet...\nVolcanic storm type thing", "Deep Red", "Deep Red", "Lav�", "?", 4, 19, 11, 2001, "blaze.png", "null.png"),
 						//new UnMarriedMachinePonii("C418", "C4", "", false, "\nMachine ponii built by radon that Looks almost exactly like him...", "\nC418", "Yellow and Black", "Yellow and Black", "N/A", "N/A", 5, 3, 12, 2010, "C4.png", "null.png"),
 						//new UnMarriedMachinePonii("C523", "C5", "", true, "\nAnother machine ponii built by radon however she was built for C4 to have a friend", "\nC523", "Pale Yellow", "Pale Yellow", "N/A", "N/A", 3, 12, 3, 2012, "C5.png", "null.png"),

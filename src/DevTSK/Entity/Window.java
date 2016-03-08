@@ -1,4 +1,4 @@
-/* Window Classgh
+/* Window Class
  * (C) DevTSK Productions 2015 */
 
 package DevTSK.Entity;
@@ -8,7 +8,6 @@ import java.awt.SystemColor;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
-
 import javax.imageio.ImageIO;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
@@ -20,7 +19,6 @@ import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-
 import DevTSK.Exception.UnexceptableContentException;
 
 public class Window {
@@ -136,7 +134,7 @@ public class Window {
 			frmPoniiPic.getContentPane().add(lblCMPic);
 
 			lblTextArea = new JTextField();
-			lblTextArea.setToolTipText("Ponii Name");
+			lblTextArea.setToolTipText("Entity Name");
 			lblTextArea.setText("");
 			lblTextArea.setBounds(10, 10, 580, 20);
 			frmPoniiPicCont.getContentPane().add(lblTextArea);

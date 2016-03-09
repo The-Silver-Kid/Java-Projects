@@ -11,7 +11,6 @@ import java.awt.SystemColor;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
-
 import javax.imageio.ImageIO;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
@@ -23,7 +22,6 @@ import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-
 import DevTSK.Exception.UnexceptableContentException;
 
 public class Window {
@@ -234,7 +232,9 @@ public class Window {
 
 		public void actionPerformed(ActionEvent arg0) {
 			try {
+				/* function here
 				EntityLoader.handle(lblTextArea.getText());
+				*/
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -244,7 +244,7 @@ public class Window {
 
 	/**
 	 * Initiates the JLabel image change
-	 * 
+	 *
 	 * @param imagePath
 	 * @return
 	 * @throws IOException

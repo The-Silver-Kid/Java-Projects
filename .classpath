@@ -24,5 +24,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="pdfbox-1.8.10.jar"/>
+	<classpathentry kind="lib" path="gson-2.3.1.jar" sourcepath="gson-gson-2.3.1.zip"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

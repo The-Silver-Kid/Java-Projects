@@ -67,7 +67,7 @@ public class Window {
 			frmPoniiPic.getContentPane().add(lblCMPic);
 
 			lblTextArea = new JTextField();
-			lblTextArea.setToolTipText("Ponii Name");
+			lblTextArea.setToolTipText("Entity Name");
 			lblTextArea.setText("");
 			lblTextArea.setBounds(10, 710, 580, 20);
 			frmPoniiPic.getContentPane().add(lblTextArea);

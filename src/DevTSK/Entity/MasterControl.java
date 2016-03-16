@@ -8,7 +8,7 @@ public class MasterControl {
 
 	private static EntityLoader h;
 	private static String charsetname = "null";
-
+  
 	public static void main(String[] args) throws ConfigException, IOException {
 		if (args.length != 0)
 			for (int i = 0; i < args.length; i++)

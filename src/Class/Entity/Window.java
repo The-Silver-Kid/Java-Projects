@@ -235,6 +235,8 @@ public class Window {
 				/* function here
 				EntityLoader.handle(lblTextArea.getText());
 				*/
+				lblInfo.setText(lblTextArea.getText());
+				lblTextArea.setText("");
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

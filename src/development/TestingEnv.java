@@ -1,7 +1,9 @@
 package development;
 
+import java.io.BufferedReader;
 // import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -22,7 +24,10 @@ public class TestingEnv {
 			b[i] = (byte) c[i];
 		p.write(b);
 		p.close();
-		//Entity ee;
-		//g.fromJson(r, ee);
+		BufferedReader br = new BufferedReader(
+				new FileReader("out.json"));
+		Entity ee = g.fromJson(br, UnMarriedPlane.class);
+
+		System.out.println(ee.toString());
 	}
 }

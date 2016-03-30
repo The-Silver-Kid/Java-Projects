@@ -19,6 +19,27 @@ public class Sandwitch {
 
 		k = breadSlices[0].spreadPB(k);
 
+		j.open();
+		j.remove(k.insertIntoJellyJar(.25, pb));
+
+		k = breadSlices[1].spreadJ(k);
+
+		breadSlices[0].combine(breadSlices[1]);
+
+		Person you = new Person("You");
+
+		you.eat(k);
+		k.consume();
+	}
+}
+
+class Person {
+	public Person(String s) {
+
+	}
+
+	public void eat(Knife k) {
+
 	}
 }
 
@@ -80,7 +101,16 @@ class Knife {
 	public Knife(String s) {
 	}
 
+	public void consume() {
+
+	}
+
 	public double insertIntoPButterJar(double d, PButter ppbb) {
+		penutButterAmmount = d * 4;
+		return d * 4;
+	}
+
+	public double insertIntoJellyJar(double d, PButter ppbb) {
 		penutButterAmmount = d * 4;
 		return d * 4;
 	}
@@ -92,7 +122,17 @@ class breadSlice {
 	public breadSlice() {
 	}
 
+	public Knife spreadJ(Knife f) {
+		penutButterAmmount = f.penutButterAmmount;
+		f.penutButterAmmount = 0;
+		return f;
+	}
+
 	public void moveFrom(breadSlice breadSlice) {
+
+	}
+
+	public void combine(breadSlice breadSlice) {
 
 	}
 

@@ -168,31 +168,31 @@ public class TestingEnv {
 
 		TestingEnv theTree = new TestingEnv();
 
-		theTree.addNode(50, "Boss");
+		theTree.addNode(50, "Marry had a little lamb");
 
-		theTree.addNode(25, "Vice President");
+		theTree.addNode(25, "Little lamb");
 
-		theTree.addNode(15, "Office Manager");
+		theTree.addNode(15, "little lamb");
 
-		theTree.addNode(30, "Secretary");
+		theTree.addNode(30, "Marry had a little lamb");
 
-		theTree.addNode(75, "Sales Manager");
+		theTree.addNode(75, "Whose fleese was white as snow");
 
-		theTree.addNode(85, "Salesman 1");
+		theTree.addNode(85, ":p");
 
 		// Different ways to traverse binary trees
 
 		// theTree.inOrderTraverseTree(theTree.root);
 
-		// theTree.preorderTraverseTree(theTree.root);
+		theTree.preorderTraverseTree(theTree.root);
 
 		// theTree.postOrderTraverseTree(theTree.root);
 
 		// Find the node with key 75
 
-		System.out.println("\nNode with the key 75");
+		//System.out.println("\nNode with the key 75");
 
-		System.out.println(theTree.findNode(75));
+		//System.out.println(theTree.findNode(75));
 
 	}
 }
@@ -214,7 +214,7 @@ class Node {
 
 	public String toString() {
 
-		return name + " has the key " + key;
+		return name;
 
 		/*
 		 * return name + " has the key " + key + "\nLeft Child: " + leftChild +

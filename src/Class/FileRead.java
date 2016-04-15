@@ -127,7 +127,7 @@ public class FileRead {
 		fileFrame.getContentPane().add(projress);
 
 		cright = new JLabel();
-		cright.setText("© 2015 DevTSK Productions");
+		cright.setText("ï¿½ 2015 DevTSK Productions");
 		cright.setBounds(10, 160, 330, 20);
 		cright.setHorizontalAlignment(0);
 		cright.setForeground(new Color(200, 200, 200));
@@ -242,14 +242,8 @@ public class FileRead {
 					b = (byte) (b + 1);
 				}
 				int c = 254;
-				for (int i = 0; i < hash.length; i++) {
-					unhash[c] = hash[i];
-					c--;
-				}
-				for (int i = 0; i < unhash.length; i++) {
-					System.out.println(hash[hash.length - (i + 1)]);
-					System.out.println(unhash[i]);
-				}
+				for (int i = Byte.MIN_VALUE; i < Byte.MAX_VALUE; i++)
+					unhash[c] = (byte) i;
 
 				by = new byte[(int) f.length()];
 

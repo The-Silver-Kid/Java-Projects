@@ -14,7 +14,7 @@ public class Permutations {
 
 	/**
 	 * Gets all permutations of a given word.
-	 *
+	 * 
 	 * @param word
 	 *            the string to permute
 	 * @return a list of all permutations
@@ -36,7 +36,7 @@ public class Permutations {
 				ArrayList<String> shorterPermutations = permutations(shorter);
 
 				// Add the removed character to the front of
-				// each permutation of the simpler word,
+				// each permutation of the simpler word, 
 				for (String s : shorterPermutations) {
 					result.add(word.charAt(i) + s);
 				}

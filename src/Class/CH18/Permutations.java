@@ -12,7 +12,7 @@ public class Permutations {
 
 	/**
 	 * Gets all permutations of a given init.
-	 * 
+	 *
 	 * @param init
 	 *            the string to permute
 	 * @return a list of all permutations
@@ -20,6 +20,7 @@ public class Permutations {
 	public static <T extends Comparable<T>> T permutations(T[] t) {
 
 		T init = t[0];
+		System.out.println(init);
 		T result = null;
 		// The empty string has a single permutation: itself
 		return result;

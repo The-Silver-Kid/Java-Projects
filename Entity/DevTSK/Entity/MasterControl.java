@@ -50,7 +50,7 @@ public class MasterControl {
 			}, new Entity[] {
 					new MarriedPonii("Apple Jack Radon", "AJ", "", true, false, "\nEarth\nIts Apple Jack... y'all know her", "\nThree red apples", "Pale Yellow", "Pale Yellow", "?", "?", new Day(3, 4, 1993), "AJ.png", "AJMark.png", "Shadow Radon", 2, new String[] { "Tree Lighting", "Shadow Jack" }),
 					new UnMarriedPonii("Nurse RedHeart", "RedHeart", "", true, false, "\nEarth\nShe's a nurse.", "\nRed cross with hearts", "Light pink", "Light pink", "?", "?", new Day(9, 8, 1982), "null.png", "null.png"),
-					new UnMarriedPonii("Princess Cadence", "Cadence", "\u2764", true, false, "\nAlicorn\nPretty pink ponii princess", "\nCrystal Heart", "Pink as can be", "Yellow, purple, and pink", "Queen Galaxia", "Unknown", new Day(16, 6, -9474), "null.png", "null.png"),
+					new UnMarriedPonii("Princess Cadence", "Cadence", "\u2764", true, false, "\nAlicorn\nPretty pink pone princess", "\nCrystal Heart", "Pink as can be", "Yellow, purple, and pink", "Queen Galaxia", "Unknown", new Day(16, 6, -9474), "null.png", "null.png"),
 			});
 
 			h.OC[0].addDNA(new DNA("DNA"));

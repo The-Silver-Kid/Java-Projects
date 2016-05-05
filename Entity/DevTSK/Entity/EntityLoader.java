@@ -4,7 +4,6 @@ import java.awt.Color;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import DAG.Config.Config;
 import DAG.Config.ConfigException;
 import DevTSK.Util.FileDetect;
@@ -36,8 +35,8 @@ public class EntityLoader {
 			"InputTextColour", "errorcheck", "extract", "breed", "last", "l", "lastcmd", "cfg", "config",
 			"listNonOC", "listall", "info", "charset", "switchcharset", "help" };
 
-	private static Entity[] OC;
-	private static Entity[] show;
+	Entity[] OC;
+	Entity[] show;
 
 	public EntityLoader(Entity[] o, Entity[] c) {
 		OC = o;
@@ -55,7 +54,7 @@ public class EntityLoader {
 		System.out.println("Everything Checks out fine... Assuming all is well in the land...");*/
 	}
 
-	public static void handle(String s) throws Exception {
+	public void handle(String s) throws Exception {
 		int handler = -1;
 		Boolean origin = true, controlVar = false;
 		for (int i = 0; i < OC.length; i++) {
@@ -104,7 +103,7 @@ public class EntityLoader {
 		}
 	}
 
-	private static void control(String s) throws Exception {
+	private void control(String s) throws Exception {
 		String cmd = s;
 		String[] sl = cmd.split("\\s+");
 		if (sl[0].equalsIgnoreCase("Exit"))
@@ -330,9 +329,8 @@ public class EntityLoader {
 		}
 	}
 
-	private static void getOCInfo(Boolean b, int i) {
+	private void getOCInfo(Boolean b, int i) {
 		poni.printCl();
-		//TODO
 
 		if (b)
 			poni.println(OC[i].toString());
@@ -357,7 +355,7 @@ public class EntityLoader {
 			}
 	}
 
-	private static String help() {
+	private String help() {
 		String XD = "Acceptable Ponii names : " + OC.length + "\n";
 		poni.printCl();
 		for (int i = 0; i < OC.length; i++) {
@@ -366,7 +364,7 @@ public class EntityLoader {
 		return XD;
 	}
 
-	private static void extract(String string) throws IOException {
+	private void extract(String string) throws IOException {
 		Boolean preformAction = false;
 		String charToExtract = "null";
 		for (int i = 0; i < OC.length; i++) {
@@ -392,7 +390,7 @@ public class EntityLoader {
 		}
 	}
 
-	private static void extract() throws IOException {
+	private void extract() throws IOException {
 		for (int i = 0; i < OC.length; i++) {
 			extract(OC[i].getName());
 		}

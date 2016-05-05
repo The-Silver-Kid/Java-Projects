@@ -174,7 +174,7 @@ public class FileRead {
 			for (int i = 0; i < by.length; i++) {
 				System.out.println("Decrypting byte " + i + " of " + by.length + ". \nBytes Left " + (by.length - i - 1));
 				//TODO
-				by[i] = hash[by[i]];
+				by[i] = unhash[by[i]];
 				System.out.println((i * 100) / by.length + "%");
 			}
 			System.out.println("Decryption went well");

@@ -8,7 +8,7 @@ public class MasterControl {
 
 	private static EntityLoader h;
 	private static String charsetname = "null";
-  
+
 	public static void main(String[] args) throws ConfigException, IOException {
 		if (args.length != 0)
 			for (int i = 0; i < args.length; i++)
@@ -52,6 +52,8 @@ public class MasterControl {
 					new UnMarriedPonii("Nurse RedHeart", "RedHeart", "", true, false, "\nEarth\nShe's a nurse.", "\nRed cross with hearts", "Light pink", "Light pink", "?", "?", new Day(9, 8, 1982), "null.png", "null.png"),
 					new UnMarriedPonii("Princess Cadence", "Cadence", "\u2764", true, false, "\nAlicorn\nPretty pink ponii princess", "\nCrystal Heart", "Pink as can be", "Yellow, purple, and pink", "Queen Galaxia", "Unknown", new Day(16, 6, -9474), "null.png", "null.png"),
 			});
+
+			h.OC[0].addDNA(new DNA("DNA"));
 		}
 		/*
 		 * use for your own set of poniis that arent included or planed
@@ -75,7 +77,7 @@ public class MasterControl {
 			 * Cadence: 3547006110FFC7DAFFC49D00101740096UI1G3C002000000817F3FA2DF44A50Q107F3FCC004CB2
 			 * Cosmos/cadence daughter who needs name: 112A08711118181864646400101513247MN1C35008300001U12F005C00377221107F3FCC004CB2
 			 * cosmos son (winged unicorn not alicon; because there is so much difference...): 112A08711118181864646400101513247MN1C35008300001U12F005C00377221107F3FCC004CB2
-			* radon alt : 2S2S000200000000FFFF0000000FFFF00UN1837204020000N1000000FFFF000L107F3FCC004CB2
+			 * radon alt : 2S2S000200000000FFFF0000000FFFF00UN1837204020000N1000000FFFF000L107F3FCC004CB2 
 			 */
 			if (args[0].equalsIgnoreCase("Reggii")) {
 				charsetname = "Reggii";

@@ -1,7 +1,6 @@
 package DevTSK.XMPP;
 
 import org.jivesoftware.smack.ConnectionConfiguration;
-import org.jivesoftware.smack.ConnectionConfiguration.Builder;
 import org.jivesoftware.smack.MessageListener;
 import org.jivesoftware.smack.XMPPConnection;
 import org.jivesoftware.smack.XMPPException;
@@ -17,9 +16,9 @@ public class furcuss implements MessageListener {
 	}
 
 	public void login(String userName, String password) throws XMPPException {
-		Builder<?, ?> b = null;
-		b.setUsernameAndPassword(userName, password);
-		fb config = new fb(b);
+		//Builder<?, ?> b = null;
+		//b.setUsernameAndPassword(userName, password);
+		//fb config = new fb(b);
 		//connection //= new XMPPConnection(config);
 
 		//connection.connect();

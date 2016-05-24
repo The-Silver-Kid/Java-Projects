@@ -8,6 +8,7 @@ import java.awt.SystemColor;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
+
 import javax.imageio.ImageIO;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
@@ -19,6 +20,7 @@ import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+
 import DevTSK.Exception.UnexceptableContentException;
 
 public class Window {
@@ -44,7 +46,8 @@ public class Window {
 
 			frmPoniiPic = new JFrame();
 			frmPoniiPic.getContentPane().setBackground(SystemColor.window);
-			frmPoniiPic.setIconImage(Toolkit.getDefaultToolkit().getImage(Window.class.getResource("/images/ikon.png")));
+			frmPoniiPic
+					.setIconImage(Toolkit.getDefaultToolkit().getImage(Window.class.getResource("/images/ikon.png")));
 			frmPoniiPic.setTitle(n);
 			frmPoniiPic.setBackground(SystemColor.window);
 			frmPoniiPic.setResizable(false);
@@ -101,7 +104,8 @@ public class Window {
 
 			frmPoniiPic = new JFrame();
 			frmPoniiPic.getContentPane().setBackground(SystemColor.window);
-			frmPoniiPic.setIconImage(Toolkit.getDefaultToolkit().getImage(Window.class.getResource("/images/ikon.png")));
+			frmPoniiPic
+					.setIconImage(Toolkit.getDefaultToolkit().getImage(Window.class.getResource("/images/ikon.png")));
 			frmPoniiPic.setTitle(n + " Picture Window");
 			frmPoniiPic.setBackground(SystemColor.window);
 			frmPoniiPic.setResizable(false);
@@ -122,7 +126,8 @@ public class Window {
 
 			frmPoniiPicCont = new JFrame();
 			frmPoniiPicCont.getContentPane().setBackground(SystemColor.window);
-			frmPoniiPicCont.setIconImage(Toolkit.getDefaultToolkit().getImage(Window.class.getResource("/images/ikon.png")));
+			frmPoniiPicCont
+					.setIconImage(Toolkit.getDefaultToolkit().getImage(Window.class.getResource("/images/ikon.png")));
 			frmPoniiPicCont.setTitle(n + " Control Window");
 			frmPoniiPicCont.setBackground(SystemColor.window);
 			frmPoniiPicCont.setResizable(false);

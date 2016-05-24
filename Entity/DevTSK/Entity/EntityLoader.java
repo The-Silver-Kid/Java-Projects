@@ -15,8 +15,6 @@ public class EntityLoader {
 
 	private static FileOutputStream send;
 
-	static Window poni = new Window("Ponii Program 4.0", 1, 0, 0, 0);
-
 	private static final String[] commandsyntax = new String[] { "Color <R> <G> <B>", "InputColor <R> <G> <B>",
 			"OutputColor <R> <G> <B>", "OutputTextColor <R> <G> <B>", "InputTextColor <R> <G> <B>", "Exit",
 			"extract [Entity name]", "breed <Mother> <Father> (broken)", "last / l / lastcmd", "cfg / config",
@@ -41,17 +39,9 @@ public class EntityLoader {
 	public EntityLoader(Entity[] o, Entity[] c) {
 		OC = o;
 		show = c;
-		poni.lblInfo.setText("If you see this press the button before doing anything.");
-		poni.lblTextArea.setText("errorcheck");
-		poni.frmPoniiPic.setVisible(true);
-	}
-
-	public static void errorCheck() throws Exception {
-		/*System.out.println("\nChecking out Inputed Resources...\n\nChecking chars and allias String[]s...");
-		System.out.println("chars and allias String[]s checks out...\nChecking Ponii[] OC compatablity...");
-		System.out.println("Ponii[] OC compatablity checks out...\nChecking Ponii[] show compatablity...");
-		System.out.println("Ponii[] show compatablity checks out...\nChecking ponii resources...");
-		System.out.println("Everything Checks out fine... Assuming all is well in the land...");*/
+		//poni.lblInfo.setText("If you see this press the button before doing anything.");
+		//poni.lblTextArea.setText("errorcheck");
+		//poni.frmPoniiPic.setVisible(true);
 	}
 
 	public void handle(String s) throws Exception {
@@ -93,7 +83,7 @@ public class EntityLoader {
 		if (handler >= 0) {
 			getOCInfo(origin, handler);
 		} else if (!controlVar) {
-			poni.println(help());
+			MasterControl.poni.println(help());
 		} else if (controlVar) {
 			try {
 				control(s);

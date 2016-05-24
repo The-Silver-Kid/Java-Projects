@@ -25,16 +25,21 @@ public class Window {
 	public JFrame frmPoniiPic;
 	public JFrame frmPoniiPicCont;
 
-	public final Action action = new SwingAction();
-	public JLabel lblPoniiPic;
-	public JLabel lblCMPic;
-	public JTextField lblTextArea;
-	public JTextArea lblInfo;
-	public JScrollPane loltest;
-	public JButton in;
-	public String handler = "";
+	public static final Action action = new SwingAction();
+	public static JLabel lblPoniiPic;
+	public static JLabel lblCMPic;
+	public static JTextField lblTextArea;
+	public static JTextArea lblInfo;
+	public static JScrollPane loltest;
+	public static JButton in;
+	public static String handler = "";
 
-	public Window(String n, int close, int x, int y, int CharRPWin) {
+	private static EntityLoader el;
+
+	public Window(String n, int close, int x, int y, int CharRPWin, EntityLoader h) {
+
+		el = h;
+
 		if (CharRPWin == 0) {
 
 			frmPoniiPic = new JFrame();
@@ -161,13 +166,13 @@ public class Window {
 		}
 	}
 
-	private ImageIcon getImIcn(String sr) throws Exception {
+	private static ImageIcon getImIcn(String sr) throws Exception {
 		Image img = ImageIO.read(Window.class.getResource(sr));
 		ImageIcon icn = new ImageIcon(img);
 		return icn;
 	}
 
-	public void drawPic(String s) throws Exception {
+	public static void drawPic(String s) throws Exception {
 		lblPoniiPic.setIcon(getImIcn(s));
 	}
 
@@ -175,15 +180,15 @@ public class Window {
 		lblInfo.setText(lblInfo.getText() + s + "\n");
 	}
 
-	public void println() {
+	public static void println() {
 		lblInfo.setText(lblInfo.getText() + "\n");
 	}
 
-	public void printCl() {
+	public static void printCl() {
 		lblInfo.setText("");
 	}
 
-	private class SwingAction extends AbstractAction {
+	private static class SwingAction extends AbstractAction {
 		private static final long serialVersionUID = 3646194311743048047L;
 
 		public SwingAction() {
@@ -193,7 +198,7 @@ public class Window {
 
 		public void actionPerformed(ActionEvent arg0) {
 			try {
-				EntityLoader.handle(lblTextArea.getText());
+				el.handle(lblTextArea.getText());
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -201,9 +206,14 @@ public class Window {
 
 	}
 
-	public Icon getImageIcn(String imagePath) throws IOException {
+	public static Icon getImageIcn(String imagePath) throws IOException {
 		Image img = ImageIO.read(Window.class.getResource(imagePath));
 		ImageIcon icn = new ImageIcon(img);
 		return icn;
+	}
+
+	public void vape() {
+		frmPoniiPic.dispose();
+		frmPoniiPicCont.dispose();
 	}
 }

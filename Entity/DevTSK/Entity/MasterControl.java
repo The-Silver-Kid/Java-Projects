@@ -7,7 +7,8 @@ import DevTSK.Util.Day;
 public class MasterControl {
 
 	private static EntityLoader h;
-	private static String charsetname = "null";
+	public static String charsetname = "null";
+	public static Window poni;
 
 	public static void main(String[] args) throws ConfigException, IOException {
 		if (args.length != 0)
@@ -15,8 +16,7 @@ public class MasterControl {
 				System.out.println(args[i]);
 		//Unmarried : Name, AltName, Flag, Gender, Description, ManeColour, TailColour, Mother, Father, Integer age, Integer day, Integer month, Integer year, ImageName, CutiimarkImage
 		if (h != null) {
-			EntityLoader.poni.frmPoniiPic.dispose();
-			EntityLoader.poni.frmPoniiPicCont.dispose();
+			poni.vape();
 		}
 		if (args.length < 1 || args[0].equalsIgnoreCase("actual") || args[0].equalsIgnoreCase("Default")) {
 			charsetname = "RP";
@@ -77,6 +77,8 @@ public class MasterControl {
 			 * Cadence: 3547006110FFC7DAFFC49D00101740096UI1G3C002000000817F3FA2DF44A50Q107F3FCC004CB2
 			 * Cosmos/cadence daughter who needs name: 112A08711118181864646400101513247MN1C35008300001U12F005C00377221107F3FCC004CB2
 			 * cosmos son (winged unicorn not alicon; because there is so much difference...): 112A08711118181864646400101513247MN1C35008300001U12F005C00377221107F3FCC004CB2
+			 * cosmos+pinkamena daughter1: 112A086090DDDD000070CD02101006600MN1C35008310001D112345645A9471A107F3FCC004CB2
+			 * cosmos+pinkamena daughter2: 112A08711118181864646400101513247MN1C35008300001U12F005C00377221107F3FCC004CB2
 			 * radon alt : 2S2S000200000000FFFF0000000FFFF00UN1837204020000N1000000FFFF000L107F3FCC004CB2 
 			 */
 			if (args[0].equalsIgnoreCase("Reggii")) {
@@ -105,8 +107,9 @@ public class MasterControl {
 				});
 			}
 		}
-		h.punch();
+		poni = new Window("Ponii Program 4.0", 1, 0, 0, 0, h);
+		/*h.punch();
 		h.setupConfig(charsetname);
-		h.punch();
+		h.punch();*/
 	}
 }

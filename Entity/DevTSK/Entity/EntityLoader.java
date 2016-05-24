@@ -4,12 +4,9 @@ import java.awt.Color;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import DAG.Config.Config;
-import DAG.Config.ConfigException;
-import DevTSK.Util.FileDetect;
 
 public class EntityLoader {
-	// private static final File f = new File("./config/Poniiconfig.ini");
+	// private static final File f = new File("./config/MasterControl.poniiconfig.ini");
 	private static String lastCmd, name;
 	private static String[] sl;
 
@@ -24,7 +21,7 @@ public class EntityLoader {
 			"Changes outputbox color", "Changes outputbox text color", "Changes input box text color", "Exit the program (duh)",
 			"extracts the given entity's image or all if none provided", "Generates a string derived from both parents",
 			"reinputs last given command into the input box for editing or re-exicution",
-			"saves color scheme to config file : poniconfig.cfg", "lists all defined OC entitys", "lists all defined entitys",
+			"saves color scheme to config file : Poniconfig.cfg", "lists all defined OC entitys", "lists all defined entitys",
 			"gives general on the given entity type", "prints to console the current entity list String Identifyer",
 			"switches the entity list" };
 
@@ -39,9 +36,9 @@ public class EntityLoader {
 	public EntityLoader(Entity[] o, Entity[] c) {
 		OC = o;
 		show = c;
-		//poni.lblInfo.setText("If you see this press the button before doing anything.");
-		//poni.lblTextArea.setText("errorcheck");
-		//poni.frmPoniiPic.setVisible(true);
+		//MasterControl.poni.lblInfo.setText("If you see this press the button before doing anything.");
+		//MasterControl.poni.lblTextArea.setText("errorcheck");
+		//MasterControl.poni.frmMasterControl.poniiPic.setVisible(true);
 	}
 
 	public void handle(String s) throws Exception {
@@ -72,12 +69,12 @@ public class EntityLoader {
 			}
 		}
 		if (!sl[0].equalsIgnoreCase("last") && !sl[0].equalsIgnoreCase("lastcmd") && !sl[0].equalsIgnoreCase("l")) {
-			lastCmd = poni.lblTextArea.getText();
+			lastCmd = MasterControl.poni.lblTextArea.getText();
 		}
-		poni.lblTextArea.setText("");
+		MasterControl.poni.lblTextArea.setText("");
 		try {
-			poni.lblPoniiPic.setIcon(poni.getImageIcn("/images/null.png"));
-			poni.lblCMPic.setIcon(poni.getImageIcn("/images/null.png"));
+			MasterControl.poni.lblPoniiPic.setIcon(MasterControl.poni.getImageIcn("/images/null.png"));
+			MasterControl.poni.lblCMPic.setIcon(MasterControl.poni.getImageIcn("/images/null.png"));
 		} catch (IOException e) {
 		}
 		if (handler >= 0) {
@@ -99,7 +96,7 @@ public class EntityLoader {
 		if (sl[0].equalsIgnoreCase("Exit"))
 			System.exit(0);
 		if (sl[0].equalsIgnoreCase("ErrorCheck")) {
-			errorCheck();
+			System.out.println("Stub command");
 		}
 		if (sl[0].equalsIgnoreCase("Color") || sl[0].equalsIgnoreCase("Colour")) {
 			if (sl.length == 4) {
@@ -107,7 +104,7 @@ public class EntityLoader {
 				r = Integer.parseInt(sl[1]);
 				g = Integer.parseInt(sl[2]);
 				b = Integer.parseInt(sl[3]);
-				poni.frmPoniiPic.getContentPane().setBackground(new Color(r, g, b));
+				MasterControl.poni.frmPoniiPic.getContentPane().setBackground(new Color(r, g, b));
 			}
 		}
 		if (sl[0].equalsIgnoreCase("InputColor") || sl[0].equalsIgnoreCase("InputColour")) {
@@ -116,7 +113,7 @@ public class EntityLoader {
 				r = Integer.parseInt(sl[1]);
 				g = Integer.parseInt(sl[2]);
 				b = Integer.parseInt(sl[3]);
-				poni.lblTextArea.setBackground(new Color(r, g, b));
+				MasterControl.poni.lblTextArea.setBackground(new Color(r, g, b));
 			}
 		}
 		if (sl[0].equalsIgnoreCase("OutputColor") || sl[0].equalsIgnoreCase("OutputColour")) {
@@ -125,7 +122,7 @@ public class EntityLoader {
 				r = Integer.parseInt(sl[1]);
 				g = Integer.parseInt(sl[2]);
 				b = Integer.parseInt(sl[3]);
-				poni.lblInfo.setBackground(new Color(r, g, b));
+				MasterControl.poni.lblInfo.setBackground(new Color(r, g, b));
 			}
 		}
 		if (sl[0].equalsIgnoreCase("OutputTextColor") || sl[0].equalsIgnoreCase("OutputTextColour")) {
@@ -134,7 +131,7 @@ public class EntityLoader {
 				r = Integer.parseInt(sl[1]);
 				g = Integer.parseInt(sl[2]);
 				b = Integer.parseInt(sl[3]);
-				poni.lblInfo.setForeground(new Color(r, g, b));
+				MasterControl.poni.lblInfo.setForeground(new Color(r, g, b));
 			}
 		}
 		if (sl[0].equalsIgnoreCase("InputTextColor") || sl[0].equalsIgnoreCase("InputTextColour")) {
@@ -143,7 +140,7 @@ public class EntityLoader {
 				r = Integer.parseInt(sl[1]);
 				g = Integer.parseInt(sl[2]);
 				b = Integer.parseInt(sl[3]);
-				poni.lblTextArea.setForeground(new Color(r, g, b));
+				MasterControl.poni.lblTextArea.setForeground(new Color(r, g, b));
 			}
 		}
 		if (sl[0].equalsIgnoreCase("extract")) {
@@ -156,7 +153,7 @@ public class EntityLoader {
 		if (sl[0].equalsIgnoreCase("breed")) {
 			Breeder b = new Breeder(null, null);
 			if (sl.length < 3) {
-				poni.lblInfo.setText("Syntax is breed <Father>, <Mother>, [times]");
+				MasterControl.poni.lblInfo.setText("Syntax is breed <Father>, <Mother>, [times]");
 			} else {
 				Boolean OCo = true, OCt = true;
 				int f = -1, m = -1;
@@ -205,74 +202,74 @@ public class EntityLoader {
 				if (!OCo && !OCt)
 					b = new Breeder(show[f], show[m]);
 				if (sl.length == 4) {
-					poni.printCl();
+					MasterControl.poni.printCl();
 					b.check();
 					for (int i = 0; i < Integer.parseInt(sl[3]); i++) {
 						if (sl[0].equalsIgnoreCase("breed")) {
-							poni.lblInfo.setText(poni.lblInfo.getText() + "\n" + b.breed());
+							MasterControl.poni.lblInfo.setText(MasterControl.poni.lblInfo.getText() + "\n" + b.breed());
 						}
 					}
 				} else {
 					b.check();
 					if (sl[0].equalsIgnoreCase("breed")) {
-						poni.lblInfo.setText(b.breed());
+						MasterControl.poni.lblInfo.setText(b.breed());
 					}
 				}
 			}
 		}
 		if (sl[0].equalsIgnoreCase("listNonOC") || sl[0].equalsIgnoreCase("listall")) {
-			poni.printCl();
+			MasterControl.poni.printCl();
 			if (sl[0].equalsIgnoreCase("listall")) {
-				poni.println("Acceptable OC/NonOC Ponii Names: " + (OC.length + show.length));
+				MasterControl.poni.println("Acceptable OC/NonOC MasterControl.ponii Names: " + (OC.length + show.length));
 				for (int i = 0; i < OC.length; i++) {
-					poni.println(OC[i].getName() + " AKA " + OC[i].getAltName());
+					MasterControl.poni.println(OC[i].getName() + " AKA " + OC[i].getAltName());
 				}
 				for (int i = 0; i < show.length; i++) {
-					poni.println(show[i].getName() + " AKA " + show[i].getAltName());
+					MasterControl.poni.println(show[i].getName() + " AKA " + show[i].getAltName());
 				}
 			} else {
-				poni.println("Acceptable NonOC Ponii Names: " + show.length);
+				MasterControl.poni.println("Acceptable NonOC MasterControl.ponii Names: " + show.length);
 				for (int i = 0; i < show.length; i++) {
-					poni.println(show[i].getName() + " AKA " + show[i].getAltName());
+					MasterControl.poni.println(show[i].getName() + " AKA " + show[i].getAltName());
 				}
 			}
 		}
 		if (sl[0].equalsIgnoreCase("last") || sl[0].equalsIgnoreCase("lastcmd") || sl[0].equalsIgnoreCase("l")) {
-			poni.lblTextArea.setText(lastCmd);
+			MasterControl.poni.lblTextArea.setText(lastCmd);
 		}
 		if (sl[0].equalsIgnoreCase("cfg") || sl[0].equalsIgnoreCase("config")) {
 			System.out.println("Saving Configuration...");
 
 			byte[] tst = new byte[] {};
-			String strnj = "version = 2.0;\n\n" + "bgr = " + poni.frmPoniiPic.getContentPane().getBackground().getRed()
-					+ ";\n" + "bgg = " + poni.frmPoniiPic.getContentPane().getBackground().getGreen() + ";\n" + "bgb = "
-					+ poni.frmPoniiPic.getContentPane().getBackground().getBlue() + ";\n\n" + "inbr = "
-					+ poni.lblTextArea.getBackground().getRed() + ";\n" + "inbg = "
-					+ poni.lblTextArea.getBackground().getGreen() + ";\n" + "inbb = "
-					+ poni.lblTextArea.getBackground().getBlue() + ";\n\n" + "infr = "
-					+ poni.lblTextArea.getForeground().getRed() + ";\n" + "infg = "
-					+ poni.lblTextArea.getForeground().getGreen() + ";\n" + "infb = "
-					+ poni.lblTextArea.getForeground().getBlue() + ";\n\n" + "outbr = "
-					+ poni.lblInfo.getBackground().getRed() + ";\n" + "outbg = "
-					+ poni.lblInfo.getBackground().getGreen() + ";\n" + "outbb = "
-					+ poni.lblInfo.getBackground().getBlue() + ";\n\n" + "outfr = "
-					+ poni.lblInfo.getForeground().getRed() + ";\n" + "outfg = "
-					+ poni.lblInfo.getForeground().getGreen() + ";\n" + "outfb = "
-					+ poni.lblInfo.getForeground().getBlue() + ";\n\n" + "sep = " + "false;";
+			String strnj = "version = 2.0;\n\n" + "bgr = " + MasterControl.poni.frmPoniiPic.getContentPane().getBackground().getRed()
+					+ ";\n" + "bgg = " + MasterControl.poni.frmPoniiPic.getContentPane().getBackground().getGreen() + ";\n" + "bgb = "
+					+ MasterControl.poni.frmPoniiPic.getContentPane().getBackground().getBlue() + ";\n\n" + "inbr = "
+					+ MasterControl.poni.lblTextArea.getBackground().getRed() + ";\n" + "inbg = "
+					+ MasterControl.poni.lblTextArea.getBackground().getGreen() + ";\n" + "inbb = "
+					+ MasterControl.poni.lblTextArea.getBackground().getBlue() + ";\n\n" + "infr = "
+					+ MasterControl.poni.lblTextArea.getForeground().getRed() + ";\n" + "infg = "
+					+ MasterControl.poni.lblTextArea.getForeground().getGreen() + ";\n" + "infb = "
+					+ MasterControl.poni.lblTextArea.getForeground().getBlue() + ";\n\n" + "outbr = "
+					+ MasterControl.poni.lblInfo.getBackground().getRed() + ";\n" + "outbg = "
+					+ MasterControl.poni.lblInfo.getBackground().getGreen() + ";\n" + "outbb = "
+					+ MasterControl.poni.lblInfo.getBackground().getBlue() + ";\n\n" + "outfr = "
+					+ MasterControl.poni.lblInfo.getForeground().getRed() + ";\n" + "outfg = "
+					+ MasterControl.poni.lblInfo.getForeground().getGreen() + ";\n" + "outfb = "
+					+ MasterControl.poni.lblInfo.getForeground().getBlue() + ";\n\n" + "sep = " + "false;";
 			// + "frame = " + framew + ";";
 			tst = strnj.getBytes();
 
-			FileOutputStream send = new FileOutputStream("./PoniiConfig.cfg");
+			FileOutputStream send = new FileOutputStream("./MasterControl.poniiConfig.cfg");
 			send.write(tst);
 			send.close();
 		}
 		if (sl[0].equalsIgnoreCase("info")) {
 			if (sl.length < 2 || sl.length > 2) {
-				poni.printCl();
-				poni.println(
-						"Syntax is info <Entity>\nGives Info on the TYPE of ponii.\nIf the Entity name contains a space it wont work.");
+				MasterControl.poni.printCl();
+				MasterControl.poni.println(
+						"Syntax is info <Entity>\nGives Info on the TYPE of MasterControl.ponii.\nIf the Entity name contains a space it wont work.");
 			} else {
-				poni.printCl();
+				MasterControl.poni.printCl();
 				Boolean doop = false, origin = false;
 				int loc = -1;
 				for (int i = 0; i < OC.length; i++) {
@@ -290,9 +287,9 @@ public class EntityLoader {
 				}
 				if (doop) {
 					if (!origin) {
-						poni.println(OC[loc].getInfo());
+						MasterControl.poni.println(OC[loc].getInfo());
 					} else {
-						poni.println(OC[loc].getInfo());
+						MasterControl.poni.println(OC[loc].getInfo());
 					}
 				} else {
 					System.err.println("Entity not found : " + sl[1]);
@@ -300,45 +297,45 @@ public class EntityLoader {
 			}
 		}
 		if (sl[0].equalsIgnoreCase("charset")) {
-			poni.printCl();
-			poni.println(name);
+			MasterControl.poni.printCl();
+			MasterControl.poni.println(name);
 		}
 		if (sl[0].equalsIgnoreCase("switchcharset")) {
 			if (sl.length > 1) {
 				System.out.println(sl[1]);
 				MasterControl.main(new String[] { sl[1] });
 			} else {
-				poni.printCl();
-				poni.println("Usage :\nswitchcharset <charset>");
+				MasterControl.poni.printCl();
+				MasterControl.poni.println("Usage :\nswitchcharset <charset>");
 			}
 		}
 		if (sl[0].equalsIgnoreCase("help")) {
-			poni.printCl();
+			MasterControl.poni.printCl();
 			for (int i = 0; i < commandsyntax.length; i++)
-				poni.println(commandsyntax[i] + " : " + commandexpl[i]);
+				MasterControl.poni.println(commandsyntax[i] + " : " + commandexpl[i]);
 		}
 	}
 
 	private void getOCInfo(Boolean b, int i) {
-		poni.printCl();
+		MasterControl.poni.printCl();
 
 		if (b)
-			poni.println(OC[i].toString());
+			MasterControl.poni.println(OC[i].toString());
 		if (!b)
-			poni.println(show[i].toString());
+			MasterControl.poni.println(show[i].toString());
 
 		if (b)
 			try {
-				poni.lblPoniiPic.setIcon(poni.getImageIcn("/images/" + OC[i].getImagePath()));
-				poni.lblCMPic.setIcon(poni.getImageIcn("/images/" + OC[i].getAltImagePath()));
+				MasterControl.poni.lblPoniiPic.setIcon(MasterControl.poni.getImageIcn("/images/" + OC[i].getImagePath()));
+				MasterControl.poni.lblCMPic.setIcon(MasterControl.poni.getImageIcn("/images/" + OC[i].getAltImagePath()));
 			} catch (IOException e) {
 				System.out.println("This Shouldn't Have Happened... But it did...");
 				e.printStackTrace();
 			}
 		if (!b)
 			try {
-				poni.lblPoniiPic.setIcon(poni.getImageIcn("/images/" + show[i].getImagePath()));
-				poni.lblCMPic.setIcon(poni.getImageIcn("/images/" + show[i].getAltImagePath()));
+				MasterControl.poni.lblPoniiPic.setIcon(MasterControl.poni.getImageIcn("/images/" + show[i].getImagePath()));
+				MasterControl.poni.lblCMPic.setIcon(MasterControl.poni.getImageIcn("/images/" + show[i].getAltImagePath()));
 			} catch (IOException e) {
 				System.out.println("This Shouldn't Have Happened... But it did...");
 				e.printStackTrace();
@@ -346,8 +343,8 @@ public class EntityLoader {
 	}
 
 	private String help() {
-		String XD = "Acceptable Ponii names : " + OC.length + "\n";
-		poni.printCl();
+		String XD = "Acceptable MasterControl.ponii names : " + OC.length + "\n";
+		MasterControl.poni.printCl();
 		for (int i = 0; i < OC.length; i++) {
 			XD = XD + "\n" + OC[i].getName() + " AKA " + OC[i].getAltName();
 		}
@@ -392,7 +389,7 @@ public class EntityLoader {
 			System.out.println("Extracting : " + "Configuration File");
 			File f = new File("./");
 			f.mkdir();
-			send = new FileOutputStream(f + "/" + "PoniiConfig.cfg");
+			send = new FileOutputStream(f + "/" + "MasterControl.poniiConfig.cfg");
 			String charToExtract = "PoniiConfig.cfg";
 			byte[] out = new byte[EntityLoader.class.getResourceAsStream("/images/" + charToExtract).available()];
 			EntityLoader.class.getResourceAsStream("/images/" + charToExtract).read(out);
@@ -400,56 +397,5 @@ public class EntityLoader {
 			System.out.println("Extracted : " + charToExtract + " to \"" + f.getAbsoluteFile() + "\"");
 			send.close();
 		}
-	}
-
-	public void punch() throws ConfigException {
-		poni.action.actionPerformed(null);
-		if (new Config("./PoniiConfig.cfg").getDouble("version") < 2.0) {
-			poni.printCl();
-			poni.println("Re-wrote internal code"
-					+ "\nEntity and base classes are now absract");
-		}
-	}
-
-	public void setupConfig(String charsetname) throws ConfigException, IOException {
-		FileDetect fd = new FileDetect("./PoniiConfig.cfg");
-
-		if (!fd.Detect())
-			extractConfig();
-		Config c = new Config("./PoniiConfig.cfg");
-
-		name = charsetname;
-
-		if (c.getBoolean("sep")) {
-			poni.frmPoniiPic.setVisible(false);
-			poni = new Window("Ponii Program 4.0", 1, 0, 0, 1);
-			poni.frmPoniiPic.setVisible(true);
-			poni.frmPoniiPicCont.setVisible(true);
-			int r = c.getInt("bgr"), g = c.getInt("bgg"), b = c.getInt("bgb");
-			poni.frmPoniiPicCont.getContentPane().setBackground(new Color(r, g, b));
-		}
-
-		int r = c.getInt("bgr"), g = c.getInt("bgg"), b = c.getInt("bgb");
-		poni.frmPoniiPic.getContentPane().setBackground(new Color(r, g, b));
-
-		r = c.getInt("inbr");
-		g = c.getInt("inbg");
-		b = c.getInt("inbb");
-		poni.lblTextArea.setBackground(new Color(r, g, b));
-
-		r = c.getInt("infr");
-		g = c.getInt("infg");
-		b = c.getInt("infb");
-		poni.lblTextArea.setForeground(new Color(r, g, b));
-
-		r = c.getInt("outfr");
-		g = c.getInt("outfg");
-		b = c.getInt("outfb");
-		poni.lblInfo.setForeground(new Color(r, g, b));
-
-		r = c.getInt("outbr");
-		g = c.getInt("outbg");
-		b = c.getInt("outbb");
-		poni.lblInfo.setBackground(new Color(r, g, b));
 	}
 }

@@ -3,12 +3,12 @@
 
 package DevTSK.Entity;
 
+import java.awt.Color;
 import java.awt.Image;
 import java.awt.SystemColor;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
-
 import javax.imageio.ImageIO;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
@@ -20,25 +20,27 @@ import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-
+import DAG.Config.Config;
+import DAG.Config.ConfigException;
 import DevTSK.Exception.UnexceptableContentException;
+import DevTSK.Util.FileDetect;
 
 public class Window {
 	public JFrame frmPoniiPic;
 	public JFrame frmPoniiPicCont;
 
-	public static final Action action = new SwingAction();
-	public static JLabel lblPoniiPic;
-	public static JLabel lblCMPic;
-	public static JTextField lblTextArea;
-	public static JTextArea lblInfo;
-	public static JScrollPane loltest;
-	public static JButton in;
-	public static String handler = "";
+	public final Action action = new SwingAction();
+	public JLabel lblPoniiPic;
+	public JLabel lblCMPic;
+	public JTextField lblTextArea;
+	public JTextArea lblInfo;
+	public JScrollPane loltest;
+	public JButton in;
+	public String handler = "";
 
-	private static EntityLoader el;
+	public EntityLoader el;
 
-	public Window(String n, int close, int x, int y, int CharRPWin, EntityLoader h) {
+	public Window(String n, int close, int x, int y, int CharRPWin, EntityLoader h) throws ConfigException, IOException {
 
 		el = h;
 
@@ -169,15 +171,17 @@ public class Window {
 			frmPoniiPicCont.getRootPane().setDefaultButton(in);
 			frmPoniiPicCont.getContentPane().add(in);
 		}
+		setupConfig();
+		punch();
 	}
 
-	private static ImageIcon getImIcn(String sr) throws Exception {
+	private ImageIcon getImIcn(String sr) throws Exception {
 		Image img = ImageIO.read(Window.class.getResource(sr));
 		ImageIcon icn = new ImageIcon(img);
 		return icn;
 	}
 
-	public static void drawPic(String s) throws Exception {
+	public void drawPic(String s) throws Exception {
 		lblPoniiPic.setIcon(getImIcn(s));
 	}
 
@@ -185,15 +189,15 @@ public class Window {
 		lblInfo.setText(lblInfo.getText() + s + "\n");
 	}
 
-	public static void println() {
+	public void println() {
 		lblInfo.setText(lblInfo.getText() + "\n");
 	}
 
-	public static void printCl() {
+	public void printCl() {
 		lblInfo.setText("");
 	}
 
-	private static class SwingAction extends AbstractAction {
+	private class SwingAction extends AbstractAction {
 		private static final long serialVersionUID = 3646194311743048047L;
 
 		public SwingAction() {
@@ -211,7 +215,7 @@ public class Window {
 
 	}
 
-	public static Icon getImageIcn(String imagePath) throws IOException {
+	public Icon getImageIcn(String imagePath) throws IOException {
 		Image img = ImageIO.read(Window.class.getResource(imagePath));
 		ImageIcon icn = new ImageIcon(img);
 		return icn;
@@ -220,5 +224,122 @@ public class Window {
 	public void vape() {
 		frmPoniiPic.dispose();
 		frmPoniiPicCont.dispose();
+	}
+
+	public void punch() throws ConfigException {
+		if (new Config("./PoniiConfig.cfg").getDouble("version") < 2.0) {
+			printCl();
+			println("FUUUUUUUUUUUUU"
+					+ "\nUUUUUUUUUUUUUUUUUUU");
+		}
+	}
+
+	public void setupConfig() throws ConfigException, IOException {
+		FileDetect fd = new FileDetect("./PoniiConfig.cfg");
+
+		if (!fd.Detect())
+			el.extractConfig();
+		Config c = new Config("./PoniiConfig.cfg");
+
+		if (c.getBoolean("sep")) {
+			frmPoniiPic.dispose();
+			Convert("Ponii Program 4.0", 1, 0, 0);
+			frmPoniiPic.setVisible(true);
+			frmPoniiPicCont.setVisible(true);
+			int r = c.getInt("bgr"), g = c.getInt("bgg"), b = c.getInt("bgb");
+			frmPoniiPicCont.getContentPane().setBackground(new Color(r, g, b));
+		}
+
+		int r = c.getInt("bgr"), g = c.getInt("bgg"), b = c.getInt("bgb");
+		frmPoniiPic.getContentPane().setBackground(new Color(r, g, b));
+
+		r = c.getInt("inbr");
+		g = c.getInt("inbg");
+		b = c.getInt("inbb");
+		lblTextArea.setBackground(new Color(r, g, b));
+
+		r = c.getInt("infr");
+		g = c.getInt("infg");
+		b = c.getInt("infb");
+		lblTextArea.setForeground(new Color(r, g, b));
+
+		r = c.getInt("outfr");
+		g = c.getInt("outfg");
+		b = c.getInt("outfb");
+		lblInfo.setForeground(new Color(r, g, b));
+
+		r = c.getInt("outbr");
+		g = c.getInt("outbg");
+		b = c.getInt("outbb");
+		lblInfo.setBackground(new Color(r, g, b));
+	}
+
+	private void Convert(String n, int close, int x, int y) {
+		frmPoniiPic = new JFrame();
+		frmPoniiPic.getContentPane().setBackground(SystemColor.window);
+		frmPoniiPic
+				.setIconImage(Toolkit.getDefaultToolkit().getImage(Window.class.getResource("/images/ikon.png")));
+		frmPoniiPic.setTitle(n + " Picture Window");
+		frmPoniiPic.setBackground(SystemColor.window);
+		frmPoniiPic.setResizable(false);
+		frmPoniiPic.setBounds(x, y, 700, 700);
+		if (close == 0) {
+			frmPoniiPic.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+		} else if (close == 1) {
+			frmPoniiPic.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		} else {
+			try {
+				throw new UnexceptableContentException("Invalad Close Opperation");
+			} catch (UnexceptableContentException e) {
+				e.printStackTrace();
+				frmPoniiPic.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+			}
+		}
+		frmPoniiPic.getContentPane().setLayout(null);
+
+		frmPoniiPicCont = new JFrame();
+		frmPoniiPicCont.getContentPane().setBackground(SystemColor.window);
+		frmPoniiPicCont
+				.setIconImage(Toolkit.getDefaultToolkit().getImage(Window.class.getResource("/images/ikon.png")));
+		frmPoniiPicCont.setTitle(n + " Control Window");
+		frmPoniiPicCont.setBackground(SystemColor.window);
+		frmPoniiPicCont.setResizable(false);
+		frmPoniiPicCont.setBounds(x + 700, y, 700, 500);
+		frmPoniiPicCont.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+		frmPoniiPicCont.getContentPane().setLayout(null);
+
+		lblPoniiPic = new JLabel();
+		lblPoniiPic.setBounds(0, 0, 700, 700);
+		frmPoniiPic.getContentPane().add(lblPoniiPic);
+
+		lblCMPic = new JLabel();
+		lblCMPic.setBounds(350, 0, 350, 350);
+		frmPoniiPic.getContentPane().add(lblCMPic);
+
+		lblTextArea = new JTextField();
+		lblTextArea.setToolTipText("Entity Name");
+		lblTextArea.setText("");
+		lblTextArea.setBounds(10, 10, 580, 20);
+		frmPoniiPicCont.getContentPane().add(lblTextArea);
+
+		lblInfo = new JTextArea();
+		lblInfo.setWrapStyleWord(true);
+		lblInfo.setToolTipText("Information box");
+		lblInfo.setLineWrap(true);
+		lblInfo.setText("");
+		lblInfo.setBounds(10, 40, 670, 420);
+		lblInfo.setEditable(false);
+		frmPoniiPicCont.getContentPane().add(lblInfo);
+
+		loltest = new JScrollPane(lblInfo);
+		loltest.setBounds(lblInfo.getBounds());
+		loltest.setAutoscrolls(true);
+		frmPoniiPicCont.getContentPane().add(loltest);
+
+		in = new JButton();
+		in.setBounds(600, 10, 80, 20);
+		in.setAction(action);
+		frmPoniiPicCont.getRootPane().setDefaultButton(in);
+		frmPoniiPicCont.getContentPane().add(in);
 	}
 }

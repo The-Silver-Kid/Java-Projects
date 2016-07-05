@@ -2,61 +2,67 @@ package DevTSK.Entity;
 
 public class Breeder {
 
-	private Entity m;
+	public final static int INTACT_COLOURS = 0;
 
-	private Entity f;
+	public final static int SAMERGB_COLOURS = 1;
 
-	private String[] mother, father;
+	public final static int RANDOM = 2;
 
-	private static Boolean checked = false;
+	private int mode = 0;
 
-	private static String md = "", fd = "";
-
-	public Breeder(Entity mt, Entity ft) {
-		//	md = mt.getDNA();
-		//	fd = ft.getDNA();
-		m = mt;
-		f = ft;
+	public Breeder(int mode) {
+		this.mode = mode;
 	}
 
-	public void check() {
-		if (md.length() != fd.length()) {
-			checked = false;
+	public String breed(Entity Mother, Entity Father) {
+		String m = "", f = "";
+
+		m = Mother.getDNA();
+		f = Father.getDNA();
+
+		if (m.equals(null) || f.equals(null)) {
+			return Mother.getName() + " and " + Father.getName() + " did not want to have kids. (Some pony is missing DNA)";
+		} else if (m.equals("") || f.equals("")) {
+			return Mother.getName() + " and " + Father.getName() + " did not want to have kids. (Some pony has void DNA)";
 		} else {
-			checked = true;
+			switch (mode) {
+			case 0:
+				return breedCol(m, f);
+			case 1:
+				return breedIntact(m, f);
+			case 2:
+				return breedrand(m, f);
+			}
+			return null;
 		}
+	}
+
+	public void switchMode(int mode) {
+		this.mode = mode;
 	}
 
 	@Deprecated
-	public String breedrand() {
+	private String breedrand(String mother, String father) {
 		String res = "";
 		String process = "00";
-		if (!checked)
-			res = "Cannot Breed something went wrong.";
-		if (checked) {
-			char[] df = fd.toCharArray();
-			char[] dm = md.toCharArray();
-			char[] k = new char[dm.length];
-			for (int i = 2; i < fd.length(); i++) {
-				int e = (int) (Math.random() * 2 + 1);
-				if (e == 1)
-					k[i] = dm[i];
-				if (e == 2)
-					k[i] = df[i];
-				process = process + k[i];
-				res = process;
-			}
+		char[] m = mother.toCharArray();
+		char[] f = father.toCharArray();
+
+		for (int i = 2; i < m.length; i++) {
+			int e = (int) (Math.random() * 2 + 1);
+			if (e == 1)
+				process += f[i];
+			if (e == 2)
+				process += m[i];
 		}
+		res = process;
 		return res;
 	}
 
-	public String breed() {
+	@Deprecated
+	private String breedIntact(String Mother, String Father) {
 		String res = "00";
-		mother = init(md);
-		father = init(fd);
-		if (mother[1].equalsIgnoreCase("ERROR!") || father[1].equalsIgnoreCase("ERROR!")) {
-			res = "Something went wrong...\n" + f.getName() + " and " + m.getName() + " did not want to breed.";
-		}
+		String[] mother = init(Mother), father = init(Father);
 
 		for (int i = 0; i < mother.length; i++) {
 			int e = (int) (Math.random() * 2 + 1);
@@ -68,14 +74,9 @@ public class Breeder {
 		return res;
 	}
 
-	@Deprecated
-	public String breedCol() {
+	private String breedCol(String Mother, String Father) {
 		String res = "00";
-		mother = initCol(md);
-		father = initCol(fd);
-		if (mother[1].equalsIgnoreCase("ERROR!") || father[1].equalsIgnoreCase("ERROR!")) {
-			res = "Something went wrong...\n" + f.getName() + " and " + m.getName() + " did not want to breed.";
-		}
+		String[] mother = initCol(Mother), father = initCol(Father);
 
 		for (int i = 0; i < mother.length; i++) {
 			int e = (int) (Math.random() * 2 + 1);
@@ -158,7 +159,7 @@ public class Breeder {
 	}
 
 	private String[] initCol(String s) {
-		String[] done = new String[47];
+		String[] done = new String[33];
 		if (s.length() < 78 || s.length() > 78) {
 			done[1] = "ERROR!";
 		} else {

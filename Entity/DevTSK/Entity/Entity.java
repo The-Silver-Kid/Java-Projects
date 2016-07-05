@@ -32,4 +32,8 @@ public abstract class Entity {
 	public abstract String getImagePath();
 
 	public abstract String getAltImagePath();
+
+	public String getDNA() {
+		return dna.getDNA();
+	}
 }

@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import DevTSK.Util.StringWriter;
 
 public class EntityLoader {
 	// private static final File f = new File("./config/MasterControl.poniiconfig.ini");
@@ -15,7 +16,7 @@ public class EntityLoader {
 	private static final String[] commandsyntax = new String[] { "Color <R> <G> <B>", "InputColor <R> <G> <B>",
 			"OutputColor <R> <G> <B>", "OutputTextColor <R> <G> <B>", "InputTextColor <R> <G> <B>", "Exit",
 			"extract [Entity name]", "breed <Mother> <Father> (broken)", "last / l / lastcmd", "cfg / config",
-			"listNonOC", "listall", "info <entity name>", "charset", "switchcharset <Charset String Identifyer>" };
+			"listNonOC", "listall", "info <entity name>", "charset", "switchcharset <Charset String Identifyer>", "dump" };
 
 	private static final String[] commandexpl = new String[] { "Changes Background Color", "Changes input box color",
 			"Changes outputbox color", "Changes outputbox text color", "Changes input box text color", "Exit the program (duh)",
@@ -23,12 +24,14 @@ public class EntityLoader {
 			"reinputs last given command into the input box for editing or re-exicution",
 			"saves color scheme to config file : Poniconfig.cfg", "lists all defined OC entitys", "lists all defined entitys",
 			"gives general on the given entity type", "prints to console the current entity list String Identifyer",
-			"switches the entity list" };
+			"switches the entity list", "Dumps a list of all ponii-position numbers into EntityList.txt" };
 
 	private static final String[] commands = new String[] { "Colour", "Color", "InputColour", "InputColor",
 			"OutputColour", "OutputColor", "Exit", "OutputTextColor", "InputTextColor", "OutputTextColour",
 			"InputTextColour", "errorcheck", "extract", "breed", "last", "l", "lastcmd", "cfg", "config",
-			"listNonOC", "listall", "info", "charset", "switchcharset", "help" };
+			"listNonOC", "listall", "info", "charset", "switchcharset", "help", "dump" };
+
+	private static final String[] modes = new String[] { "0", "1", "2" };
 
 	Entity[] OC;
 	Entity[] show;
@@ -36,9 +39,6 @@ public class EntityLoader {
 	public EntityLoader(Entity[] o, Entity[] c) {
 		OC = o;
 		show = c;
-		//MasterControl.poni.lblInfo.setText("If you see this press the button before doing anything.");
-		//MasterControl.poni.lblTextArea.setText("errorcheck");
-		//MasterControl.poni.frmMasterControl.poniiPic.setVisible(true);
 	}
 
 	public void handle(String s) throws Exception {
@@ -151,71 +151,89 @@ public class EntityLoader {
 			}
 		}
 		if (sl[0].equalsIgnoreCase("breed")) {
-			Breeder b = new Breeder(null, null);
-			if (sl.length < 3) {
-				MasterControl.poni.lblInfo.setText("Syntax is breed <Father>, <Mother>, [times]");
+			String say = "Syntax is breed <mode> <Father> <Mother> [times]";
+			Breeder b = new Breeder(Breeder.INTACT_COLOURS);
+			Boolean isValidMode = true;
+			for (int i = 0; i < modes.length; i++) {
+				if (sl[1].equalsIgnoreCase(modes[i]))
+					isValidMode = true;
+			}
+			if (sl.length < 4 || sl.length > 5) {
+			} else if (!isValidMode) {
+				say = "Invalad mode : " + sl[1] + "\n\nValid Modes are:\n"
+						+ "0 = Colour chosen will be from one of the parents.\n"
+						+ "1 = Colour chosen will be a mix of the RGB values of the parents.\n"
+						+ "2 = Colour will be chosen by choping the parents colours and mixing the values.";
 			} else {
 				Boolean OCo = true, OCt = true;
 				int f = -1, m = -1;
 				for (int i = 0; i < OC.length; i++) {
-					if (sl[1].equalsIgnoreCase(OC[i].getName())) {
+					if (sl[2].equalsIgnoreCase(OC[i].getName())) {
 						f = i;
 					}
-					if (sl[1].equalsIgnoreCase(OC[i].getAltName())) {
+					if (sl[2].equalsIgnoreCase(OC[i].getAltName())) {
 						f = i;
 					}
 				}
 				for (int i = 0; i < show.length; i++) {
-					if (sl[1].equalsIgnoreCase(show[i].getName())) {
+					if (sl[2].equalsIgnoreCase(show[i].getName())) {
 						f = i;
 						OCo = false;
 					}
-					if (sl[1].equalsIgnoreCase(show[i].getAltName())) {
+					if (sl[2].equalsIgnoreCase(show[i].getAltName())) {
 						f = i;
 						OCo = false;
 					}
 				}
 				for (int i = 0; i < OC.length; i++) {
-					if (sl[2].equalsIgnoreCase(OC[i].getName())) {
+					if (sl[3].equalsIgnoreCase(OC[i].getName())) {
 						m = i;
 					}
-					if (sl[2].equalsIgnoreCase(OC[i].getAltName())) {
+					if (sl[3].equalsIgnoreCase(OC[i].getAltName())) {
 						m = i;
 					}
 				}
 				for (int i = 0; i < show.length; i++) {
-					if (sl[2].equalsIgnoreCase(show[i].getName())) {
+					if (sl[3].equalsIgnoreCase(show[i].getName())) {
 						m = i;
 						OCt = false;
 					}
-					if (sl[2].equalsIgnoreCase(show[i].getAltName())) {
+					if (sl[3].equalsIgnoreCase(show[i].getAltName())) {
 						m = i;
 						OCt = false;
 					}
 				}
+				if (sl[1].equals("0"))
+					b = new Breeder(Breeder.INTACT_COLOURS);
+				if (sl[1].equals("1"))
+					b = new Breeder(Breeder.SAMERGB_COLOURS);
+				if (sl[1].equals("2"))
+					b = new Breeder(Breeder.RANDOM);
 				if (OCo && OCt)
-					b = new Breeder(OC[f], OC[m]);
+					say = b.breed(OC[f], OC[m]);
 				if (OCo && !OCt)
-					b = new Breeder(OC[f], show[m]);
+					say = b.breed(OC[f], show[m]);
 				if (!OCo && OCt)
-					b = new Breeder(show[f], OC[m]);
+					say = b.breed(show[f], OC[m]);
 				if (!OCo && !OCt)
-					b = new Breeder(show[f], show[m]);
-				if (sl.length == 4) {
-					MasterControl.poni.printCl();
-					b.check();
-					for (int i = 0; i < Integer.parseInt(sl[3]); i++) {
+					say = b.breed(show[f], show[m]);
+				if (sl.length == 5) {
+					say = "";
+					for (int i = 1; i < Integer.parseInt(sl[4]); i++) {
 						if (sl[0].equalsIgnoreCase("breed")) {
-							MasterControl.poni.lblInfo.setText(MasterControl.poni.lblInfo.getText() + "\n" + b.breed());
+							if (OCo && OCt)
+								say += "\n" + b.breed(OC[f], OC[m]);
+							if (OCo && !OCt)
+								say += "\n" + b.breed(OC[f], show[m]);
+							if (!OCo && OCt)
+								say += "\n" + b.breed(show[f], OC[m]);
+							if (!OCo && !OCt)
+								say += "\n" + b.breed(show[f], show[m]);
 						}
-					}
-				} else {
-					b.check();
-					if (sl[0].equalsIgnoreCase("breed")) {
-						MasterControl.poni.lblInfo.setText(b.breed());
 					}
 				}
 			}
+			MasterControl.poni.lblInfo.setText(say);
 		}
 		if (sl[0].equalsIgnoreCase("listNonOC") || sl[0].equalsIgnoreCase("listall")) {
 			MasterControl.poni.printCl();
@@ -259,7 +277,7 @@ public class EntityLoader {
 			// + "frame = " + framew + ";";
 			tst = strnj.getBytes();
 
-			FileOutputStream send = new FileOutputStream("./MasterControl.poniiConfig.cfg");
+			FileOutputStream send = new FileOutputStream("./PoniiConfig.cfg");
 			send.write(tst);
 			send.close();
 		}
@@ -313,6 +331,21 @@ public class EntityLoader {
 			MasterControl.poni.printCl();
 			for (int i = 0; i < commandsyntax.length; i++)
 				MasterControl.poni.println(commandsyntax[i] + " : " + commandexpl[i]);
+		}
+		if (sl[0].equalsIgnoreCase("dump")) {
+			String og = "Successfully Dumpped Entity names and ID numbers to EntityList.txt";
+			String out = "";
+			for (int i = 0; i < OC.length; i++) {
+				out += i + " : " + OC[i].getName() + "\n";
+			}
+			StringWriter sw = new StringWriter();
+			try {
+				sw.Write(out, "EntityList.txt", true);
+			} catch (Exception e) {
+				og = "Something went wrong while trying to save the file.";
+			}
+			MasterControl.poni.printCl();
+			MasterControl.poni.println(og);
 		}
 	}
 

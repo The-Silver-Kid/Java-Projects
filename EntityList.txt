@@ -1,0 +1,24 @@
+0 : Shadow Radon
+1 : Tree Lighting Radon
+2 : Shadow Jack Radon
+3 : Galecia Frostia
+4 : Powder Frostia
+5 : Blitz Radon
+6 : Steven Shuttleknight
+7 : Lavé
+8 : Blaze Oxydation
+9 : C418
+10 : C523
+11 : Charrie (Firefly) Sychace Radon
+12 : Maven RedHeart
+13 : Belle Carbone
+14 : Shadow Radon (Earth 2)
+15 : Cosmos Darkstar
+16 : Miiryanth
+17 : Gorlanth
+18 : Boewing Stratoliner
+19 : Hrodmar Thorhalson
+20 : Banshee Nighthawk
+21 : Agent V42666J
+22 : Snowfall Glacier
+23 : D105

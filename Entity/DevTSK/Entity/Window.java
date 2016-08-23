@@ -67,6 +67,7 @@ public class Window {
 				}
 			}
 			frmPoniiPic.getContentPane().setLayout(null);
+			frmPoniiPic.setVisible(true);
 
 			lblPoniiPic = new JLabel();
 			lblPoniiPic.setBounds(0, 0, 700, 700);
@@ -125,6 +126,7 @@ public class Window {
 				}
 			}
 			frmPoniiPic.getContentPane().setLayout(null);
+			frmPoniiPic.setVisible(true);
 
 			frmPoniiPicCont = new JFrame();
 			frmPoniiPicCont.getContentPane().setBackground(SystemColor.window);
@@ -136,6 +138,7 @@ public class Window {
 			frmPoniiPicCont.setBounds(x + 700, y, 700, 500);
 			frmPoniiPicCont.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 			frmPoniiPicCont.getContentPane().setLayout(null);
+			frmPoniiPicCont.setVisible(true);
 
 			lblPoniiPic = new JLabel();
 			lblPoniiPic.setBounds(0, 0, 700, 700);

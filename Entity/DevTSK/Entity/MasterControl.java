@@ -1,6 +1,7 @@
 package DevTSK.Entity;
 
 import java.io.IOException;
+import javax.swing.JOptionPane;
 import DAG.Config.ConfigException;
 import DevTSK.Util.Day;
 
@@ -10,13 +11,14 @@ public class MasterControl {
 	public static String charsetname = "null";
 	public static Window poni;
 
-	public static void main(String[] args) throws ConfigException, IOException {
+	public static void main(String[] args) throws IOException, ConfigException {
 		if (args.length != 0)
 			for (int i = 0; i < args.length; i++)
 				System.out.println(args[i]);
 		//Unmarried : Name, AltName, Flag, Gender, Description, ManeColour, TailColour, Mother, Father, Integer age, Integer day, Integer month, Integer year, ImageName, CutiimarkImage
 		if (h != null) {
 			poni.vape();
+			h = null;
 		}
 		if (args.length < 1 || args[0].equalsIgnoreCase("actual") || args[0].equalsIgnoreCase("Default")) {
 			charsetname = "RP";
@@ -29,6 +31,7 @@ public class MasterControl {
 					//Any time you are done adding poniis always execute the dump command inside program
 					//to update the ponii to position list for the DNA codes and change any as needed.
 					//They are saved in EntityList.txt
+					//Make the proper adjustments to the DNA codes as needed
 
 					new MarriedPoniiWithOtherKids("Shadow Radon", "Radon", "", false, true, "\nUnicorn\nYellow Thunderbolt accross underside\nYellow Thunderbolts arround hooves\nLight Industries Admin", "\nBlack Thundercloud with a yellow thunderbolt coming from it", "Yellow and Black", "Yellow and Black", "Charrie", "Slanger", new Day(20, 7, 1993), "Radon.png", "kloud.png", new String[] { "Apple Jack", "Galecia Frostia" }, 3, new String[] { "Tree Lighting", "Shadow Jack", "Powder" }, new String[] { "Apple Jack", "Apple Jack", "Galecia Frostia" }),
 					new UnMarriedPonii("Tree Lighting Radon", "Tree", "", true, true, "\nEarth\nCutest little filly ever sparkling with the same spark that her dad has\nShe likes Blaze.", "\nDosent have it yet...\nApple tree with lightning bolt behind it", "Lttle more yellow then AJ's", "Slightly darker orange then AJ", "Apple Jack", "Shadow Radon", new Day(11, 9, 2011), "lightning.png", "null.png"),
@@ -67,7 +70,9 @@ public class MasterControl {
 
 			}, new Entity[] {
 					new MarriedPonii("Apple Jack Radon", "AJ", "", true, false, "\nEarth\nIts Apple Jack... y'all know her", "\nThree red apples", "Pale Yellow", "Pale Yellow", "?", "?", new Day(3, 4, 1993), "AJ.png", "AJMark.png", "Shadow Radon", 2, new String[] { "Tree Lighting", "Shadow Jack" }),
+
 					new UnMarriedPonii("Nurse RedHeart", "RedHeart", "", true, false, "\nEarth\nShe's a nurse.", "\nRed cross with hearts", "Light pink", "Light pink", "?", "?", new Day(9, 8, 1982), "null.png", "null.png"),
+
 					new UnMarriedPonii("Princess Cadence", "Cadence", "\u2764", true, false, "\nAlicorn\nPretty pink pone princess", "\nCrystal Heart", "Pink as can be", "Yellow, purple, and pink", "Queen Galaxia", "Unknown", new Day(16, 6, -9474), "null.png", "null.png"),
 			});
 			//Radon
@@ -123,6 +128,7 @@ public class MasterControl {
 
 						new MarriedPonii("Tree Lighting Radon", "Tree", "", true, false, "\nEarth\nCutest little filly ever sparkling with the same spark that her dad has.", "\nApple tree with lightning bolt behind it", "Lttle more yellow then AJ's", "Slightly darker orange then AJ", "Apple Jack", "Shadow Radon", new Day(11, 9, 2011), "lightning.png", "null.png", "Blaze Oxydation", 1, new String[] { "Flame Oxydation" }),
 						new UnMarriedPonii("Shadow Jack Radon", "Jack", "", false, true, "\nUnicorn\nSecond Ponii on the AJ-Radon Line.\nJerk\nMostly spends time with Rhyne", "\nA cloud with snowflakes", "Pale White and yellow", "Pale White and yellow", "Apple Jack", "Shadow Radon", new Day(25, 12, 2012), "jack.png", "null.png"),
+						new UnMarriedPonii("Rhyne Radon", "Rhyne", "", true, true, "\nUnicorn\nThird Ponii on the AJ-Radon Line.\nKeeps Jack in line (usually)\nMostly spends time with Jack", "\nA cloud with raindrops", "WIP", "WIP", "Apple Jack", "Shadow Radon", new Day(5, 6, 2013), "null.png", "null.png"),
 
 						new MarriedPonii("Galecia Frostia", "Galecia", "", true, false, "\nUnicorn\nWas Radon's Marefriend for a while.... er, well still his marefreind.\nLikes the cold", "\nIcicle", "Light blue", "Light blue", "Krystla", "Starliner", new Day(20, 7, 1993), "Galecia.png", "null.png", "Shadow Radon", 1, new String[] { "Powder" }),
 						new UnMarriedPonii("Powder Frostia", "Powder", "", true, false, "\nEarth\nA Pony that looks and acts exactly like Powder from the Radon-AJ group except she is blue.", "\nCloud with snowflakes", "Light blue", "Light blue", "Galecia", "Shadow Radon", new Day(25, 12, 2013), "PowderBlue.png", "null.png"),
@@ -167,6 +173,29 @@ public class MasterControl {
 						new UnMarriedPoniiWithKids("Nurse RedHeart", "RedHeart", "", true, false, "\nEarth\nShe's a nurse.", "\nRed cross with hearts", "Light pink", "Light pink", "?", "?", new Day(9, 8, 1982), "null.png", "null.png", 1, new String[] { "Maven" }, new String[] { "Unknown" }),
 				});
 			}
+			if (args[0].equalsIgnoreCase("Equestria3")) {
+				charsetname = "Equestria3";
+				h = new EntityLoader(new Entity[] {
+						new UnMarriedPoniiWithKids("Shadow Radium", "Radium", "", false, false, "\nUnicorn\nWIP", "", "Yellow and Black", "Yellow and Black", "Carrie", "Captain Slayder", new Day(20, 7, 1993), "Radon.png", "null.png", 4, new String[] { "Lightning Bolt", "Shadow Jack", "Ray", "Scorcher" }, new String[] { "Apple Jack", "Apple Jack", "Apple Jack", "Volcani" }),
+
+						new UnMarriedPonii("Lighting Bolt Radium", "Lightning", "", true, false, "\nEarth\nWIP", "\nWIP", "Lttle more yellow then AJ's", "Slightly darker orange then AJ", "Apple Jack", "Shadow Radium", new Day(11, 9, 2011), "lightning.png", "null.png"),
+						new UnMarriedPonii("Shadow Jack Radium", "Jack", "", false, false, "\nUnicorn\nSecond Ponii on the AJ-Radium Line.\nWIP", "\nWIP", "Pale White and yellow", "Pale White and yellow", "Apple Jack", "Shadow Radon", new Day(25, 12, 2012), "jack.png", "null.png"),
+						new UnMarriedPonii("Ray Radium", "Ray", "", true, false, "\nUnicorn\nThird Ponii on the AJ-Radium Line.\nWIP", "\nWIP", "WIP", "WIP", "Apple Jack", "Shadow Radium", new Day(25, 12, 2012), "null.png", "null.png"),
+
+						new UnMarriedPonii("Powder Frostia", "Powder", "", true, false, "\nEarth\nA Pony that looks and acts exactly like Powder from the Radon-AJ group except she is blue.", "\nCloud with snowflakes", "Light blue", "Light blue", "Galecia", "Shadow Radon", new Day(25, 12, 2013), "PowderBlue.png", "null.png"),
+
+						new UnMarriedQuilava("Valcani", "Valcani", true, false, "\nWIP", "Reggii", "Radon", new Day(24, 8, 1991), "null.png", "null.png"),
+
+						new MarriedPlane("Jet Radium", "Jet", "", true, false, "\nStandard\nWas mechanically modifyed by her brother, Shadow Radium, to be a plane and posess certain powers", "\n\u2708", "Copper Colour", "Copper Colour", "Carrie", "Captain Slayder", new Day(12, 12, 1997), "blitz.png", "null.png", "lieutenant ShuttleKnight", 0, new String[] {}),
+						new MarriedPonii("Lieutenant Shuttleknight", "Steven", "", false, false, "\nPegasus\nLieutenant for the Royal Gaurd", "\nWIP", "", "", "Speedometere", "Altaspecter", new Day(28, 2, 1998), "steven.png", "null.png", "Jet Radium", 0, new String[] {}),
+				}, new Entity[] {
+
+				});
+			}
+		}
+		if (h == null) {
+			JOptionPane.showMessageDialog(null, "OH NOES!\nThe charset '" + args[0] + "' has not been setup yet!\n\nSystem will now exit.");
+			System.exit(1);
 		}
 		poni = new Window("Ponii Program 4.0", 1, 0, 0, 0, h);
 		/*h.punch();

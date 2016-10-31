@@ -286,7 +286,7 @@ public class EntityLoader {
 						if (OC[i].getDNA() != null)
 							MasterControl.poni.println(OC[i].getName() + " AKA " + OC[i].getAltName());
 					} catch (Exception e) {
-						System.out.println("No DNA found for " + show[i].getName());
+						System.out.println("No DNA found for " + OC[i].getName());
 					}
 				}
 
@@ -295,7 +295,7 @@ public class EntityLoader {
 						if (show[i].getDNA() != null)
 							MasterControl.poni.println(show[i].getName() + " AKA " + show[i].getAltName());
 					} catch (Exception e) {
-						System.out.println("No DNA found for " + OC[i].getName());
+						System.out.println("No DNA found for " + show[i].getName());
 					}
 				}
 

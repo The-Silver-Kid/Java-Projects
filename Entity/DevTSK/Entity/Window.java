@@ -25,6 +25,12 @@ import DAG.Config.ConfigException;
 import DevTSK.Exception.UnexceptableContentException;
 import DevTSK.Util.FileDetect;
 
+/**
+ * Draws the window and receives text to put in the output boxes
+ * 
+ * @author The_Silver_Kid
+ *
+ */
 public class Window {
 	public JFrame frmPoniiPic;
 	public JFrame frmPoniiPicCont;
@@ -40,6 +46,24 @@ public class Window {
 
 	public EntityLoader el;
 
+	/**
+	 * Sets up the windows based on various input variables and configuration.
+	 * 
+	 * @param String
+	 *            Title
+	 * @param int
+	 *            close operation
+	 * @param int
+	 *            x cord of the window
+	 * @param int
+	 *            y cord of the window
+	 * @param int
+	 *            if the interaction window should be separate or not (0 or 1)
+	 * @param EntityLoader
+	 *            the constructed Entity Loader from the main class.
+	 * @throws ConfigException
+	 * @throws IOException
+	 */
 	public Window(String n, int close, int x, int y, int CharRPWin, EntityLoader h) throws ConfigException, IOException {
 
 		el = h;
@@ -178,36 +202,75 @@ public class Window {
 		punch();
 	}
 
-	private ImageIcon getImIcn(String sr) throws Exception {
+	/**
+	 * Converts a normal image from classpath to a ImageIcon for display
+	 * 
+	 * @param String
+	 *            image name
+	 * @return Returns The Converted ImageIcon
+	 * @throws IOException
+	 */
+	private ImageIcon getImIcn(String sr) throws IOException {
 		Image img = ImageIO.read(Window.class.getResource(sr));
 		ImageIcon icn = new ImageIcon(img);
 		return icn;
 	}
 
-	public void drawPic(String s) throws Exception {
+	/**
+	 * draws the picture to the picture label
+	 * 
+	 * @param String
+	 *            image name
+	 * @throws IOException
+	 */
+	public void drawPic(String s) throws IOException {
 		lblPoniiPic.setIcon(getImIcn(s));
 	}
 
+	/**
+	 * prints the input string to the output box
+	 * 
+	 * @param String
+	 *            input string
+	 */
 	public void println(String s) {
 		lblInfo.setText(lblInfo.getText() + s + "\n");
 	}
 
+	/**
+	 * prints a blank line to the output box
+	 */
 	public void println() {
 		lblInfo.setText(lblInfo.getText() + "\n");
 	}
 
+	/**
+	 * clears the output box
+	 */
 	public void printCl() {
 		lblInfo.setText("");
 	}
 
+	/**
+	 * Class that handles when you click the button or press enter.
+	 * 
+	 * @author The_Silver_Kid
+	 *
+	 */
 	private class SwingAction extends AbstractAction {
 		private static final long serialVersionUID = 3646194311743048047L;
 
+		/**
+		 * makes the button look beautiful.
+		 */
 		public SwingAction() {
 			putValue(NAME, "Run");
 			putValue(SHORT_DESCRIPTION, "Pushes string to internal system.");
 		}
 
+		/**
+		 * Sends the input box text to the Entity Loader for processing.
+		 */
 		public void actionPerformed(ActionEvent arg0) {
 			try {
 				el.handle(lblTextArea.getText());
@@ -218,25 +281,49 @@ public class Window {
 
 	}
 
+	/**
+	 * Converts an internal image to an icon.
+	 * 
+	 * @param String
+	 *            image name
+	 * @return Icon format of the image.
+	 * @throws IOException
+	 */
 	public Icon getImageIcn(String imagePath) throws IOException {
 		Image img = ImageIO.read(Window.class.getResource(imagePath));
 		ImageIcon icn = new ImageIcon(img);
 		return icn;
 	}
 
-	public void vape() {
+	/**
+	 * DESTROY ALL THE WINDOW AND EVERYTHING RELATED TO IT
+	 * *EVIL LAUGHING HERE*
+	 */
+	public void destroyWindows() {
 		frmPoniiPic.dispose();
 		frmPoniiPicCont.dispose();
 	}
 
+	/**
+	 * Gets the System working... Unknown why need but it is...
+	 * 
+	 * @throws ConfigException
+	 */
 	public void punch() throws ConfigException {
 		if (new Config("./PoniiConfig.cfg").getDouble("version") < 2.0) {
 			printCl();
-			println("FUUUUUUUUUUUUU"
-					+ "\nUUUUUUUUUUUUUUUUUUU");
+			println("If you are seeing this something went wrong"
+					+ "\nIt is probably my fault... open a bug on github.");
 		}
 	}
 
+	/**
+	 * Sets up various things by loading them from the external configuration
+	 * file.
+	 * 
+	 * @throws ConfigException
+	 * @throws IOException
+	 */
 	public void setupConfig() throws ConfigException, IOException {
 		FileDetect fd = new FileDetect("./PoniiConfig.cfg");
 
@@ -277,6 +364,18 @@ public class Window {
 		lblInfo.setBackground(new Color(r, g, b));
 	}
 
+	/**
+	 * Converts the window type
+	 * 
+	 * @param String
+	 *            name
+	 * @param int
+	 *            default close operation
+	 * @param int
+	 *            x pos
+	 * @param int
+	 *            y pos
+	 */
 	private void Convert(String n, int close, int x, int y) {
 		frmPoniiPic = new JFrame();
 		frmPoniiPic.getContentPane().setBackground(SystemColor.window);

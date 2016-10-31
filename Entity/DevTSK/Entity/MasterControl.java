@@ -30,7 +30,7 @@ public class MasterControl {
 				System.out.println(args[i]);
 		//Unmarried : Name, AltName, Flag, Gender, Description, ManeColour, TailColour, Mother, Father, Integer age, Integer day, Integer month, Integer year, ImageName, CutiimarkImage
 		if (h != null) {
-			poni.vape();
+			poni.destroyWindows();
 			h = null;
 		}
 		if (args.length < 1 || args[0].equalsIgnoreCase("actual") || args[0].equalsIgnoreCase("Default")) {

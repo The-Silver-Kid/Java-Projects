@@ -5,12 +5,25 @@ import javax.swing.JOptionPane;
 import DAG.Config.ConfigException;
 import DevTSK.Util.Day;
 
+/**
+ * @author The_Silver_Kid
+ * 
+ *         Sets up the program
+ */
 public class MasterControl {
 
 	private static EntityLoader h;
 	public static String charsetname = "null";
 	public static Window poni;
 
+	/**
+	 * Main Function
+	 * 
+	 * @param String[]
+	 *            Constructor arguments
+	 * @throws IOException
+	 * @throws ConfigException
+	 */
 	public static void main(String[] args) throws IOException, ConfigException {
 		if (args.length != 0)
 			for (int i = 0; i < args.length; i++)

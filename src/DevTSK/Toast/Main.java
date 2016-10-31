@@ -2,11 +2,14 @@ package DevTSK.Toast;
 
 import java.io.File;
 import java.io.IOException;
+
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+
 import DevTSK.Util.FileFilters;
 
+@SuppressWarnings("unused")
 public class Main {
 
 	static File f;
@@ -24,7 +27,8 @@ public class Main {
 
 		JFileChooser jfc = new JFileChooser();
 
-		int i = JOptionPane.showConfirmDialog(nulframe, "Start new game?", "Text Toast Game", JOptionPane.YES_NO_OPTION);
+		int i = JOptionPane.showConfirmDialog(nulframe, "Start new game?", "Text Toast Game",
+				JOptionPane.YES_NO_OPTION);
 
 		if (i == JOptionPane.YES_OPTION) {
 			jfc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);

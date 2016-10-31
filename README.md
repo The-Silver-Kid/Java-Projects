@@ -17,4 +17,4 @@ I Am The-Silver-Kid.
 
 Any version of Eclipse should work.
 
-In the event that it doesn't use Eclipse Luna, Kepler, or Mars.
+In the event that it doesn't use Eclipse Luna or newer.

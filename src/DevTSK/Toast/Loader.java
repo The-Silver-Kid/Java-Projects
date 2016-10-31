@@ -1,8 +1,10 @@
 package DevTSK.Toast;
 
 import java.io.File;
+
 import DevTSK.Util.unJSON;
 
+@SuppressWarnings("unused")
 public class Loader {
 
 	private File f;

@@ -1,5 +1,6 @@
 package DevTSK.Toast;
 
+@SuppressWarnings("unused")
 public class SaveFile {
 
 	private Boolean[] flags;

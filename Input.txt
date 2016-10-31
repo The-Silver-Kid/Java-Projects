@@ -1,9 +1,0 @@
-1. puts element in position in dataset
-2. Its the Big O. represents visits
-3. sorts arrays into smaller ones then puts them together
-4. serches the element for the smallest and puts it at the frount and does that till done O(n)
-5. splits into halfs and sorts those then combines them O(log(n))
-27. works with integer arrays and not rectangls
-28. sort the accounts by ammount stored
-29. tells you where to insert it
-30. tells space before so that implies the next spot

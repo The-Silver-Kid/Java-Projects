@@ -21,9 +21,11 @@ public class Breeder {
 		f = Father.getDNA();
 
 		if (m.equals(null) || f.equals(null)) {
-			return Mother.getName() + " and " + Father.getName() + " did not want to have kids. (Some pony is missing DNA)";
+			return Mother.getName() + " and " + Father.getName()
+					+ " did not want to have kids. (Some pony is missing DNA)";
 		} else if (m.equals("") || f.equals("")) {
-			return Mother.getName() + " and " + Father.getName() + " did not want to have kids. (Some pony has void DNA)";
+			return Mother.getName() + " and " + Father.getName()
+					+ " did not want to have kids. (Some pony has void DNA)";
 		} else {
 			switch (mode) {
 			case 0:
@@ -41,7 +43,6 @@ public class Breeder {
 		this.mode = mode;
 	}
 
-	@Deprecated
 	private String breedrand(String mother, String father) {
 		String res = "";
 		String process = "00";
@@ -59,7 +60,6 @@ public class Breeder {
 		return res;
 	}
 
-	@Deprecated
 	private String breedIntact(String Mother, String Father) {
 		String res = "00";
 		String[] mother = init(Mother), father = init(Father);

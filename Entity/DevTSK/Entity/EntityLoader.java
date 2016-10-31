@@ -4,10 +4,19 @@ import java.awt.Color;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import DAG.Config.ConfigException;
 import DevTSK.Util.StringWriter;
 
+/**
+ * @author The_Silver_Kid
+ *
+ *         The Main Guts of the program.
+ * 
+ *         Handles all input and output.
+ */
 public class EntityLoader {
-	// private static final File f = new File("./config/MasterControl.poniiconfig.ini");
+	// private static final File f = new
+	// File("./config/MasterControl.poniiconfig.ini");
 	private static String lastCmd, name;
 	private static String[] sl;
 
@@ -16,32 +25,49 @@ public class EntityLoader {
 	private static final String[] commandsyntax = new String[] { "Color <R> <G> <B>", "InputColor <R> <G> <B>",
 			"OutputColor <R> <G> <B>", "OutputTextColor <R> <G> <B>", "InputTextColor <R> <G> <B>", "Exit",
 			"extract [Entity name]", "breed <Mother> <Father> (broken)", "last / l / lastcmd", "cfg / config",
-			"listNonOC", "listall", "info <entity name>", "charset", "switchcharset <Charset String Identifyer>", "dump" };
+			"listNonOC", "listall", "listalldna", "info <entity name>", "charset",
+			"switchcharset <Charset String Identifyer>", "dump" };
 
 	private static final String[] commandexpl = new String[] { "Changes Background Color", "Changes input box color",
-			"Changes outputbox color", "Changes outputbox text color", "Changes input box text color", "Exit the program (duh)",
-			"extracts the given entity's image or all if none provided", "Generates a string derived from both parents",
+			"Changes outputbox color", "Changes outputbox text color", "Changes input box text color",
+			"Exit the program (duh)", "extracts the given entity's image or all if none provided",
+			"Generates a string derived from both parents",
 			"reinputs last given command into the input box for editing or re-exicution",
-			"saves color scheme to config file : Poniconfig.cfg", "lists all defined OC entitys", "lists all defined entitys",
-			"gives general on the given entity type", "prints to console the current entity list String Identifyer",
-			"switches the entity list", "Dumps a list of all ponii-position numbers into EntityList.txt" };
+			"saves color scheme to config file : Poniconfig.cfg", "lists all defined OC entities",
+			"lists all defined entities", "lists all entities with dna input", "gives general on the given entity type",
+			"prints to console the current entity list String Identifyer", "switches the entity list",
+			"Dumps a list of all ponii-position numbers into EntityList.txt" };
 
 	private static final String[] commands = new String[] { "Colour", "Color", "InputColour", "InputColor",
 			"OutputColour", "OutputColor", "Exit", "OutputTextColor", "InputTextColor", "OutputTextColour",
-			"InputTextColour", "errorcheck", "extract", "breed", "last", "l", "lastcmd", "cfg", "config",
-			"listNonOC", "listall", "info", "charset", "switchcharset", "help", "dump" };
+			"InputTextColour", "errorcheck", "extract", "breed", "last", "l", "lastcmd", "cfg", "config", "listNonOC",
+			"listall", "listalldna", "info", "charset", "switchcharset", "help", "dump" };
 
 	private static final String[] modes = new String[] { "0", "1", "2" };
 
 	Entity[] OC;
 	Entity[] show;
 
+	/**
+	 * Main Constructor that sets up the Entity Loader.
+	 * 
+	 * @param Entity[]
+	 *            OC Entity List
+	 * @param Entity[]
+	 *            Non-OC Entity List
+	 */
 	public EntityLoader(Entity[] o, Entity[] c) {
 		OC = o;
 		show = c;
 	}
 
-	public void handle(String s) throws Exception {
+	/**
+	 * This method takes the input String and executes the applicable action.
+	 * 
+	 * @param String
+	 *            Input String
+	 */
+	public void handle(String s) {
 		int handler = -1;
 		Boolean origin = true, controlVar = false;
 		for (int i = 0; i < OC.length; i++) {
@@ -78,7 +104,7 @@ public class EntityLoader {
 		} catch (IOException e) {
 		}
 		if (handler >= 0) {
-			getOCInfo(origin, handler);
+			getInfo(origin, handler);
 		} else if (!controlVar) {
 			MasterControl.poni.println(help());
 		} else if (controlVar) {
@@ -90,7 +116,15 @@ public class EntityLoader {
 		}
 	}
 
-	private void control(String s) throws Exception {
+	/**
+	 * Executes proper functions based on the input command.
+	 * 
+	 * @param String
+	 *            Input Command
+	 * @throws IOException
+	 * @throws ConfigException
+	 */
+	private void control(String s) throws IOException, ConfigException {
 		String cmd = s;
 		String[] sl = cmd.split("\\s+");
 		if (sl[0].equalsIgnoreCase("Exit"))
@@ -235,32 +269,55 @@ public class EntityLoader {
 			}
 			MasterControl.poni.lblInfo.setText(say);
 		}
-		if (sl[0].equalsIgnoreCase("listNonOC") || sl[0].equalsIgnoreCase("listall")) {
+		if (sl[0].equalsIgnoreCase("listNonOC") || sl[0].equalsIgnoreCase("listall") || sl[0].equalsIgnoreCase("listalldna")) {
 			MasterControl.poni.printCl();
 			if (sl[0].equalsIgnoreCase("listall")) {
-				MasterControl.poni.println("Acceptable OC/NonOC MasterControl.ponii Names: " + (OC.length + show.length));
+				MasterControl.poni.println("Acceptable OC/NonOC Ponii Names: " + (OC.length + show.length));
 				for (int i = 0; i < OC.length; i++) {
 					MasterControl.poni.println(OC[i].getName() + " AKA " + OC[i].getAltName());
 				}
 				for (int i = 0; i < show.length; i++) {
 					MasterControl.poni.println(show[i].getName() + " AKA " + show[i].getAltName());
 				}
+			} else if (sl[0].equalsIgnoreCase("listalldna")) {
+				MasterControl.poni.println("OC/NonOC Poniis with DNA: ");
+				for (int i = 0; i < OC.length; i++) {
+					try {
+						if (OC[i].getDNA() != null)
+							MasterControl.poni.println(OC[i].getName() + " AKA " + OC[i].getAltName());
+					} catch (Exception e) {
+						System.out.println("No DNA found for " + show[i].getName());
+					}
+				}
+
+				for (int i = 0; i < show.length; i++) {
+					try {
+						if (show[i].getDNA() != null)
+							MasterControl.poni.println(show[i].getName() + " AKA " + show[i].getAltName());
+					} catch (Exception e) {
+						System.out.println("No DNA found for " + OC[i].getName());
+					}
+				}
+
 			} else {
-				MasterControl.poni.println("Acceptable NonOC MasterControl.ponii Names: " + show.length);
+				MasterControl.poni.println("Acceptable NonOC Ponii Names: " + show.length);
 				for (int i = 0; i < show.length; i++) {
 					MasterControl.poni.println(show[i].getName() + " AKA " + show[i].getAltName());
 				}
 			}
 		}
-		if (sl[0].equalsIgnoreCase("last") || sl[0].equalsIgnoreCase("lastcmd") || sl[0].equalsIgnoreCase("l")) {
+		if (sl[0].equalsIgnoreCase("last") || sl[0].equalsIgnoreCase("lastcmd") || sl[0].equalsIgnoreCase("l"))
+
+		{
 			MasterControl.poni.lblTextArea.setText(lastCmd);
 		}
 		if (sl[0].equalsIgnoreCase("cfg") || sl[0].equalsIgnoreCase("config")) {
 			System.out.println("Saving Configuration...");
 
 			byte[] tst = new byte[] {};
-			String strnj = "version = 2.0;\n\n" + "bgr = " + MasterControl.poni.frmPoniiPic.getContentPane().getBackground().getRed()
-					+ ";\n" + "bgg = " + MasterControl.poni.frmPoniiPic.getContentPane().getBackground().getGreen() + ";\n" + "bgb = "
+			String strnj = "version = 2.0;\n\n" + "bgr = "
+					+ MasterControl.poni.frmPoniiPic.getContentPane().getBackground().getRed() + ";\n" + "bgg = "
+					+ MasterControl.poni.frmPoniiPic.getContentPane().getBackground().getGreen() + ";\n" + "bgb = "
 					+ MasterControl.poni.frmPoniiPic.getContentPane().getBackground().getBlue() + ";\n\n" + "inbr = "
 					+ MasterControl.poni.lblTextArea.getBackground().getRed() + ";\n" + "inbg = "
 					+ MasterControl.poni.lblTextArea.getBackground().getGreen() + ";\n" + "inbb = "
@@ -349,7 +406,17 @@ public class EntityLoader {
 		}
 	}
 
-	private void getOCInfo(Boolean b, int i) {
+	/**
+	 * Prints Information on the given entity.
+	 * Gets Info from the OC or Non-OC List dependent on the Control Boolean.
+	 * Gets Info on the entity from the list based on the input integer.
+	 * 
+	 * @param Boolean
+	 *            Control Boolean
+	 * @param int
+	 *            Input Integer
+	 */
+	private void getInfo(Boolean b, int i) {
 		MasterControl.poni.printCl();
 
 		if (b)
@@ -375,15 +442,30 @@ public class EntityLoader {
 			}
 	}
 
+	/**
+	 * Returns a dynamic help string.
+	 * Dynamic portion based on registered Entities.
+	 * 
+	 * @return The Help String.
+	 */
 	private String help() {
-		String XD = "Acceptable MasterControl.ponii names : " + OC.length + "\n";
+		String XD = "Acceptable Ponii names : " + OC.length;
 		MasterControl.poni.printCl();
 		for (int i = 0; i < OC.length; i++) {
 			XD = XD + "\n" + OC[i].getName() + " AKA " + OC[i].getAltName();
 		}
+		XD = XD + "\nFor Command help put Help into the box.";
 		return XD;
 	}
 
+	/**
+	 * Handles Extracting of Images of a specific entity based on the input
+	 * name.
+	 * 
+	 * @param String
+	 *            Entity Name
+	 * @throws IOException
+	 */
 	private void extract(String string) throws IOException {
 		Boolean preformAction = false;
 		String charToExtract = "null";
@@ -410,19 +492,32 @@ public class EntityLoader {
 		}
 	}
 
+	/**
+	 * Extracts all Entity images.
+	 * Works by way of cycling through the OC entity name list and calling
+	 * extract(String) with all names.
+	 * 
+	 * @throws IOException
+	 */
 	private void extract() throws IOException {
 		for (int i = 0; i < OC.length; i++) {
 			extract(OC[i].getName());
 		}
 	}
 
+	/**
+	 * Extracts the default configuration.
+	 * Only used when the original could not be found.
+	 * 
+	 * @throws IOException
+	 */
 	public void extractConfig() throws IOException {
 		Boolean preformAction = true;
 		if (preformAction) {
 			System.out.println("Extracting : " + "Configuration File");
 			File f = new File("./");
 			f.mkdir();
-			send = new FileOutputStream(f + "/" + "MasterControl.poniiConfig.cfg");
+			send = new FileOutputStream(f + "/" + "PoniiConfig.cfg");
 			String charToExtract = "PoniiConfig.cfg";
 			byte[] out = new byte[EntityLoader.class.getResourceAsStream("/images/" + charToExtract).available()];
 			EntityLoader.class.getResourceAsStream("/images/" + charToExtract).read(out);

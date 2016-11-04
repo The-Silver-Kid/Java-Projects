@@ -19,8 +19,9 @@ public abstract class Entity {
 		return "Male";
 	}
 
-	public void addDNA(DNA dna) {
+	public Entity addDNA(DNA dna) {
 		this.dna = dna;
+		return this;
 	}
 
 	public abstract String getInfo();

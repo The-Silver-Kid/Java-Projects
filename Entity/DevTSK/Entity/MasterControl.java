@@ -45,7 +45,7 @@ public class MasterControl {
 							.addDNA(new DNA("003H000000FDA00000000003B0188FF00UN1837002000000I1FAFE730000001B107F3FCC004CB2")),
 					new UnMarriedPonii("Shadow Jack Radon", "Jack", "", false, false, "\nUnicorn\nSecond Ponii on the AJ-Radon Line.", "\nDosen't have yet...\nA cloud with snowflakes", "Pale White and yellow", "Pale White and yellow", "Apple Jack", "Shadow Radon", new Day(25, 12, 2015), "jack.png", "null.png"),
 
-					new UnMarriedPlane("Blitz Radon", "Blitz", "", true, true, "\nStandard\nHas a boyfrind that makes pizza", "\n\u2708", "Copper Colour", "Copper Colour", "Charrie", "Slanger", new Day(12, 12, 1997), "blitz.png", "null.png")
+					new UnMarriedPlane("Blitz Radon", "Blitz", "", true, true, "\nStandard", "\n\u2708", "Copper Colour", "Copper Colour", "Charrie", "Slanger", new Day(12, 12, 1997), "blitz.png", "null.png")
 							.addDNA(new DNA("2S2S0000204F4F4F800000000019F4F4FUN1837000020001417F2F2F9F4F4F1B107F3FCC004CB2")),
 					new UnMarriedPonii("Steven Shuttleknight", "Steven", "", false, false, "\nPegasus\nDelivers Pizza\nLikes Blitz Radon", "\nPizza Box", "", "", "Speedometere", "Plizzia", new Day(28, 2, 1998), "steven.png", "null.png"),
 
@@ -68,8 +68,9 @@ public class MasterControl {
 					new UnMarriedPonii("Maven RedHeart", "Maven", "", false, false, "\nUnicorn\nKnows almost as much as his mother about taking care of poniis", "\nRed cross", "Red", "Red", "Nurse RedHeart", "Raygle", new Day(1, 1, 2010), "Maven.png", "null.png")
 							.addDNA(new DNA("2S2S000100FFFFFEFFC49D000014080FFUN1837001200000N1800000FF00000L01800000FF0000")),
 
-					new UnMarriedPlane("Belle Carbone", "Belle", "", true, false, "\nAir Bus Plone\nLikes Bowing", "\nAn 'A' with Airplane in it", "n/a", "n/a", "unknown", "unknown", new Day(12, 8, 1994), "null.png", "null.png"),
-					new UnMarriedPlane("Boewing Stratoliner", "Boewing", "", false, false, "\nF16 fighter jet plone\nUsually has a bandana around mouth when flying that has the shark face design thinger on it", "Missile", "Fire-red", "Fire-red", "Unknown", "Unknown", new Day(13, 7, 1994), "null.png", "null.png"),
+					new MarriedPlane("Belle Carbone Stratoliner", "Belle", "", true, false, "\nAir Bus Plone\n", "\nAn 'A' with Airplane in it", "n/a", "n/a", "unknown", "unknown", new Day(12, 8, 1994), "null.png", "null.png", "Boewing", 1, new String[] { "Morgan" }),
+					new MarriedPlane("Boewing Stratoliner", "Boewing", "", false, false, "\nF16 fighter jet plone\nUsually has a bandana around mouth when flying that has the shark face design thinger on it", "Missile", "N/A", "N/A", "Unknown", "Unknown", new Day(13, 7, 1994), "null.png", "null.png", "Belle", 1, new String[] { "Morgan" }),
+					new UnMarriedPlane("Morgan Stratoliner", "Morgan", "✈", true, true, "\n...?", "\nMissile and a airplane", "N/A", "N/A", "Belle", "Boewing", new Day(), "null.png", "null.png"),
 
 					new MarriedPoniiWithOtherKids("Shadow Radon (Earth 2)", "Radon2", "", false, true, "\nUnicorn\n", "\nBlack Thundercloud with a yellow thunderbolt coming from it", "Yellow and Black", "Yellow and Black", "Charrie", "Slanger", new Day(20, 7, 1993), "Radon.png", "kloud.png", new String[] { "Apple Jack", "Galecia Frostia" }, 3, new String[] { "Tree Lighting", "Shadow Jack", "Powder" }, new String[] { "Apple Jack", "Apple Jack", "Galecia Frostia" })
 							.addDNA(new DNA("2S2S000200000000FFFF0000000FFFF00UN1837204020000N1000000FFFF000L107F3FCC004CB2")),

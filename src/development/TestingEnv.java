@@ -1,8 +1,21 @@
 package development;
 
+import DevTSK.Toast.Type;
+
 public class TestingEnv {
 
 	public static void main(String[] args) {
+		Type attacking = new Type("Ice", "Fairy");
+		Type defending = new Type("Dragon", "Fighting");
+
+		System.out.println(Type.toString(attacking));
+		System.out.println(Type.toString(defending));
+
+		System.out.println(Type.getTypeEffectiveness(attacking, defending));
+	}
+
+	// What was this used for?
+	public static void lol(String[] args) {
 		char[] ill = new char[] { '?' };
 		Boolean check = false;
 		String ept = "";

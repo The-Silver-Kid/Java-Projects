@@ -26,4 +26,12 @@ public class StringWriter {
 			out.close();
 		}
 	}
+
+	public void Write(String toWrite, File f, Boolean override) throws IOException {
+		if ((!f.exists() && !f.isDirectory()) || override) {
+			FileOutputStream out = new FileOutputStream(f);
+			out.write(toWrite.getBytes());
+			out.close();
+		}
+	}
 }

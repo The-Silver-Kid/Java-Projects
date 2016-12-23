@@ -78,11 +78,18 @@ public class CreateQuestionWindow {
 		private File findDir() {
 			JFileChooser choose = new JFileChooser();
 			choose.setFileSelectionMode(JFileChooser.FILES_ONLY);
-			choose.addChoosableFileFilter(new FileNameExtensionFilter("JavaScript Object Notation", "JSON"));
+			choose.addChoosableFileFilter(new FileNameExtensionFilter("QuizMaster Question Set", "QMZ"));
 			choose.setAcceptAllFileFilterUsed(false);
 			choose.showSaveDialog(null);
 
-			return choose.getSelectedFile();
+			String s = choose.getSelectedFile().getAbsolutePath();
+
+			if (!s.toLowerCase().contains(".qmz"))
+				s = s + ".QMZ";
+
+			File f = new File(s);
+
+			return f;
 		}
 
 	}

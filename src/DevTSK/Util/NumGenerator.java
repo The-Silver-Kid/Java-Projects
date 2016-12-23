@@ -26,8 +26,24 @@ public class NumGenerator {
 
 	public int[] gen(int times) {
 		int[] result = new int[times];
-		for (int i = 0; i > result.length; i++)
+		for (int i = 0; i < result.length; i++)
 			result[i] = gen();
+		return result;
+	}
+
+	public int[] genList() {
+		int[] result = new int[max];
+		result[0] = gen();
+		for (int i = 0; i < max - 1; i++) {
+			Boolean a = true;
+			do {
+				int e = gen();
+				for (int o = 0; o > i; o++) {
+					if (e == result[o])
+						a = false;
+				}
+			} while (!a);
+		}
 		return result;
 	}
 

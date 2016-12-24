@@ -1,5 +1,6 @@
 package development;
 
+import DevTSK.Toast.Monster;
 import DevTSK.Toast.Type;
 
 public class TestingEnv {
@@ -12,6 +13,9 @@ public class TestingEnv {
 		System.out.println(Type.toString(defending));
 
 		System.out.println(Type.getTypeEffectiveness(attacking, defending));
+
+		Monster m = new Monster(false, (byte) 78, new int[] { 74, 195, 86, 48, 84, 23 }, new int[] { 108, 130, 95, 80, 85, 102 },
+				new int[] { 0, 3, 0, 0, 0, 0 }, new int[] {});
 	}
 
 	// What was this used for?

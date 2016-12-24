@@ -7,27 +7,32 @@ public class Monster {
 	private static final String[] statNames = new String[] { "HP", "ATTACK", "DEFENSE",
 			"SPECIAL ATTACK", "SPECIAL DEFENSE", "SPEED" };
 
-	private int[] EVYield = new int[] { 0, 0, 0, 0, 0, 0 },
-			EV = new int[] { 0, 0, 0, 0, 0, 0 },
+	private int[] EV = new int[] { 0, 0, 0, 0, 0, 0 },
 			/*EVgained = new int[] { 0, 0, 0, 0, 0, 0 },*/
 			IV = new int[] { 0, 0, 0, 0, 0, 0 },
 			baseStats = new int[] { 0, 0, 0, 0, 0, 0 },
 			stats = new int[] { 0, 0, 0, 0, 0, 0 };
 
+	private final int[] EVYield;
+
+	private Nature nature;
+
 	private int cHP;
 
 	private byte level = 1;
 
-	public Monster(Boolean isWildPokemon, byte level, int[] EVs, int[] baseStats, int[] EVYield, int[] IVs) {
+	public Monster(Boolean isWildPokemon, byte level, int[] EVs, int[] baseStats, int[] EVYield, int[] IVs, Nature nature) {
 		this.level = level;
 
 		this.EVYield = EVYield;
 		this.IV = IVs;
 		this.EV = EVs;
 
-		this.stats = calculateLevelUp(new int[] { 0, 0, 0, 0, 0, 0 }, baseStats, EVs, IVs, level);
-
 		this.baseStats = baseStats;
+
+		this.nature = nature;
+
+		this.stats = calculateLevelUp(new int[] { 0, 0, 0, 0, 0, 0 }, baseStats, EVs, IVs, level);
 	}
 
 	public byte getLevel() {
@@ -36,6 +41,8 @@ public class Monster {
 
 	public void levelUp() {
 		level = (byte) (level + 1);
+		for (int i = 0; i < EV.length; i++)
+			EV[i] = EV[i] + EVYield[i];
 		stats = calculateLevelUp(stats, baseStats, EV, IV, (byte) 1);
 	}
 
@@ -46,7 +53,7 @@ public class Monster {
 			if (i == 0)
 				s[i] = (((2 * baseStats[i] + IVs[i] + (EVs[i] / 4)) * level) / 100) + level + 10;
 			else
-				s[i] = (((((2 * baseStats[i] + IVs[i] + (EVs[i] / 4)) * level) / 100) + 5)/*x by Nature*/);
+				s[i] = (int) (((((2 * baseStats[i] + IVs[i] + (EVs[i] / 4)) * level) / 100) + 5) * nature.getNatureValue(i));
 		}
 
 		return s;

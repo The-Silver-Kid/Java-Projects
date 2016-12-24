@@ -17,6 +17,9 @@ public class Monster {
 
 	private Nature nature;
 
+	@SuppressWarnings("unused")
+	private Attack[] attacks = new Attack[] {};
+
 	private int cHP;
 
 	private byte level = 1;

@@ -7,7 +7,7 @@ import DevTSK.Toast.Type;
 public class TestingEnv {
 
 	public static void main(String[] args) {
-		Type attacking = new Type("Dragon", "Fairy");
+		Type attacking = new Type("Dragon");
 		Type defending = new Type("Dragon", "Steel");
 
 		System.out.println(Type.toString(attacking));

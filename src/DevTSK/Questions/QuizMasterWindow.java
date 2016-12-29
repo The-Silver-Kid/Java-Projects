@@ -5,14 +5,24 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
 import javax.swing.AbstractAction;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.border.EtchedBorder;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import DevTSK.Util.NumGenerator;
+import DevTSK.Util.StringWriter;
 
 public class QuizMasterWindow {
+
+	private ArrayList<Question> qq = new ArrayList<Question>();
+	private Question q;
 
 	private JFrame main = new JFrame();
 
@@ -23,6 +33,8 @@ public class QuizMasterWindow {
 	private JButton ans3 = new JButton();
 	private JButton ans4 = new JButton();
 
+	//private JCheckBox debug = new JCheckBox();
+
 	private A a = new A();
 	private B b = new B();
 	private C c = new C();
@@ -32,7 +44,9 @@ public class QuizMasterWindow {
 
 	private final Question[] qs;
 
-	private Boolean cont = false;
+	private int totalQuestions;
+
+	private int cc = 0;
 
 	public QuizMasterWindow(Question[] qs) {
 		main.setBounds(0, 0, 505, 630);
@@ -41,6 +55,8 @@ public class QuizMasterWindow {
 		main.setResizable(false);
 		main.setIconImage(Toolkit.getDefaultToolkit().getImage(QuizMasterWindow.class.getResource("/images/ikon.png")));
 		main.setVisible(true);
+
+		totalQuestions = qs.length;
 
 		qBox.setBounds(10, 10, 480, 480);
 		qBox.setBorder(new EtchedBorder(EtchedBorder.RAISED, new Color(128, 128, 128), new Color(64, 64, 64)));
@@ -72,11 +88,10 @@ public class QuizMasterWindow {
 
 		this.qs = qs;
 
-		for (int i = 0; i < qs.length; i++) {
-			setupQuestion(i);
-			waitForSignal();
-			cont = false;
-		}
+		System.out.println("Setting up Question " + 0);
+		//debug.setSelected(cont);
+		setupQuestion(0);
+		this.q = qs[0];
 	}
 
 	private void setupQuestion(int i) {
@@ -84,6 +99,8 @@ public class QuizMasterWindow {
 		ans2.setEnabled(false);
 		ans3.setEnabled(false);
 		ans4.setEnabled(false);
+
+		String letters = "ABCD";
 
 		String s = "<html>" + qs[i].getQuestion();
 
@@ -100,9 +117,9 @@ public class QuizMasterWindow {
 
 		for (int e = 0; e < ing.length; e++) {
 			as[e] = ss[ing[e]];
+			if (ing[e] == 0)
+				ans = letters.substring(e, e + 1).toLowerCase().toCharArray()[0];
 		}
-
-		String letters = "ABCD";
 
 		for (int o = 0; o < as.length; o++) {
 			s = s + letters.substring(o, o + 1) + ": " + as[o] + "<br>";
@@ -131,11 +148,6 @@ public class QuizMasterWindow {
 		}
 
 		qBox.setText(s);
-	}
-
-	private void waitForSignal() {
-		while (!cont) {
-		}
 	}
 
 	private class A extends AbstractAction {
@@ -220,11 +232,48 @@ public class QuizMasterWindow {
 			break;
 		}
 
+		System.out.print("User Answered Question " + cc);
+
 		if (cor) {
-
+			System.out.println(" Correctly");
 		} else {
-
+			qq.add(q);
+			System.out.println(" Incorrectly");
 		}
 
+		cc = cc + 1;
+
+		if (cc < totalQuestions) {
+			System.out.println("Setting up Question " + cc);
+			setupQuestion(cc);
+			this.q = qs[cc];
+		} else {
+			ans1.setEnabled(false);
+			ans2.setEnabled(false);
+			ans3.setEnabled(false);
+			ans4.setEnabled(false);
+
+			System.out.println("All Questions asked...");
+			Question[] inc = new Question[qq.size()];
+			qq.toArray(inc);
+			qBox.setText("You answered " + inc.length + " questions incorrectly and " + (totalQuestions - inc.length) + " correctly.");
+			int n = JOptionPane.showConfirmDialog(main, "Would you like to save the questions you answered incorrectly?",
+					"Save?", JOptionPane.YES_NO_OPTION);
+			if (n == JOptionPane.YES_OPTION) {
+				File f = CreateQuestionWindow.findDir();
+
+				Gson g = new GsonBuilder().setPrettyPrinting().create();
+				String s = g.toJson(inc);
+
+				StringWriter sw = new StringWriter();
+				try {
+					sw.Write(s, f, false);
+				} catch (IOException x) {
+					x.printStackTrace();
+					System.exit(-1);
+				}
+			}
+			System.exit(0);
+		}
 	}
 }

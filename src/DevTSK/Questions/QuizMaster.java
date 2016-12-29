@@ -11,6 +11,8 @@ public class QuizMaster {
 
 	public static void main(String[] args) throws Exception {
 		File f = findDir();
+		if (f.equals(null))
+			System.exit(0);
 		System.out.println("Loading Questions from:\n" + f.toString());
 		Gson g = new Gson();
 

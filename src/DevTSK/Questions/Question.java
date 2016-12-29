@@ -2,11 +2,11 @@ package DevTSK.Questions;
 
 public class Question {
 
-	private String question = "LOL!\nI'm an empty question";
+	private final String question;
 
-	private String answer = "Correct Answer";
+	private final String answer;
 
-	private String[] wrongAnswers = new String[] { "wrong", "wrong2" };
+	private final String[] wrongAnswers;
 
 	public Question(String question, String correctAnswer, String[] wrongAnswers) {
 		this.question = question;
@@ -26,7 +26,7 @@ public class Question {
 
 	public String[] getAnswers() {
 		String[] ret = new String[wrongAnswers.length + 1];
-		for (int i = 1; i < wrongAnswers.length; i++) {
+		for (int i = 1; i < wrongAnswers.length + 1; i++) {
 			ret[i] = wrongAnswers[i - 1];
 		}
 		ret[0] = answer;

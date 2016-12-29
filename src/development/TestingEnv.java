@@ -1,23 +1,15 @@
 package development;
 
-import DevTSK.Toast.Monster;
-import DevTSK.Toast.Nature;
-import DevTSK.Toast.Type;
+import DevTSK.Util.NumGenerator;
 
 public class TestingEnv {
 
 	public static void main(String[] args) {
-		Type attacking = new Type("Dragon");
-		Type defending = new Type("Dragon", "Steel");
 
-		System.out.println(Type.toString(attacking));
-		System.out.println(Type.toString(defending));
-
-		System.out.println(Type.getTypeEffectiveness(attacking, defending));
-
-		Monster m = new Monster(false, (byte) 78, new int[] { 74, 195, 86, 48, 84, 23 }, new int[] { 108, 130, 95, 80, 85, 102 },
-				new int[] { 0, 3, 0, 0, 0, 0 }, new int[] { 12, 12, 30, 16, 23, 5 }, new Nature(Nature.ADAMANT));
-		m.debug();
+		NumGenerator ng = new NumGenerator(5, false, true);
+		int[] lol = ng.genList();
+		for (int i = 0; i < lol.length; i++)
+			System.out.println(lol[i]);
 	}
 
 	// What was this used for?

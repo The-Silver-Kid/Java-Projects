@@ -5,6 +5,7 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import javax.swing.AbstractAction;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
@@ -20,12 +21,19 @@ public class CreateQuestionWindow {
 
 	private JFrame main = new JFrame();
 
-	private JTextArea editBox = new JTextArea();
-	//private static JScrollPane l = new JScrollPane();
+	private JTextArea qBox = new JTextArea();
+
+	private JTextArea aBox = new JTextArea();
+	//private JScrollPane editScroll;
 
 	private JButton generate = new JButton();
+	private JButton assemble = new JButton();
 
+	private GenerateQuestion gQn = new GenerateQuestion();
 	private GenerateJSON gJSON = new GenerateJSON();
+
+	private Question[] qs = new Question[] {};
+	private ArrayList<Question> qn = new ArrayList<Question>();
 
 	public CreateQuestionWindow() {
 		main.setBounds(0, 0, 505, 560);
@@ -35,14 +43,52 @@ public class CreateQuestionWindow {
 		main.setIconImage(Toolkit.getDefaultToolkit().getImage(CreateQuestionWindow.class.getResource("/images/ikon.png")));
 		main.setVisible(true);
 
-		editBox.setBounds(10, 10, 480, 480);
-		editBox.setBorder(new EtchedBorder(EtchedBorder.RAISED, new Color(128, 128, 128), new Color(64, 64, 64)));
-		main.add(editBox);
+		qBox.setBounds(10, 10, 480, 240);
+		qBox.setBorder(new EtchedBorder(EtchedBorder.RAISED, new Color(128, 128, 128), new Color(64, 64, 64)));
+		qBox.setLineWrap(true);
+		main.getContentPane().add(qBox);
 
-		generate.setBounds(10, 500, 480, 20);
-		generate.setAction(gJSON);
-		generate.setText("GenerateQuestions!");
-		main.add(generate);
+		aBox.setBounds(10, 250, 480, 240);
+		aBox.setBorder(new EtchedBorder(EtchedBorder.RAISED, new Color(128, 128, 128), new Color(64, 64, 64)));
+		aBox.setLineWrap(true);
+		main.getContentPane().add(aBox);
+
+		/*editScroll = new JScrollPane(qBox);
+		editScroll.setBounds(qBox.getBounds());
+		editScroll.setAutoscrolls(true);
+		main.getContentPane().add(editScroll);*/
+
+		generate.setBounds(10, 500, 240, 20);
+		generate.setAction(gQn);
+		generate.setText("Create Question");
+		main.getContentPane().add(generate);
+
+		assemble.setBounds(250, 500, 240, 20);
+		assemble.setAction(gJSON);
+		assemble.setText("Assemble Questions");
+		main.getContentPane().add(assemble);
+	}
+
+	private class GenerateQuestion extends AbstractAction {
+
+		private static final long serialVersionUID = 1L;
+
+		public void actionPerformed(ActionEvent arg0) {
+			Question q = null;
+
+			String[] slated = aBox.getText().split("\n");
+			String cAns = slated[0];
+			String[] wAns = new String[slated.length - 1];
+			for (int i = 0; i < wAns.length; i++)
+				wAns[i] = slated[i + 1];
+			q = new Question(qBox.getText(), cAns, wAns);
+
+			qn.add(q);
+
+			aBox.setText("");
+			qBox.setText("");
+		}
+
 	}
 
 	private class GenerateJSON extends AbstractAction {
@@ -50,21 +96,13 @@ public class CreateQuestionWindow {
 		private static final long serialVersionUID = 1L;
 
 		public void actionPerformed(ActionEvent arg0) {
-			String[] slated = editBox.getText().split("\n");
-			String[][] slatedSlate = new String[slated.length][];
-			for (int i = 0; i < slated.length; i++) {
-				slatedSlate[i] = slated[i].split(",");
-			}
-			Question[] questionSet = new Question[slated.length];
-			for (int i = 0; i < slated.length; i++) {
-				questionSet[i] = new Question(slatedSlate[i]);
-				//System.out.println(slated[i] + "\n" + slatedSlate[i][0]);
-			}
+			qs = new Question[qn.size()];
+			qn.toArray(qs);
 
 			File f = findDir();
 
 			Gson g = new GsonBuilder().setPrettyPrinting().create();
-			String s = g.toJson(questionSet);
+			String s = g.toJson(qs);
 
 			StringWriter sw = new StringWriter();
 			try {
@@ -75,23 +113,23 @@ public class CreateQuestionWindow {
 			}
 		}
 
-		private File findDir() {
-			JFileChooser choose = new JFileChooser();
-			choose.setFileSelectionMode(JFileChooser.FILES_ONLY);
-			choose.addChoosableFileFilter(new FileNameExtensionFilter("QuizMaster Question Set", "QMZ"));
-			choose.setAcceptAllFileFilterUsed(false);
-			choose.showSaveDialog(null);
+	}
 
-			String s = choose.getSelectedFile().getAbsolutePath();
+	static File findDir() {
+		JFileChooser choose = new JFileChooser();
+		choose.setFileSelectionMode(JFileChooser.FILES_ONLY);
+		choose.addChoosableFileFilter(new FileNameExtensionFilter("QuizMaster Question Set", "QMZ"));
+		choose.setAcceptAllFileFilterUsed(false);
+		choose.showSaveDialog(null);
 
-			if (!s.toLowerCase().contains(".qmz"))
-				s = s + ".QMZ";
+		String s = choose.getSelectedFile().getAbsolutePath();
 
-			File f = new File(s);
+		if (!s.toLowerCase().contains(".qmz"))
+			s = s + ".QMZ";
 
-			return f;
-		}
+		File f = new File(s);
 
+		return f;
 	}
 
 	public void init() {

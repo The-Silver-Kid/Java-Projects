@@ -3,7 +3,7 @@ package DevTSK.Util;
 public class NumGenerator {
 
 	private int max, orignum;
-	private boolean useNegative;
+	private boolean useNegative, debug;
 
 	public NumGenerator(int maximum, Boolean a) {
 		if (a) {
@@ -15,6 +15,19 @@ public class NumGenerator {
 			orignum = 0;
 			useNegative = false;
 		}
+	}
+
+	public NumGenerator(int maximum, Boolean a, Boolean debugInfo) {
+		if (a) {
+			max = 2 * maximum + 1;
+			orignum = maximum;
+			useNegative = true;
+		} else {
+			max = maximum;
+			orignum = 0;
+			useNegative = false;
+		}
+		debug = true;
 	}
 
 	public int gen() {
@@ -33,17 +46,31 @@ public class NumGenerator {
 
 	public int[] genList() {
 		int[] result = new int[max];
-		result[0] = gen();
+		do {
+			result[0] = gen();
+		} while (result[0] == 0);
+		if (debug)
+			System.out.println("Generating list of " + max + "...");
 		for (int i = 0; i < max - 1; i++) {
-			Boolean a = true;
+			Boolean a;
+			int ia = 0;
+			int e;
 			do {
-				int e = gen();
-				for (int o = 0; o > i; o++) {
+				a = true;
+				ia = ia + 1;
+				if (debug)
+					System.out.println("Try " + ia);
+				e = gen();
+				for (int o = 0; o < i + 1; o++) {
 					if (e == result[o])
 						a = false;
 				}
 			} while (!a);
+			result[i] = e;
 		}
+		if (debug)
+			for (int i = 0; i < result.length; i++)
+				System.err.println(result[i]);
 		return result;
 	}
 

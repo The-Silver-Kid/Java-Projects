@@ -1,4 +1,4 @@
-package DevTSK.Toast;
+package DevTSK.JavaMon;
 
 public class Type {
 

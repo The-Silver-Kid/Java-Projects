@@ -1,8 +1,12 @@
-package DevTSK.Toast;
+package DevTSK.JavaMon;
 
 public class Monster {
 
 	public static final int HP = 0, ATTACK = 1, DEFENSE = 2, SATTACK = 3, SDEFENSE = 4, SPEED = 5;
+
+	//TODO : Create Learning of moves...
+	@SuppressWarnings("unused")
+	private MoveSet moveset;
 
 	private static final String[] statNames = new String[] { "HP", "ATTACK", "DEFENSE",
 			"SPECIAL ATTACK", "SPECIAL DEFENSE", "SPEED" };
@@ -73,6 +77,10 @@ public class Monster {
 	public void debug() {
 		for (int i = 0; i < EV.length; i++)
 			System.out.println(statNames[i] + " : " + stats[i] + " " + EV[i] + " " + IV[i]);
+	}
+
+	public void addMoveset(MoveSet moves) {
+		this.moveset = moves;
 	}
 }
 

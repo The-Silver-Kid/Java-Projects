@@ -1,4 +1,4 @@
-package DevTSK.Toast;
+package DevTSK.JavaMon;
 
 public enum AttackEffects {
 	none, paralisis, poison, burn, freeze, sleep, statEffect, lowerAccuracy, lowerEvasiveness;

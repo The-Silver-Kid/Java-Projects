@@ -1,9 +1,12 @@
 package DevTSK.Util;
 
+import java.util.Random;
+
 public class NumGenerator {
 
 	private int max, orignum;
 	private boolean useNegative, debug;
+	private Random gen = new Random();
 
 	public NumGenerator(int maximum, Boolean a) {
 		if (a) {
@@ -31,7 +34,7 @@ public class NumGenerator {
 	}
 
 	public int gen() {
-		int res = (int) (Math.random() * max);
+		int res = gen.nextInt(max);
 		if (useNegative)
 			res = res - orignum;
 		return res;
@@ -46,25 +49,23 @@ public class NumGenerator {
 
 	public int[] genList() {
 		int[] result = new int[max];
-		do {
-			result[0] = gen();
-		} while (result[0] == 0);
+		result[0] = gen();
 		if (debug)
 			System.out.println("Generating list of " + max + "...");
-		for (int i = 0; i < max - 1; i++) {
+		for (int i = 1; i < max; i++) {
 			Boolean a;
 			int ia = 0;
 			int e;
 			do {
 				a = true;
 				ia = ia + 1;
-				if (debug)
-					System.out.println("Try " + ia);
 				e = gen();
-				for (int o = 0; o < i + 1; o++) {
+				for (int o = 0; o < i; o++) {
 					if (e == result[o])
 						a = false;
 				}
+				if (debug)
+					System.out.println("Try " + ia + " : " + e + " : " + i);
 			} while (!a);
 			result[i] = e;
 		}
@@ -72,6 +73,14 @@ public class NumGenerator {
 			for (int i = 0; i < result.length; i++)
 				System.err.println(result[i]);
 		return result;
+	}
+
+	public void setRand() {
+		gen = new Random(System.nanoTime());
+	}
+
+	public void setRand(int randValue) {
+		gen = new Random(randValue);
 	}
 
 }

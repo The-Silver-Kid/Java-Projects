@@ -48,6 +48,8 @@ public class QuizMasterWindow {
 
 	private int cc = 0;
 
+	private NumGenerator ng;
+
 	public QuizMasterWindow(Question[] qs) {
 		main.setBounds(0, 0, 505, 630);
 		main.setLayout(null);
@@ -109,7 +111,10 @@ public class QuizMasterWindow {
 		String[] ss = qs[i].getAnswers();
 		String[] as = new String[ss.length];
 
-		NumGenerator ng = new NumGenerator(ss.length, false);
+		ng = new NumGenerator(ss.length, false, true);
+
+		ng.setRand();
+
 		int[] ing = ng.genList();
 
 		for (int w = 0; w < ing.length; w++)

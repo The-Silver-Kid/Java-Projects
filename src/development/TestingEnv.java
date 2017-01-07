@@ -6,10 +6,14 @@ public class TestingEnv {
 
 	public static void main(String[] args) {
 
-		NumGenerator ng = new NumGenerator(5, false, true);
-		int[] lol = ng.genList();
+		NumGenerator ng = new NumGenerator(3, false, true);
+		ng.setRand();
+		int[][] lol = new int[3][];
 		for (int i = 0; i < lol.length; i++)
-			System.out.println(lol[i]);
+			lol[i] = ng.genList();
+		for (int i = 0; i < lol.length; i++)
+			for (int o = 0; o < lol[i].length; o++)
+				System.out.println(lol[i].length + ":" + i + ":" + o + ":" + lol[i][o]);
 	}
 
 	// What was this used for?

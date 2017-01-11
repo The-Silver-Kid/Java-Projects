@@ -9,7 +9,6 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.JButton;
@@ -19,8 +18,6 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JProgressBar;
 import javax.swing.JTextArea;
-
-import DevTSK.Exception.TooTiredException;
 
 public class FileRead {
 
@@ -56,7 +53,7 @@ public class FileRead {
 		Calendar cal = Calendar.getInstance();
 		SimpleDateFormat sdf = new SimpleDateFormat("HH");
 		if (Integer.parseInt(sdf.format(cal.getTime())) > 22 || Integer.parseInt(sdf.format(cal.getTime())) < 5) {
-			throw new TooTiredException();
+			throw new Exception("Sorry");
 		}
 
 		if (System.getProperty("os.name").contains("Windows")) {

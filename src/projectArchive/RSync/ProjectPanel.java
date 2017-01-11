@@ -1,4 +1,4 @@
-package DevTSK.RSync;
+package projectArchive.RSync;
 
 import java.awt.Color;
 import java.awt.Font;

@@ -1,4 +1,4 @@
-package DevTSK.RSync;
+package projectArchive.RSync;
 
 import javax.swing.JFrame;
 import DevTSK.Util.Logger;

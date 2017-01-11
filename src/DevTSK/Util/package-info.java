@@ -1,8 +1,7 @@
 /**
- * 
- */
-/**
- * @author 9507006
+ * @author The_Silver_Kid
  *
+ *
+ *         Various Utilities used in multiple projects.
  */
 package DevTSK.Util;

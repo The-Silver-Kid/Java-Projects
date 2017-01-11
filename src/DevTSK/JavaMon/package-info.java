@@ -1,8 +1,7 @@
 /**
+ * @author The_Silver_Kid
  * 
- */
-/**
- * @author Silver
+ *         I will never tell.
  *
  */
 package DevTSK.JavaMon;

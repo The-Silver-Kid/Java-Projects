@@ -1,4 +1,4 @@
-package DevTSK.PicInspect;
+package projectArchive.PicInspect;
 
 import java.awt.Dimension;
 import java.awt.Image;
@@ -13,17 +13,26 @@ import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.filechooser.FileNameExtensionFilter;
-import DevTSK.Util.NumGenerator;
 
+// TODO : Figure out what this was...
 public class PicInspect {
 
 	private static JFrame window;
 	private static JLabel lol;
 
-	private static final NumGenerator ng = new NumGenerator(255, false);
+	private static Boolean debug = true;
+
+	private static File f;
+
+	//private static final NumGenerator ng = new NumGenerator(255, false);
 
 	public static void main(String[] args) throws IOException {
-		File f = new File("C:\\Users\\regpu\\Desktop\\156.png"); //findDir();
+		//Yes I use windows... I'm sorry if that offends you...
+		if (debug) {
+			f = new File("C:\\Users\\<lol>\\Desktop\\156.png");
+		} else {
+			f = findDir();
+		}
 
 		Image img = ImageIO.read(f);
 

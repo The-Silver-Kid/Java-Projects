@@ -1,4 +1,0 @@
-/**
- * @author Silver
- */
-package Sounds;

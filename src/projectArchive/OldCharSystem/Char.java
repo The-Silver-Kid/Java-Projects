@@ -1,37 +1,37 @@
 package projectArchive.OldCharSystem;
 
 import java.awt.Color;
-import java.io.*;
-
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import DAG.Config.Config;
 import DAG.Config.ConfigException;
-import DevTSK.Exception.*;
 
 public class Char {
 	//private static final File f = new File("./config/Poniiconfig.ini");
 	private static String lastCmd;
 	private static String[] sl;
-	
+
 	private static FileOutputStream send;
-	
+
 	private static Window poni = new Window("Ponii Program 3.0", 1, 0, 0, 0);
-	
+
 	private static String[] chars;
 	private static String[] allias;
 	private static String[] cannon;
-	
+
 	private static final String[] commands = new String[] {
-		"Colour", "Color", "InputColour", "InputColor", "OutputColour", "OutputColor", "Music", "Exit",
-		"OutputTextColor", "InputTextColor", "OutputTextColour", "InputTextColour", "errorcheck" , "extract",
-		"breed", "breedrand", "last", "l", "lastcmd", "cfg", "config", "listNonOC", "listall"
+			"Colour", "Color", "InputColour", "InputColor", "OutputColour", "OutputColor", "Music", "Exit",
+			"OutputTextColor", "InputTextColor", "OutputTextColour", "InputTextColour", "errorcheck", "extract",
+			"breed", "breedrand", "last", "l", "lastcmd", "cfg", "config", "listNonOC", "listall"
 	};
-	
+
 	private static Boolean musik = false;
-	
+
 	private static Ponii[] OC;
 	private static Ponii[] show;
-	
-	public Char(String[] ch, String[] al, String[] cn, Ponii[] o, Ponii[] c){
+
+	public Char(String[] ch, String[] al, String[] cn, Ponii[] o, Ponii[] c) {
 		chars = ch;
 		allias = al;
 		cannon = cn;
@@ -42,18 +42,18 @@ public class Char {
 		poni.frmPoniiPic.setVisible(true);
 	}
 
-	public static void errorCheck() throws Exception{
+	public static void errorCheck() throws Exception {
 		System.out.println("\nChecking out Inputed Resources...\n\nChecking chars and allias String[]s...");
 		if (chars.length != allias.length) {
-			throw new LengthException("String[] chars and String[] allias arent the same length!");
+			throw new Exception("String[] chars and String[] allias arent the same length!");
 		}
 		System.out.println("chars and allias String[]s checks out...\nChecking Ponii[] OC compatablity...");
 		if (chars.length != OC.length) {
-			throw new LengthException("String[] chars and Ponii[] OC are different lengths!");
+			throw new Exception("String[] chars and Ponii[] OC are different lengths!");
 		}
 		System.out.println("Ponii[] OC compatablity checks out...\nChecking Ponii[] show compatablity...");
 		if (show.length != cannon.length) {
-			throw new LengthException("Ponii[] show and String[] cannon are different lengths!");
+			throw new Exception("Ponii[] show and String[] cannon are different lengths!");
 		}
 		System.out.println("Ponii[] show compatablity checks out...\nChecking ponii resources...");
 		System.out.println("Everything Checks out fine... Assuming all is well in the land...");
@@ -62,7 +62,7 @@ public class Char {
 	public static void handle(String s) throws Exception {
 		int handler = -1;
 		Boolean origin = true, controlVar = false;
-		for (int i = 0; i < chars.length; i++){
+		for (int i = 0; i < chars.length; i++) {
 			if (chars[i].equalsIgnoreCase(s)) {
 				handler = i;
 			}
@@ -70,19 +70,19 @@ public class Char {
 				handler = i;
 			}
 		}
-		for (int i = 0; i < cannon.length; i++){
+		for (int i = 0; i < cannon.length; i++) {
 			if (cannon[i].equalsIgnoreCase(poni.lblTextArea.getText())) {
 				handler = i;
 				origin = false;
 			}
 		}
-		for (int i = 0; i < commands.length; i ++) {
+		for (int i = 0; i < commands.length; i++) {
 			sl = s.split("\\s+");
-			if (commands[i].equalsIgnoreCase(sl[0])){
+			if (commands[i].equalsIgnoreCase(sl[0])) {
 				controlVar = true;
 			}
 		}
-		if (!sl[0].equalsIgnoreCase("last") && !sl[0].equalsIgnoreCase("lastcmd") && !sl[0].equalsIgnoreCase("l")){
+		if (!sl[0].equalsIgnoreCase("last") && !sl[0].equalsIgnoreCase("lastcmd") && !sl[0].equalsIgnoreCase("l")) {
 			lastCmd = poni.lblTextArea.getText();
 		}
 		poni.lblTextArea.setText("");
@@ -107,14 +107,14 @@ public class Char {
 			}
 		}
 	}
-	
+
 	@SuppressWarnings("deprecation")
 	private static void control(String s) throws Exception {
 		String cmd = s;
 		String[] sl = cmd.split("\\s+");
 		if (sl[0].equalsIgnoreCase("Exit"))
 			System.exit(0);
-		if (sl[0].equalsIgnoreCase("Music")){
+		if (sl[0].equalsIgnoreCase("Music")) {
 			musik = !musik;
 			if (musik) {
 				poni.musikS.setText("Music On");
@@ -125,10 +125,10 @@ public class Char {
 				poni.musikS.setForeground(new Color(255, 0, 0));
 			}
 		}
-		if (sl[0].equalsIgnoreCase("ErrorCheck")){
+		if (sl[0].equalsIgnoreCase("ErrorCheck")) {
 			errorCheck();
 		}
-		if (sl[0].equalsIgnoreCase("Color") || sl[0].equalsIgnoreCase("Colour")){
+		if (sl[0].equalsIgnoreCase("Color") || sl[0].equalsIgnoreCase("Colour")) {
 			if (sl.length == 4) {
 				int r, g, b;
 				r = Integer.parseInt(sl[1]);
@@ -137,7 +137,7 @@ public class Char {
 				poni.frmPoniiPic.getContentPane().setBackground(new Color(r, g, b));
 			}
 		}
-		if (sl[0].equalsIgnoreCase("InputColor") || sl[0].equalsIgnoreCase("InputColour")){
+		if (sl[0].equalsIgnoreCase("InputColor") || sl[0].equalsIgnoreCase("InputColour")) {
 			if (sl.length == 4) {
 				int r, g, b;
 				r = Integer.parseInt(sl[1]);
@@ -146,7 +146,7 @@ public class Char {
 				poni.lblTextArea.setBackground(new Color(r, g, b));
 			}
 		}
-		if (sl[0].equalsIgnoreCase("OutputColor") || sl[0].equalsIgnoreCase("OutputColour")){
+		if (sl[0].equalsIgnoreCase("OutputColor") || sl[0].equalsIgnoreCase("OutputColour")) {
 			if (sl.length == 4) {
 				int r, g, b;
 				r = Integer.parseInt(sl[1]);
@@ -155,7 +155,7 @@ public class Char {
 				poni.lblInfo.setBackground(new Color(r, g, b));
 			}
 		}
-		if (sl[0].equalsIgnoreCase("OutputTextColor") || sl[0].equalsIgnoreCase("OutputTextColour")){
+		if (sl[0].equalsIgnoreCase("OutputTextColor") || sl[0].equalsIgnoreCase("OutputTextColour")) {
 			if (sl.length == 4) {
 				int r, g, b;
 				r = Integer.parseInt(sl[1]);
@@ -164,7 +164,7 @@ public class Char {
 				poni.lblInfo.setForeground(new Color(r, g, b));
 			}
 		}
-		if (sl[0].equalsIgnoreCase("InputTextColor") || sl[0].equalsIgnoreCase("InputTextColour")){
+		if (sl[0].equalsIgnoreCase("InputTextColor") || sl[0].equalsIgnoreCase("InputTextColour")) {
 			if (sl.length == 4) {
 				int r, g, b;
 				r = Integer.parseInt(sl[1]);
@@ -176,7 +176,7 @@ public class Char {
 		if (sl[0].equalsIgnoreCase("extract")) {
 			if (sl.length > 1) {
 				extract(sl[1]);
-			} else { 
+			} else {
 				extract();
 			}
 		}
@@ -187,7 +187,7 @@ public class Char {
 			} else {
 				Boolean OCo = true, OCt = true;
 				int f = -1, m = -1;
-				for (int i = 0; i < chars.length; i ++){
+				for (int i = 0; i < chars.length; i++) {
 					if (sl[1].equalsIgnoreCase(chars[i])) {
 						f = i;
 					}
@@ -195,13 +195,13 @@ public class Char {
 						f = i;
 					}
 				}
-				for (int i = 0; i < cannon.length; i ++){
+				for (int i = 0; i < cannon.length; i++) {
 					if (sl[1].equalsIgnoreCase(cannon[i])) {
 						f = i;
 						OCo = false;
 					}
 				}
-				for (int i = 0; i < chars.length; i ++){
+				for (int i = 0; i < chars.length; i++) {
 					if (sl[2].equalsIgnoreCase(chars[i])) {
 						m = i;
 					}
@@ -209,7 +209,7 @@ public class Char {
 						m = i;
 					}
 				}
-				for (int i = 0; i < cannon.length; i ++){
+				for (int i = 0; i < cannon.length; i++) {
 					if (sl[2].equalsIgnoreCase(cannon[i])) {
 						m = i;
 						OCt = false;
@@ -226,7 +226,7 @@ public class Char {
 				if (sl.length == 4) {
 					poni.printCl();
 					b.check();
-					for (int i = 0; i < Integer.parseInt(sl[3]); i ++) {
+					for (int i = 0; i < Integer.parseInt(sl[3]); i++) {
 						if (sl[0].equalsIgnoreCase("breed")) {
 							poni.lblInfo.setText(poni.lblInfo.getText() + "\n" + b.breed());
 						} else {
@@ -243,33 +243,33 @@ public class Char {
 				}
 			}
 		}
-		if (sl[0].equalsIgnoreCase("listNonOC") || sl[0].equalsIgnoreCase("listall")){
+		if (sl[0].equalsIgnoreCase("listNonOC") || sl[0].equalsIgnoreCase("listall")) {
 			poni.printCl();
-			if (sl[0].equalsIgnoreCase("listall")){
+			if (sl[0].equalsIgnoreCase("listall")) {
 				poni.println("Acceptable OC/NonOC Ponii Names: " + (chars.length + cannon.length));
-				for(int i = 0; i < chars.length; i++) {
+				for (int i = 0; i < chars.length; i++) {
 					poni.println(chars[i]);
 				}
-				for(int i = 0; i < cannon.length; i++) {
+				for (int i = 0; i < cannon.length; i++) {
 					poni.println(cannon[i]);
 				}
 			} else {
 				poni.println("Acceptable NonOC Ponii Names: " + cannon.length);
-				for(int i = 0; i < cannon.length; i++) {
+				for (int i = 0; i < cannon.length; i++) {
 					poni.println(cannon[i]);
 				}
 			}
 		}
-		if (sl[0].equalsIgnoreCase("last") || sl[0].equalsIgnoreCase("lastcmd") || sl[0].equalsIgnoreCase("l")){
+		if (sl[0].equalsIgnoreCase("last") || sl[0].equalsIgnoreCase("lastcmd") || sl[0].equalsIgnoreCase("l")) {
 			poni.lblTextArea.setText(lastCmd);
 		}
 		if (sl[0].equalsIgnoreCase("cfg") || sl[0].equalsIgnoreCase("config")) {
 			System.out.println("Saving Configuration...");
-			
+
 			byte[] tst = new byte[] {};
 			String strnj = "version = 1.0;\n\n"
-					+ "bgr = " + poni.frmPoniiPic.getContentPane().getBackground().getRed() +";\n"
-					+ "bgg = " + poni.frmPoniiPic.getContentPane().getBackground().getGreen() +";\n"
+					+ "bgr = " + poni.frmPoniiPic.getContentPane().getBackground().getRed() + ";\n"
+					+ "bgg = " + poni.frmPoniiPic.getContentPane().getBackground().getGreen() + ";\n"
 					+ "bgb = " + poni.frmPoniiPic.getContentPane().getBackground().getBlue() + ";\n\n"
 					+ "inbr = " + poni.lblTextArea.getBackground().getRed() + ";\n"
 					+ "inbg = " + poni.lblTextArea.getBackground().getGreen() + ";\n"
@@ -285,9 +285,9 @@ public class Char {
 					+ "outfb = " + poni.lblInfo.getForeground().getBlue() + ";\n\n"
 					+ "music = " + musik.toString() + ";\n"
 					+ "sep = " + "false;";
-					//+ "frame = " + framew + ";";
+			//+ "frame = " + framew + ";";
 			tst = strnj.getBytes();
-			
+
 			FileOutputStream send = new FileOutputStream("./PoniiConfig.cfg");
 			send.write(tst);
 			send.close();
@@ -325,20 +325,20 @@ public class Char {
 				poni.plaimusik(OC[i].getMusicPath());
 			}
 		}
-		
+
 		if (s == 7 || s == 8) {
 			getInfoSNGK(OC[i]);
 			if (musik && s == 8)
 				poni.plaimusik(OC[i].getMusicPath());
 		}
-		
+
 		if (s == 9 || s == 10) {
 			getInfoMWKOMK(OC[i]);
 			if (musik && s == 10)
 				poni.plaimusik(OC[i].getMusicPath());
 		}
-		
-		try{ 
+
+		try {
 			poni.lblPoniiPic.setIcon(poni.getImageIcn("/images/" + OC[i].getImagePath()));
 			poni.lblCMPic.setIcon(poni.getImageIcn("/images/" + OC[i].getCMPath()));
 		} catch (IOException e) {
@@ -371,20 +371,20 @@ public class Char {
 			getInfoMNK(show[i]);
 			poni.plaimusik(show[i].getMusicPath());
 		}
-		
+
 		if (s == 7 || s == 8) {
 			getInfoSNGK(OC[i]);
 			if (musik && s == 8)
 				poni.plaimusik(show[i].getMusicPath());
 		}
-		
+
 		if (s == 9 || s == 10) {
 			getInfoMWKOMK(OC[i]);
 			if (musik && s == 10)
 				poni.plaimusik(show[i].getMusicPath());
 		}
-		
-		try{ 
+
+		try {
 			poni.lblPoniiPic.setIcon(poni.getImageIcn("/images/" + show[i].getImagePath()));
 			poni.lblCMPic.setIcon(poni.getImageIcn("/images/" + show[i].getCMPath()));
 		} catch (IOException e) {
@@ -392,7 +392,7 @@ public class Char {
 			e.printStackTrace();
 		}
 	}
-	
+
 	private static void getInfoMWKOMK(Ponii tp) {
 		String[] tSA = null;
 		System.out.println("Loading resources for ponii " + tp.getName());
@@ -416,7 +416,7 @@ public class Char {
 		poni.println("Kids names : ");
 		tSA = tp.getKids();
 		String[] tpk = tp.getKidswith();
-		for (int i = 0; i < tSA.length; i++){
+		for (int i = 0; i < tSA.length; i++) {
 			poni.println("With\t" + tpk[i] + "\t : " + tSA[i]);
 		}
 		poni.println();
@@ -448,7 +448,7 @@ public class Char {
 		poni.println("Kids names : ");
 		tSA = tp.getKids();
 		String[] tpk = tp.getKidswith();
-		for (int i = 0; i < tSA.length; i++){
+		for (int i = 0; i < tSA.length; i++) {
 			poni.println("With\t" + tpk[i] + "\t : " + tSA[i]);
 		}
 		poni.println();
@@ -457,7 +457,7 @@ public class Char {
 		poni.println("::End of Ponii::");
 		poni.println();
 	}
-	
+
 	private static void getInfoMWK(Ponii tp) {
 		String[] tSA = null;
 		System.out.println("Loading resources for ponii " + tp.getName());
@@ -480,7 +480,7 @@ public class Char {
 		poni.println("Number of Kids : " + tp.getKidAmmount());
 		poni.println("Kids names : ");
 		tSA = tp.getKids();
-		for (int i = 0; i < tSA.length; i++){
+		for (int i = 0; i < tSA.length; i++) {
 			poni.println(tSA[i]);
 		}
 		poni.println();
@@ -489,7 +489,7 @@ public class Char {
 		poni.println("::End of Ponii::");
 		poni.println();
 	}
-	
+
 	private static void getInfoMNK(Ponii tp) {
 		System.out.println("Loading resources for ponii " + tp.getName());
 		poni.println("Name : " + tp.getName());
@@ -515,7 +515,7 @@ public class Char {
 		poni.println("::End of Ponii::");
 		poni.println();
 	}
-	
+
 	private static void getInfoSNG(Ponii tp) {
 		System.out.println("Loading resources for ponii " + tp.getName());
 		poni.println("Name : " + tp.getName());
@@ -538,7 +538,7 @@ public class Char {
 		poni.println("::End of Ponii::");
 		poni.println();
 	}
-	
+
 	private static String help() {
 		String XD = "Acceptable Ponii names:\n";
 		poni.printCl();
@@ -547,11 +547,11 @@ public class Char {
 		}
 		return XD;
 	}
-	
+
 	private static void extract(String string) throws IOException {
 		Boolean preformAction = false;
 		String charToExtract = "null";
-		for (int i = 0; i < OC.length; i ++){
+		for (int i = 0; i < OC.length; i++) {
 			if (string.equalsIgnoreCase(chars[i])) {
 				preformAction = true;
 				charToExtract = OC[i].getImagePath();
@@ -573,13 +573,13 @@ public class Char {
 			send.close();
 		}
 	}
-	
+
 	private static void extract() throws IOException {
-		for (int i = 0; i < OC.length; i ++) {
+		for (int i = 0; i < OC.length; i++) {
 			extract(chars[i]);
 		}
 	}
-	
+
 	public void extractConfig() throws IOException {
 		Boolean preformAction = true;
 		if (preformAction) {
@@ -595,16 +595,16 @@ public class Char {
 			send.close();
 		}
 	}
-	
-	public void punch(){
+
+	public void punch() {
 		poni.action.actionPerformed(null);
 	}
 
 	public void setupConfig() throws ConfigException {
 		Config c = new Config("./PoniiConfig.cfg");
-		
+
 		musik = c.getBoolean("music");
-		
+
 		if (c.getBoolean("sep")) {
 			poni.frmPoniiPic.setVisible(false);
 			poni = new Window("Ponii Program 3.0", 1, 0, 0, 1);
@@ -613,20 +613,28 @@ public class Char {
 			int r = c.getInt("bgr"), g = c.getInt("bgg"), b = c.getInt("bgb");
 			poni.frmPoniiPicCont.getContentPane().setBackground(new Color(r, g, b));
 		}
-		
+
 		int r = c.getInt("bgr"), g = c.getInt("bgg"), b = c.getInt("bgb");
 		poni.frmPoniiPic.getContentPane().setBackground(new Color(r, g, b));
-		
-		r = c.getInt("inbr"); g = c.getInt("inbg"); b = c.getInt("inbb");
+
+		r = c.getInt("inbr");
+		g = c.getInt("inbg");
+		b = c.getInt("inbb");
 		poni.lblTextArea.setBackground(new Color(r, g, b));
-		
-		r = c.getInt("infr"); g = c.getInt("infg"); b = c.getInt("infb");
+
+		r = c.getInt("infr");
+		g = c.getInt("infg");
+		b = c.getInt("infb");
 		poni.lblTextArea.setForeground(new Color(r, g, b));
-		
-		r = c.getInt("outfr"); g = c.getInt("outfg"); b = c.getInt("outfb");
+
+		r = c.getInt("outfr");
+		g = c.getInt("outfg");
+		b = c.getInt("outfb");
 		poni.lblInfo.setForeground(new Color(r, g, b));
-		
-		r = c.getInt("outbr"); g = c.getInt("outbg"); b = c.getInt("outbb");
+
+		r = c.getInt("outbr");
+		g = c.getInt("outbg");
+		b = c.getInt("outbb");
 		poni.lblInfo.setBackground(new Color(r, g, b));
 	}
 }

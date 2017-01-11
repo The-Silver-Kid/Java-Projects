@@ -55,7 +55,7 @@ public class QuizMasterWindow {
 		main.setLayout(null);
 		main.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		main.setResizable(false);
-		main.setIconImage(Toolkit.getDefaultToolkit().getImage(QuizMasterWindow.class.getResource("/images/ikon.png")));
+		main.setIconImage(Toolkit.getDefaultToolkit().getImage(QuizMasterWindow.class.getResource("/files/ikon.png")));
 		main.setVisible(true);
 
 		totalQuestions = qs.length;

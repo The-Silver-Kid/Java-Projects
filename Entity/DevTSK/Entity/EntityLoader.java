@@ -99,8 +99,8 @@ public class EntityLoader {
 		}
 		MasterControl.poni.lblTextArea.setText("");
 		try {
-			MasterControl.poni.lblPoniiPic.setIcon(MasterControl.poni.getImageIcn("/images/null.png"));
-			MasterControl.poni.lblCMPic.setIcon(MasterControl.poni.getImageIcn("/images/null.png"));
+			MasterControl.poni.lblPoniiPic.setIcon(MasterControl.poni.getImageIcn("/DevTSK/Entity/images/null.png"));
+			MasterControl.poni.lblCMPic.setIcon(MasterControl.poni.getImageIcn("/DevTSK/Entity/images/null.png"));
 		} catch (IOException e) {
 		}
 		if (handler >= 0) {
@@ -426,16 +426,16 @@ public class EntityLoader {
 
 		if (b)
 			try {
-				MasterControl.poni.lblPoniiPic.setIcon(MasterControl.poni.getImageIcn("/images/" + OC[i].getImagePath()));
-				MasterControl.poni.lblCMPic.setIcon(MasterControl.poni.getImageIcn("/images/" + OC[i].getAltImagePath()));
+				MasterControl.poni.lblPoniiPic.setIcon(MasterControl.poni.getImageIcn("/DevTSK/Entity/images/" + OC[i].getImagePath()));
+				MasterControl.poni.lblCMPic.setIcon(MasterControl.poni.getImageIcn("/DevTSK/Entity/images/" + OC[i].getAltImagePath()));
 			} catch (IOException e) {
 				System.out.println("This Shouldn't Have Happened... But it did...");
 				e.printStackTrace();
 			}
 		if (!b)
 			try {
-				MasterControl.poni.lblPoniiPic.setIcon(MasterControl.poni.getImageIcn("/images/" + show[i].getImagePath()));
-				MasterControl.poni.lblCMPic.setIcon(MasterControl.poni.getImageIcn("/images/" + show[i].getAltImagePath()));
+				MasterControl.poni.lblPoniiPic.setIcon(MasterControl.poni.getImageIcn("/DevTSK/Entity/images/" + show[i].getImagePath()));
+				MasterControl.poni.lblCMPic.setIcon(MasterControl.poni.getImageIcn("/DevTSK/Entity/images/" + show[i].getAltImagePath()));
 			} catch (IOException e) {
 				System.out.println("This Shouldn't Have Happened... But it did...");
 				e.printStackTrace();
@@ -484,8 +484,8 @@ public class EntityLoader {
 			File f = new File("./extracted/");
 			f.mkdir();
 			send = new FileOutputStream(f + "/" + charToExtract);
-			byte[] out = new byte[EntityLoader.class.getResourceAsStream("/images/" + charToExtract).available()];
-			EntityLoader.class.getResourceAsStream("/images/" + charToExtract).read(out);
+			byte[] out = new byte[EntityLoader.class.getResourceAsStream("/DevTSK/Entity/images/" + charToExtract).available()];
+			EntityLoader.class.getResourceAsStream("/DevTSK/Entity/images/" + charToExtract).read(out);
 			send.write(out);
 			System.out.println("Extracted : " + charToExtract + " to \"" + f.getAbsoluteFile() + "\"");
 			send.close();
@@ -519,8 +519,8 @@ public class EntityLoader {
 			f.mkdir();
 			send = new FileOutputStream(f + "/" + "PoniiConfig.cfg");
 			String charToExtract = "PoniiConfig.cfg";
-			byte[] out = new byte[EntityLoader.class.getResourceAsStream("/images/" + charToExtract).available()];
-			EntityLoader.class.getResourceAsStream("/images/" + charToExtract).read(out);
+			byte[] out = new byte[EntityLoader.class.getResourceAsStream("/DevTSK/Entity/files/" + charToExtract).available()];
+			EntityLoader.class.getResourceAsStream("/DevTSK/Entity/files/" + charToExtract).read(out);
 			send.write(out);
 			System.out.println("Extracted : " + charToExtract + " to \"" + f.getAbsoluteFile() + "\"");
 			send.close();

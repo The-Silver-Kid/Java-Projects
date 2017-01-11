@@ -2,7 +2,6 @@ package projectArchive.E;
 
 import java.awt.Toolkit;
 import java.awt.event.KeyListener;
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
@@ -25,7 +24,7 @@ public class EWindow {
 		}
 		Gameui.setResizable(false);
 		Gameui.setTitle("E");
-		Gameui.setIconImage(Toolkit.getDefaultToolkit().getImage(EWindow.class.getResource("/images/ikon.png")));
+		Gameui.setIconImage(Toolkit.getDefaultToolkit().getImage(EWindow.class.getResource("/files/ikon.png")));
 		Gameui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Gameui.getContentPane().setVisible(true);
 		Gameui.getContentPane().setLayout(null);

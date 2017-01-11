@@ -18,7 +18,7 @@ public class PicGen {
 		window.setTitle("YOLO!");
 		window.getContentPane().setVisible(true);
 		window.getContentPane().setLayout(null);
-		window.setIconImage(Toolkit.getDefaultToolkit().getImage(PicGen.class.getResource("/images/ikon.png")));
+		window.setIconImage(Toolkit.getDefaultToolkit().getImage(PicGen.class.getResource("/files/ikon.png")));
 		window.setVisible(true);
 		while (true)
 			window.paint(update());

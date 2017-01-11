@@ -40,7 +40,7 @@ public class CreateQuestionWindow {
 		main.setLayout(null);
 		main.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		main.setResizable(false);
-		main.setIconImage(Toolkit.getDefaultToolkit().getImage(CreateQuestionWindow.class.getResource("/images/ikon.png")));
+		main.setIconImage(Toolkit.getDefaultToolkit().getImage(CreateQuestionWindow.class.getResource("/files/ikon.png")));
 		main.setVisible(true);
 
 		qBox.setBounds(10, 10, 480, 240);

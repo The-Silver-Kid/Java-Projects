@@ -22,7 +22,6 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import DAG.Config.Config;
 import DAG.Config.ConfigException;
-import DevTSK.Exception.UnexceptableContentException;
 import DevTSK.Util.FileDetect;
 
 /**
@@ -73,7 +72,7 @@ public class Window {
 			frmPoniiPic = new JFrame();
 			frmPoniiPic.getContentPane().setBackground(SystemColor.window);
 			frmPoniiPic
-					.setIconImage(Toolkit.getDefaultToolkit().getImage(Window.class.getResource("/images/ikon.png")));
+					.setIconImage(Toolkit.getDefaultToolkit().getImage(Window.class.getResource("/DevTSK/Entity/images/ikon.png")));
 			frmPoniiPic.setTitle(n);
 			frmPoniiPic.setBackground(SystemColor.window);
 			frmPoniiPic.setResizable(false);
@@ -84,8 +83,8 @@ public class Window {
 				frmPoniiPic.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			} else {
 				try {
-					throw new UnexceptableContentException("Invalad Close Opperation");
-				} catch (UnexceptableContentException e) {
+					throw new Exception("Invalad Close Opperation");
+				} catch (Exception e) {
 					e.printStackTrace();
 					frmPoniiPic.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 				}
@@ -132,7 +131,7 @@ public class Window {
 			frmPoniiPic = new JFrame();
 			frmPoniiPic.getContentPane().setBackground(SystemColor.window);
 			frmPoniiPic
-					.setIconImage(Toolkit.getDefaultToolkit().getImage(Window.class.getResource("/images/ikon.png")));
+					.setIconImage(Toolkit.getDefaultToolkit().getImage(Window.class.getResource("/DevTSK/Entity/images/ikon.png")));
 			frmPoniiPic.setTitle(n + " Picture Window");
 			frmPoniiPic.setBackground(SystemColor.window);
 			frmPoniiPic.setResizable(false);
@@ -143,8 +142,8 @@ public class Window {
 				frmPoniiPic.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			} else {
 				try {
-					throw new UnexceptableContentException("Invalad Close Opperation");
-				} catch (UnexceptableContentException e) {
+					throw new Exception("Invalad Close Opperation");
+				} catch (Exception e) {
 					e.printStackTrace();
 					frmPoniiPic.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 				}
@@ -155,7 +154,7 @@ public class Window {
 			frmPoniiPicCont = new JFrame();
 			frmPoniiPicCont.getContentPane().setBackground(SystemColor.window);
 			frmPoniiPicCont
-					.setIconImage(Toolkit.getDefaultToolkit().getImage(Window.class.getResource("/images/ikon.png")));
+					.setIconImage(Toolkit.getDefaultToolkit().getImage(Window.class.getResource("/DevTSK/Entity/images/ikon.png")));
 			frmPoniiPicCont.setTitle(n + " Control Window");
 			frmPoniiPicCont.setBackground(SystemColor.window);
 			frmPoniiPicCont.setResizable(false);
@@ -380,7 +379,7 @@ public class Window {
 		frmPoniiPic = new JFrame();
 		frmPoniiPic.getContentPane().setBackground(SystemColor.window);
 		frmPoniiPic
-				.setIconImage(Toolkit.getDefaultToolkit().getImage(Window.class.getResource("/images/ikon.png")));
+				.setIconImage(Toolkit.getDefaultToolkit().getImage(Window.class.getResource("/DevTSK/Entity/images/ikon.png")));
 		frmPoniiPic.setTitle(n + " Picture Window");
 		frmPoniiPic.setBackground(SystemColor.window);
 		frmPoniiPic.setResizable(false);
@@ -391,8 +390,8 @@ public class Window {
 			frmPoniiPic.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		} else {
 			try {
-				throw new UnexceptableContentException("Invalad Close Opperation");
-			} catch (UnexceptableContentException e) {
+				throw new Exception("Invalad Close Opperation");
+			} catch (Exception e) {
 				e.printStackTrace();
 				frmPoniiPic.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 			}
@@ -402,7 +401,7 @@ public class Window {
 		frmPoniiPicCont = new JFrame();
 		frmPoniiPicCont.getContentPane().setBackground(SystemColor.window);
 		frmPoniiPicCont
-				.setIconImage(Toolkit.getDefaultToolkit().getImage(Window.class.getResource("/images/ikon.png")));
+				.setIconImage(Toolkit.getDefaultToolkit().getImage(Window.class.getResource("/DevTSK/Entity/images/ikon.png")));
 		frmPoniiPicCont.setTitle(n + " Control Window");
 		frmPoniiPicCont.setBackground(SystemColor.window);
 		frmPoniiPicCont.setResizable(false);

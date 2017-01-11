@@ -2,6 +2,7 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="Entity"/>
+	<classpathentry kind="src" path="JavaMon"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="libs/CodecJOgg.jar"/>
 	<classpathentry kind="lib" path="libs/CodecJOrbis.jar"/>

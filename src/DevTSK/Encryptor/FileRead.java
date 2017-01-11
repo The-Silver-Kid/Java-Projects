@@ -77,7 +77,7 @@ public class FileRead {
 		fileFrame = new JFrame();
 		fileFrame.setBounds(0, 0, 355, 210);
 		fileFrame.getContentPane().setBackground(SystemColor.window);
-		fileFrame.setIconImage(Toolkit.getDefaultToolkit().getImage(GUIbuf.class.getResource("/images/ikon.png")));
+		fileFrame.setIconImage(Toolkit.getDefaultToolkit().getImage(GUIbuf.class.getResource("/files/ikon.png")));
 		fileFrame.setTitle("Silver Encrypt");
 		fileFrame.setBackground(SystemColor.window);
 		fileFrame.setResizable(false);

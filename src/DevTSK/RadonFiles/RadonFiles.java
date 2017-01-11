@@ -6,7 +6,6 @@ import java.awt.event.ActionEvent;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.ButtonGroup;
@@ -17,7 +16,6 @@ import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
-
 import DevTSK.Neurox.NeuroxRead;
 
 public class RadonFiles {
@@ -142,8 +140,8 @@ public class RadonFiles {
 		File f = new File("./temp/");
 		f.mkdir();
 		FileOutputStream send = new FileOutputStream(f + "/" + string);
-		byte[] out = new byte[RadonFiles.class.getResourceAsStream("/images/" + string).available()];
-		RadonFiles.class.getResourceAsStream("/images/" + string).read(out);
+		byte[] out = new byte[RadonFiles.class.getResourceAsStream("/files/" + string).available()];
+		RadonFiles.class.getResourceAsStream("/files/" + string).read(out);
 		send.write(out);
 		System.out.println("Extracted : " + string + " to \"" + f.getAbsoluteFile() + "\"");
 		send.close();

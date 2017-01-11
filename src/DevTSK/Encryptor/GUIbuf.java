@@ -13,7 +13,6 @@ import java.io.BufferedReader;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
-
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.ButtonGroup;
@@ -24,7 +23,6 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.SwingConstants;
-
 import com.jgoodies.forms.factories.FormFactory;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.FormLayout;
@@ -83,7 +81,7 @@ public class GUIbuf {
 	private void initialize() {
 		frmSilverEncrypt = new JFrame();
 		frmSilverEncrypt.getContentPane().setBackground(SystemColor.window);
-		frmSilverEncrypt.setIconImage(Toolkit.getDefaultToolkit().getImage(GUIbuf.class.getResource("/images/ikon.png")));
+		frmSilverEncrypt.setIconImage(Toolkit.getDefaultToolkit().getImage(GUIbuf.class.getResource("/files/ikon.png")));
 		frmSilverEncrypt.setTitle("Silver Encrypt");
 		frmSilverEncrypt.setBackground(SystemColor.window);
 		frmSilverEncrypt.setResizable(false);

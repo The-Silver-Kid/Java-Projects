@@ -19,13 +19,28 @@ public class LoggerPro {
 			mode = 0;
 
 		if (mode > 0) {
+			int ver = 1;
+
 			Day d = new Day();
 
-			out = new File("./logs/" + d.toString(false) + ".log");
-			out.mkdirs();
+			out = new File("./logs/");
+			out.mkdir();
+
+			Boolean found = false;
+
+			do {
+				File f = new File(out.getAbsolutePath() + "/" + d.toString(false) + "_" + ver + ".log");
+
+				if (f.exists())
+					ver += 1;
+				else
+					found = !found;
+			} while (!found);
+
 			try {
-				out.createNewFile();
-				writer = new BufferedWriter(new FileWriter(out, true));
+				writer = new BufferedWriter(
+						new FileWriter(
+								new File(out.getAbsolutePath() + "/" + d.toString(false) + "_" + ver + ".log"), true));
 			} catch (IOException e) {
 				e.printStackTrace();
 				System.err.println(out.getAbsolutePath());
@@ -51,6 +66,7 @@ public class LoggerPro {
 			try {
 				writer.write(icns[0] + " " + s);
 				writer.newLine();
+				writer.flush();
 			} catch (IOException e) {
 				e.printStackTrace();
 				System.err.println(out.getAbsolutePath());
@@ -68,6 +84,7 @@ public class LoggerPro {
 			try {
 				writer.write(icns[i] + " " + s);
 				writer.newLine();
+				writer.flush();
 			} catch (IOException e) {
 				e.printStackTrace();
 				System.err.println(out.getAbsolutePath());

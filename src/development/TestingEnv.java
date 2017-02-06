@@ -1,19 +1,13 @@
 package development;
 
-import DevTSK.Util.NumGenerator;
+import DevTSK.Util.LoggerPro;
 
 public class TestingEnv {
 
 	public static void main(String[] args) {
-
-		NumGenerator ng = new NumGenerator(3, false, true);
-		ng.setRand();
-		int[][] lol = new int[3][];
-		for (int i = 0; i < lol.length; i++)
-			lol[i] = ng.genList();
-		for (int i = 0; i < lol.length; i++)
-			for (int o = 0; o < lol[i].length; o++)
-				System.out.println(lol[i].length + ":" + i + ":" + o + ":" + lol[i][o]);
+		LoggerPro p = new LoggerPro(new String[] { "-", "X" }, LoggerPro.FILE_AND_CONSOLE);
+		p.log("hi?");
+		p.log(1, "lol");
 	}
 
 	// What was this used for?

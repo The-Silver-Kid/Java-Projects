@@ -366,4 +366,12 @@ public class Day {
 		else
 			return month + ":" + getDay() + ":" + getYear();
 	}
+
+	@Deprecated
+	/**
+	 * Returns a string containing todays date.
+	 */
+	public String toString() {
+		return getMonth() + " " + getDay() + ", " + getYear();
+	}
 }

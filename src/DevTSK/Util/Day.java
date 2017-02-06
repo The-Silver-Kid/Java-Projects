@@ -52,6 +52,18 @@ public class Day {
 	}
 
 	/**
+	 * Constructs a day with today's date with a specified offset year.
+	 * 
+	 * @param offset
+	 */
+	public Day(int offset) {
+		GregorianCalendar today = new GregorianCalendar();
+		year = today.get(GregorianCalendar.YEAR) + offset;
+		month = today.get(GregorianCalendar.MONTH) + 1;
+		date = today.get(GregorianCalendar.DAY_OF_MONTH);
+	}
+
+	/**
 	 * Returns the year of this day.
 	 * 
 	 * @return the year
@@ -170,7 +182,7 @@ public class Day {
 	 * 
 	 * @param other
 	 *            the other day
-	 * @return the number of days that this day is away from
+	 * @return the number of years that this day is away from
 	 *         the other (>0 if this day comes later than <code>other</code>)
 	 */
 	public int yearsFrom(Day other) {
@@ -185,10 +197,6 @@ public class Day {
 			n--;
 		}
 		return n;
-	}
-
-	public String toString() {
-		return getMonth() + " " + getDay() + ", " + getYear();
 	}
 
 	/**
@@ -342,5 +350,20 @@ public class Day {
 		if (y < GREGORIAN_START_YEAR)
 			return true;
 		return (y % 100 != 0) || (y % 400 == 0);
+	}
+
+	/**
+	 * Returns the day as a string
+	 * 
+	 * if i is true it will print with month names instead of numbers
+	 * 
+	 * @param i
+	 * @return
+	 */
+	public String toString(Boolean useName) {
+		if (useName)
+			return getMonth() + " " + getDay() + ", " + getYear();
+		else
+			return month + ":" + getDay() + ":" + getYear();
 	}
 }

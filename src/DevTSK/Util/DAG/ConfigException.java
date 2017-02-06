@@ -1,4 +1,4 @@
-package DAG.Config;
+package DevTSK.Util.DAG;
 
 // Configuration file exception class
 // A.Greensted

@@ -364,7 +364,7 @@ public class Day {
 		if (useName)
 			return getMonth() + " " + getDay() + ", " + getYear();
 		else
-			return month + ":" + getDay() + ":" + getYear();
+			return month + "." + getDay() + "." + getYear();
 	}
 
 	@Deprecated

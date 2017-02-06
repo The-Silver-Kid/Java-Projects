@@ -28,6 +28,7 @@ public class LoggerPro {
 				writer = new BufferedWriter(new FileWriter(out, true));
 			} catch (IOException e) {
 				e.printStackTrace();
+				System.err.println(out.getAbsolutePath());
 				System.err.println("Unable to create log file.\nDisabling...");
 				mode = 0;
 			}
@@ -52,6 +53,7 @@ public class LoggerPro {
 				writer.newLine();
 			} catch (IOException e) {
 				e.printStackTrace();
+				System.err.println(out.getAbsolutePath());
 				System.err.println("Unable to modify log file.\nDisabling...");
 				mode = 0;
 			}
@@ -68,6 +70,7 @@ public class LoggerPro {
 				writer.newLine();
 			} catch (IOException e) {
 				e.printStackTrace();
+				System.err.println(out.getAbsolutePath());
 				System.err.println("Unable to modify log file.\nDisabling...");
 				mode = 0;
 			}
@@ -80,6 +83,7 @@ public class LoggerPro {
 				writer.close();
 			} catch (IOException e) {
 				e.printStackTrace();
+				System.err.println(out.getAbsolutePath());
 				System.err.println("Unable to close log file writer.\nDisabling...");
 				mode = 0;
 			}

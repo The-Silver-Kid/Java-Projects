@@ -110,6 +110,7 @@ public class ProjectPanel extends JPanel {
 		transList.setBounds(670, 163, 340, 426);
 		add(transList);
 
+		@SuppressWarnings("rawtypes")
 		JList newList = new JList();
 		newList.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		newList.setBounds(360, 163, 300, 426);

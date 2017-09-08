@@ -4,7 +4,6 @@ public class Weapon {
 	private final int rng, atk, crit, type;
 	private final double hit;
 	private final String efns, name;
-	//public final boolean isSword, isAxe, isLance, isBow, isMagic, isAnima, isDark, isLight;
 	public static final int SWORD = 0,
 			AX = 1,
 			SPEAR = 2,
